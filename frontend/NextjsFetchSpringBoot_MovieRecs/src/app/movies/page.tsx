@@ -1,0 +1,55 @@
+import { Suspense } from "react";
+// import CreateForm from "../components/CreateForm";
+import { Skeleton } from "../components/Skeleton";
+import SearchMovies from "../components/SearchMovies";
+import ShowSearchMovies from "../components/ShowSearchMovies";
+import Pagination from "../components/Pagination";
+import Link from "next/link";
+import RisingBlocks from "../components/RisingBlocks";
+// import "./BgAnimation.css"
+
+
+const page = async (
+    props: {
+        searchParams: Promise<{
+            query?: string;
+            page?: string;
+        }>;
+    }
+) => {
+    const searchParams = await props.searchParams;
+    const query = searchParams?.query || '';
+    const page = Number(searchParams?.page) || 1;
+
+    return (
+        <div className="relative w-full h-full flex flex-col items-center p-2 pb-10">
+            <div className="relative w-[80%] flex items-center justify-center p-2">
+                <div className="grow flex items-center justify-center">
+                    <p>
+                        All Movie Data
+                    </p>
+                </div>
+                <div className="flex-none absolute right-0">
+                    <Link href={"/movies/create"} className="btn">
+                        Add Movie
+                    </Link>
+                </div>
+            </div>
+            <div className="w-full p-2 flex flex-col items-center ">
+                <div className="w-full  flex flex-col items-center gap-y-3 ">
+                    <div className=" w-full flex items-center gap-3 justify-center">
+                        <SearchMovies />
+
+                    </div>
+                    <Suspense key={query + page} fallback={<Skeleton />}>
+                        <ShowSearchMovies query={query} page={page} />
+                    </Suspense>
+                    <Pagination query={query} />
+                </div>
+                {/* <CreateForm /> */}
+            </div>
+            <RisingBlocks />
+        </div>
+    )
+}
+export default page

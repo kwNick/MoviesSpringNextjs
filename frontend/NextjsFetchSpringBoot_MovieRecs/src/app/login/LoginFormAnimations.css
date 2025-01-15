@@ -1,0 +1,20 @@
+.input:focus,
+.input:valid {
+    outline: none;
+    border-color: #ef4444;
+    box-shadow: inset 0px 0px 10px 0px #ef4444;
+}
+
+.input:valid {
+    box-shadow: none;
+}
+
+.input:focus~label,
+.input:valid~label {
+    transform: translateY(-65%) scale(0.58);
+    background-color: #ef4444;
+    /* padding: 1px; */
+    color: var(--colour);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #ef4444;
+}

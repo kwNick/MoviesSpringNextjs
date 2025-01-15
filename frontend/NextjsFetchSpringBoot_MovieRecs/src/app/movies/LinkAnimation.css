@@ -1,0 +1,146 @@
+/*animations for add movie button*/
+.btn {
+    position: relative;
+    padding: 4px 6px;
+    background: transparent;
+    color: var(--colour);
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px var(--colour) solid;
+    transition-duration: 1s;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    background: var(--colour);
+    border-radius: inherit;
+    clip-path: circle(0% at 50% 50%);
+    transition-duration: 1s;
+    z-index: -1;
+}
+
+.btn:hover::after {
+    /* z-index: 1; */
+    clip-path: circle(100% at 50% 50%);
+}
+
+.btn:hover {
+    color: var(--contrast);
+    text-shadow: none;
+    box-shadow: 0px 0px 10px var(--colour), 0px 0px 5px var(--contrast);
+}
+
+/*update movie button animation*/
+.container a {
+    position: relative;
+    inset: 1;
+    color: var(--colour);
+    background: transparent;
+}
+
+.container a::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    inset: -3px;
+    background: conic-gradient(from var(--angle), var(--contrast), var(--colour), var(--contrast));
+    filter: blur(5px);
+    transition-duration: 500ms;
+    z-index: -1;
+    opacity: 0;
+}
+
+
+.container a:hover::after {
+    animation: glowing-border 3.5s linear infinite, blur-effect 3.5s linear infinite;
+    opacity: 1;
+}
+
+.container a:hover {
+    background: radial-gradient(from var(--angle), var(--colour), var(--contrast), var(--colour));
+    color: white;
+}
+
+/*  */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes glowing-border {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+@keyframes blur-effect {
+    from {
+        filter: blur(5px);
+    }
+
+    to {
+        filter: blur(4px);
+    }
+}
+
+/*Delete Movie Button animation*/
+.container button {
+    position: relative;
+    background: transparent;
+    color: var(--colour);
+    text-shadow: 0 0 .30em var(--colour), 0 0 .2em var(--contrast);
+    border: 2px var(--colour);
+    border-radius: 6px;
+    box-shadow: 0 0 .5em var(--colour);
+    box-shadow: inset 0 0 .5em wheat,
+        0 0 .5em wheat;
+    transition-duration: 500ms;
+}
+
+.container button::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    width: 80%;
+    height: 50%;
+    background: var(--colour);
+    transform: perspective(.2em) rotatex(10deg) scale(.8, 0.3);
+    filter: blur(.5em);
+    opacity: .3;
+    pointer-events: none;
+    transition: 500ms linear;
+}
+
+.container button::after {
+    content: "";
+    border-radius: inherit;
+    position: absolute;
+    inset: 1;
+    background: var(--colour);
+    box-shadow: 0 0 2em var(--colour);
+    opacity: 0;
+    transition: 500ms linear;
+    z-index: -1;
+}
+
+.container button:hover::after {
+    opacity: 1;
+}
+
+.container button:hover {
+    color: white;
+    background: transparent;
+    text-shadow: 0 0 .30em var(--contrast), 0 0 .2em white;
+}
+
+.container button:hover::before {
+    opacity: .5;
+}
