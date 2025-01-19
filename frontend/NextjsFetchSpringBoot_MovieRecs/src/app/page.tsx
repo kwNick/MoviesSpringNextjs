@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FindByTitleLike } from "./resources/data";
 import { Movie } from "./resources/definitions";
 import TextFadeIn from "./components/TextFadeIn";
+// import HomeCursor from "./components/HomeCursor";
 
 export default async function Home() {
   const movies = await FindByTitleLike();

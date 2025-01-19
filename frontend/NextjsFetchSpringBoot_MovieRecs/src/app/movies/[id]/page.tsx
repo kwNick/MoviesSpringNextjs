@@ -1,5 +1,5 @@
 import UpdateMovieForm from "@/app/components/UpdateMovieForm";
-import UpdateMovieFormSkeleton from "@/app/components/UpdateMovieFormSkeleton";
+import UpdateMovieFormSkeleton from "@/app/components/skeletons/UpdateMovieFormSkeleton";
 import { FindMovieById } from "@/app/resources/data";
 import { Suspense } from "react";
 

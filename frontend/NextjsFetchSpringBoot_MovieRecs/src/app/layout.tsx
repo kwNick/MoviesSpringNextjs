@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { hind } from "./resources/fonts";
 import Footer from "./components/Footer";
+import HomeCursor from "./components/HomeCursor";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,6 +20,8 @@ export default function RootLayout({
       <body
         className={`${hind.className} antialiased min-w-full min-h-full tracking-wide selection:bg-fuchsia-300 scroll-smooth`}
       >
+        {/* cursor */}
+        <HomeCursor />
         <header className="sticky top-0 z-20">
           <Navbar />
         </header>

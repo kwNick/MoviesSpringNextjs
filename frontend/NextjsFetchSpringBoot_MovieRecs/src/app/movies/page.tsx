@@ -4,7 +4,7 @@ import ShowSearchMovies from "../components/ShowSearchMovies";
 import Pagination from "../components/Pagination";
 import Link from "next/link";
 import RisingBlocks from "../components/RisingBlocks";
-import SearchMoviesSkeleton from "../components/SearchMoviesSkeleton";
+import SearchMoviesSkeleton from "../components/skeletons/SearchMoviesSkeleton";
 
 const page = async (
     props: {
@@ -21,7 +21,7 @@ const page = async (
     return (
         <div className="relative w-full h-full flex flex-col items-center p-2 pb-10">
             <div className="relative w-[80%] flex items-center justify-center p-2">
-                <div className="grow flex items-center justify-center">
+                <div className="grow flex items-center justify-center capitalize text-6xl">
                     <p>
                         All Movie Data
                     </p>
