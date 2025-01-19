@@ -21,13 +21,15 @@ const ShowSearchMovies = async ({ query, page }: { query: string, page: number }
                         <div key={idx} className="w-full">
                             <div className="flex flex-col p-3 m-3 items-center">
                                 {/* <p>id: {m._links?.self?.href}</p> */}
-                                <p>MovieId: {m.movieId}</p>
-                                <p>Title: {m.title}</p>
-                                <p>Rating: {m.rating}</p>
-                                <p>UserId: {m.userId}</p>
-                                <p>Genres: {m.genres}</p>
-                                <p>TimeStamp: {m.timestamp}</p>
-                                <div className="container flex gap-3 justify-around">
+                                <div>
+                                    <p>MovieId: {m.movieId}</p>
+                                    <p>Title: {m.title}</p>
+                                    <p>Rating: {m.rating}</p>
+                                    <p>UserId: {m.userId}</p>
+                                    <p>Genres: {m.genres}</p>
+                                    <p>TimeStamp: {m.timestamp}</p>
+                                </div>
+                                <div className="container flex gap-3 justify-between">
                                     <UpdateMovieButton href={href} />
                                     <DeleteMovieButton href={href} />
                                 </div>

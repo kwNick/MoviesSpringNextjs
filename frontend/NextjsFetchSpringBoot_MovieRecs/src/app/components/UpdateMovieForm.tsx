@@ -126,13 +126,9 @@ const UpdateMovieForm = ({ movie, id }: { movie: Movie, id: string }) => {
                     readOnly
                 />
             </div>
-            <div className="flex flex-col items-center">       {/* Only allow user to submit when they have modified a field from the original state */}
+            <div className="flex flex-col items-center">
                 <button type="submit" className="block border-2 border-colour rounded-lg p-2 disabled:bg-slate-300 duration-500" disabled={!(isPending || isUpdated)}>Update Movie</button>
                 <p className={` relative opacity-0 mt-2 text-xs text-accent duration-500 ${(isPending || !isUpdated) && 'opacity-100'}`}>{formMessage}</p>
-
-                {/* <p className={` opacity-0 mt-2 text-xs text-accent duration-500 ${!isUpdated && 'opacity-100'}`}>Must update a field to submit!</p> */}
-                {/* {!isUpdated && (<p className={`opacity-0 mt-2 text-sm text-accent duration-500 ${!isUpdated && 'opacity-100'}`}>Must update a field to submit</p>)}
-                {isPending && (<p className={`opacity-0 mt-2 text-sm text-accent duration-500 ${isPending && 'opacity-100'}`}>...pending update</p>)} */}
             </div>
         </form>
     )

@@ -2,11 +2,10 @@ import Link from "next/link";
 import { FindByTitleLike } from "./resources/data";
 import { Movie } from "./resources/definitions";
 import TextFadeIn from "./components/TextFadeIn";
-// import SnowFall from "./components/SnowFall";
 
 export default async function Home() {
   const movies = await FindByTitleLike();
-  // console.log(movies._embedded.movie[0]._links.self.href);
+
   return (
     <main className="w-full flex flex-col items-center">
 

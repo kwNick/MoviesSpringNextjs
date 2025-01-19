@@ -1,13 +1,10 @@
 import { Suspense } from "react";
-// import CreateForm from "../components/CreateForm";
-import { Skeleton } from "../components/Skeleton";
 import SearchMovies from "../components/SearchMovies";
 import ShowSearchMovies from "../components/ShowSearchMovies";
 import Pagination from "../components/Pagination";
 import Link from "next/link";
 import RisingBlocks from "../components/RisingBlocks";
-// import "./BgAnimation.css"
-
+import SearchMoviesSkeleton from "../components/SearchMoviesSkeleton";
 
 const page = async (
     props: {
@@ -41,12 +38,11 @@ const page = async (
                         <SearchMovies />
 
                     </div>
-                    <Suspense key={query + page} fallback={<Skeleton />}>
+                    <Suspense key={query + page} fallback={<SearchMoviesSkeleton />}>
                         <ShowSearchMovies query={query} page={page} />
                     </Suspense>
                     <Pagination query={query} />
                 </div>
-                {/* <CreateForm /> */}
             </div>
             <RisingBlocks />
         </div>

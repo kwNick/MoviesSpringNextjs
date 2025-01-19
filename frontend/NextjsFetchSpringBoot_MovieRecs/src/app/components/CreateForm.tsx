@@ -14,19 +14,6 @@ const CreateForm = () => {
     const [title, setTitle] = useState("");
     const [userId, setUserId] = useState("");
 
-    // const handleAddMovie = async (prevState: State | undefined, formData: FormData) => {
-    //     try {
-    //         await AddMovie_2(prevState, formData);
-    //         setMovieId("");
-    //         setGenres("");
-    //         setRating("");
-    //         setTitle("");
-    //         setUserId("");
-    //     } catch (error) {
-    //         throw new Error("Failed to add new Movie to database: " + error);
-    //     }
-    // }
-
     useEffect(() => {
         if (state?.message == null) {
             setMovieId("");
