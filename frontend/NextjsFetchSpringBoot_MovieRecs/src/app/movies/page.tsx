@@ -3,7 +3,6 @@ import SearchMovies from "../components/SearchMovies";
 import ShowSearchMovies from "../components/ShowSearchMovies";
 import Pagination from "../components/Pagination";
 import Link from "next/link";
-import RisingBlocks from "../components/RisingBlocks";
 import SearchMoviesSkeleton from "../components/skeletons/SearchMoviesSkeleton";
 
 const page = async (
@@ -44,7 +43,7 @@ const page = async (
                     <Pagination query={query} />
                 </div>
             </div>
-            <RisingBlocks />
+
         </div>
     )
 }

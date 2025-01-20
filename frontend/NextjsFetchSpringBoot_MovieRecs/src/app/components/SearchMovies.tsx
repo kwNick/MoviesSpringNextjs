@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
+
 const SearchMovies = () => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
@@ -26,7 +27,7 @@ const SearchMovies = () => {
                 id="search"
                 name="search"
                 placeholder="Search..."
-                className="w-full rounded-lg p-1 text-contrast outline-none"
+                className=" w-full rounded-lg p-1 text-contrast outline-none"
                 onChange={(e) => { handleSearch(e.target.value) }}
                 defaultValue={searchParams.get('query')?.toString()}
             />

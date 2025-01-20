@@ -1,5 +1,5 @@
 import "./LinkAnimation.css"
-import "./RisingBlocksBg.css"
+
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <>

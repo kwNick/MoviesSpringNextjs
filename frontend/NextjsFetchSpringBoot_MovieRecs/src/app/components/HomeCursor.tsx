@@ -6,7 +6,7 @@ const HomeCursor = () => {
     useEffect(() => {
         // if (typeof window !== "undefined") {
         //     console.log("This code runs only in the browser");
-        console.log(cursorRef.current);
+        // console.log(cursorRef.current);
         // }
         const cursorMove = (e: MouseEvent) => {
             if (cursorRef.current) {
