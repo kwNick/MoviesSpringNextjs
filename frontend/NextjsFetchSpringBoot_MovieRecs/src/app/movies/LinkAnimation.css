@@ -45,7 +45,7 @@
     position: absolute;
     border-radius: inherit;
     inset: -3px;
-    background: conic-gradient(from var(--angle), var(--contrast), var(--colour), var(--contrast));
+    background: conic-gradient(from var(--angle), var(--contrast), var(--accent), var(--contrast));
     filter: blur(5px);
     transition-duration: 500ms;
     z-index: -1;
@@ -124,7 +124,7 @@
     border-radius: inherit;
     position: absolute;
     inset: 1;
-    background: var(--colour);
+    background: var(--accent);
     box-shadow: 0 0 2em var(--colour);
     opacity: 0;
     transition: 500ms linear;
@@ -143,4 +143,5 @@
 
 .container button:hover::before {
     opacity: .5;
+    background: var(--accent);
 }

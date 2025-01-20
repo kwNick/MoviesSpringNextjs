@@ -1,6 +1,6 @@
 // import { FindAllPageSize } from "../resources/data";
-import { FindByTitleLike } from "../resources/data";
-import { Movie } from "../resources/definitions";
+import { FindByTitleLike } from "../../resources/data";
+import { Movie } from "../../resources/definitions";
 import { DeleteMovieButton } from "./DeleteMovieButton";
 import UpdateMovieButton from "./UpdateMovieButton";
 

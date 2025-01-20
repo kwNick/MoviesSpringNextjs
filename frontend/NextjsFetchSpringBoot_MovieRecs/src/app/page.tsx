@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { FindByTitleLike } from "./resources/data";
 import { Movie } from "./resources/definitions";
-import TextFadeIn from "./components/TextFadeIn";
+import TextFadeIn from "./components/home/TextFadeIn";
+import DevIntro from "./components/home/DevIntro";
 
 export default async function Home() {
   const movies = await FindByTitleLike();
@@ -74,19 +75,8 @@ export default async function Home() {
       </div>
 
       {/* intro to dev section */}
-      <div className="mb-4 py-3 px-2 w-full min-h-fit flex justify-center">
-        <div className="w-[50vw] min-h-fit text-colour bg-transparent border border-colour rounded-lg flex flex-col items-center gap-y-3 p-2 lg:p-3 xl:p-4">
-          <section>
-            <p className="text-lg lg:text-xl">
-              <span>Dev:</span> Nickolas Piraino
-            </p>
-          </section>
-          <section className="text-center">
-            <p className="lg:text-lg">
-              This project is mainly used to practice and showcase my software development skills using nextjs front-end framework, springboot back-end framework as an api layer to connect the movie data stored in a mongo database to the front-end user client. Most animations are created using css or tailwind css.
-            </p>
-          </section>
-        </div>
+      <div className=" mb-4 py-3 px-2 w-fit min-h-fit flex justify-center ">
+        <DevIntro />
       </div>
 
     </main>

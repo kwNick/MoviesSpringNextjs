@@ -3,7 +3,7 @@ import NavItem from "./NavItem"
 import LoginSignup from "./LoginSignup"
 import BurgerDropDown from "./BurgerDropDown"
 import LoginDropDown from "./LoginDropDown"
-import { navItems } from "../resources/navItems"
+import { navItems } from "../../resources/navItems"
 import SlidingMarquee from "./SlidingMarquee"
 
 const Navbar = () => {

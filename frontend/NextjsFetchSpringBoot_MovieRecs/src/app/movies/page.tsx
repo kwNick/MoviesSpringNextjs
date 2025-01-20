@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import SearchMovies from "../components/SearchMovies";
-import ShowSearchMovies from "../components/ShowSearchMovies";
-import Pagination from "../components/Pagination";
+import SearchMovies from "../components/movies/SearchMovies";
+import ShowSearchMovies from "../components/movies/ShowSearchMovies";
+import Pagination from "../components/movies/Pagination";
 import Link from "next/link";
 import SearchMoviesSkeleton from "../components/skeletons/SearchMoviesSkeleton";
 
@@ -20,7 +20,7 @@ const page = async (
     return (
         <div className="relative w-full h-full flex flex-col items-center p-2 pb-10">
             <div className="relative w-[80%] flex items-center justify-center p-2">
-                <div className="grow flex items-center justify-center capitalize text-6xl">
+                <div className="grow flex items-center justify-center capitalize text-6xl text-accent">
                     <p>
                         All Movie Data
                     </p>

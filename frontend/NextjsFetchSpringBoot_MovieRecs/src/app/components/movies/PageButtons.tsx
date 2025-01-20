@@ -4,7 +4,7 @@ import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { generatePagination } from "../resources/utils";
+import { generatePagination } from "../../resources/utils";
 
 const PageButtons = ({ totalPages }: { totalPages: number }) => {
     const pathname = usePathname();

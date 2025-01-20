@@ -1,4 +1,4 @@
-import { CountMoviesByTitle } from "../resources/data";
+import { CountMoviesByTitle } from "../../resources/data";
 import PageButtons from "./PageButtons";
 
 const Pagination = async ({ query }: { query: string }) => {
