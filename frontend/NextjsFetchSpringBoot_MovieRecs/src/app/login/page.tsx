@@ -5,7 +5,7 @@ const page = () => {
     return (
         <div className="w-full h-[90vh] flex flex-col items-center justify-center">
             <div>
-                <p className="underline text-2xl lg:text-3xl xl:text-4xl">Login</p>
+                <p className="w-0 underline text-2xl lg:text-3xl xl:text-4xl overflow-hidden animate-typewriter">Login</p>
             </div>
 
             <form className="p-2 flex flex-col items-center justify-center text-center gap-y-3 lg:gap-y-5 xl:gap-y-7">

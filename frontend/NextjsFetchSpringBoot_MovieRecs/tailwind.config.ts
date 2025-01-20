@@ -21,6 +21,13 @@ const config: Config = {
         snow: "var(--snow)",
       },
       keyframes: {
+        typewriter: {
+          "0%": { width: "0", borderRight: "2px solid var(--colour)" },
+          "100%": { width: "100%", borderRight: "2px solid var(--colour)" },
+        },
+        blink: {
+          "50%": { borderColor: "transparent" },
+        },
         textFadeIn: {
           "0%": { opacity: "0", scale: "0", transform: "translateY(-20%)" },
           "100%": { opacity: "1", scale: "1" },
@@ -52,12 +59,14 @@ const config: Config = {
         }
       },
       animation: {
+        typewriter: "typewriter 3s steps(5) 1s forwards, blink 1s step-end infinite",
         textFadeIn: "textFadeIn",
         moviesFadeIn: "moviesFadeIn 3.5s ease-in",
         headerFadeIn: "headerFadeIn 2s linear",
         lineLandingHeaderAnim: "lineLandingHeaderAnim 6s linear 3s infinite",
         snowFall: "snowFall 10s ease-out infinite",
         slidingMarquee: "slidingMarquee 40s linear infinite",
+
       },
     },
   },

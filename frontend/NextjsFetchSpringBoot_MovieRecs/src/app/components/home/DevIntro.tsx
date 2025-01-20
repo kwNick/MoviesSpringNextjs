@@ -3,10 +3,10 @@ import { useEffect, useRef } from "react"
 
 const DevIntro = () => {
     const hoverRef = useRef<HTMLSpanElement>(null);
-    console.log("HoverRef " + hoverRef.current);
+    // console.log("HoverRef " + hoverRef.current);
 
     const boxRef = useRef<HTMLDivElement>(null);
-    console.log("BoxRef " + boxRef.current);
+    // console.log("BoxRef " + boxRef.current);
 
     useEffect(() => {
         const currentBoxRef = boxRef.current;
