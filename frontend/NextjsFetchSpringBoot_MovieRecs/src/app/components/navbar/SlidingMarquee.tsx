@@ -1,6 +1,6 @@
 // import Link from "next/link";
-import { FindByTitleLike } from "../resources/data"
-import { Movie } from "../resources/definitions";
+import { FindByTitleLike } from "../../resources/data"
+import { Movie } from "../../resources/definitions";
 
 const SlidingMarquee = async () => {
     const movies = await FindByTitleLike();
