@@ -28,7 +28,7 @@ This project is a Nextjs front end with a Spring Boot back end using MongoDB for
 Add the **application.properties** file in the **src/main/resources/** directory.
 Replace the **mongodb uri** with your respective database connection string and credentials.
 ``/src/main/resrouces/application.properties: ``
-``spring.application.name=Mongorest \nspring.data.mongodb.uri=mongodb+srv://404hero:mongo12345@helloworld.wtjmfwx.mongodb.net/Testing \nserver.port=8081``
+``spring.application.name=Mongorest \nspring.data.mongodb.uri=<mongodb_uri> \nserver.port=8081``
 
 Open another terminal and run the following commands from the root directory:
 
