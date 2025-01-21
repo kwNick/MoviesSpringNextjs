@@ -3,12 +3,13 @@ import "./LoginFormAnimations.css"
 
 const page = () => {
     return (
-        <div className="w-full h-[90vh] flex flex-col items-center justify-center">
+        <div className="w-full h-[90vh] flex flex-col items-center justify-center gap-y-3">
             <div>
                 <p className="w-0 underline text-2xl lg:text-3xl xl:text-4xl overflow-hidden animate-typewriter">Login</p>
             </div>
 
             <form className="p-2 flex flex-col items-center justify-center text-center gap-y-3 lg:gap-y-5 xl:gap-y-7">
+
                 <div className="relative">
                     <input id="userName" type="text" className="input rounded-lg p-1 text-contrast lg:w-72 xl:w-80" required />
                     <label htmlFor="userName" className=" absolute left-[5%] top-[5%] pointer-events-none transition-all text-contrast duration-300">User Name</label>
