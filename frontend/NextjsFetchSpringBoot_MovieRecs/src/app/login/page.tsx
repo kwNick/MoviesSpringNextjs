@@ -15,10 +15,10 @@ const page = () => {
                 {/* Light */}
                 <span className="absolute w-[120%] h-[150%] top-[calc(-40%+8px)]  [background:_linear-gradient(to_bottom,_rgba(239,_68,_68,_.4)_-50%,_rgba(239,_68,_68,_0)_90%)] [clip-path:_polygon(20%_0,_80%_0,_100%_100%,_0_100%)] " />
                 {/* Toggle Button */}
-                <input type="checkbox" className="input-check" id="input-check" />
-                <label htmlFor="input-check" className="toggle">
-                    <span className="text off">off</span>
-                    <span className="text on">on</span>
+                <input type="checkbox" className="" id="input-check" />
+                <label htmlFor="input-check" className="">
+                    <span className="">off</span>
+                    <span className="">on</span>
                 </label>
 
                 <div className="relative">
@@ -38,7 +38,7 @@ const page = () => {
                 </div>
 
                 <label className="lg:text-lg xl:text-xl">
-                    <input type="checkbox" className="m-1 " />
+                    <input type="checkbox" className="m-1" />
                     Remember Me
                 </label>
 
