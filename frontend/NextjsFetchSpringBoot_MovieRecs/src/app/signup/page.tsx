@@ -8,7 +8,13 @@ const page = () => {
                 <p className="w-0 underline text-2xl lg:text-3xl xl:text-4xl overflow-hidden animate-typewriter">Signup</p>
             </div>
 
-            <form className="p-2 flex flex-col items-center justify-center text-center gap-y-3 lg:gap-y-5 xl:gap-y-7">
+            <form className="relative p-2 flex flex-col items-center justify-center text-center gap-y-3 lg:gap-y-5 xl:gap-y-7">
+
+                {/* Light Post */}
+                <span className="absolute w-[80%] h-2 bg-accent top-[-40%] left-[10%] rounded-lg" />
+                {/* Light */}
+                <span className="absolute w-[120%] h-[150%] top-[calc(-40%+8px)]  [background:_linear-gradient(to_bottom,_rgba(239,_68,_68,_.4)_-50%,_rgba(239,_68,_68,_0)_90%)] [clip-path:_polygon(20%_0,_80%_0,_100%_100%,_0_100%)] " />
+
                 <div className="relative">
 
                     <input id="email" type="text" className="input rounded-lg p-1 text-contrast lg:w-72 xl:w-80" required />

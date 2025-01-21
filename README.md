@@ -7,14 +7,6 @@ This project is a Nextjs front end with a Spring Boot back end using MongoDB for
 - Responsive UI with Tailwind CSS
 - RESTful API for data operations
 
-## Configuration
-
-### Backend:
-Configurations needed to run springboot applications
-
-### Frontend:
-asd
-
 ## Installation
 
 ### Backend:
@@ -26,8 +18,8 @@ asd
 - install gradle
 - make sure you have compatible versions for the springboot app
 
-Add the **application.properties** file in the src/main/resources/ directory.
-Replace the mongodb uri with your respective database and credentials.
+Add the **application.properties** file in the **src/main/resources/** directory.
+Replace the **mongodb uri** with your respective database connection string and credentials.
 
 Open another terminal and run the following commands from the root directory:
 
