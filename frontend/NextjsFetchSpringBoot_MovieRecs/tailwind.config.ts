@@ -22,8 +22,8 @@ const config: Config = {
       },
       keyframes: {
         typewriter: {
-          "0%": { width: "0", borderRight: "2px solid var(--colour)" },
-          "100%": { width: "100%", borderRight: "2px solid var(--colour)" },
+          "0%": { width: "0", borderRight: "2px solid", padding: "3px" },
+          "100%": { width: "100%", borderRight: "2px solid", padding: "3px" },
         },
         blink: {
           "50%": { borderColor: "transparent" },
