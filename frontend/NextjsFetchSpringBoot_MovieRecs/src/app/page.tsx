@@ -18,7 +18,7 @@ export default async function Home() {
       </div>
 
       {/* Top rated movies section */}
-      <div className="list h-[55vh] w-[80vw] flex items-center gap-x-6 ">
+      <div className="list h-[40vh] w-[80vw] flex items-center gap-x-6 ">
         {movies._embedded.movie.map((x: Movie, idx: number) => {
           const href = x._links.self.href;
           const idMatch = href.match(/\/([^\/]+)$/);
@@ -39,7 +39,7 @@ export default async function Home() {
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
-      <div className="snowShadow relative w-full h-[60vh] flex flex-col items-center justify-center text-center p-4 lg:px-5 xl:px-6 gap-y-4 before:absolute before:bottom-[-3%] before:left-50% before:w-[50%] before:h-[50%] before:bg-accent before:rounded-full ">
+      <div className="snowShadow relative w-full h-[50vh] flex flex-col items-center justify-center text-center p-4 lg:px-5 xl:px-6 gap-y-4 before:absolute before:bottom-[-3%] before:left-50% before:w-[50%] before:h-[50%] before:bg-accent before:rounded-full ">
         <p className="text-xl xl:text-3xl animate-textFadeIn animTextScroll">Movies for Everyone!</p>
         <TextFadeIn />
       </div>
@@ -75,7 +75,7 @@ export default async function Home() {
       </div>
 
       {/* intro to dev section */}
-      <div className=" mb-4 py-3 px-2 w-fit min-h-fit flex justify-center ">
+      <div className="mb-4 py-3 px-2 w-fit min-h-fit flex justify-center ">
         <DevIntro />
       </div>
 

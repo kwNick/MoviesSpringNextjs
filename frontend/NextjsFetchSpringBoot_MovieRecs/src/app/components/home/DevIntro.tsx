@@ -23,7 +23,7 @@ const DevIntro = () => {
     }, []);
     return (
         <div ref={boxRef} className="group relative w-[50vw] min-h-fit text-contrast bg-transparent border border-colour rounded-lg flex flex-col items-center gap-y-3 p-2 lg:p-3 xl:p-4  overflow-hidden">
-            <span ref={hoverRef} className="absolute w-0 h-0 rounded-full bg-colour [transition-timing-function:_ease] duration-300 group-hover:w-[100px] group-hover:h-[100px] [transform:_translate(-50%,_-50%)] -z-10" />
+            <span ref={hoverRef} className="absolute w-0 h-0 rounded-full bg-colour [transition-timing-function:_ease] group-hover:w-[100px] group-hover:h-[100px] [transform:_translate(-50%,_-50%)] -z-10" />
             <section>
                 <p className="text-lg lg:text-xl">
                     <span>Dev:</span> Nickolas Piraino
