@@ -8,7 +8,7 @@ import SlidingMarquee from "./SlidingMarquee"
 
 const Navbar = () => {
     return (
-        <nav className="relative min-h-20 lg:min-h-24 xl:min-h-28 w-full p-2 flex items-center justify-between capitalize text-sm md:text-lg lg:text-xl tracking-wide  overflow-hidden">
+        <nav className="relative min-h-20 lg:min-h-24 xl:min-h-28 w-full p-2 flex items-center justify-between capitalize text-sm md:text-lg lg:text-xl tracking-wide">
             <div className=" w-1/10 p-1">
                 <Link href={"/"} className="group block w-content h-full bg-contrast text-contrast border rounded-lg border-colour ">
                     <span className="block bg-colour p-1 translate-y-[-2px] rounded-lg shadow-sm duration-300 hover:translate-y-[-10%]  group-active:translate-y-0 hover:shadow-colour">
