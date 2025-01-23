@@ -18,15 +18,13 @@ export default async function Home() {
       </div>
 
       {/* Top rated movies section */}
-      <div className="list h-[40vh] w-[80vw] flex items-center gap-x-6 ">
+      <div className="hidden list px-6 min-h-fit min-w-fit sm:flex items-center justify-center gap-x-4 ">
         {movies._embedded.movie.map((x: Movie, idx: number) => {
           const href = x._links.self.href;
           const idMatch = href.match(/\/([^\/]+)$/);
           const id = idMatch ? idMatch[1] : "";
-
-          // make the movie cards responsive so that the genres can fit and not mess up the size of the card and the screen
           return (
-            <Link href={`/movies/${id}`} key={idx} className="relative item w-full h-3/5 px-2 py-1 border rounded-lg border-contrast bg-colour text-contrast transition-all ease-in duration-300 brightness-0 flex items-center animate-moviesFadeIn">
+            <Link href={`/movies/${id}`} key={idx} className=" item w-full h-fit px-2 py-1 border rounded-lg border-contrast bg-colour text-contrast transition-all ease-in duration-300 brightness-0 flex items-center justify-center animate-moviesFadeIn">
               <div className="w-full h-full flex flex-col items-center justify-center text-center">
                 <p>{x.title}</p>
                 {/* <p className="">{x.genres}</p> */}
@@ -45,22 +43,20 @@ export default async function Home() {
       </div>
 
       {/* Top rated movies section */}
-      <div className="h-[55vh] w-[80vw] flex items-center">
+      <div className="hidden h-[45vh] w-[85vw] sm:flex items-center">
         <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent">Top Rated Movies</h2>
         <div className="w-full h-full flex items-center gap-x-4">
           {movies._embedded.movie.map((x: Movie, idx: number) => {
             const href = x._links.self.href;
             const idMatch = href.match(/\/([^\/]+)$/);
             const id = idMatch ? idMatch[1] : "";
-
-            // make the movie cards responsive so that the genres can fit and not mess up the size of the card and the screen
             return (
-              <div key={idx} className="group relative w-full h-1/2 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden duration-500 animate-moviesFadeIn hover:h-3/5">
-                <Link href={`/movies/${id}`} className="rounded-lg w-full h-4/5 block" >
-                  <div className={`rounded-lg bg-contrast w-full h-full [background-image:_url('./resources/pictures/moviePic.jpg')] bg-cover bg-[100%] [filter:_blur(2px)] group-hover:[filter:_none] duration-300`} />
-                </Link>
+              <Link href={`/movies/${id}`} key={idx} className="group relative w-2/5 h-1/2 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden text-xs md:text-sm lg:text-base duration-500 hover:h-3/5 animate-moviesFadeIn">
+                <div className="rounded-lg w-full h-3/5 block" >
+                  <div className={`rounded-lg bg-contrast w-full h-full [background-image:_url('./resources/pictures/moviePic.jpg')] bg-cover bg-[100%] [filter:_blur(1px)] group-hover:[filter:_none] duration-300`} />
+                </div>
 
-                <div className="w-full h-3/5 flex flex-col items-center justify-start rounded-lg bg-colour text-center group-hover:-translate-y-10 duration-500 ">
+                <div className="p-2 w-full min-h-fit flex flex-col items-center justify-start rounded-lg bg-colour text-center group-hover:-translate-y-[50%] duration-500 ">
                   <p>{x.title}</p>
                   <span className="opacity-0 group-hover:opacity-100 duration-500">
                     <p>Rating: {x.rating}</p>
@@ -68,7 +64,7 @@ export default async function Home() {
                   </span>
                 </div>
 
-              </div>
+              </Link>
             );
           })}
         </div>

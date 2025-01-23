@@ -80,6 +80,7 @@ body {
   filter: blur(.5em);
 }
 
+/* Hovered item */
 .list .item:hover {
   transform: translateZ(30px);
   filter: brightness(1);
@@ -87,23 +88,23 @@ body {
 
 /* items in front of hovered element */
 .list .item:hover+* {
-  filter: brightness(0.4);
+  filter: brightness(.2);
   transform: translateZ(20px) rotateY(20deg);
 }
 
 .list .item:hover+*+* {
-  filter: brightness(0.15);
+  filter: brightness(0.1);
   transform: translateZ(10px) rotateY(10deg);
 }
 
 /* items behind hovered element */
 .list .item:has(+ *:hover) {
-  filter: brightness(0.4);
+  filter: brightness(.2);
   transform: translateZ(20px) rotateY(-20deg);
 }
 
 .list .item:has(+ * + *:hover) {
-  filter: brightness(0.15);
+  filter: brightness(0.1);
   transform: translateZ(10px) rotateY(-10deg);
 }
 
