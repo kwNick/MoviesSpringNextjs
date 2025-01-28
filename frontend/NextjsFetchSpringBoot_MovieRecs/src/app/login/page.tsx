@@ -18,8 +18,8 @@ const page = () => {
                     <span className="absolute w-[77%] h-[100%] top-[8px] opacity-0 [background:_linear-gradient(to_bottom,_rgba(239,_68,_68,_.4)_-50%,_rgba(239,_68,_68,_0)_90%)] [clip-path:_polygon(20%_0,_80%_0,_100%_100%,_0_100%)]  group-has-[.peer:checked]:opacity-100 transition-all duration-300" />
 
                     {/* Toggle Button */}
-                    <input type="checkbox" className="peer hidden absolute " id="input-check" />
-                    <label htmlFor="input-check" className="absolute top-[20%] right-[20%] w-[5%] h-[5%] rounded-full bg-colour flex items-center justify-center peer-checked:[text-shadow:_0_0_10px_var(--colour)] peer-checked:translate-y-[75%] peer-checked:bg-accent transition-all duration-300 before:absolute before:w-[125%] before:h-[300%] before:rounded-md before:bg-accent before:top-[20%] before:right-0 before:-z-10 before:transition-all before:duration-300 after:absolute after:w-[25%] after:h-[200%] after:bg-contrast after:-z-10 after:top-0 after:right-[50%]">
+                    <input type="checkbox" className="peer hidden  " id="input-check" />
+                    <label htmlFor="input-check" className="absolute top-[20%] right-[20%] w-[5%] h-[5%] lg:h-[7%] rounded-full bg-colour flex items-center justify-center peer-checked:[text-shadow:_0_0_10px_var(--colour)] peer-checked:translate-y-[75%] peer-checked:bg-accent duration-300 text-lg lg:text-2xl xl:text-3xl">
                         <span className="group-has-[.peer:checked]:hidden text-contrast">off</span>
                         <span className=" hidden group-has-[.peer:checked]:block">on</span>
                     </label>

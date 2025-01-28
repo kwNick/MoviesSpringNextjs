@@ -16,7 +16,7 @@ const BurgerDropDown = () => {
 
             {/*NEED TO FIX; anytime you click away from the drop down menu it will collapse */}
             <div className={`absolute w-[20vw] h-[20vh] p-2 gap-y-2 border border-contrast rounded-lg uppercase bg-colour top-[50%] left-[calc(50%-10vw)] flex items-center justify-center duration-300  ${open ? "opacity-1 translate-y-[30%] z-30" : "opacity-0 pointer-events-none"}`} >
-                <ul className="text-contrast flex flex-col items-center justify-center gap-y-1 text-base">
+                <ul className="text-contrast flex flex-col items-center justify-center gap-y-1 text-xl font-bold tracking-widest leading-8">
                     <li className="hover:text-accent">
                         <Link href={"/"} onClick={burgerClick}>
                             Home

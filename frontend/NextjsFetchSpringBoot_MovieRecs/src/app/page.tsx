@@ -52,6 +52,7 @@ export default async function Home() {
             const id = idMatch ? idMatch[1] : "";
             return (
               <Link href={`/movies/${id}`} key={idx} className="group relative w-2/5 h-1/2 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden text-xs md:text-sm lg:text-base duration-500 hover:h-3/5 animate-moviesFadeIn">
+
                 <div className="rounded-lg w-full h-3/5 block" >
                   <div className={`rounded-lg bg-contrast w-full h-full [background-image:_url('./resources/pictures/moviePic.jpg')] bg-cover bg-[100%] [filter:_blur(1px)] group-hover:[filter:_none] duration-300`} />
                 </div>
