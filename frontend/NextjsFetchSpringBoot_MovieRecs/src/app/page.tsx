@@ -72,7 +72,7 @@ export default async function Home() {
       </div>
 
       {/* intro to dev section */}
-      <div className="mb-4 py-3 px-2 w-fit min-h-fit flex justify-center ">
+      <div className=" mb-4 py-3 px-2 w-fit min-h-fit flex justify-center">
         <DevIntro />
       </div>
 

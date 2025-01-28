@@ -15,7 +15,7 @@ const page = () => {
                     <span className="absolute w-[50%] h-2 top-[0%] left-[25%] rounded-lg bg-colour group-has-[.peer:checked]:bg-accent group-has-[.peer:checked]:[box-shadow:0_0_10px_5px_rgba(239,68,68,.5)] transition-all duration-300" />
 
                     {/* Light */}
-                    <span className="absolute w-[77%] h-[100%] top-[8px] opacity-0 [background:_linear-gradient(to_bottom,_rgba(239,_68,_68,_.4)_-50%,_rgba(239,_68,_68,_0)_90%)] [clip-path:_polygon(20%_0,_80%_0,_100%_100%,_0_100%)]  group-has-[.peer:checked]:opacity-100 transition-all duration-300" />
+                    <span className="absolute w-[77%] h-[100%] top-[8px] opacity-0 [background:_linear-gradient(to_bottom,_rgba(239,_68,_68,_.4)_-50%,_rgba(239,_68,_68,_0)_90%)] [clip-path:_polygon(20%_0,_80%_0,_100%_100%,_0_100%)] group-has-[.peer:checked]:opacity-100 transition-all duration-300" />
 
                     {/* Toggle Button */}
                     <input type="checkbox" className="peer hidden  " id="input-check" />

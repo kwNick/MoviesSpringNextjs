@@ -22,8 +22,8 @@ const config: Config = {
       },
       keyframes: {
         typewriter: {
-          "0%": { width: "0", borderRight: "2px solid", padding: "3px" },
-          "100%": { width: "100%", borderRight: "2px solid", padding: "3px" },
+          "0%": { width: "0", borderRight: "2px solid" },
+          "100%": { width: "100%", borderRight: "2px solid" },
         },
         blink: {
           "50%": { borderColor: "transparent" },
@@ -59,7 +59,7 @@ const config: Config = {
         }
       },
       animation: {
-        typewriter: "typewriter 3s steps(5) 1s forwards, blink .9s step-end infinite",
+        typewriter: "typewriter 5s steps(5) 1s forwards, blink .9s step-end infinite",
         textFadeIn: "textFadeIn",
         moviesFadeIn: "moviesFadeIn 3.5s ease-in",
         headerFadeIn: "headerFadeIn 2s linear",
