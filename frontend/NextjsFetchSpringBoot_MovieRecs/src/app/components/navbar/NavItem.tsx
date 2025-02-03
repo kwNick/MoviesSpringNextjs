@@ -10,7 +10,7 @@ const NavItem = ({ x }: { x: { value: string, href: string } }) => {
             {/* <span className="w-full h-[2%] lg:h-[3%] xl:h-[4%] bg-accent absolute bottom-1 left-[100%]  group-hover:translate-x-[-100%] duration-500" /> */}
             {x.value == "Home" && (
                 <div className="relative ">
-                    <div className={clsx(`before:absolute before:inset-0 before:rounded-full before:left-[-35%] before:bg-colour before:p-5 before:opacity-0  before:duration-500`,
+                    <div className={clsx(`before:absolute before:inset-0 before:rounded-full before:left-[-35%] before:bg-colour before:p-5 before:opacity-0 before:duration-500`,
                         {
                             "group-hover:before:translate-y-[-70%] group-hover:before:opacity-100": pathname != x.href,
                             "before:translate-y-[-70%] before:opacity-100": pathname == x.href,
