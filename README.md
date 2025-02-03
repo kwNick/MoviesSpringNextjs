@@ -20,14 +20,14 @@ This project is a Nextjs front end with a Spring Boot back end using MongoDB for
 #### Configurations
 
 **Configurations** needed to run springboot applications
-- install java
-- install gradle
+- [install java](https://bell-sw.com/pages/downloads/#jdk-21-lts)
+- [install gradle](https://gradle.org/install/)
 - make sure you have compatible versions for the springboot app
-    - Java (version 21)     - SpringBoot (version 3.3.4)
+    - Java (version 21.0.4) - SpringBoot (version 3.3.4) - Gradle (version 8.10.1)
 
 Add the **application.properties** file in the **src/main/resources/** directory.
 Replace the **mongodb uri** with your respective database connection string and credentials.
-```/src/main/resrouces/application.properties: ```
+```/src/main/resources/application.properties file: ```
 ```bash
 spring.application.name=Mongorest
 spring.data.mongodb.uri=<mongodb_uri_with_credentials>
