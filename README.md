@@ -84,4 +84,4 @@ If you have any questions feel free to reach out:
 
 email: <kwnp17c@gmail.com>
 
-github: kwNick
+github: [kwNick](https://github.com/KwNick)
