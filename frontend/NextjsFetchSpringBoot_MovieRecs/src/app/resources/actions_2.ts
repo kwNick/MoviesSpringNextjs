@@ -53,8 +53,7 @@ export async function AddMovie_2(prevState: State | undefined, formData: FormDat
     // const post = { movieId: movieId, title: title, genres: genres, rating: rating, userId: userId, timestamp: time };
     try {
 
-        // const data = await... //accepting result from fetch causes errors "unexpected end of json input"
-        await fetch('http://localhost:8081/movie', {
+        await fetch(`http://${process.env.REST_API_IP}:${process.env.REST_API_PORT}/movie`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -71,7 +70,6 @@ export async function AddMovie_2(prevState: State | undefined, formData: FormDat
     }
 
     revalidatePath('/movies');
-    // redirect('/fetch'); // cannot redirect to the active path URL
 }
 
 
@@ -107,8 +105,8 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
         };
     }
     const { movieId, title, genres, userId, rating, timestamp } = validatedFields.data;
-    try {               //thinking of searching for movie with userId .../search/findByTitle...userId=
-        await fetch(`http://localhost:8081/movie/${id}`, {   //or pass the id using a hidden input field or something
+    try {
+        await fetch(`http://${process.env.REST_API_IP}:${process.env.REST_API_PORT}/movie/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -131,7 +129,7 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
 export async function DeleteMovie_2(id: string) {
     // console.log("id: " + id);
     try {
-        await fetch(`http://localhost:8081/movie/${id}`,
+        await fetch(`http://${process.env.REST_API_IP}:${process.env.REST_API_PORT}/movie/${id}`,
             { method: 'DELETE', }
         );
         // console.log(data);
