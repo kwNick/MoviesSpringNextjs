@@ -53,7 +53,7 @@ export async function AddMovie_2(prevState: State | undefined, formData: FormDat
     // const post = { movieId: movieId, title: title, genres: genres, rating: rating, userId: userId, timestamp: time };
     try {
 
-        await fetch(`http://${process.env.REST_API_IP}:${process.env.REST_API_PORT}/movie`, {
+        await fetch(`http://${process.env.OTHER_REST_API_IP}:${process.env.REST_API_PORT}/movie`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -106,7 +106,7 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
     }
     const { movieId, title, genres, userId, rating, timestamp } = validatedFields.data;
     try {
-        await fetch(`http://${process.env.REST_API_IP}:${process.env.REST_API_PORT}/movie/${id}`, {
+        await fetch(`http://${process.env.OTHER_REST_API_IP}:${process.env.REST_API_PORT}/movie/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -129,7 +129,7 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
 export async function DeleteMovie_2(id: string) {
     // console.log("id: " + id);
     try {
-        await fetch(`http://${process.env.REST_API_IP}:${process.env.REST_API_PORT}/movie/${id}`,
+        await fetch(`http://${process.env.OTHER_REST_API_IP}:${process.env.REST_API_PORT}/movie/${id}`,
             { method: 'DELETE', }
         );
         // console.log(data);
