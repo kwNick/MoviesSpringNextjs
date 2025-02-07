@@ -3,6 +3,8 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
+//Mutating Data w/ React Server Actions
+
 const FormSchema = z.object({
     id: z.string(),
     movieId: z.coerce.number(),
@@ -43,7 +45,7 @@ export async function AddMovie_2(prevState: State | undefined, formData: FormDat
     if (!validatedFields.success) {
         return {
             errors: validatedFields.error.flatten().fieldErrors,
-            message: 'Missing Fields. Failed to Create Invoice.',
+            message: 'Missing Fields. Failed to Add Movie.',
         };
     }
 
@@ -64,8 +66,8 @@ export async function AddMovie_2(prevState: State | undefined, formData: FormDat
 
     } catch (error) {
         return {
-            errors: undefined,
-            message: 'Database Error: Failed to Create Invoice.'
+            errors: error,
+            message: 'Database Error: Failed to Add Movie.'
         };
     }
 
@@ -101,7 +103,7 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
     if (!validatedFields.success) {
         return {
             errors: validatedFields.error.flatten().fieldErrors,
-            message: 'Missing Fields. Failed to Create Invoice.',
+            message: 'Missing Fields. Failed to Update Movie.',
         };
     }
     const { movieId, title, genres, userId, rating, timestamp } = validatedFields.data;
@@ -116,8 +118,8 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
 
     } catch (error) {
         return {
-            errors: undefined,
-            message: 'Database Error: Failed to Create Invoice.'
+            errors: error,
+            message: 'Database Error: Failed to Update Movie.'
         };
     }
 

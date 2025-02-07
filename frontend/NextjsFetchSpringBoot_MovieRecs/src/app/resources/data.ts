@@ -16,7 +16,7 @@
 //     }
 // }
 
-
+//Fetching data w/ Server Components
 //----------- RepositoryRestResource ----- //
 export async function CountMoviesByTitle(query: string) {
     try {
@@ -55,6 +55,6 @@ export async function FindByTitleLike(query?: string, page?: number) {
         const data = await fetch(`http://${ip}:${port}/movie/search/findByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}`);
         return data.json();
     } catch (error) {
-        throw new Error("Failed to fetch movies like title from Database: " + error);
+        throw new Error("Failed to Fetch Movies Like Title from Database: " + error);
     }
 }
