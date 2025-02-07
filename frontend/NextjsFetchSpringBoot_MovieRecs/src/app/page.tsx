@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { FindByTitleLike } from "./resources/data";
-import { Movie } from "./resources/definitions";
+// import Link from "next/link";
+// import { FindByTitleLike } from "./resources/data";
+// import { Movie } from "./resources/definitions";
 import TextFadeIn from "./components/home/TextFadeIn";
 import DevIntro from "./components/home/DevIntro";
 
 export default async function Home() {
-  const movies = await FindByTitleLike();
+  // const movies = await FindByTitleLike();
 
   return (
     <main className="w-full flex flex-col items-center">
@@ -19,7 +19,7 @@ export default async function Home() {
 
       {/* Top rated movies section */}
       <div className="hidden list px-6 min-h-fit min-w-fit sm:flex items-center justify-center gap-x-4 ">
-        {movies._embedded.movie.map((x: Movie, idx: number) => {
+        {/* {movies._embedded.movie.map((x: Movie, idx: number) => {
           const href = x._links.self.href;
           const idMatch = href.match(/\/([^\/]+)$/);
           const id = idMatch ? idMatch[1] : "";
@@ -27,13 +27,12 @@ export default async function Home() {
             <Link href={`/movies/${id}`} key={idx} className=" item w-full h-fit px-2 py-1 border rounded-lg border-contrast bg-colour text-contrast transition-all ease-in duration-300 brightness-0 flex items-center justify-center animate-moviesFadeIn">
               <div className="w-full h-full flex flex-col items-center justify-center text-center">
                 <p>{x.title}</p>
-                {/* <p className="">{x.genres}</p> */}
                 <p>Rating: {x.rating}</p>
                 <p>UserId: {x.userId}</p>
               </div>
             </Link>
           );
-        })}
+        })}; */}
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
@@ -45,7 +44,7 @@ export default async function Home() {
       {/* Top rated movies section */}
       <div className="hidden h-[45vh] w-[85vw] sm:flex items-center">
         <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent">Top Rated Movies</h2>
-        <div className="w-full h-full flex items-center gap-x-4">
+        {/* <div className="w-full h-full flex items-center gap-x-4">
           {movies._embedded.movie.map((x: Movie, idx: number) => {
             const href = x._links.self.href;
             const idMatch = href.match(/\/([^\/]+)$/);
@@ -68,7 +67,7 @@ export default async function Home() {
               </Link>
             );
           })}
-        </div>
+        </div> */}
       </div>
 
       {/* intro to dev section */}
