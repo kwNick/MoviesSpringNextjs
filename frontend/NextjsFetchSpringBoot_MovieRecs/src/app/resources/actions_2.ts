@@ -26,7 +26,7 @@ export type State = {
         genres?: string[];
         userId?: string[];
         // timestamp?: string[];
-    };
+    } | undefined;
     message?: string | null;
 };
 
@@ -66,8 +66,8 @@ export async function AddMovie_2(prevState: State | undefined, formData: FormDat
 
     } catch (error) {
         return {
-            errors: error,
-            message: 'Database Error: Failed to Add Movie.'
+            errors: undefined,
+            message: 'Database Error: Failed to Add Movie.' + error
         };
     }
 
@@ -118,8 +118,8 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
 
     } catch (error) {
         return {
-            errors: error,
-            message: 'Database Error: Failed to Update Movie.'
+            errors: undefined,
+            message: 'Database Error: Failed to Update Movie.' + error
         };
     }
 
