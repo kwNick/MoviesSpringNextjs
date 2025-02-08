@@ -1,9 +1,9 @@
 import { Suspense } from "react";
-import SearchMovies from "../components/movies/SearchMovies";
-import ShowSearchMovies from "../components/movies/ShowSearchMovies";
-import Pagination from "../components/movies/Pagination";
+import SearchMovies from "../../components/movies/SearchMovies";
+import ShowSearchMovies from "../../components/movies/ShowSearchMovies";
+import Pagination from "../../components/movies/Pagination";
 import Link from "next/link";
-import SearchMoviesSkeleton from "../components/skeletons/SearchMoviesSkeleton";
+import SearchMoviesSkeleton from "../../components/skeletons/SearchMoviesSkeleton";
 
 const page = async (
     props: {
