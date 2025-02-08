@@ -1,6 +1,5 @@
-import "./LinkAnimation.css"
-export default function MoviesLayout({
-    children,
+export default function SignupLayout({
+    children
 }: Readonly<{
     children: React.ReactNode;
 }>) {
@@ -8,5 +7,5 @@ export default function MoviesLayout({
         <div className="min-h-screen w-screen">
             {children}
         </div>
-    );
+    )
 }

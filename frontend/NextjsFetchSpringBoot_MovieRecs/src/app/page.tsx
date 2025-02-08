@@ -1,12 +1,12 @@
-// import Link from "next/link";
-// import { FindByTitleLike } from "./resources/data";
-// import { Movie } from "./resources/definitions";
+import Link from "next/link";
+import { FindByTitleLike } from "./resources/data";
+import { Movie } from "./resources/definitions";
 import TextFadeIn from "./components/home/TextFadeIn";
 import DevIntro from "./components/home/DevIntro";
 
 export default async function Home() {
-  // const movies = await FindByTitleLike();
-
+  const movies = await FindByTitleLike();
+  // console.log(movies);
   return (
     <main className="w-full flex flex-col items-center">
 
@@ -19,7 +19,7 @@ export default async function Home() {
 
       {/* Top rated movies section */}
       <div className="hidden list px-6 min-h-fit min-w-fit sm:flex items-center justify-center gap-x-4 ">
-        {/* {movies._embedded.movie.map((x: Movie, idx: number) => {
+        {movies._embedded.movie.map((x: Movie, idx: number) => {
           const href = x._links.self.href;
           const idMatch = href.match(/\/([^\/]+)$/);
           const id = idMatch ? idMatch[1] : "";
@@ -32,7 +32,7 @@ export default async function Home() {
               </div>
             </Link>
           );
-        })}; */}
+        })};
       </div>
 
       {/* Intro to our movie collection and who we are section*/}

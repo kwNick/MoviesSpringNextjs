@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${hind.className} relative antialiased min-w-full min-h-full tracking-wide selection:bg-fuchsia-300 scroll-smooth`}
+        className={`${hind.className} relative antialiased w-screen min-h-screen tracking-wide selection:bg-fuchsia-300 scroll-smooth`}
       >
         {/* cursor */}
         <HomeCursor />
