@@ -1,21 +1,3 @@
-// export async function SpringMongoData() {
-//     try {
-//         const data = await fetch("http://localhost:8080/api/movie");
-//         return data.json();
-//     } catch (error) {
-//         throw new Error("Invalid Fetch from Spring Mongo Data:  " + error);
-//     }
-// }
-
-// export async function FindMovieByUserId(userId: string) {
-//     try {
-//         const data = await fetch(`http://localhost:8080/api/movie/${userId}`);
-//         return data.json();
-//     } catch (error) {
-//         throw new Error("Could not Fetch Movie with userId from Database: " + error);
-//     }
-// }
-
 //Fetching data w/ Server Components
 //----------- RepositoryRestResource ----- //
 export async function CountMoviesByTitle(query: string) {
