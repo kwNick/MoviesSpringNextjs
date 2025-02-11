@@ -72,6 +72,7 @@ export async function AddMovie_2(prevState: State | undefined, formData: FormDat
     }
 
     revalidatePath('/movies');
+    redirect("/movies");
 }
 
 
