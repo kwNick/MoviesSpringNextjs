@@ -4,7 +4,7 @@ import LoginSignup from "./LoginSignup"
 import BurgerDropDown from "./BurgerDropDown"
 import LoginDropDown from "./LoginDropDown"
 import { navItems } from "../../resources/navItems"
-// import SlidingMarquee from "./SlidingMarquee"
+import SlidingMarquee from "./SlidingMarquee"
 
 const Navbar = () => {
     return (
@@ -44,7 +44,7 @@ const Navbar = () => {
                 <LoginDropDown />
             </div>
 
-            {/* <SlidingMarquee /> */}
+            <SlidingMarquee />
         </nav >
     )
 }

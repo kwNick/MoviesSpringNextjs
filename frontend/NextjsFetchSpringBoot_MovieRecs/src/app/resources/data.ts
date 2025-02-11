@@ -50,9 +50,7 @@ export async function FindByTitleLike(query?: string, page?: number) {
         query = query ?? "";
         page = page ?? 0;
         const size = query == "" ? 10 : 5;
-        const ip = process.env.OTHER_REST_API_IP;
-        const port = process.env.REST_API_PORT;
-        const data = await fetch(`http://${ip}:${port}/movie/search/findByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}`);
+        const data = await fetch(`http://${process.env.OTHER_REST_API_IP}:${process.env.REST_API_PORT}/movie/search/findByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}`);
         return data.json();
     } catch (error) {
         throw new Error("Failed to Fetch Movies Like Title from Database: " + error);

@@ -1,34 +1,34 @@
-// 'use client';
+'use client';
 
-// import { useActionState, useEffect, useState } from "react";
-// import { AddMovie_2, State } from "../resources/actions_2";
+import { useActionState, useEffect, useState } from "react";
+import { AddMovie_2, State } from "../resources/actions_2";
 
 
 const CreateForm = () => {
-    // const initialState: State = { message: null, errors: {} };
-    // const [state, formAction, isPending] = useActionState(AddMovie_2, initialState);
+    const initialState: State = { message: null, errors: {} };
+    const [state, formAction, isPending] = useActionState(AddMovie_2, initialState);
 
-    // const [movieId, setMovieId] = useState("");
-    // const [genres, setGenres] = useState("");
-    // const [rating, setRating] = useState("");
-    // const [title, setTitle] = useState("");
-    // const [userId, setUserId] = useState("");
+    const [movieId, setMovieId] = useState("");
+    const [genres, setGenres] = useState("");
+    const [rating, setRating] = useState("");
+    const [title, setTitle] = useState("");
+    const [userId, setUserId] = useState("");
 
-    // useEffect(() => {
-    //     if (state?.message == null) {
-    //         setMovieId("");
-    //         setGenres("");
-    //         setRating("");
-    //         setTitle("");
-    //         setUserId("");
-    //     }
-    // }, [state])
+    useEffect(() => {
+        if (state?.message == null) {
+            setMovieId("");
+            setGenres("");
+            setRating("");
+            setTitle("");
+            setUserId("");
+        }
+    }, [state])
     return (
         <div className="w-[50%] h-full">
             <p>
                 CreateForm
             </p>
-            {/* <div className="w-full h-full">
+            <div className="w-full h-full">
                 <form className="py-2 w-full h-full border-2 border-colour flex flex-col gap-y-3 items-center rounded-lg" action={formAction}>
                     <div className="flex flex-col items-center">
                         <label htmlFor="movieId">MovieId</label>
@@ -110,7 +110,7 @@ const CreateForm = () => {
                         <button type="submit" className="border-2 border-colour rounded-lg p-2" disabled={isPending}>Add Movie</button>
                     </div>
                 </form>
-            </div> */}
+            </div>
         </div>
     )
 }

@@ -32,7 +32,7 @@ export default async function Home() {
               </div>
             </Link>
           );
-        })};
+        })}
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
@@ -44,7 +44,7 @@ export default async function Home() {
       {/* Top rated movies section */}
       <div className="hidden h-[45vh] w-[85vw] sm:flex items-center">
         <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent">Top Rated Movies</h2>
-        {/* <div className="w-full h-full flex items-center gap-x-4">
+        <div className="w-full h-full flex items-center gap-x-4">
           {movies._embedded.movie.map((x: Movie, idx: number) => {
             const href = x._links.self.href;
             const idMatch = href.match(/\/([^\/]+)$/);
@@ -67,7 +67,7 @@ export default async function Home() {
               </Link>
             );
           })}
-        </div> */}
+        </div>
       </div>
 
       {/* intro to dev section */}
