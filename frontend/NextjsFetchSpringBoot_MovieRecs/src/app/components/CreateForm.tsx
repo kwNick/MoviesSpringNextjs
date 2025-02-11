@@ -5,7 +5,7 @@ import { AddMovie_2, State } from "../resources/actions_2";
 
 
 const CreateForm = () => {
-    const initialState: State = { message: null, errors: {} };
+    const initialState: State = { message: undefined, errors: {} };
     const [state, formAction, isPending] = useActionState(AddMovie_2, initialState);
 
     const [movieId, setMovieId] = useState("");
