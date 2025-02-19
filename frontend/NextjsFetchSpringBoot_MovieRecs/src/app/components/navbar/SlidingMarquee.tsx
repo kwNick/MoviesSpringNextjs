@@ -11,14 +11,14 @@ const SlidingMarquee = async () => {
                     <p className="animate-slidingMarquee group-active:[animation-play-state:paused]">--\ Top Rated movies for the week...
                         {movies._embedded.movie.map((x: Movie, idx: number) => {
                             return (
-                                <span key={idx}> #{idx + 1}. {x.title} - rating: {x.rating} - {x.genres} | </span>
+                                <span key={idx}> #{x.movieId}. {x.title} - rating: {x.averageRating} - {x.releaseYear} | </span>
                             );
                         })}
                     </p>
                     <p className="animate-slidingMarquee group-active:[animation-play-state:paused]">--\ Top Rated movies for the week...
                         {movies._embedded.movie.map((x: Movie, idx: number) => {
                             return (
-                                <span key={idx}> #{idx + 1}. {x.title} - rating: {x.rating} - {x.genres} | </span>
+                                <span key={idx}> #{x.movieId}. {x.title} - rating: {x.averageRating} - {x.releaseYear} | </span>
                             );
                         })}
                     </p>

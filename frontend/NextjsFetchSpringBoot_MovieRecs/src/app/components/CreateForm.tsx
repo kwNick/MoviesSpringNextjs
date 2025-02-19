@@ -10,17 +10,19 @@ const CreateForm = () => {
 
     const [movieId, setMovieId] = useState("");
     const [genres, setGenres] = useState("");
-    const [rating, setRating] = useState("");
+    const [averageRating, setAverageRating] = useState("");
+    const [totalRatings, setTotalRatings] = useState("");
     const [title, setTitle] = useState("");
-    const [userId, setUserId] = useState("");
+    const [releaseYear, setReleaseYear] = useState("");
 
     useEffect(() => {
         if (state?.message == null) {
             setMovieId("");
             setGenres("");
-            setRating("");
+            setAverageRating("");
+            setTotalRatings("");
             setTitle("");
-            setUserId("");
+            setReleaseYear("");
         }
     }, [state])
     return (
@@ -59,27 +61,43 @@ const CreateForm = () => {
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <label htmlFor="rating">Rating</label>
+                        <label htmlFor="averageRating">Average Rating</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
-                            id="rating"
-                            name="rating"
+                            id="averageRating"
+                            name="averageRating"
                             type="number"
-                            value={rating}
+                            value={averageRating}
                             // defaultValue={""}
-                            placeholder={"rating: 0-10"}
-                            onChange={(e) => setRating(e.target.value)}
+                            placeholder={"avg rating: 0-10"}
+                            onChange={(e) => setAverageRating(e.target.value)}
                             required
                             aria-describedby="rating-error"
                         />
                         <div id="rating-error" aria-live="polite" aria-atomic="true">
-                            {state?.errors?.rating &&
-                                state.errors.rating.map((error: string) => (
+                            {state?.errors?.averageRating &&
+                                state.errors.averageRating.map((error: string) => (
                                     <p className="mt-2 text-sm text-accent" key={error}>
                                         {error}
                                     </p>
                                 ))}
                         </div>
                     </div>
+
+                    <div className="flex flex-col items-center">
+                        <label htmlFor="totalRatings">Total Ratings</label>
+                        <input className="border-2 border-colour rounded-lg text-contrast"
+                            id="totalRatings"
+                            name="totalRatings"
+                            type="number"
+                            value={totalRatings}
+                            // defaultValue={""}
+                            placeholder={"total amount of ratings"}
+                            onChange={(e) => setAverageRating(e.target.value)}
+                            required
+
+                        />
+                    </div>
+
                     <div className="flex flex-col items-center">
                         <label htmlFor="title">Title</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
@@ -94,15 +112,15 @@ const CreateForm = () => {
                         />
                     </div>
                     <div className="flex flex-col items-center">
-                        <label htmlFor="userId">UserId</label>
+                        <label htmlFor="releaseYear">ReleaseYear</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
-                            id="userId"
-                            name="userId"
+                            id="releaseYear"
+                            name="releaseYear"
                             type="number"
-                            value={userId}
+                            value={releaseYear}
                             // defaultValue={""}
-                            placeholder={"userId"}
-                            onChange={(e) => setUserId(e.target.value)}
+                            placeholder={"releaseYear"}
+                            onChange={(e) => setReleaseYear(e.target.value)}
                             required
                         />
                     </div>

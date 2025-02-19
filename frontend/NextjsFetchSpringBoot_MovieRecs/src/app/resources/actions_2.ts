@@ -9,12 +9,12 @@ const FormSchema = z.object({
     id: z.string(),
     movieId: z.coerce.number(),
     title: z.string(),
-    rating: z.coerce.number()
+    averageRating: z.coerce.number()
         .lt(11, { message: 'please enter a number in the range 0-10.' }).gt(0, { message: 'please enter a number in the range 0-10.' })
     ,
     genres: z.string(),
-    userId: z.coerce.number(),
-    timestamp: z.string(),
+    totalRatings: z.coerce.number(),
+    releaseYear: z.coerce.number(),
 });
 
 export type State = {
@@ -22,23 +22,24 @@ export type State = {
         // id?: string[];
         movieId?: string[];
         title?: string[];
-        rating?: string[];
+        averageRating?: string[];
         genres?: string[];
-        userId?: string[];
-        // timestamp?: string[];
+        totalRatings?: string[]
+        releaseYear?: string[];
     } | undefined;
     message?: string | null;
 };
 
-const CreateMovie = FormSchema.omit({ id: true, timestamp: true });
+const CreateMovie = FormSchema.omit({ id: true });
 
 export async function AddMovie_2(prevState: State | undefined, formData: FormData) {
     const validatedFields = CreateMovie.safeParse({
         movieId: formData.get("movieId"),
         title: formData.get("title"),
         genres: formData.get("genres"),
-        userId: formData.get("userId"),
-        rating: formData.get("rating"),
+        averageRating: formData.get("averageRating"),
+        totalRatings: formData.get("totalRatings"),
+        releaseYear: formData.get("releaseYear"),
     });
 
     // If form validation fails, return errors early. Otherwise, continue.
@@ -49,18 +50,17 @@ export async function AddMovie_2(prevState: State | undefined, formData: FormDat
         };
     }
 
-    const { movieId, title, genres, userId, rating } = validatedFields.data;
-    const time = new Date().toDateString() + " " + new Date().toLocaleTimeString('en-US');
+    const { movieId, title, genres, averageRating, totalRatings, releaseYear } = validatedFields.data;
     // console.log("RawData: ");
-    // const post = { movieId: movieId, title: title, genres: genres, rating: rating, userId: userId, timestamp: time };
+    // const post = { movieId: movieId, title: title, genres: genres, averageRating: averageRating, totalRatings: totalRatings, releaseYear: releaseYear};
     try {
 
-        await fetch(`http://${process.env.OTHER_REST_API_IP}:${process.env.REST_API_PORT}/movie`, {
+        await fetch(`http://${process.env.LOCAL_REST_API_IP}:${process.env.REST_API_PORT}/movie`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ movieId: movieId, title: title, genres: genres, rating: rating, userId: userId, timestamp: time })
+            body: JSON.stringify({ movieId: movieId, title: title, genres: genres, averageRating: averageRating, totalRatings: totalRatings, releaseYear: releaseYear })
         });
 
 
@@ -81,10 +81,10 @@ export type PatchState = {
         // id?: string[];
         movieId?: string[];
         title?: string[];
-        rating?: string[];
+        averageRating?: string[];
         genres?: string[];
-        userId?: string[];
-        timestamp?: string[];
+        totalRatings?: string[]
+        releaseYear?: string[];
     };
     message?: string | null;
 };
@@ -95,9 +95,9 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
         movieId: formData.get("movieId"),
         title: formData.get("title"),
         genres: formData.get("genres"),
-        userId: formData.get("userId"),
-        rating: formData.get("rating"),
-        timestamp: formData.get("timestamp"),
+        averageRating: formData.get("averageRating"),
+        totalRatings: formData.get("totalRatings"),
+        releaseYear: formData.get("releaseYear"),
     });
 
     // If form validation fails, return errors early. Otherwise, continue.
@@ -107,14 +107,14 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
             message: 'Missing Fields. Failed to Update Movie.',
         };
     }
-    const { movieId, title, genres, userId, rating, timestamp } = validatedFields.data;
+    const { movieId, title, genres, averageRating, totalRatings, releaseYear } = validatedFields.data;
     try {
-        await fetch(`http://${process.env.OTHER_REST_API_IP}:${process.env.REST_API_PORT}/movie/${id}`, {
+        await fetch(`http://${process.env.LOCAL_REST_API_IP}:${process.env.REST_API_PORT}/movie/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ movieId: movieId, title: title, genres: genres, rating: rating, userId: userId, timestamp: timestamp })
+            body: JSON.stringify({ movieId: movieId, title: title, genres: genres, averageRating: averageRating, totalRatings: totalRatings, releaseYear: releaseYear })
         });
 
     } catch (error) {
@@ -124,7 +124,7 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
         };
     }
 
-    revalidatePath(`/movies/${userId}`);
+    revalidatePath(`/movies/${movieId}`);
     revalidatePath('/movies');
     redirect('/movies');
 }
@@ -132,7 +132,7 @@ export async function UpdateMovie_2(id: string, prevState: PatchState | undefine
 export async function DeleteMovie_2(id: string) {
     // console.log("id: " + id);
     try {
-        await fetch(`http://${process.env.OTHER_REST_API_IP}:${process.env.REST_API_PORT}/movie/${id}`,
+        await fetch(`http://${process.env.LOCAL_REST_API_IP}:${process.env.REST_API_PORT}/movie/${id}`,
             { method: 'DELETE', }
         );
         // console.log(data);

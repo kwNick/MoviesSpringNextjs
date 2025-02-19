@@ -23,10 +23,9 @@ const ShowSearchMovies = async ({ query, page }: { query: string, page: number }
                                 <div>
                                     <p>MovieId: {m.movieId}</p>
                                     <p>Title: {m.title}</p>
-                                    <p>Rating: {m.rating}</p>
-                                    <p>UserId: {m.userId}</p>
+                                    <p>Rating: {m.averageRating}</p>
+                                    <p>released: {m.releaseYear}</p>
                                     <p>Genres: {m.genres}</p>
-                                    <p>TimeStamp: {m.timestamp}</p>
                                 </div>
                                 <div className="container flex gap-3 justify-between">
                                     <UpdateMovieButton href={href} />

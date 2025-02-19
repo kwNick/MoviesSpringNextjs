@@ -12,9 +12,10 @@ const UpdateMovieForm = ({ movie, id }: { movie: Movie, id: string }) => {
     const [formMessage, setFormMessage] = useState("Must update a field to submit!");
 
     const [movieId, setMovieId] = useState(movie.movieId.toString());
-    const [rating, setRating] = useState(movie.rating.toString());
+    const [averageRating, setAverageRating] = useState(movie.averageRating.toString());
+    const [totalRatings, setTotalRatings] = useState(movie.totalRatings.toString());
     const [genres, setGenres] = useState(movie.genres);
-    const [userId, setUserId] = useState(movie.userId.toString());
+    const [releaseYear, setReleaseYear] = useState(movie.releaseYear.toString());
     const [title, setTitle] = useState(movie.title);
 
     useEffect(() => {
@@ -29,13 +30,13 @@ const UpdateMovieForm = ({ movie, id }: { movie: Movie, id: string }) => {
         }
     }, [isPending, isUpdated]);
     useEffect(() => {
-        if (movie.movieId.toString() == movieId && movie.rating.toString() == rating && movie.genres == genres &&
-            movie.userId.toString() == userId && movie.title == title) {
+        if (movie.movieId.toString() == movieId && movie.averageRating.toString() == averageRating && movie.genres == genres &&
+            movie.releaseYear.toString() == releaseYear && movie.title == title && movie.totalRatings.toString() == totalRatings) {
             setIsUpdated(false);
         } else {
             setIsUpdated(true);
         }
-    }, [movie, movieId, rating, genres, userId, title]);
+    }, [movie, movieId, averageRating, totalRatings, genres, releaseYear, title]);
     return (
         <form className="py-2 w-full h-full flex flex-col gap-y-3 items-center " action={formAction}>
             <div className="flex flex-col items-center">
@@ -67,21 +68,21 @@ const UpdateMovieForm = ({ movie, id }: { movie: Movie, id: string }) => {
             </div>
 
             <div className="flex flex-col items-center">
-                <label htmlFor="rating">Rating</label>
+                <label htmlFor="averageRating">averageRating</label>
                 <input className="border border-colour rounded-lg text-colour"
-                    id="rating"
-                    name="rating"
+                    id="averageRating"
+                    name="averageRating"
                     type="number"
-                    value={rating}
+                    value={averageRating}
                     // defaultValue={movie.rating}
-                    onChange={(e) => setRating(e.target.value)}
-                    placeholder={"rating: 0-10"}
+                    onChange={(e) => setAverageRating(e.target.value)}
+                    placeholder={"avg rating: 0-10"}
                     required
                     aria-describedby="rating-error"
                 />
                 <div id="rating-error" aria-live="polite" aria-atomic="true">
-                    {state.errors?.rating &&
-                        state.errors.rating.map((error: string) => (
+                    {state.errors?.averageRating &&
+                        state.errors.averageRating.map((error: string) => (
                             <p className="mt-2 text-sm text-accent" key={error}>
                                 {error}
                             </p>
@@ -102,26 +103,27 @@ const UpdateMovieForm = ({ movie, id }: { movie: Movie, id: string }) => {
                 />
             </div>
             <div className="flex flex-col items-center">
-                <label htmlFor="userId">UserId</label>
+                <label htmlFor="releaseYear">releaseYear</label>
                 <input className="border rounded-md"
-                    id="userId"
-                    name="userId"
+                    id="releaseYear"
+                    name="releaseYear"
                     type="number"
-                    value={userId}
+                    value={releaseYear}
                     // defaultValue={movie.userId}
-                    onChange={(e) => setUserId(e.target.value)}
-                    placeholder={"userId"}
+                    onChange={(e) => setReleaseYear(e.target.value)}
+                    placeholder={"releaseYear"}
                     required
                 />
             </div>
             <div className="flex flex-col items-center">
-                <label htmlFor="timestamp">Timestamp</label>
+                <label htmlFor="totalRatings">totalRatings</label>
                 <input className="border border-colour rounded-lg text-colour"
-                    id="timestamp"
-                    name="timestamp"
+                    id="totalRatings"
+                    name="totalRatings"
                     type="text"
-                    defaultValue={movie.timestamp}
-                    placeholder={"timestamp"}
+                    value={totalRatings}
+                    onChange={(e) => setTotalRatings(e.target.value)}
+                    placeholder={"totalRatings"}
                     readOnly
                 />
             </div>

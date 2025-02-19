@@ -21,14 +21,16 @@ export default async function Home() {
       <div className="hidden list px-6 min-h-fit min-w-fit sm:flex items-center justify-center gap-x-4 ">
         {movies._embedded.movie.map((x: Movie, idx: number) => {
           const href = x._links.self.href;
+          console.log(href);
           const idMatch = href.match(/\/([^\/]+)$/);
           const id = idMatch ? idMatch[1] : "";
+          console.log(id);
           return (
             <Link href={`/movies/${id}`} key={idx} className=" item w-full h-fit px-2 py-1 border rounded-lg border-contrast bg-colour text-contrast transition-all ease-in duration-300 brightness-0 flex items-center justify-center animate-moviesFadeIn">
               <div className="w-full h-full flex flex-col items-center justify-center text-center">
                 <p>{x.title}</p>
-                <p>Rating: {x.rating}</p>
-                <p>UserId: {x.userId}</p>
+                <p>Rating: {x.averageRating}</p>
+                <p>Released: {x.releaseYear}</p>
               </div>
             </Link>
           );
@@ -59,8 +61,8 @@ export default async function Home() {
                 <div className="p-2 w-full min-h-fit flex flex-col items-center justify-start rounded-lg bg-colour text-center group-hover:-translate-y-[50%] duration-500 ">
                   <p>{x.title}</p>
                   <span className="opacity-0 group-hover:opacity-100 duration-500">
-                    <p>Rating: {x.rating}</p>
-                    <p>UserId: {x.userId}</p>
+                    <p>Rating: {x.averageRating}</p>
+                    <p>released: {x.releaseYear}</p>
                   </span>
                 </div>
 

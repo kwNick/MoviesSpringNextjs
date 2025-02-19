@@ -7,8 +7,8 @@ export type Movie = {
     movieId: number;
     title: string;
     genres: string;
-    userId: number;
-    rating: number;
-    timestamp: string;
+    averageRating: number;
+    totalRatings: number;
+    releaseYear: number;
     _links: Link;
 }

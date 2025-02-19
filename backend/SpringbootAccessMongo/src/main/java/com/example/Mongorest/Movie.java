@@ -11,9 +11,12 @@ public class Movie {
     private int movieId;
     private String title;
     private String genres;
-    private int userId;
-    private int rating;
-    private String timestamp;
+    private double averageRating;
+    private int totalRatings;
+    private int releaseYear;
+    // private int userId;
+    // private int rating;
+    // private String timestamp;
 
     public String getId() {
         return this.id;
@@ -47,27 +50,51 @@ public class Movie {
         this.genres = genres;
     }
 
-    public int getUserId() {
-        return this.userId;
+    // public int getUserId() {
+    //     return this.userId;
+    // }
+
+    // public void setUserId(int userId) {
+    //     this.userId = userId;
+    // }
+
+    // public int getRating() {
+    //     return this.rating;
+    // }
+
+    // public void setRating(int rating) {
+    //     this.rating = rating;
+    // }
+
+    // public String getTimestamp() {
+    //     return this.timestamp;
+    // }
+
+    // public void setTimestamp(String timestamp) {
+    //     this.timestamp = timestamp;
+    // }
+
+    public double getAverageRating() {
+        return averageRating;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setAverageRating(double averageRating) {
+        this.averageRating = averageRating;
     }
 
-    public int getRating() {
-        return this.rating;
+    public int getTotalRatings() {
+        return totalRatings;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setTotalRatings(int totalRatings) {
+        this.totalRatings = totalRatings;
     }
 
-    public String getTimestamp() {
-        return this.timestamp;
+    public int getReleaseYear() {
+        return releaseYear;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    public void setReleaseYear(int releaseYear) {
+        this.releaseYear = releaseYear;
     }
 }

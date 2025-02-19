@@ -9,8 +9,9 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "movie", path = "movie")
 public interface MovieRepository extends MongoRepository<Movie, String> {
 
-    List<Movie> findByUserId(int userId);
-
+    // List<Movie> findByUserId(int userId);
+    List<Movie> findByMovieId(int movieId);
+    
     // List<Movie> findByTitle(String title);
     // List<Movie> findByTitleContaining(String title);
     // List<Movie> findByTitleLike(String title);
