@@ -1,4 +1,4 @@
-import "./LinkAnimation.css"
+
 export default function MoviesLayout({
     children,
 }: Readonly<{

@@ -3,8 +3,8 @@ import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import { hind } from "./resources/fonts";
 import Footer from "./components/Footer";
-import HomeCursor from "./components/cursors/HomeCursor";
-import RisingBlocks from "./components/RisingBlocks";
+// import HomeCursor from "./components/cursors/HomeCursor";
+// import RisingBlocks from "./components/RisingBlocks";
 
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({
         className={`${hind.className} relative antialiased w-screen min-h-screen tracking-wide selection:bg-fuchsia-300 scroll-smooth`}
       >
         {/* cursor */}
-        <HomeCursor />
+        {/* <HomeCursor /> */}
 
         <header className="sticky top-0 z-20">
           <Navbar />
@@ -36,7 +36,7 @@ export default function RootLayout({
         </footer>
 
         {/*RisingBlocksAnimation  */}
-        <RisingBlocks />
+        {/* <RisingBlocks /> */}
       </body>
     </html>
   );

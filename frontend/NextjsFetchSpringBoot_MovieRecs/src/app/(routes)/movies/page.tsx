@@ -4,6 +4,7 @@ import ShowSearchMovies from "../../components/movies/ShowSearchMovies";
 import Pagination from "../../components/movies/Pagination";
 import Link from "next/link";
 import SearchMoviesSkeleton from "../../components/skeletons/SearchMoviesSkeleton";
+import "./LinkAnimation.css"
 
 const page = async (
     props: {

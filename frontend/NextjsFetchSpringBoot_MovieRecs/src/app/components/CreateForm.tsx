@@ -26,11 +26,11 @@ const CreateForm = () => {
         }
     }, [state])
     return (
-        <div className="w-[50%] h-full">
+        <div className="w-[50%] h-full text-center">
             <p>
                 CreateForm
             </p>
-            <div className="w-full h-full">
+            <div className="w-full h-full ">
                 <form className="py-2 w-full h-full border-2 border-colour flex flex-col gap-y-3 items-center rounded-lg" action={formAction}>
                     <div className="flex flex-col items-center">
                         <label htmlFor="movieId">MovieId</label>

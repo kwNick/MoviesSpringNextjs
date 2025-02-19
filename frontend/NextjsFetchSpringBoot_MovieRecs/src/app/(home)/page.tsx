@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { FindByTitleLike } from "./resources/data";
-import { Movie } from "./resources/definitions";
-import TextFadeIn from "./components/home/TextFadeIn";
-import DevIntro from "./components/home/DevIntro";
+import { FindByTitleLike } from "../resources/data";
+import { Movie } from "../resources/definitions";
+import TextFadeIn from "../components/home/TextFadeIn";
+import DevIntro from "../components/home/DevIntro";
 
 export default async function Home() {
   const movies = await FindByTitleLike();
@@ -21,10 +21,10 @@ export default async function Home() {
       <div className="hidden list px-6 min-h-fit min-w-fit sm:flex items-center justify-center gap-x-4 ">
         {movies._embedded.movie.map((x: Movie, idx: number) => {
           const href = x._links.self.href;
-          console.log(href);
+          // console.log(href);
           const idMatch = href.match(/\/([^\/]+)$/);
           const id = idMatch ? idMatch[1] : "";
-          console.log(id);
+          // console.log(id);
           return (
             <Link href={`/movies/${id}`} key={idx} className=" item w-full h-fit px-2 py-1 border rounded-lg border-contrast bg-colour text-contrast transition-all ease-in duration-300 brightness-0 flex items-center justify-center animate-moviesFadeIn">
               <div className="w-full h-full flex flex-col items-center justify-center text-center">
