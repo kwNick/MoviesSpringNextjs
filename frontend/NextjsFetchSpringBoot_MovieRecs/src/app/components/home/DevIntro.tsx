@@ -22,7 +22,7 @@ const DevIntro = () => {
         };
     }, []);
     return (
-        <div ref={boxRef} className="group relative w-[50vw] min-h-fit ">
+        <div ref={boxRef} className="group relative w-[50vw] min-h-fit text-center">
             <span className="absolute top-[-15%] left-[-10%] [text-shadow:0_0_10px_var(--colour)]">Hover to Reveal</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 absolute left-[-5%] [filter:_drop-shadow(0_0_5px_var(--colour))]">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m16.49 12 3.75 3.75m0 0-3.75 3.75m3.75-3.75H3.74V4.499" />
@@ -32,7 +32,7 @@ const DevIntro = () => {
                 <span ref={hoverRef} className="absolute w-0 h-0 rounded-full bg-colour [transition-timing-function:_ease] group-hover:w-[100px] group-hover:h-[100px] [transform:_translate(-50%,_-50%)] -z-10" />
                 <section>
                     <p className="text-lg lg:text-xl">
-                        <span>Dev:</span> Nickolas Piraino
+                        Dev: <span className="[text-shadow:0_0_10px_var(--accent)]">Nickolas Piraino</span>
                     </p>
                 </section>
                 <section className="text-center ">

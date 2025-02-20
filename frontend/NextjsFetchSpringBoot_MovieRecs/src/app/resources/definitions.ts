@@ -6,7 +6,7 @@ export type Movie = {
     id: string;
     movieId: number;
     title: string;
-    genres: string;
+    genres: string[];
     averageRating: number;
     totalRatings: number;
     releaseYear: number;

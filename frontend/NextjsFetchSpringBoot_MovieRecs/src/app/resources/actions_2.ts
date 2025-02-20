@@ -10,8 +10,7 @@ const FormSchema = z.object({
     movieId: z.coerce.number(),
     title: z.string(),
     averageRating: z.coerce.number()
-        .lt(11, { message: 'please enter a number in the range 0-10.' }).gt(0, { message: 'please enter a number in the range 0-10.' })
-    ,
+        .lt(11, { message: 'please enter a number in the range 0-10.' }).gt(0, { message: 'please enter a number in the range 0-10.' }),
     genres: z.string(),
     totalRatings: z.coerce.number(),
     releaseYear: z.coerce.number(),

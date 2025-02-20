@@ -1,5 +1,7 @@
 package com.example.Mongorest;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,7 +12,7 @@ public class Movie {
     private String id;
     private int movieId;
     private String title;
-    private String genres;
+    private List<String> genres;
     private double averageRating;
     private int totalRatings;
     private int releaseYear;
@@ -42,11 +44,11 @@ public class Movie {
         this.title = title;
     }
 
-    public String getGenres() {
+    public List<String> getGenres() {
         return this.genres;
     }
 
-    public void setGenres(String genres) {
+    public void setGenres(List<String> genres) {
         this.genres = genres;
     }
 
