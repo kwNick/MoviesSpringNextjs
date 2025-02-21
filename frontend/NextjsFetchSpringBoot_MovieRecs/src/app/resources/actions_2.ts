@@ -23,7 +23,7 @@ export type State = {
         title?: string[];
         averageRating?: string[];
         genres?: string[];
-        totalRatings?: string[]
+        totalRatings?: string[];
         releaseYear?: string[];
     } | undefined;
     message?: string | null;
@@ -82,7 +82,7 @@ export type PatchState = {
         title?: string[];
         averageRating?: string[];
         genres?: string[];
-        totalRatings?: string[]
+        totalRatings?: string[];
         releaseYear?: string[];
     };
     message?: string | null;
