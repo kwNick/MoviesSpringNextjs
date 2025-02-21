@@ -14,7 +14,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: Movie, id: string }) => {
     const [movieId, setMovieId] = useState(movie.movieId.toString());
     const [averageRating, setAverageRating] = useState(movie.averageRating.toString());
     const [totalRatings, setTotalRatings] = useState(movie.totalRatings.toString());
-    const [genres, setGenres] = useState(movie.genres);
+    const [genres, setGenres] = useState(movie.genres.join(" "));
     const [releaseYear, setReleaseYear] = useState(movie.releaseYear.toString());
     const [title, setTitle] = useState(movie.title);
 
@@ -30,7 +30,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: Movie, id: string }) => {
         }
     }, [isPending, isUpdated]);
     useEffect(() => {
-        if (movie.movieId.toString() == movieId && movie.averageRating.toString() == averageRating && movie.genres == genres &&
+        if (movie.movieId.toString() == movieId && movie.averageRating.toString() == averageRating && movie.genres.join(" ") == genres &&
             movie.releaseYear.toString() == releaseYear && movie.title == title && movie.totalRatings.toString() == totalRatings) {
             setIsUpdated(false);
         } else {
