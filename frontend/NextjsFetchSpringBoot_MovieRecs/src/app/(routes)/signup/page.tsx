@@ -3,7 +3,7 @@ import "../login/LoginFormAnimations.css"
 
 const page = () => {
     return (
-        <div className="w-full h-[90vh] flex flex-col items-center justify-center gap-y-3">
+        <div className="w-full h-[80vh] flex flex-col items-center justify-center gap-y-3">
             <div>
                 <p className="w-0 underline text-2xl lg:text-3xl xl:text-4xl overflow-hidden animate-typewriter">Signup</p>
             </div>
@@ -44,7 +44,6 @@ const page = () => {
                     Already have an account? <Link href={"/login"} className="underline">Login</Link>
                 </p>
             </form >
-
         </div >
     )
 }

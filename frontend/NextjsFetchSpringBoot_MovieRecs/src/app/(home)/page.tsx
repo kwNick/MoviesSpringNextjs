@@ -17,7 +17,8 @@ export default async function Home() {
         </h1>
       </div>
 
-      <div className="hidden w-full h-screen sm:flex items-center justify-center">
+      <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
+        <div className="absolute inset-0 " />
         <div className=" w-3/4 h-3/4 flex items-center justify-center">
 
           <div className="text-center">
@@ -49,14 +50,14 @@ export default async function Home() {
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
-      <div className=" w-full h-screen flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
+      <div className=" w-full h-[85vh] flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
         <div className="snowShadow relative w-3/4 h-3/4 flex flex-col items-center justify-center text-center gap-y-4 before:absolute before:bottom-[-3%] before:left-50% before:w-[50%] before:h-[50%] before:bg-accent before:rounded-full">
           <p className="text-xl xl:text-3xl animate-textFadeIn animTextScroll">Movies for Everyone!</p>
           <TextFadeIn />
         </div>
       </div>
 
-      <div className="hidden w-full h-screen sm:flex items-center justify-center">
+      <div className="hidden w-full h-[85vh] sm:flex items-center justify-center">
         {/* Top rated movies section */}
         <div className=" h-3/4 w-3/4 flex items-center justify-center">
           <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent text-center">Top Rated Movies</h2>
