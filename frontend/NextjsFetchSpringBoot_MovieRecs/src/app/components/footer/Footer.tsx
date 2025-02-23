@@ -1,4 +1,4 @@
-import { navItems } from "../resources/navItems"
+import { navItems } from "../../resources/navItems"
 import FooterNavItem from "./FooterNavItem"
 import Link from "next/link"
 

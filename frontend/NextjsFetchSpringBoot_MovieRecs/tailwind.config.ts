@@ -56,6 +56,10 @@ const config: Config = {
         slidingMarquee: {
           "0%,15%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-100%)" }
+        },
+        bgFadeOut: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" }
         }
       },
       animation: {
@@ -66,6 +70,7 @@ const config: Config = {
         lineLandingHeaderAnim: "lineLandingHeaderAnim 6s linear 3s infinite",
         snowFall: "snowFall 10s ease-out infinite",
         slidingMarquee: "slidingMarquee 40s linear infinite",
+        bgFadeOut: "bgFadeOut",
       },
     },
   },

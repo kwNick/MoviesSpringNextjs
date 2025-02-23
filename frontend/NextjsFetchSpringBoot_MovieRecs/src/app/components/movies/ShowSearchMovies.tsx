@@ -18,16 +18,16 @@ const ShowSearchMovies = async ({ query, page }: { query: string, page: number }
                     // const userId = href.match(/\/([^\/]+)$/)[1];
                     return (
                         <div key={idx} className="w-full">
-                            <div className="flex flex-col p-3 m-3 items-center">
+                            <div className="flex flex-col p-3 m-3 items-center justify-center gap-y-4">
                                 {/* <p>id: {m._links?.self?.href}</p>  */}
                                 <div>
                                     <p>MovieId: {m.movieId}</p>
                                     <p>Title: {m.title}</p>
                                     <p>Rating: {m.averageRating}</p>
                                     <p>released: {m.releaseYear}</p>
-                                    <p>Genres: {m.genres}</p>
+                                    <p>Genres: {m.genres.join(" ")}</p>
                                 </div>
-                                <div className="container flex gap-3 justify-between">
+                                <div className="container flex gap-3 justify-around">
                                     <UpdateMovieButton href={href} />
                                     <DeleteMovieButton href={href} />
                                 </div>

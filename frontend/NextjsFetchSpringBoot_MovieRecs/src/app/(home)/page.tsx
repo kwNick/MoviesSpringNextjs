@@ -18,11 +18,14 @@ export default async function Home() {
       </div>
 
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
-        <div className="absolute inset-0 " />
-        <div className=" w-3/4 h-3/4 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black z-[-10] opacity-0 animate-bgFadeOut animTextScroll" />
+
+        <div className=" w-3/4 h-3/4 flex items-center justify-center gap-x-8">
 
           <div className="text-center">
-            <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent">Top Rated Movies</h2>
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent">
+              Top Rated Movies
+            </h2>
           </div>
 
           {/* Top rated movies section */}
@@ -57,9 +60,12 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="hidden w-full h-[85vh] sm:flex items-center justify-center">
+      <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
+
+        <div className="absolute inset-0 bg-black z-[10] opacity-0 animate-bgFadeOut animTextScroll pointer-events-none" />
+
         {/* Top rated movies section */}
-        <div className=" h-3/4 w-3/4 flex items-center justify-center">
+        <div className=" h-3/4 w-3/4 flex items-center justify-center gap-x-8">
           <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent text-center">Top Rated Movies</h2>
           <div className="w-full h-full flex items-center gap-x-4">
             {movies._embedded.movie.map((x: Movie, idx: number) => {
