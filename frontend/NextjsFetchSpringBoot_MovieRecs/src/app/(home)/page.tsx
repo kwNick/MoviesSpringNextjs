@@ -12,7 +12,7 @@ export default async function Home() {
     <main className="w-full flex flex-col items-center justify-center">
 
       {/* Landing Header section */}
-      <div className="m-2 relative p-2 w-full h-[85vh] flex flex-col items-center justify-around ">
+      <div className="relative p-2 w-full h-[85vh] flex flex-col items-center justify-around ">
         <video className="absolute inset-0 z-[-10] w-full h-full object-cover" autoPlay loop muted>
           <source src={"/videos/theaterPan.mp4"} type="video/mp4" />
         </video>
