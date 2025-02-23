@@ -30,8 +30,10 @@ export default async function Home() {
 
         <div className=" w-3/4 h-3/4 flex items-center justify-center gap-x-8">
 
-          <div className="text-center">
-            <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent">
+          <div className="text-center relative w-full h-full flex items-center">
+            <div className={`absolute inset-0 rounded-lg [background-image:_url('/pictures/retroTv.jpg')] bg-cover object-contain bg-[50%] z-[-10] before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.4)] before:z-[-10]`} />
+
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent ">
               Top Rated Movies
             </h2>
           </div>
@@ -74,7 +76,15 @@ export default async function Home() {
 
         {/* Top rated movies section */}
         <div className=" h-3/4 w-3/4 flex items-center justify-center gap-x-8">
-          <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent text-center">Top Rated Movies</h2>
+
+          <div className="text-center relative w-full h-full flex items-center">
+            <div className={`absolute inset-0 rounded-lg [background-image:_url('/pictures/camera.jpg')] bg-cover object-contain bg-[50%] z-[-10] before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.4)] before:z-[-10]`} />
+
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent ">
+              Top Rated Movies
+            </h2>
+          </div>
+          {/* <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent text-center">Top Rated Movies</h2> */}
           <div className="w-full h-full flex items-center gap-x-4">
             {movies._embedded.movie.map((x: Movie, idx: number) => {
               const href = x._links.self.href;
