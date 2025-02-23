@@ -3,6 +3,7 @@ import { FindByTitleLike } from "../resources/data";
 import { Movie } from "../resources/definitions";
 import TextFadeIn from "../components/home/TextFadeIn";
 import DevIntro from "../components/home/DevIntro";
+// import theaterPan from "@/videos/";
 
 export default async function Home() {
   const movies = await FindByTitleLike();
@@ -11,10 +12,17 @@ export default async function Home() {
     <main className="w-full flex flex-col items-center justify-center">
 
       {/* Landing Header section */}
-      <div className="m-2 p-2 w-full h-[85vh] flex flex-col items-center justify-around animate-headerFadeIn">
-        <h1 className="relative landingHeader text-6xl lg:text-7xl xl:text-8xl border-accent after:h-[2%] after:absolute after:bg-accent after:bottom-[-8%] after:left-0 after:animate-lineLandingHeaderAnim">
-          MovieRecs
-        </h1>
+      <div className="m-2 relative p-2 w-full h-[85vh] flex flex-col items-center justify-around ">
+        <video className="absolute inset-0 z-[-10] w-full h-full object-cover" autoPlay loop muted>
+          <source src={"/videos/theaterPan.mp4"} type="video/mp4" />
+        </video>
+
+
+        <div className="w-full h-full flex items-center justify-center animate-headerFadeIn">
+          <h1 className="relative landingHeader text-6xl lg:text-7xl xl:text-8xl border-accent after:h-[2%] after:absolute after:bg-accent after:bottom-[-8%] after:left-0 after:animate-lineLandingHeaderAnim">
+            MovieRecs
+          </h1>
+        </div>
       </div>
 
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
@@ -76,7 +84,7 @@ export default async function Home() {
                 <Link href={`/movies/${id}`} key={idx} className="group relative w-2/5 h-1/2 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden text-xs md:text-sm lg:text-base duration-500 hover:h-3/5 animate-moviesFadeIn">
 
                   <div className="rounded-lg w-full h-4/5 block" >
-                    <div className={`rounded-lg bg-contrast w-full h-full [background-image:_url('./resources/pictures/moviePic.jpg')] bg-cover bg-[100%] [filter:_blur(1px)] group-hover:[filter:_none] duration-300`} />
+                    <div className={`rounded-lg bg-contrast w-full h-full [background-image:_url('/pictures/moviePic.jpg')] bg-cover bg-[100%] [filter:_blur(1px)] group-hover:[filter:_none] duration-300`} />
                   </div>
 
                   <div className="p-2 w-full min-h-fit flex flex-col items-center justify-start rounded-lg bg-colour text-center group-hover:-translate-y-[100%] duration-500 ">
