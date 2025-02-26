@@ -1,6 +1,6 @@
-import UpdateMovieForm from "@/app/components/UpdateMovieForm";
-import UpdateMovieFormSkeleton from "@/app/components/skeletons/UpdateMovieFormSkeleton";
-import { FindMovieById } from "@/app/resources/data";
+import UpdateMovieForm from "@/components/UpdateMovieForm";
+import UpdateMovieFormSkeleton from "@/components/skeletons/UpdateMovieFormSkeleton";
+import { FindMovieById } from "@/resources/data";
 import { Suspense } from "react";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {

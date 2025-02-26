@@ -1,5 +1,5 @@
-import HomeCursor from "../components/cursors/HomeCursor";
-import RisingBlocks from "../components/RisingBlocks";
+import HomeCursor from "../../components/cursors/HomeCursor";
+import RisingBlocks from "../../components/RisingBlocks";
 
 export default function Template({ children }: { children: React.ReactNode }) {
     return (

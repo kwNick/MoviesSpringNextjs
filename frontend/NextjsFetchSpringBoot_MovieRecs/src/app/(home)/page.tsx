@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { FindByTitleLike } from "../resources/data";
-import { Movie } from "../resources/definitions";
-import TextFadeIn from "../components/home/TextFadeIn";
-import DevIntro from "../components/home/DevIntro";
-// import theaterPan from "@/videos/";
+import { FindByTitleLike } from "../../resources/data";
+import { Movie } from "../../resources/definitions";
+import TextFadeIn from "../../components/home/TextFadeIn";
+import DevIntro from "../../components/home/DevIntro";
 
 export default async function Home() {
   const movies = await FindByTitleLike();
@@ -28,12 +27,13 @@ export default async function Home() {
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
         <div className="absolute inset-0 bg-black z-[-10] opacity-0 animate-bgFadeOut animTextScroll" />
 
-        <div className=" w-3/4 h-3/4 flex items-center justify-center gap-x-8">
+        <div className=" w-3/4 h-3/4 flex items-center justify-center gap-x-8 ">
 
-          <div className="text-center relative w-full h-full flex items-center">
-            <div className={`absolute inset-0 rounded-lg [background-image:_url('/pictures/retroTv.jpg')] bg-cover object-contain bg-[50%] z-[-10] before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.4)] before:z-[-10]`} />
+          <div className="text-center relative w-full h-full flex items-center justify-center rounded-full [box-shadow:0_0_5px_1px_rgba(239,68,68,.3)] overflow-hidden">
+            <div className={`absolute inset-0 rounded-lg [background-image:_url('/pictures/retroTv.jpg')] bg-cover object-contain bg-[50%] z-[-10] before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.5)] before:z-[-10]`} />
+            {/* <Image src={"/pictures/retroTv.jpg"} width={100} height={100} alt={"retroTV background"} className={`absolute w-full h-full inset-0 rounded-lg object-contain z-[-10] before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.4)] before:z-[-10]`} /> */}
 
-            <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent ">
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent [text-shadow:0_0_5px_var(--accent),_0_0_1px_var(--colour)]">
               Top Rated Movies
             </h2>
           </div>
@@ -77,10 +77,10 @@ export default async function Home() {
         {/* Top rated movies section */}
         <div className=" h-3/4 w-3/4 flex items-center justify-center gap-x-8">
 
-          <div className="text-center relative w-full h-full flex items-center">
-            <div className={`absolute inset-0 rounded-lg [background-image:_url('/pictures/camera.jpg')] bg-cover object-contain bg-[50%] z-[-10] before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.4)] before:z-[-10]`} />
+          <div className="text-center relative w-full h-full flex items-center justify-center rounded-lg shadow-accent [box-shadow:0_0_5px_1px_rgba(239,68,68,.3)] overflow-hidden">
+            <div className={`absolute inset-0 rounded-lg [background-image:_url('/pictures/camera.jpg')] bg-cover object-contain bg-[50%] z-[-10] before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.5)] before:z-[-10]`} />
 
-            <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent ">
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent [text-shadow:0_0_5px_var(--accent),_0_0_1px_var(--colour)]">
               Top Rated Movies
             </h2>
           </div>
@@ -94,7 +94,7 @@ export default async function Home() {
                 <Link href={`/movies/${id}`} key={idx} className="group relative w-2/5 h-1/2 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden text-xs md:text-sm lg:text-base duration-500 hover:h-3/5 animate-moviesFadeIn">
 
                   <div className="rounded-lg w-full h-4/5 block" >
-                    <div className={`rounded-lg bg-contrast w-full h-full [background-image:_url('/pictures/moviePic.jpg')] bg-cover bg-[100%] [filter:_blur(1px)] group-hover:[filter:_none] duration-300`} />
+                    <div className={`rounded-lg bg-contrast w-full h-full [background-image:_url('/pictures/moviePic.jpg')] bg-cover bg-[100%] [filter:_blur(1px)] group-hover:[filter:_none] duration-300 before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.4)] before:z-[-10] group-hover:before:bg-[rgb(0,0,0,0.0)] before:transition-all before:duration-300`} />
                   </div>
 
                   <div className="p-2 w-full min-h-fit flex flex-col items-center justify-start rounded-lg bg-colour text-center group-hover:-translate-y-[100%] duration-500 ">

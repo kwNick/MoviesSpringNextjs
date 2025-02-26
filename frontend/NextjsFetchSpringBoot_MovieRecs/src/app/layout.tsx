@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./components/navbar/Navbar";
-import { hind } from "./resources/fonts";
-import Footer from "./components/footer/Footer";
+import Navbar from "./../components/navbar/Navbar";
+import { hind } from "../resources/fonts";
+import Footer from "./../components/footer/Footer";
 // import HomeCursor from "./components/cursors/HomeCursor";
 // import RisingBlocks from "./components/RisingBlocks";
 
