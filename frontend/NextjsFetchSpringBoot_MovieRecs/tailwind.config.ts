@@ -57,6 +57,10 @@ const config: Config = {
           "0%,15%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-100%)" }
         },
+        bgFadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" }
+        },
         bgFadeOut: {
           "0%": { opacity: "1" },
           "100%": { opacity: "0" }
@@ -71,6 +75,7 @@ const config: Config = {
         snowFall: "snowFall 10s ease-out infinite",
         slidingMarquee: "slidingMarquee 40s linear infinite",
         bgFadeOut: "bgFadeOut",
+        bgFadeIn: "bgFadeIn 1s ease-in-out"
       },
     },
   },
