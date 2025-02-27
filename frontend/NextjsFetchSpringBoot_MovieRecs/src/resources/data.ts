@@ -27,11 +27,11 @@ export async function FindMovieByUserId_2(movieId: string) {
     }
 }
 
-export async function FindByTitleLike(query?: string, page?: number) {
+export async function FindByTitleLike(query?: string, page?: number, size?: number) {
     try {
         query = query ?? "";
         page = page ?? 0;
-        const size = 5;
+        size = size ?? 5;
         const data = await fetch(`http://${process.env.LOCAL_REST_API_IP}:${process.env.REST_API_PORT}/movie/search/findByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}`);
         return data.json();
     } catch (error) {
