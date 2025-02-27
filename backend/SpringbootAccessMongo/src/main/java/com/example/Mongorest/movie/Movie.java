@@ -1,4 +1,4 @@
-package com.example.Mongorest;
+package com.example.Mongorest.movie;
 
 import java.util.List;
 
