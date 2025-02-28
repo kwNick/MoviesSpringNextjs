@@ -47,7 +47,7 @@ export default async function Home() {
               const id = idMatch ? idMatch[1] : "";
               // console.log(id);
               return (
-                <Link href={`/movies/${id}`} key={idx} className=" item w-full h-1/2 px-2 py-1 border rounded-lg border-contrast bg-colour text-contrast transition-all ease-in duration-300 brightness-0 flex items-center justify-center animate-moviesFadeIn">
+                <Link href={`/movies/${id}`} key={idx} className=" item w-full h-1/2 px-2 py-1 border rounded-lg border-contrast bg-colour text-contrast transition-all ease-in duration-300 brightness-0 text-xs md:text-sm lg:text-base flex items-center justify-center animate-moviesFadeIn">
                   <div className="w-full h-full flex flex-col items-center justify-center text-center">
                     <p>{x.title}</p>
                     <p>Rating: {x.averageRating}</p>
@@ -77,7 +77,7 @@ export default async function Home() {
         {/* Top rated movies section */}
         <div className=" h-3/4 w-3/4 flex items-center justify-center gap-x-8">
 
-          <div className="text-center relative w-full h-full flex items-center justify-center rounded-lg shadow-accent [box-shadow:0_0_5px_1px_rgba(239,68,68,.3)] overflow-hidden">
+          <div className="hidden text-center relative w-full h-full lg:flex items-center justify-center rounded-lg shadow-accent [box-shadow:0_0_5px_1px_rgba(239,68,68,.3)] overflow-hidden">
             <div className={`absolute inset-0 rounded-lg [background-image:_url('/pictures/camera.jpg')] bg-cover object-contain bg-[50%] z-[-10] before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.5)] before:z-[-10]`} />
 
             <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent [text-shadow:0_0_5px_var(--accent),_0_0_1px_var(--colour)]">

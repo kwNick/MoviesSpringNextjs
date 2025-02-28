@@ -64,6 +64,14 @@ const config: Config = {
         bgFadeOut: {
           "0%": { opacity: "1" },
           "100%": { opacity: "0" }
+        },
+        rotateClockWise: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" }
+        },
+        rotateCounterClock: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(-360deg)" }
         }
       },
       animation: {
@@ -75,7 +83,9 @@ const config: Config = {
         snowFall: "snowFall 10s ease-out infinite",
         slidingMarquee: "slidingMarquee 40s linear infinite",
         bgFadeOut: "bgFadeOut",
-        bgFadeIn: "bgFadeIn 1s ease-in-out"
+        bgFadeIn: "bgFadeIn 1s ease-in-out",
+        rotateClockWise: "rotateClockWise 5s linear infinite",
+        rotateCounterClock: "rotateCounterClock 5s linear infinite"
       },
     },
   },

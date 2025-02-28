@@ -28,8 +28,8 @@ const DevIntro = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="m16.49 12 3.75 3.75m0 0-3.75 3.75m3.75-3.75H3.74V4.499" />
             </svg>
 
-            <div className="relative text-contrast bg-transparent border border-colour rounded-lg flex flex-col items-center gap-y-3 p-2 lg:p-3 xl:p-4 overflow-hidden">
-                <span ref={hoverRef} className="absolute w-0 h-0 rounded-full bg-colour [transition-timing-function:_ease] group-hover:w-[100px] group-hover:h-[100px] [transform:_translate(-50%,_-50%)] -z-10" />
+            <div className="relative text-contrast bg-transparent border border-colour rounded-lg flex flex-col items-center gap-y-3 p-5 lg:p-7 xl:p-9 overflow-hidden">
+                <span ref={hoverRef} className="absolute w-0 h-0 rounded-full bg-colour [transition-timing-function:_linear] group-hover:w-[200px] group-hover:h-[200px] [transform:_translate(-50%,_-50%)] -z-10 duration-100" />
                 <section>
                     <p className="text-lg lg:text-xl">
                         Dev: <span className="[text-shadow:0_0_10px_var(--accent)]">Nickolas Piraino</span>
