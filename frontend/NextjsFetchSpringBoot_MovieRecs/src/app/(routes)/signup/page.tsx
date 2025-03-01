@@ -4,12 +4,12 @@ import "../login/LoginFormAnimations.css"
 const page = () => {
     return (
         <div className=" w-full h-[80vh] flex flex-col items-center justify-center gap-y-3">
-            <div className="group relative w-1/2 h-3/5 flex flex-col items-center justify-center gap-y-3">
-                <span className="absolute inset-0 border rounded-[38%_62%_63%_37%_/_41%_44%_56%_59%] animate-rotateClockWise [animation-duration:_10s] group-hover:border-snow group-hover:border-[4px] group-hover:[filter:_drop-shadow(0_0_5px_var(--snow))]" />
+            <div className="group relative w-1/2 h-3/5 flex flex-col items-center justify-center gap-y-3 ">
+                <span className="absolute inset-0 border rounded-[38%_62%_63%_37%_/_41%_44%_56%_59%] animate-rotateClockWise [animation-duration:_10s] group-hover:border-snow group-hover:border-[4px] group-hover:[filter:_drop-shadow(0_0_5px_var(--snow))] duration-300" />
                 {/* <span className="absolute inset-0 border rounded-[41%_44%_56%_59%_/_38%_62%_63%_37%] animate-rotateClockWise [animation-duration:_4s]" /> */}
                 {/* <span className="absolute inset-0 border rounded-[38%_62%_63%_37%_/_41%_44%_56%_59%] animate-rotateClockWise [animation-duration:_20s]" /> */}
-                <span className="absolute inset-0 border rounded-[20%_39%_38%_42%_/_45%_40%_51%_58%] animate-rotateCounterClock [animation-duration:_10s] group-hover:border-colour group-hover:border-[4px] group-hover:[filter:_drop-shadow(0_0_5px_var(--colour))]" />
-                <span className="absolute inset-0 border rounded-[40%_62%_59%_30%_/_48%_42%_54%_51%] animate-rotateClockWise [animation-duration:_12s] group-hover:border-accent group-hover:border-[4px] group-hover:[filter:_drop-shadow(0_0_5px_var(--accent))]" />
+                <span className="absolute inset-0 border rounded-[20%_39%_38%_42%_/_45%_40%_51%_58%] animate-rotateCounterClock [animation-duration:_10s] group-hover:border-colour group-hover:border-[4px] group-hover:[filter:_drop-shadow(0_0_5px_var(--colour))] duration-300" />
+                <span className="absolute inset-0 border rounded-[40%_62%_59%_30%_/_48%_42%_54%_51%] animate-rotateClockWise [animation-duration:_12s] group-hover:border-accent group-hover:border-[4px] group-hover:[filter:_drop-shadow(0_0_5px_var(--accent))] duration-300" />
                 <div>
                     <p className="w-0 underline text-2xl lg:text-3xl xl:text-4xl overflow-hidden animate-typewriter">Signup</p>
                 </div>
