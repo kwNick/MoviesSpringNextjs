@@ -1,14 +1,4 @@
-// 'use client';
-// import { useRef } from "react";
-
 const RadioCard = ({ idx, title, description }: { idx: number, title: string, description: string }) => {
-    // const card = useRef<HTMLInputElement>(null);
-    // console.log(card?.current?.checked);
-    // const radioChecked = () => {
-    //     if (card.current) {
-    //         card.current.checked = !card.current.checked;
-    //     }
-    // };
 
     return (
         <div className="group h-full flex flex-nowrap items-center justify-center overflow-hidden">

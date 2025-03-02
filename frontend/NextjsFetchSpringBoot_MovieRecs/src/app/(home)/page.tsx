@@ -76,7 +76,6 @@ export default async function Home() {
 
         <div className="absolute inset-0 bg-black z-[10] opacity-0 animate-bgFadeOut animTextScroll pointer-events-none" />
 
-
         <div className=" h-3/4 w-3/4 flex items-center justify-center gap-x-8">
 
           <div className="hidden text-center relative w-full h-full lg:flex items-center justify-center rounded-lg shadow-accent [box-shadow:0_0_5px_1px_rgba(239,68,68,.3)] overflow-hidden">
@@ -132,9 +131,7 @@ export default async function Home() {
           {
             movies._embedded.movie.map((x: Movie, idx: number) => {
               return (
-                <>
-                  <RadioCard key={idx} idx={idx} title={x.title} description="Winter has so much to offer - creative activities" />
-                </>
+                <RadioCard key={idx} idx={idx} title={x.title} description="Winter has so much to offer - creative activities" />
               )
             })
           }
