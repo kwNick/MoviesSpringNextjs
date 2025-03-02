@@ -125,12 +125,22 @@ export default async function Home() {
       </div>
 
       {/* Radio Card Animation */}
-      <div className="w-full h-[85vh] flex items-center justify-center">
+      <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
+        <div className="absolute inset-0 bg-black z-[10] opacity-0 animate-bgFadeOut animTextScroll pointer-events-none" />
+
         <div className="w-4/5 h-full flex flex-nowrap items-center justify-center overflow-hidden">
+          {
+            movies._embedded.movie.map((x: Movie, idx: number) => {
+              return (
+                <>
+                  <RadioCard key={idx} idx={idx} title={x.title} description="Winter has so much to offer - creative activities" />
+                </>
+              )
+            })
+          }
 
-          <RadioCard idx={0} title="Toy Story" description="adfa sf dfasdfasfas  af asdfasdf adsf asdf df sd" />
 
-          <div className="group h-full flex flex-nowrap items-center justify-center overflow-hidden">
+          {/* <div className="group h-full flex flex-nowrap items-center justify-center overflow-hidden">
             <input type="radio" name="card" id="c1" className="hidden peer" />
             <label htmlFor="c1" className="mx-[10px] w-[100px] h-4/5 overflow-hidden flex items-end border rounded-3xl peer-checked:w-[600px] duration-500 [background-image:_url('/pictures/moviePic.jpg')] bg-cover">
               <div className="flex flex-nowrap">
@@ -142,7 +152,7 @@ export default async function Home() {
                     Winter
                   </h4>
                   <p>
-                    Winter has so much to offer - creative activities
+
                   </p>
                 </div>
               </div>
@@ -223,7 +233,7 @@ export default async function Home() {
                 </div>
               </div>
             </label>
-          </div>
+          </div> */}
 
         </div>
       </div>

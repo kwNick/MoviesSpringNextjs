@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const Footer = () => {
     return (
-        <div className="footBlur relative hidden w-full h-[10vh] border-t-2 border-accent md:flex items-center text-sm lg:text-base xl:text-lg justify-around bg-colour text-contrast">
+        <div className="footBlur relative w-full h-[10vh] border-t-2 border-accent flex items-center text-sm lg:text-base xl:text-lg justify-around bg-colour text-contrast">
             <div className="absolute bottom-[1%] left-[1%] text-sm">
                 <p>Movie data provided by <Link href="https://www.omdbapi.com/" target="_blank">OMDb API</Link>.</p>
             </div>
