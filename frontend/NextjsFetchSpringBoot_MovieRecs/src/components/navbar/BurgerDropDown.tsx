@@ -16,26 +16,27 @@ const BurgerDropDown = () => {
             </svg>
             {open && <div className="fixed inset-0 w-[100vw] h-screen bg-colour opacity-50 z-10 duration-300 " onClick={burgerClick} />}
             {/*NEED TO FIX; anytime you click away from the drop down menu it will collapse */}
-            <div className={`absolute w-[20vw] h-fit p-2 gap-y-2 border border-contrast rounded-lg uppercase bg-colour top-[50%] left-[calc(50%-10vw)] flex items-center justify-center duration-300  ${open ? "opacity-1 translate-y-[30%] z-20" : "opacity-0 pointer-events-none"}`} >
+            <div className={`absolute w-[60vw] h-fit p-2 gap-y-2 border border-contrast rounded-lg uppercase bg-colour top-[50%] left-[calc(50%-30vw)] flex items-center justify-center duration-300  ${open ? "opacity-1 translate-y-[30%] z-20" : "opacity-0 pointer-events-none"}`} >
 
 
-                <ul className="text-contrast flex flex-col items-center justify-center gap-y-1 text-xl font-bold tracking-widest leading-8 ">
-                    <li className="hover:text-accent duration-300">
+                <ul className="w-full h-full text-contrast flex flex-col items-center justify-center gap-y-1 text-xl font-bold tracking-widest leading-8 ">
+                    <li className="w-full h-full hover:text-accent duration-300">
                         <Link href={"/"} onClick={burgerClick}>
                             Home
                         </Link>
                     </li>
-                    <li className="hover:text-accent duration-300">
+                    <li className="w-full h-full hover:text-accent duration-300">
                         <Link href={"/movies"} onClick={burgerClick}>
                             Movies
                         </Link>
                     </li>
-                    <li className="hover:text-accent duration-300">
+                    <li className="w-full h-full hover:text-accent duration-300">
                         <Link href={"#"} onClick={burgerClick}>
                             GSAP
                         </Link>
                     </li>
-                    <li className="hover:text-accent duration-300">
+                    {/* make a bg effect per each nav item on hover or somethign like that; a shimmer across */}
+                    <li className="w-full h-full hover:text-accent duration-300">
                         <Link href={"#"} onClick={burgerClick}>
                             ShadCN
                         </Link>
