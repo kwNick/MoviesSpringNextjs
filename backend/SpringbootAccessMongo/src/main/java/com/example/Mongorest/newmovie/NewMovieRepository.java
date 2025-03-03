@@ -1,4 +1,4 @@
-package com.example.Mongorest.newmovies;
+package com.example.Mongorest.newmovie;
 
 import java.util.List;
 
