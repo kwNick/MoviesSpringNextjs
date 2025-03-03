@@ -18,7 +18,7 @@ const Navbar = () => {
             </div>
 
             {/* Navigation List Section */}
-            <div className="w-2/5 hidden text-contrast sm:flex ">
+            <div className="w-2/5 hidden text-contrast md:flex ">
                 <ul className="p-1 w-full flex justify-around gap-x-2 bg-colour rounded-lg">
                     {navItems.map((x, idx) => (
                         <Link key={idx} href={x.href} className="w-3/5 group hover:text-accent">
@@ -31,7 +31,7 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className="w-1/3 flex items-center justify-center sm:hidden">
+            <div className="w-1/3 flex items-center justify-center md:hidden">
                 <BurgerDropDown />
             </div>
 
