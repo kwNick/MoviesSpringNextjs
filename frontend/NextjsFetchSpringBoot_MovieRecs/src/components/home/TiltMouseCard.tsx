@@ -1,16 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function TiltMouseCard() {
-    const [rotate, setRotate] = useState({ x: 0, y: 0 });
+    const tilt = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        const tiltRef = tilt.current;
         const handleMouseMove = (event: MouseEvent) => {
             const { innerWidth, innerHeight } = window;
-            const x = (event.clientX / innerWidth - 0.5) * 90; // Rotate max 30 degrees
+            // console.log("innerWidth: " + innerWidth + " " + "innerHeight: " + innerHeight);
+            // console.log("Window: " + window);
+            // console.log("Event: " + event);
+
+            const x = (event.clientX / innerWidth - 0.5) * 90; // Rotate max 90 degrees
             const y = (event.clientY / innerHeight - 0.5) * -90;
-            setRotate({ x, y });
+            if (tiltRef) {
+                tiltRef.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+            }
         };
 
         window.addEventListener("mousemove", handleMouseMove);
@@ -18,15 +25,11 @@ export default function TiltMouseCard() {
     }, []);
 
     return (
-        <div className="h-screen flex items-center justify-center bg-gray-900">
-            <div
-                className="w-64 h-64 bg-blue-500 rounded-xl flex items-center justify-center text-white text-xl font-bold transition-transform duration-200"
-                style={{
-                    transform: `rotateY(${rotate.x}deg) rotateX(${rotate.y}deg)`,
-                }}
-            >
-                3D Tilt Effect
-            </div>
+        <div
+            ref={tilt}
+            className="w-64 h-64 bg-blue-500 rounded-xl flex items-center justify-center text-white text-xl font-bold ease-out duration-200"
+        >
+            3D Tilt Effect
         </div>
     );
 }

@@ -139,7 +139,9 @@ export default async function Home() {
         </div>
       </div>
 
-      <TiltMouseCard />
+      <div className="w-full h-[50vh] flex items-center justify-center">
+        <TiltMouseCard />
+      </div>
 
     </main>
   );
