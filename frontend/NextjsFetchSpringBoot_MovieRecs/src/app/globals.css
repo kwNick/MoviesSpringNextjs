@@ -38,6 +38,10 @@ body {
     transform: scale(1);
   }
 
+  25% {
+    transform: scale(.75);
+  }
+
   50% {
     transform: scale(2.5);
   }
@@ -49,7 +53,7 @@ body {
 }
 
 .cursor-click::before {
-  animation: cursorAnim .35s forwards ease-out;
+  animation: cursorAnim .4s forwards ease-out;
   border: 1px solid red;
 }
 

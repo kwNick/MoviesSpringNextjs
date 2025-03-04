@@ -24,7 +24,7 @@ const HomeCursor = () => {
                 if (cursorRef.current) {
                     cursorRef.current.classList.remove("cursor-click");
                 }
-            }, 350);
+            }, 400);
         };
         window.addEventListener("click", cursorClick);
         return () => {

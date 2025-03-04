@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export default function ScrollScale() {
+export default function ScrollFadeIn() {
     const elementRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
