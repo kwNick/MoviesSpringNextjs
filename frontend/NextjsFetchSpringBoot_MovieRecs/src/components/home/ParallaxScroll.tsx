@@ -26,7 +26,7 @@ export default function ParallaxScroll() {
     return (
         <div
             ref={parallax}
-            className="absolute top-[50vh] left-[50vw] transform -translate-x-1/2 -translate-y-1/2 text-5xl font-bold transition-all duration-300"
+            className="absolute top-[100vh] left-[50vw] transform -translate-x-1/2 -translate-y-1/2 text-5xl font-bold transition-all duration-300"
         >
             Parallax Effect
         </div>

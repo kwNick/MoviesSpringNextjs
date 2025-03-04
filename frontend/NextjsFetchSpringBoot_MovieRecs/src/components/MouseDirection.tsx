@@ -35,7 +35,7 @@ export default function MouseDirection() {
     }, [lastPosition]);
 
     return (
-        <div className="absolute top-[20px] left-[5%] flex flex-col items-center justify-center bg-gray-900 text-white">
+        <div className="absolute top-[10vh] left-[5%] flex flex-col items-center justify-center bg-gray-900 text-white">
             <h1 className="text-3xl mb-4">Move Your Mouse</h1>
             <p ref={dir} className="text-xl bg-blue-500 px-4 py-2 rounded-lg duration-300">
                 Need Movement...
