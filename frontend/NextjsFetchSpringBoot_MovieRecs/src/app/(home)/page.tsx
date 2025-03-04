@@ -67,11 +67,8 @@ export default async function Home() {
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
-      <div className=" w-full h-[85vh] flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
-        <div className="snowShadow relative w-3/4 h-3/4 flex flex-col items-center justify-center text-center gap-y-4 before:absolute before:bottom-[-3%] before:left-50% before:w-[50%] before:h-[50%] before:bg-accent before:rounded-full">
-          <p className="text-xl xl:text-3xl animate-textFadeIn animTextScroll">Movies for Everyone!</p>
-          <TextFadeIn />
-        </div>
+      <div className="w-full h-[85vh] flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
+        <TextFadeIn />
       </div>
 
       {/* Top rated movies section */}
