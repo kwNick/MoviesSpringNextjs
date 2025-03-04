@@ -129,7 +129,7 @@ body {
   animation-delay: 3s;
 }
 
-h1::before {
+.landingHeader::before {
   content: '';
   position: absolute;
   top: 0;
