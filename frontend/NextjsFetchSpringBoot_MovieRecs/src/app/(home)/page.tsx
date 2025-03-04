@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { FindByTitleLike } from "../../resources/data";
-import { Movie } from "../../resources/definitions";
+import { FindByTitleLike, FindNewMovieByTitleLike } from "../../resources/data";
+import { Movie, NewMovie } from "../../resources/definitions";
 import TextFadeIn from "../../components/home/TextFadeIn";
 import DevIntro from "../../components/home/DevIntro";
 import RadioCard from "@/components/home/RadioCard";
@@ -8,6 +8,9 @@ import RadioCard from "@/components/home/RadioCard";
 export default async function Home() {
   const movies = await FindByTitleLike();
   // console.log(movies);
+
+  const newMovies = await FindNewMovieByTitleLike();
+  // console.log(newMovies);
 
   return (
     <main className="w-full flex flex-col items-center justify-center">
@@ -129,109 +132,12 @@ export default async function Home() {
 
         <div className="w-4/5 h-full flex flex-nowrap items-center justify-center overflow-hidden">
           {
-            movies._embedded.movie.map((x: Movie, idx: number) => {
+            newMovies._embedded.newmovie.map((x: NewMovie, idx: number) => {
               return (
-                <RadioCard key={idx} idx={idx} title={x.title} description="Winter has so much to offer - creative activities" />
+                <RadioCard key={idx} idx={idx} title={x.title} rated={x.rated} released={x.released} genre={x.genre} description={x.plot} poster={x.poster} />
               )
             })
           }
-
-
-          {/* <div className="group h-full flex flex-nowrap items-center justify-center overflow-hidden">
-            <input type="radio" name="card" id="c1" className="hidden peer" />
-            <label htmlFor="c1" className="mx-[10px] w-[100px] h-4/5 overflow-hidden flex items-end border rounded-3xl peer-checked:w-[600px] duration-500 [background-image:_url('/pictures/moviePic.jpg')] bg-cover">
-              <div className="flex flex-nowrap">
-                <div className="[margin:_15px] w-[50px] bg-snow rounded-full flex items-center justify-center">
-                  1
-                </div>
-                <div className="h-[80px] w-[520px] flex flex-col justify-center overflow-hidden opacity-0 group-has-[.peer:checked]:opacity-100 transition-opacity duration-300">
-                  <h4>
-                    Winter
-                  </h4>
-                  <p>
-
-                  </p>
-                </div>
-              </div>
-            </label>
-          </div>
-
-          <div className="group h-full flex flex-nowrap items-center justify-center overflow-hidden">
-            <input type="radio" name="card" id="c2" className="hidden peer" />
-            <label htmlFor="c2" className="mx-[10px] w-[100px] h-4/5 overflow-hidden flex items-end border rounded-3xl peer-checked:w-[600px] duration-500 [background-image:_url('/pictures/moviePic.jpg')] bg-cover">
-              <div className="flex flex-nowrap">
-                <div className="[margin:_15px] w-[50px] bg-snow rounded-full flex items-center justify-center">
-                  2
-                </div>
-                <div className="h-[80px] w-[520px] flex flex-col justify-center overflow-hidden opacity-0 group-has-[.peer:checked]:opacity-100 transition-opacity duration-300">
-                  <h4>
-                    Winter
-                  </h4>
-                  <p>
-                    Winter has so much to offer - creative activities
-                  </p>
-                </div>
-              </div>
-            </label>
-          </div >
-
-          <div className="group h-full flex flex-nowrap items-center justify-center overflow-hidden">
-            <input type="radio" name="card" id="c3" className="hidden peer" />
-            <label htmlFor="c3" className="mx-[10px] w-[100px] h-4/5 overflow-hidden flex items-end border rounded-3xl peer-checked:w-[600px] duration-500 [background-image:_url('/pictures/moviePic.jpg')] bg-cover">
-              <div className="flex flex-nowrap">
-                <div className="[margin:_15px] w-[50px] bg-snow rounded-full flex items-center justify-center">
-                  3
-                </div>
-                <div className="h-[80px] w-[520px] flex flex-col justify-center overflow-hidden opacity-0 group-has-[.peer:checked]:opacity-100 transition-opacity duration-300">
-                  <h4>
-                    Winter
-                  </h4>
-                  <p>
-                    Winter has so much to offer - creative activities
-                  </p>
-                </div>
-              </div>
-            </label>
-          </div >
-
-          <div className="group h-full flex flex-nowrap items-center justify-center overflow-hidden">
-            <input type="radio" name="card" id="c4" className="hidden peer" />
-            <label htmlFor="c4" className="mx-[10px] w-[100px] h-4/5 overflow-hidden flex items-end border rounded-3xl peer-checked:w-[600px] duration-500 [background-image:_url('/pictures/moviePic.jpg')] bg-cover">
-              <div className="flex flex-nowrap">
-                <div className="[margin:_15px] w-[50px] bg-snow rounded-full flex items-center justify-center">
-                  4
-                </div>
-                <div className="h-[80px] w-[520px] flex flex-col justify-center overflow-hidden opacity-0 group-has-[.peer:checked]:opacity-100 transition-opacity duration-300">
-                  <h4>
-                    Winter
-                  </h4>
-                  <p>
-                    Winter has so much to offer - creative activities
-                  </p>
-                </div>
-              </div>
-            </label>
-          </div>
-
-          <div className="group h-full flex flex-nowrap items-center justify-center overflow-hidden">
-            <input type="radio" name="card" id="c5" className="hidden peer" />
-            <label htmlFor="c5" className="mx-[10px] w-[100px] h-4/5 overflow-hidden flex items-end border rounded-3xl peer-checked:w-[600px] duration-500 [background-image:_url('/pictures/moviePic.jpg')] bg-cover">
-              <div className="flex flex-nowrap">
-                <div className="[margin:_15px] w-[50px] bg-snow rounded-full flex items-center justify-center">
-                  5
-                </div>
-                <div className="h-[80px] w-[520px] flex flex-col justify-center overflow-hidden opacity-0 group-has-[.peer:checked]:opacity-100 transition-opacity duration-300">
-                  <h4>
-                    Winter
-                  </h4>
-                  <p>
-                    Winter has so much to offer - creative activities
-                  </p>
-                </div>
-              </div>
-            </label>
-          </div> */}
-
         </div>
       </div>
 

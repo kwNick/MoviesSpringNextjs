@@ -38,3 +38,15 @@ export async function FindByTitleLike(query?: string, page?: number, size?: numb
         throw new Error("Failed to Fetch Movies Like Title from Database: " + error);
     }
 }
+
+export async function FindNewMovieByTitleLike(query?: string, page?: number, size?: number) {
+    try {
+        query = query ?? "";
+        page = page ?? 0;
+        size = size ?? 5;
+        const data = await fetch(`http://${process.env.LOCAL_REST_API_IP}:${process.env.REST_API_PORT}/newmovie/search/findByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}`);
+        return data.json();
+    } catch (error) {
+        throw new Error("Failed to Fetch New Movies Like Title from Database: " + error);
+    }
+}
