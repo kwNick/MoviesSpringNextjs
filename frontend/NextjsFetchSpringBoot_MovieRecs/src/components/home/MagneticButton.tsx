@@ -3,7 +3,7 @@
 import { useRef } from "react";
 
 export default function MagneticButton() {
-    const buttonRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
 
     const handleMouseMove = (event: React.MouseEvent) => {
         if (buttonRef.current) {
@@ -21,13 +21,12 @@ export default function MagneticButton() {
     };
 
     return (
-        <div ref={buttonRef} className="p-10 flex items-center justify-center border"
+        <div className="p-8 flex items-center justify-center"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}>
             <button
-
-
-                className="px-6 py-3 bg-blue-500 text-white rounded-full text-xl font-bold ease-out duration-200"
+                ref={buttonRef}
+                className="px-6 py-3 bg-blue-500 text-white rounded-full text-xl font-bold ease-out duration-100"
             >
                 Hover Me
             </button>
