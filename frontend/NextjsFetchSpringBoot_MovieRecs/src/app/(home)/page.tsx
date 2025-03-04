@@ -4,6 +4,7 @@ import { Movie, NewMovie } from "../../resources/definitions";
 import TextFadeIn from "../../components/home/TextFadeIn";
 import DevIntro from "../../components/home/DevIntro";
 import RadioCard from "@/components/home/RadioCard";
+import TiltMouseCard from "@/components/home/TiltMouseCard";
 
 export default async function Home() {
   const movies = await FindByTitleLike();
@@ -137,6 +138,8 @@ export default async function Home() {
           }
         </div>
       </div>
+
+      <TiltMouseCard />
 
     </main>
   );
