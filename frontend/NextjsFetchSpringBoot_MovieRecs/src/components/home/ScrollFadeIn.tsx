@@ -9,7 +9,8 @@ export default function ScrollFadeIn() {
         const handleScroll = () => {
             if (elementRef.current) {
                 const rect = elementRef.current.getBoundingClientRect();
-                console.log("get bounding client rect: " + rect);
+                // console.log("get bounding client rect: " + rect.top);
+
                 //When the top of the component gets to 25% of the viewport height, it will be visible
                 const isVisible = rect.top < window.innerHeight * 0.75;
                 elementRef.current.style.opacity = isVisible ? "1" : "0";
