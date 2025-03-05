@@ -7,6 +7,7 @@ import RadioCard from "@/components/home/RadioCard";
 import TiltMouseCard from "@/components/home/TiltMouseCard";
 import MagneticButton from "@/components/home/MagneticButton";
 import ScrollFadeIn from "@/components/home/ScrollFadeIn";
+import ElasticButton from "@/components/home/ElasticButton";
 
 export default async function Home() {
   const movies = await FindByTitleLike();
@@ -145,12 +146,16 @@ export default async function Home() {
         <TiltMouseCard />
       </div>
 
-      <div className="w-full h-[50vh] flex items-center justify-center">
+      <div className="w-full h-[40vh] flex items-center justify-center">
         <MagneticButton />
       </div>
 
       <div className="w-full h-[60vh] flex items-center justify-center">
         <ScrollFadeIn />
+      </div>
+
+      <div className="w-full h-[30vh] flex items-center justify-center">
+        <ElasticButton />
       </div>
 
     </main>
