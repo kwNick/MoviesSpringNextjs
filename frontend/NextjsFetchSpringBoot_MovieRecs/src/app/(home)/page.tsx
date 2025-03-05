@@ -9,6 +9,8 @@ import MagneticButton from "@/components/home/MagneticButton";
 import ScrollFadeIn from "@/components/home/ScrollFadeIn";
 import ElasticButton from "@/components/home/ElasticButton";
 import MagneticImage from "@/components/home/MagneticImage";
+import WaveText from "@/components/home/WaveText";
+import TiltCard from "@/components/home/TiltCard";
 
 export default async function Home() {
   const movies = await FindByTitleLike();
@@ -143,8 +145,9 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="w-full h-[50vh] flex items-center justify-center">
+      <div className="w-full h-[50vh] flex items-center justify-evenly">
         <TiltMouseCard />
+        <TiltCard />
       </div>
 
       <div className="w-full h-[40vh] flex items-center justify-center">
@@ -161,6 +164,10 @@ export default async function Home() {
 
       <div className=" w-full h-[40vh] flex items-center justify-center">
         <MagneticImage />
+      </div>
+
+      <div className=" w-full h-[40vh] flex items-center justify-center tracking-widest leading-9">
+        <WaveText />
       </div>
 
     </main>
