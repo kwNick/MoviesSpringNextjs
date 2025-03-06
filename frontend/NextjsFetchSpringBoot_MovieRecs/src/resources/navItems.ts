@@ -15,8 +15,8 @@ export const navItems = [
         value: "GSAP",
         href: ""
     },
-    {
-        value: "NavItem",
-        href: ""
-    },
+    // {
+    //     value: "NavItem",
+    //     href: ""
+    // },
 ]

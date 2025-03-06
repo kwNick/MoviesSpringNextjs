@@ -8,8 +8,8 @@ import SlidingMarquee from "./SlidingMarquee"
 
 const Navbar = () => {
     return (
-        <nav className="relative min-h-20 lg:min-h-24 xl:min-h-28 w-full p-2 flex items-center justify-between capitalize text-sm md:text-lg lg:text-xl tracking-wide">
-            <div className=" w-1/10 p-1">
+        <nav className="relative h-[12vh] w-full flex items-center justify-evenly capitalize text-sm md:text-lg lg:text-xl tracking-wide">
+            <div className=" w-1/10 ">
                 <Link href={"/"} className="group block w-content h-full bg-contrast text-contrast border rounded-lg border-colour ">
                     <span className="block bg-colour p-1 translate-y-[-2px] rounded-lg shadow-sm duration-300 hover:translate-y-[-10%] group-active:translate-y-0 hover:shadow-colour">
                         Movies
@@ -18,11 +18,11 @@ const Navbar = () => {
             </div>
 
             {/* Navigation List Section */}
-            <div className="w-2/5 hidden text-contrast md:flex ">
-                <ul className="p-1 w-full flex justify-around gap-x-2 bg-colour rounded-lg">
+            <div className="h-2/5 w-2/5 hidden text-contrast md:flex items-center justify-center rounded-lg">
+                <ul className="p-1 w-full h-full flex items-center justify-around gap-x-2 bg-colour rounded-lg border-l-2 border-b-2 border-accent">
                     {navItems.map((x, idx) => (
-                        <Link key={idx} href={x.href} className="w-3/5 group hover:text-accent">
-                            <li className="flex items-center justify-center">
+                        <Link key={idx} href={x.href} className="w-3/5 h-full group hover:text-accent">
+                            <li className="w-full h-full flex items-center justify-center">
                                 <NavItem x={x} />
                             </li>
                         </Link>

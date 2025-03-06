@@ -11,6 +11,7 @@ import ElasticButton from "@/components/home/ElasticButton";
 import MagneticImage from "@/components/home/MagneticImage";
 import WaveText from "@/components/home/WaveText";
 import TiltCard from "@/components/home/TiltCard";
+import MouseTransformClsx from "@/components/home/MouseTransformClsx";
 
 export default async function Home() {
   const movies = await FindByTitleLike();
@@ -20,7 +21,7 @@ export default async function Home() {
   // console.log(newMovies);
 
   return (
-    <main className="w-full flex flex-col items-center justify-center">
+    <main className="w-full h-full flex flex-col items-center justify-center">
 
       {/* Landing Header section */}
       <div className="relative p-2 w-full h-[85vh] flex flex-col items-center justify-around ">
@@ -148,6 +149,7 @@ export default async function Home() {
       <div className="w-full h-[50vh] flex items-center justify-evenly">
         <TiltMouseCard />
         <TiltCard />
+        {/* <MouseTransformClsx /> */}
       </div>
 
       <div className="w-full h-[40vh] flex items-center justify-center">
