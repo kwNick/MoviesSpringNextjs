@@ -39,9 +39,10 @@ const PageButtons = ({ totalPages }: { totalPages: number }) => {
                         if (allPages.length === 1) position = 'single';
                         if (page === '...') position = 'middle';
 
+                        // console.log(page + " " + index)
                         return (
                             <PaginationNumber
-                                key={page}
+                                key={index}
                                 href={createPageURL(page)}
                                 page={page}
                                 position={position}
@@ -87,7 +88,7 @@ function PaginationNumber({
         <div className={className}>{page}</div>
     ) : (
         <Link href={href} className={className}>
-            {page}
+            {page.toString()}
         </Link>
     );
 }

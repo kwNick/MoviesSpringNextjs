@@ -50,8 +50,6 @@ export async function AddMovie_2(prevState: State | undefined, formData: FormDat
     }
 
     const { movieId, title, genres, averageRating, totalRatings, releaseYear } = validatedFields.data;
-    // console.log("RawData: ");
-    // const post = { movieId: movieId, title: title, genres: genres, averageRating: averageRating, totalRatings: totalRatings, releaseYear: releaseYear};
     try {
 
         await fetch(`http://${process.env.LOCAL_REST_API_IP}:${process.env.REST_API_PORT}/movie`, {
@@ -89,7 +87,6 @@ export type PatchState = {
 };
 const PatchMovie = FormSchema.omit({ id: true });
 export async function UpdateMovie_2(id: string, prevState: PatchState | undefined, formData: FormData) {
-    // const time = new Date().toDateString();
     const validatedFields = PatchMovie.safeParse({
         movieId: formData.get("movieId"),
         title: formData.get("title"),

@@ -1,7 +1,8 @@
+import { NewMovie } from "@/resources/definitions";
 import Image from "next/image";
 
-const RadioCard = ({ idx, title, rated, released, genre, description, poster }: { idx: number, title: string, rated: string, released: string, genre: string, description: string, poster: string }) => {
-
+const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
+    const { title, rated, year, genre, plot, poster } = card;
     return (
         <div className=" group h-full flex flex-nowrap items-center justify-center overflow-hidden">
 
@@ -18,9 +19,9 @@ const RadioCard = ({ idx, title, rated, released, genre, description, poster }: 
                         <h4>
                             {title}
                         </h4>
-                        <p>{rated} {released.slice(-4)} {genre}</p>
+                        <p>{rated} {year} {genre}</p>
                         <p>
-                            {description.slice(0, 40)}{description.length > 40 ? "..." : ""}
+                            {plot.slice(0, 40)}{plot.length > 40 ? "..." : ""}
                         </p>
                     </div>
                 </div>

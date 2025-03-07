@@ -1,28 +1,28 @@
 'use client';
 
 import { useActionState, useEffect, useState } from "react";
-import { AddMovie_2, State } from "../resources/actions_2";
+import { AddMovie, State } from "../../resources/actions";
 
 
 const CreateForm = () => {
     const initialState: State = { message: undefined, errors: {} };
-    const [state, formAction, isPending] = useActionState(AddMovie_2, initialState);
+    const [state, formAction, isPending] = useActionState(AddMovie, initialState);
 
-    const [movieId, setMovieId] = useState("");
-    const [genres, setGenres] = useState("");
-    const [averageRating, setAverageRating] = useState("");
-    const [totalRatings, setTotalRatings] = useState("");
+    const [year, setYear] = useState("");
+    const [genre, setGenre] = useState("");
+    const [rated, setRated] = useState("");
+    const [plot, setPlot] = useState("");
     const [title, setTitle] = useState("");
-    const [releaseYear, setReleaseYear] = useState("");
+    const [poster, setPoster] = useState("");
 
     useEffect(() => {
         if (state?.message == null) {
-            setMovieId("");
-            setGenres("");
-            setAverageRating("");
-            setTotalRatings("");
+            setYear("");
+            setGenre("");
+            setRated("");
+            setPlot("");
             setTitle("");
-            setReleaseYear("");
+            setPoster("");
         }
     }, [state])
     return (
@@ -33,49 +33,49 @@ const CreateForm = () => {
             <div className="w-full h-full ">
                 <form className="py-2 w-full h-full border-2 border-colour flex flex-col gap-y-3 items-center rounded-lg" action={formAction}>
                     <div className="flex flex-col items-center">
-                        <label htmlFor="movieId">MovieId</label>
+                        <label htmlFor="year">Year</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
-                            id="movieId"
-                            name="movieId"
-                            type="number"
-                            value={movieId}
-                            // defaultValue={""}
-                            placeholder={"movieId"}
-                            onChange={(e) => setMovieId(e.target.value)}
-                            required
-                        />
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                        <label htmlFor="genres">Genres</label>
-                        <input className="border-2 border-colour rounded-lg text-contrast"
-                            id="genres"
-                            name="genres"
+                            id="year"
+                            name="year"
                             type="text"
-                            value={genres}
+                            value={year}
                             // defaultValue={""}
-                            placeholder={"genres: Action|Comedy"}
-                            onChange={(e) => setGenres(e.target.value)}
+                            placeholder={"year"}
+                            onChange={(e) => setYear(e.target.value)}
                             required
                         />
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <label htmlFor="averageRating">Average Rating</label>
+                        <label htmlFor="genre">Genre</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
-                            id="averageRating"
-                            name="averageRating"
-                            type="number"
-                            value={averageRating}
+                            id="genre"
+                            name="genre"
+                            type="text"
+                            value={genre}
                             // defaultValue={""}
-                            placeholder={"avg rating: 0-10"}
-                            onChange={(e) => setAverageRating(e.target.value)}
+                            placeholder={"genre: Action Comedy"}
+                            onChange={(e) => setGenre(e.target.value)}
                             required
-                            aria-describedby="rating-error"
                         />
-                        <div id="rating-error" aria-live="polite" aria-atomic="true">
-                            {state?.errors?.averageRating &&
-                                state.errors.averageRating.map((error: string) => (
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                        <label htmlFor="rated">Rated</label>
+                        <input className="border-2 border-colour rounded-lg text-contrast"
+                            id="rated"
+                            name="rated"
+                            type="text"
+                            value={rated}
+                            // defaultValue={""}
+                            placeholder={"rated: 95%"}
+                            onChange={(e) => setRated(e.target.value)}
+                            required
+                            aria-describedby="rated-error"
+                        />
+                        <div id="rated-error" aria-live="polite" aria-atomic="true">
+                            {state?.errors?.rated &&
+                                state.errors.rated.map((error: string) => (
                                     <p className="mt-2 text-sm text-accent" key={error}>
                                         {error}
                                     </p>
@@ -84,15 +84,15 @@ const CreateForm = () => {
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <label htmlFor="totalRatings">Total Ratings</label>
+                        <label htmlFor="poster">Poster</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
-                            id="totalRatings"
-                            name="totalRatings"
-                            type="number"
-                            value={totalRatings}
+                            id="poster"
+                            name="poster"
+                            type="text"
+                            value={poster}
                             // defaultValue={""}
                             placeholder={"total amount of ratings"}
-                            onChange={(e) => setAverageRating(e.target.value)}
+                            onChange={(e) => setPoster(e.target.value)}
                             required
 
                         />
@@ -112,15 +112,15 @@ const CreateForm = () => {
                         />
                     </div>
                     <div className="flex flex-col items-center">
-                        <label htmlFor="releaseYear">ReleaseYear</label>
+                        <label htmlFor="plot">Plot</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
-                            id="releaseYear"
-                            name="releaseYear"
-                            type="number"
-                            value={releaseYear}
+                            id="plot"
+                            name="plot"
+                            type="text"
+                            value={plot}
                             // defaultValue={""}
-                            placeholder={"releaseYear"}
-                            onChange={(e) => setReleaseYear(e.target.value)}
+                            placeholder={"plot"}
+                            onChange={(e) => setPlot(e.target.value)}
                             required
                         />
                     </div>

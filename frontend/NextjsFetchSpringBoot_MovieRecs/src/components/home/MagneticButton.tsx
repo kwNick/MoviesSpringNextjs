@@ -26,7 +26,7 @@ export default function MagneticButton() {
             onMouseLeave={handleMouseLeave}>
             <button
                 ref={buttonRef}
-                className="px-6 py-3 bg-blue-500 text-white rounded-full text-xl font-bold ease-out duration-100"
+                className="px-6 py-3 bg-blue-500 text-white rounded-full text-xl font-bold ease-out "
             >
                 Hover Me
             </button>

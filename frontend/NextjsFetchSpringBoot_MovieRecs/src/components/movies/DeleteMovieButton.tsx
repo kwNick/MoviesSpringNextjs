@@ -1,9 +1,9 @@
-import { DeleteMovie_2 } from "../../resources/actions_2";
+import { DeleteMovie } from "../../resources/actions";
 
 export function DeleteMovieButton({ href }: { href: string }) {
     const idMatch = href.match(/\/([^\/]+)$/);
     const id = idMatch ? idMatch[1] : "";
-    const DeleteMovieWithId = DeleteMovie_2.bind(null, id);
+    const DeleteMovieWithId = DeleteMovie.bind(null, id);
     // console.log(href);
     return (
         <>
