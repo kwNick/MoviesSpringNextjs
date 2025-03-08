@@ -19,7 +19,7 @@ const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
                         <h4>
                             {title}
                         </h4>
-                        <p>{rated} {year} {genre}</p>
+                        <p className="text-base lg:text-lg">{rated} {year.replace("?", "-")} {genre}</p>
                         <p>
                             {plot.slice(0, 40)}{plot.length > 40 ? "..." : ""}
                         </p>
