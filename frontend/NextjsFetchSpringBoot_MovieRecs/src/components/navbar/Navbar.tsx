@@ -21,7 +21,7 @@ const Navbar = () => {
             <div className="h-2/5 w-2/5 hidden text-contrast md:flex items-center justify-center rounded-lg">
                 <ul className="p-1 w-full h-full flex items-center justify-around gap-x-2 bg-colour rounded-lg border-l-2 border-b-2 border-accent">
                     {navItems.map((x, idx) => (
-                        <Link key={idx} href={x.href} className="w-3/5 h-full group hover:text-accent">
+                        <Link key={idx} href={x.href} className="w-3/5 h-full group hover:text-accent flex items-center justify-center">
                             <li className="w-full h-full flex items-center justify-center">
                                 <NavItem x={x} />
                             </li>
