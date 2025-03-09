@@ -88,27 +88,6 @@ const NavItem = ({ x }: { x: { value: string, href: string } }) => {
                 )
             }
 
-            {/* {
-                x.value == "NavItem" && (
-                    <div className="relative w-full h-full flex items-center justify-center">">
-                        <div className={clsx("before:absolute before:inset-0 before:rounded-full before:left-[-40%] before:bg-colour before:p-5 before:opacity-0 before:duration-500 ",
-                            {
-                                "group-hover:before:translate-y-[-70%] group-hover:before:opacity-100": pathname != x.href,
-                                "before:translate-y-[-70%] before:opacity-100": pathname == x.href
-                            }
-                        )} />
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={clsx(" size-7 duration-500",
-                            {
-                                "group-hover:translate-y-[-75%]": pathname != x.href,
-                                "translate-y-[-75%]": pathname == x.href
-                            }
-                        )}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
-                        </svg>
-                    </div >
-                )
-            } */}
-
             {/* NavItem name/value - displays when hovered*/}
             <div className={clsx(`absolute opacity-0 `,
                 {
