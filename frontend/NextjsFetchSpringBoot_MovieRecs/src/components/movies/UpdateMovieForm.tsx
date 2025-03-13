@@ -55,7 +55,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                             value={title}
                             // defaultValue={movie.movieId}
                             onChange={(e) => setTitle(e.target.value)}
-                            placeholder={"Title"}
+                            placeholder={"Toy Story..."}
                             required
                         />
                     </div>
@@ -69,7 +69,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                             value={genre}
                             // defaultValue={movie.genres}
                             onChange={(e) => setGenre(e.target.value)}
-                            placeholder={"genre: Action Comedy"}
+                            placeholder={"Action Comedy"}
                             required
                         />
                     </div>
@@ -83,7 +83,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                             value={rated}
                             // defaultValue={movie.rated}
                             onChange={(e) => setRated(e.target.value)}
-                            placeholder={"rated: 95%"}
+                            placeholder={"95%"}
                             required
                             aria-describedby="rated-error"
                         />
@@ -105,7 +105,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                             value={plot}
                             // defaultValue={movie.plot}
                             onChange={(e) => setPlot(e.target.value)}
-                            placeholder={"plot"}
+                            placeholder={"This story is about..."}
                             required
                         />
                     </div>
@@ -118,7 +118,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                             value={year}
                             // defaultValue={movie.userId}
                             onChange={(e) => setYear(e.target.value)}
-                            placeholder={"year"}
+                            placeholder={"1998"}
                             required
                         />
                     </div>
@@ -127,11 +127,11 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                         <input className="border rounded-md"
                             id="poster"
                             name="poster"
-                            type="number"
+                            type="text"
                             value={poster}
                             // defaultValue={movie.userId}
                             onChange={(e) => setPoster(e.target.value)}
-                            placeholder={"poster"}
+                            placeholder={"url"}
                             required
                         />
                     </div>

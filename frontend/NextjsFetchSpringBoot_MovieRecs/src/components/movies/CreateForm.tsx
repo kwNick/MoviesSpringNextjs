@@ -41,7 +41,7 @@ const CreateForm = () => {
                             type="text"
                             value={year}
                             // defaultValue={""}
-                            placeholder={"year"}
+                            placeholder={"1998"}
                             onChange={(e) => setYear(e.target.value)}
                             required
                         />
@@ -55,7 +55,7 @@ const CreateForm = () => {
                             type="text"
                             value={genre}
                             // defaultValue={""}
-                            placeholder={"genre: Action Comedy"}
+                            placeholder={"Action Comedy"}
                             onChange={(e) => setGenre(e.target.value)}
                             required
                         />
@@ -69,7 +69,7 @@ const CreateForm = () => {
                             type="text"
                             value={rated}
                             // defaultValue={""}
-                            placeholder={"rated: 95%"}
+                            placeholder={"95%"}
                             onChange={(e) => setRated(e.target.value)}
                             required
                             aria-describedby="rated-error"
@@ -92,7 +92,7 @@ const CreateForm = () => {
                             type="text"
                             value={poster}
                             // defaultValue={""}
-                            placeholder={"total amount of ratings"}
+                            placeholder={"url"}
                             onChange={(e) => setPoster(e.target.value)}
                             required
 
@@ -107,7 +107,7 @@ const CreateForm = () => {
                             type="text"
                             value={title}
                             // defaultValue={""}
-                            placeholder={"title"}
+                            placeholder={"Toy Story..."}
                             onChange={(e) => setTitle(e.target.value)}
                             required
                         />
@@ -120,7 +120,7 @@ const CreateForm = () => {
                             type="text"
                             value={plot}
                             // defaultValue={""}
-                            placeholder={"plot"}
+                            placeholder={"This story is about..."}
                             onChange={(e) => setPlot(e.target.value)}
                             required
                         />
