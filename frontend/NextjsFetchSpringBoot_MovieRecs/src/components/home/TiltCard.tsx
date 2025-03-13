@@ -8,8 +8,10 @@ export default function TiltCard() {
     const handleMouseMove = (event: React.MouseEvent) => {
         if (cardRef.current) {
             const rect = cardRef.current.getBoundingClientRect();
+            // console.log(rect);
             const x = (event.clientX - rect.left - rect.width / 2) / 10;
             const y = (event.clientY - rect.top - rect.height / 2) / 10;
+            // console.log(x, y);
             cardRef.current.style.transform = `rotateY(${y}deg) rotateX(${-x}deg)`;
         }
     };

@@ -38,101 +38,110 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
         }
     }, [movie, year, rated, plot, genre, title, poster]);
     return (
-        <form className="py-2 w-full h-full flex flex-col gap-y-3 items-center " action={formAction}>
-            <div className="flex flex-col items-center">
-                <label htmlFor="title">Title</label>
-                <input className="border border-colour rounded-lg text-colour"
-                    id="title"
-                    name="title"
-                    type="text"
-                    value={title}
-                    // defaultValue={movie.movieId}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder={"Title"}
-                    required
-                />
-            </div>
 
-            <div className="flex flex-col items-center">
-                <label htmlFor="genre">Genre</label>
-                <input className="border border-colour rounded-lg text-colour"
-                    id="genre"
-                    name="genre"
-                    type="text"
-                    value={genre}
-                    // defaultValue={movie.genres}
-                    onChange={(e) => setGenre(e.target.value)}
-                    placeholder={"genre: Action Comedy"}
-                    required
-                />
+        <div className="w-[50%] h-full flex flex-col items-center justify-center gap-y-3">
+            <div className="text-3xl lg:text-4xl xl:text-6xl font-bold text-colour">
+                <p>Edit Movie page!</p>
             </div>
+            <div className="w-full h-full  flex flex-col gap-y-3">
 
-            <div className="flex flex-col items-center">
-                <label htmlFor="rated">Rated</label>
-                <input className="border border-colour rounded-lg text-colour"
-                    id="rated"
-                    name="rated"
-                    type="text"
-                    value={rated}
-                    // defaultValue={movie.rated}
-                    onChange={(e) => setRated(e.target.value)}
-                    placeholder={"rated: 95%"}
-                    required
-                    aria-describedby="rated-error"
-                />
-                <div id="rated-error" aria-live="polite" aria-atomic="true">
-                    {state?.errors?.rated &&
-                        state.errors.rated.map((error: string) => (
-                            <p className="mt-2 text-sm text-accent" key={error}>
-                                {error}
-                            </p>
-                        ))}
-                </div>
+                <form className="py-2 w-full h-full border-2 border-colour rounded-lg flex flex-col items-center justify-center gap-y-3 text-lg lg:text-xl xl:text-2xl" action={formAction}>
+                    <div className="flex flex-col items-center justify-center">
+                        <label htmlFor="title">Title</label>
+                        <input className="border-2 border-colour rounded-lg text-colour"
+                            id="title"
+                            name="title"
+                            type="text"
+                            value={title}
+                            // defaultValue={movie.movieId}
+                            onChange={(e) => setTitle(e.target.value)}
+                            placeholder={"Title"}
+                            required
+                        />
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                        <label htmlFor="genre">Genre</label>
+                        <input className="border border-colour rounded-lg text-colour"
+                            id="genre"
+                            name="genre"
+                            type="text"
+                            value={genre}
+                            // defaultValue={movie.genres}
+                            onChange={(e) => setGenre(e.target.value)}
+                            placeholder={"genre: Action Comedy"}
+                            required
+                        />
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                        <label htmlFor="rated">Rated</label>
+                        <input className="border border-colour rounded-lg text-colour"
+                            id="rated"
+                            name="rated"
+                            type="text"
+                            value={rated}
+                            // defaultValue={movie.rated}
+                            onChange={(e) => setRated(e.target.value)}
+                            placeholder={"rated: 95%"}
+                            required
+                            aria-describedby="rated-error"
+                        />
+                        <div id="rated-error" aria-live="polite" aria-atomic="true">
+                            {state?.errors?.rated &&
+                                state.errors.rated.map((error: string) => (
+                                    <p className="mt-2 text-sm text-accent" key={error}>
+                                        {error}
+                                    </p>
+                                ))}
+                        </div>
+                    </div>
+                    <div className="flex flex-col items-center">
+                        <label htmlFor="plot">Plot</label>
+                        <input className="border border-colour rounded-lg text-colour"
+                            id="plot"
+                            name="plot"
+                            type="text"
+                            value={plot}
+                            // defaultValue={movie.plot}
+                            onChange={(e) => setPlot(e.target.value)}
+                            placeholder={"plot"}
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col items-center">
+                        <label htmlFor="year">Year</label>
+                        <input className="border rounded-md"
+                            id="year"
+                            name="year"
+                            type="number"
+                            value={year}
+                            // defaultValue={movie.userId}
+                            onChange={(e) => setYear(e.target.value)}
+                            placeholder={"year"}
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col items-center">
+                        <label htmlFor="poster">Poster</label>
+                        <input className="border rounded-md"
+                            id="poster"
+                            name="poster"
+                            type="number"
+                            value={poster}
+                            // defaultValue={movie.userId}
+                            onChange={(e) => setPoster(e.target.value)}
+                            placeholder={"poster"}
+                            required
+                        />
+                    </div>
+                    <div className="m-3 flex flex-col items-center gap-y-3">
+                        <button type="submit" className="block border-2 border-colour rounded-lg p-2 disabled:bg-slate-300 duration-500" disabled={!(isPending || isUpdated)}>Update Movie</button>
+                        <p className={` relative opacity-0 mt-2 text-xs text-accent duration-500 ${(isPending || !isUpdated) && 'opacity-100'}`}>{formMessage}</p>
+                    </div>
+                </form>
             </div>
-            <div className="flex flex-col items-center">
-                <label htmlFor="plot">Plot</label>
-                <input className="border border-colour rounded-lg text-colour"
-                    id="plot"
-                    name="plot"
-                    type="text"
-                    value={plot}
-                    // defaultValue={movie.plot}
-                    onChange={(e) => setPlot(e.target.value)}
-                    placeholder={"plot"}
-                    required
-                />
-            </div>
-            <div className="flex flex-col items-center">
-                <label htmlFor="year">Year</label>
-                <input className="border rounded-md"
-                    id="year"
-                    name="year"
-                    type="number"
-                    value={year}
-                    // defaultValue={movie.userId}
-                    onChange={(e) => setYear(e.target.value)}
-                    placeholder={"year"}
-                    required
-                />
-            </div>
-            <div className="flex flex-col items-center">
-                <label htmlFor="poster">Poster</label>
-                <input className="border rounded-md"
-                    id="poster"
-                    name="poster"
-                    type="number"
-                    value={poster}
-                    // defaultValue={movie.userId}
-                    onChange={(e) => setPoster(e.target.value)}
-                    placeholder={"poster"}
-                    required
-                />
-            </div>
-            <div className="flex flex-col items-center">
-                <button type="submit" className="block border-2 border-colour rounded-lg p-2 disabled:bg-slate-300 duration-500" disabled={!(isPending || isUpdated)}>Update Movie</button>
-                <p className={` relative opacity-0 mt-2 text-xs text-accent duration-500 ${(isPending || !isUpdated) && 'opacity-100'}`}>{formMessage}</p>
-            </div>
-        </form>
+        </div >
     )
 }
 export default UpdateMovieForm

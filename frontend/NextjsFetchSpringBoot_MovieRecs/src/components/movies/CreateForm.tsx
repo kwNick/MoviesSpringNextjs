@@ -26,13 +26,14 @@ const CreateForm = () => {
         }
     }, [state])
     return (
-        <div className="w-[50%] h-full text-center">
-            <p>
-                CreateForm
-            </p>
-            <div className="w-full h-full ">
-                <form className="py-2 w-full h-full border-2 border-colour flex flex-col gap-y-3 items-center rounded-lg" action={formAction}>
-                    <div className="flex flex-col items-center">
+        <div className="w-[50%] h-full flex flex-col items-center justify-center gap-y-3">
+            <div className="text-3xl lg:text-4xl xl:text-6xl font-bold text-colour">
+                <p>CreateForm</p>
+            </div>
+            <div className="w-full h-full flex flex-col gap-y-3">
+
+                <form className="py-2 w-full h-full border-2 border-colour rounded-lg flex flex-col items-center justify-center gap-y-3 text-lg lg:text-xl xl:text-2xl" action={formAction}>
+                    <div className="flex flex-col items-center justify-center">
                         <label htmlFor="year">Year</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
                             id="year"

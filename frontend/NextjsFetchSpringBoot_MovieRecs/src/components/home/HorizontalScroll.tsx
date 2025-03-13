@@ -9,8 +9,9 @@ export default function HorizontalScroll() {
         const container = containerRef.current;
         if (!container) return;
 
+        // console.log(containerRef);
         const handleWheel = (event: WheelEvent) => {
-            console.log(event);
+            // console.log(event);
             event.preventDefault();
             container.scrollLeft += event.deltaY;
         };
@@ -21,7 +22,7 @@ export default function HorizontalScroll() {
     }, []);
 
     return (
-        <div ref={containerRef} className="flex overflow-x-auto w-screen h-[80vh] items-center space-x-10 p-10 bg-gray-900">
+        <div ref={containerRef} className="flex overflow-x-auto w-screen h-[80vh] items-center space-x-10 p-10 bg-gray-900 transition-all duration-300">
             {Array.from({ length: 10 }, (_, i) => (
                 <div key={i} className="min-w-[300px] h-[300px] bg-blue-500 flex items-center justify-center text-white text-3xl rounded-xl">
                     {i + 1}

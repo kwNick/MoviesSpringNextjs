@@ -284,6 +284,6 @@ body {
     transform: rotate(720deg);
     top: 0;
     opacity: 0;
-    border-radius: 50%;
+    border-radius: 100%;
   }
 }

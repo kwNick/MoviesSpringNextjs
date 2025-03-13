@@ -1,15 +1,12 @@
 import { FindByTitleLike } from "../../resources/data";
 import TextFadeIn from "../../components/home/TextFadeIn";
 import DevIntro from "../../components/home/DevIntro";
-// import RadioCard from "@/components/home/RadioCard";
 import RadioCardSection from "@/components/home/RadioCardSection";
 import CardRevealSection from "@/components/home/CardRevealSection";
 import LandingSection from "@/components/home/LandingSection";
 import ThreeDCard from "@/components/home/ThreeDCard";
 
 export default async function Home() {
-  // const movies = await FindByTitleLike();
-  // console.log(movies);
   const col = "newmovie";
   const newMovies = await FindByTitleLike(col);
   // console.log(newMovies);
@@ -49,18 +46,24 @@ export default async function Home() {
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
         <RadioCardSection movies={newMovies._embedded.newmovie} />
       </div>
-
-      {/* <div className="w-full h-[50vh] flex items-center justify-evenly">
+      {/* 
+      <div className="w-full h-[50vh] flex items-center justify-evenly">
         <TiltMouseCard />
         <TiltCard />
-        <MouseTransformClsx /> 
+        <MouseTransformClsx />
       </div> */}
 
       {/* <HorizontalScroll /> */}
 
+      {/* <AutoScroll /> */}
+
       {/* <div className="w-full h-[40vh] flex items-center justify-center">
         <MagneticButton />
       </div> */}
+
+      {/* <HorizontalParallax /> */}
+
+      {/* <DragScroll /> */}
 
       {/* <div className="w-full h-[60vh] flex items-center justify-center">
         <ScrollFadeIn />

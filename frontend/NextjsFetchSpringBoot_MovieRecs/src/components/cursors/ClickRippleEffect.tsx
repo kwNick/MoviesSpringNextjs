@@ -9,13 +9,13 @@ export default function ClickRippleEffect() {
             ripple.className = "ripple-effect";
             document.body.appendChild(ripple);
 
-            ripple.style.left = `${event.pageX}px`;
-            ripple.style.top = `${event.pageY}px`;
+            ripple.style.left = `${event.pageX - 8}px`;
+            ripple.style.top = `${event.pageY - 8}px`;
 
             setTimeout(() => {
                 ripple.style.opacity = "0";
                 ripple.style.transform = "scale(4)";
-            }, 10);
+            }, 20);
 
             setTimeout(() => document.body.removeChild(ripple), 600);
         };

@@ -10,18 +10,18 @@ export default function MouseDirection() {
     useEffect(() => {
         const dirRef = dir.current;
         const handleMouseMove = (event: MouseEvent) => {
-            const { clientX, clientY } = event;
+            const { pageX, pageY } = event;
             // console.log(event);
             // console.log(dirRef);
 
             let newDirection = "";
-            if (clientX > lastPosition.x) newDirection = "Right";
-            else if (clientX < lastPosition.x) newDirection = "Left";
+            if (pageX > lastPosition.x) newDirection = "Right";
+            else if (pageX < lastPosition.x) newDirection = "Left";
 
-            if (clientY > lastPosition.y) newDirection += " Down";
-            else if (clientY < lastPosition.y) newDirection += " Up";
+            if (pageY > lastPosition.y) newDirection += " Down";
+            else if (pageY < lastPosition.y) newDirection += " Up";
 
-            setLastPosition({ x: clientX, y: clientY });
+            setLastPosition({ x: pageX, y: pageY });
             if (dirRef) {
                 dirRef.innerText = `Direction: ${newDirection.trim() ? newDirection.trim() : "Need Movement..."}`;
             }
