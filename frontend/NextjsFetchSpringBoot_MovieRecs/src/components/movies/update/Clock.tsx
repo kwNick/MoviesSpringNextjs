@@ -42,6 +42,7 @@ const Clock = () => {
 
     }, []);
     return (
+        //use the min value of 20vh or 20vw to the clock more responsive
         <div className=" w-[20vh] h-[20vh] rounded-full border-colour shadow-inner shadow-colour fixed left-[5%] top-[25%]">
             <div className="relative w-full h-full ">
 

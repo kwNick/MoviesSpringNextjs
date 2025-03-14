@@ -8,8 +8,8 @@ export const navItems = [
         href: "/movies"
     },
     {
-        value: "Shadcn",
-        href: ""
+        value: "Favorites",
+        href: "/movies/favorites"
     },
     {
         value: "GSAP",

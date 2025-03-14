@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FindByTitleLike } from "../../resources/data";
 import { NewMovie } from "../../resources/definitions";
 import { DeleteMovieButton } from "./DeleteMovieButton";
-import UpdateMovieButton from "./UpdateMovieButton";
+import UpdateMovieButton from "./update/UpdateMovieButton";
 
 const ShowSearchMovies = async ({ query, page }: { query: string, page: number }) => {
 

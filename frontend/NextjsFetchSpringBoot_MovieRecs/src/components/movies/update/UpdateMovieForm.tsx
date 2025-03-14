@@ -1,7 +1,7 @@
 'use client';
 import { useActionState, useEffect, useState } from "react";
-import { PatchState, UpdateMovie } from "../../resources/actions";
-import { NewMovie } from "../../resources/definitions";
+import { PatchState, UpdateMovie } from "@/resources/actions";
+import { NewMovie } from "@/resources/definitions";
 
 const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
     const UpdateMovieWithId = UpdateMovie.bind(null, id);

@@ -1,7 +1,7 @@
 'use client';
 
 import { useActionState, useEffect, useState } from "react";
-import { AddMovie, State } from "../../resources/actions";
+import { AddMovie, State } from "@/resources/actions";
 
 
 const CreateForm = () => {
