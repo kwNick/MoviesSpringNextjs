@@ -29,14 +29,6 @@ const Clock = () => {
     };
 
     useEffect(() => {
-        // console.log(numbers.current);
-        // numbers.current.forEach((el, i) => {
-        //     if (el) {
-        //         const deg = (i + 1) * 30;
-        //         el.style.transform = `rotate(${deg}deg)`;
-        //     }
-        // });
-
         const interval = setInterval(updateClock, 1000);
         return () => clearInterval(interval);
 

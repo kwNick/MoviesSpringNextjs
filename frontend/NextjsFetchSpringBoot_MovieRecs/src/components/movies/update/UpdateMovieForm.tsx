@@ -2,6 +2,7 @@
 import { useActionState, useEffect, useState } from "react";
 import { PatchState, UpdateMovie } from "@/resources/actions";
 import { NewMovie } from "@/resources/definitions";
+import Colours from "./Colours";
 
 const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
     const UpdateMovieWithId = UpdateMovie.bind(null, id);
@@ -39,16 +40,16 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
     }, [movie, year, rated, plot, genre, title, poster]);
     return (
 
-        <div className="w-[50%] h-full flex flex-col items-center justify-center gap-y-3">
-            <div className="text-3xl lg:text-4xl xl:text-6xl font-bold text-colour">
+        <div className="w-3/4 h-full flex flex-col items-center justify-center gap-y-3">
+            <div className="text-3xl lg:text-4xl xl:text-6xl font-bold ">
                 <p>Edit Movie page!</p>
             </div>
-            <div className="w-full h-full  flex flex-col gap-y-3">
-
-                <form className="py-2 w-full h-full border-2 border-colour rounded-lg flex flex-col items-center justify-center gap-y-3 text-lg lg:text-xl xl:text-2xl" action={formAction}>
+            <div className="w-full h-full p-4 flex flex-col gap-y-3">
+                <Colours />
+                <form className="p-4 w-full h-full border border-[#ffffff80] rounded-lg grid grid-cols-2 gap-y-3 backdrop-blur-sm bg-[#ffffff1a] text-lg lg:text-xl xl:text-2xl [box-shadow:_0_25px_45px_#000000]" action={formAction}>
                     <div className="flex flex-col items-center justify-center">
                         <label htmlFor="title">Title</label>
-                        <input className="border-2 border-colour rounded-lg text-colour"
+                        <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="title"
                             name="title"
                             type="text"
@@ -62,7 +63,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
 
                     <div className="flex flex-col items-center">
                         <label htmlFor="genre">Genre</label>
-                        <input className="border border-colour rounded-lg text-colour"
+                        <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="genre"
                             name="genre"
                             type="text"
@@ -76,7 +77,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
 
                     <div className="flex flex-col items-center">
                         <label htmlFor="rated">Rated</label>
-                        <input className="border border-colour rounded-lg text-colour"
+                        <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="rated"
                             name="rated"
                             type="text"
@@ -98,7 +99,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                     </div>
                     <div className="flex flex-col items-center">
                         <label htmlFor="plot">Plot</label>
-                        <input className="border border-colour rounded-lg text-colour"
+                        <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="plot"
                             name="plot"
                             type="text"
@@ -111,7 +112,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                     </div>
                     <div className="flex flex-col items-center">
                         <label htmlFor="year">Year</label>
-                        <input className="border rounded-md"
+                        <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="year"
                             name="year"
                             type="number"
@@ -124,7 +125,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                     </div>
                     <div className="flex flex-col items-center">
                         <label htmlFor="poster">Poster</label>
-                        <input className="border rounded-md"
+                        <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="poster"
                             name="poster"
                             type="text"
@@ -135,8 +136,8 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                             required
                         />
                     </div>
-                    <div className="m-3 flex flex-col items-center gap-y-3">
-                        <button type="submit" className="block border-2 border-colour rounded-lg p-2 disabled:bg-slate-300 duration-500" disabled={!(isPending || isUpdated)}>Update Movie</button>
+                    <div className="m-3 col-span-2 flex flex-col items-center justify-center gap-y-3 duration-300">
+                        <button type="submit" className="block border border-colour rounded-lg p-2 disabled:bg-slate-300 enabled:text-accent enabled:border-accent duration-500 hover:drop-shadow-xl shadow-accent" disabled={!(isPending || isUpdated)}>Update Movie</button>
                         <p className={` relative opacity-0 mt-2 text-xs text-accent duration-500 ${(isPending || !isUpdated) && 'opacity-100'}`}>{formMessage}</p>
                     </div>
                 </form>

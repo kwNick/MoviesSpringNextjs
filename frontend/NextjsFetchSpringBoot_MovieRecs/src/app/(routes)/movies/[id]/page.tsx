@@ -10,7 +10,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     const col = "newmovie";
     const movie = await FindMovieById(id, col);
     return (
-        <div className="w-full min-h-[78vh] flex flex-col items-center justify-center pt-8">
+        <div className="w-full h-[78vh] flex flex-col items-center justify-center pt-8">
             <Suspense fallback={<UpdateMovieFormSkeleton />}>
                 <UpdateMovieForm movie={movie} id={id} />
             </Suspense>
