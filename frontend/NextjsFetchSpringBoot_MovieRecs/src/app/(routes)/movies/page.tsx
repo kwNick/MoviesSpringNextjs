@@ -19,7 +19,7 @@ const page = async (
     const page = Number(searchParams?.page) || 1;
 
     return (
-        <div className="relative w-full h-full flex flex-col items-center p-2 pb-10">
+        <div className="relative w-full h-full flex flex-col items-center gap-y-2">
             <div className="relative w-[80%] flex items-center justify-center p-2">
                 <div className="grow flex items-center justify-center capitalize text-6xl text-accent">
                     <p>
@@ -32,9 +32,9 @@ const page = async (
                     </Link>
                 </div>
             </div>
-            <div className="w-full p-2 flex flex-col items-center ">
-                <div className="w-full  flex flex-col items-center gap-y-3 ">
-                    <div className=" w-full flex items-center gap-3 justify-center">
+            <div className="w-full p-2 flex flex-col items-center pb-10">
+                <div className="w-full flex flex-col items-center gap-y-12 pb-6">
+                    <div className=" w-full flex items-center justify-center ">
                         <SearchMovies />
 
                     </div>

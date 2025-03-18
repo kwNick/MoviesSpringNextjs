@@ -4,10 +4,14 @@ import { NewMovie } from "../../resources/definitions";
 import { DeleteMovieButton } from "./DeleteMovieButton";
 import UpdateMovieButton from "./update/UpdateMovieButton";
 
+//module level or file level, accessible anywhere within this file
+//only initilaized once when the file is loaded
+const sizes = [[200, 100], [100, 200], [100, 200], [100, 100], [200, 100]];
+
 const ShowSearchMovies = async ({ query, page }: { query: string, page: number }) => {
 
     const col = "newmovie";
-    const size = 5;
+    const size = 5; //re-initialized every function call
     const SearchData = await FindByTitleLike(col, query, page, size);
     // console.log(SearchData);
     // console.log(page + " " + query);
@@ -21,9 +25,9 @@ const ShowSearchMovies = async ({ query, page }: { query: string, page: number }
                     // const userId = href.match(/\/([^\/]+)$/)[1];
                     // console.log(m.title + " " + idx)
                     return (
-                        <div key={idx} className={`relative flex items-center justify-center border rounded-2xl border-colour text-center`} style={{ gridArea: `box-${idx + 1}` }}>
-                            <Image src={m.poster} width={200} height={300} alt={m.title} className="absolute rounded-2xl inset-0 w-full h-full object-center object-fill -z-10 " />
-                            <div className="absolute rounded-2xl inset-0 w-full h-full bg-black/40 -z-10 " />
+                        <div key={idx} className={`relative flex items-center justify-center rounded-2xl border-colour text-center [text-shadow:_0px_3px_3px_var(--contrast)] `} style={{ gridArea: `box-${idx + 1}` }}>
+                            <Image src={m.poster} width={sizes[idx][0]} height={sizes[idx][1]} alt={m.title} className="absolute rounded-2xl inset-0 w-full h-full object-center object-fill -z-10 [clip-path:_circle(50%)] " />
+                            <div className="absolute rounded-2xl inset-0 w-full h-full bg-black/40 duration-300 -z-10 " />
                             <div className="flex flex-col p-3 m-3 items-center justify-center gap-y-4">
                                 {/* <p>id: {m._links?.self?.href}</p>  */}
                                 <div>
