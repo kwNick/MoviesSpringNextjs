@@ -41,12 +41,12 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
     return (
 
         <div className="w-3/4 h-full flex flex-col items-center justify-center gap-y-3">
-            <div className="text-3xl lg:text-4xl xl:text-6xl font-bold ">
+            <div className="text-3xl lg:text-4xl xl:text-6xl font-bold tracking-widest">
                 <p>Edit Movie page!</p>
             </div>
             <div className="w-full h-full p-4 flex flex-col gap-y-3">
                 <Colours />
-                <form className="p-4 w-full h-full border border-[#ffffff80] rounded-lg grid grid-cols-2 gap-y-3 backdrop-blur-sm bg-[#ffffff1a] text-lg lg:text-xl xl:text-2xl [box-shadow:_0_25px_45px_#000000]" action={formAction}>
+                <form className="p-4 w-full h-full border border-[#ffffff80] rounded-lg flex flex-col items-center justify-center lg:grid lg:grid-cols-2 gap-y-3 backdrop-blur-md bg-[#ffffff1a] text-lg lg:text-xl xl:text-2xl font-semibold tracking-wider [box-shadow:_0_25px_45px_var(--colour)]" action={formAction}>
                     <div className="flex flex-col items-center justify-center">
                         <label htmlFor="title">Title</label>
                         <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
@@ -61,7 +61,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                         />
                     </div>
 
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center justify-center">
                         <label htmlFor="genre">Genre</label>
                         <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="genre"
@@ -75,7 +75,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                         />
                     </div>
 
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center justify-center">
                         <label htmlFor="rated">Rated</label>
                         <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="rated"
@@ -97,7 +97,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                                 ))}
                         </div>
                     </div>
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center justify-center">
                         <label htmlFor="plot">Plot</label>
                         <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="plot"
@@ -110,7 +110,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                             required
                         />
                     </div>
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center justify-center">
                         <label htmlFor="year">Year</label>
                         <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="year"
@@ -123,7 +123,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                             required
                         />
                     </div>
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center justify-center">
                         <label htmlFor="poster">Poster</label>
                         <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"
                             id="poster"

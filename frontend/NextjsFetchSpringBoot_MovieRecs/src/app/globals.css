@@ -8,6 +8,7 @@
   --contrast: #222222;
   --accent: #ef4444;
   --snow: #2793e9;
+  --pinky: #FDB7EA;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,6 +17,7 @@
     --colour: #222222;
     --accent: #ef4444;
     --snow: #2793e9;
+    --pinky: #FDB7EA;
   }
 }
 

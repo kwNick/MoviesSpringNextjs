@@ -35,7 +35,7 @@ const Clock = () => {
     }, []);
     return (
         //use the min value of 20vh or 20vw to the clock more responsive
-        <div className=" w-[20vh] h-[20vh] rounded-full border-colour shadow-inner shadow-colour fixed left-[5%] top-[25%]">
+        <div className=" w-[15vh] h-[15vh] rounded-full border-colour shadow-inner shadow-colour fixed left-[5%] top-[13%] z-10 backdrop-blur-sm">
             <div className="relative w-full h-full ">
 
                 <div className=" absolute rounded-full bg-[#ef4444]/70 transparent w-[5%] h-[5%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] -z-10" />
@@ -51,7 +51,7 @@ const Clock = () => {
                         return (
 
                             <div key={i} ref={(el) => { if (el) numbers.current[i] = el; }} style={{ transform: `rotate(${(i + 1) * 30}deg)` }}
-                                className="absolute w-full h-full text-center text-accent [text-shadow:0_0_3px_var(--accent)]">
+                                className="p-1 absolute w-full h-full text-center text-accent [text-shadow:0_0_3px_var(--accent)]">
                                 <span className="inline-block" style={{ transform: `rotate(${-1 * (i + 1) * 30}deg)` }} >{i + 1}</span>
                             </div>
                         )
