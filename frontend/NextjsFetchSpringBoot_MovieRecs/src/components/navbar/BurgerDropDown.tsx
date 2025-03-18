@@ -1,4 +1,5 @@
 'use client';
+import { navItems } from "@/resources/navItems";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -20,27 +21,18 @@ const BurgerDropDown = () => {
 
 
                 <ul className="w-full h-full text-contrast flex flex-col items-center justify-center gap-y-1 text-xl font-bold tracking-widest leading-8 ">
-                    <li className="w-full h-full hover:text-accent duration-300">
-                        <Link href={"/"} onClick={burgerClick}>
-                            Home
-                        </Link>
-                    </li>
-                    <li className="w-full h-full hover:text-accent duration-300">
-                        <Link href={"/movies"} onClick={burgerClick}>
-                            Movies
-                        </Link>
-                    </li>
-                    <li className="w-full h-full hover:text-accent duration-300">
-                        <Link href={"#"} onClick={burgerClick}>
-                            GSAP
-                        </Link>
-                    </li>
                     {/* make a bg effect per each nav item on hover or somethign like that; a shimmer across */}
-                    <li className="w-full h-full hover:text-accent duration-300">
-                        <Link href={"#"} onClick={burgerClick}>
-                            ShadCN
-                        </Link>
-                    </li>
+                    {
+                        navItems.map((x: { value: string, href: string }, idx: number) => {
+                            return (
+                                <li key={idx} className="w-full h-full hover:text-accent duration-300">
+                                    <Link href={x.href} onClick={burgerClick}>
+                                        {x.value}
+                                    </Link>
+                                </li>
+                            );
+                        })
+                    }
                 </ul>
             </div>
 
