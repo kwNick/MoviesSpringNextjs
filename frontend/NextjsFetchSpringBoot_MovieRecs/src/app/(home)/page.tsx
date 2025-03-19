@@ -20,7 +20,7 @@ export default async function Home() {
       </div>
 
       {/* Top rated movies section */}
-      <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
+      <div className="py-10 px-5 hidden relative w-full h-[85vh] sm:flex items-center justify-center">
         <ThreeDCard movies={newMovies._embedded.newmovie} />
       </div>
 
