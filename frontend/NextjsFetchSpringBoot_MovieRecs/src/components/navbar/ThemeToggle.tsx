@@ -28,7 +28,7 @@ const ThemeToggle = () => {
     };
 
     return (
-        <div className="absolute top-[1%] left-[18%] text-sm" onClick={toggleTheme}>
+        <div className="absolute top-[2%] left-[18%] text-sm border-[1px] border-colour p-1 rounded-xl" onClick={toggleTheme}>
             {darkMode ? "Light" : "Dark"}
         </div>
     )

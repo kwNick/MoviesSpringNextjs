@@ -28,6 +28,14 @@
   cursor: none;
 }
 
+body.dark {
+  --contrast: #f5debf;
+  --colour: #222222;
+  --accent: #ef4444;
+  --snow: #2793e9;
+  --pinky: #FDB7EA;
+}
+
 body {
   color: var(--colour);
   background: var(--contrast);
@@ -35,11 +43,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.dark {
-  color: var(--contrast);
-  background: var(--colour);
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 /* Cursor Animations */
 @keyframes cursorAnim {
