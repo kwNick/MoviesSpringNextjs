@@ -5,6 +5,7 @@ import BurgerDropDown from "./BurgerDropDown"
 import LoginDropDown from "./LoginDropDown"
 import { navItems } from "../../resources/navItems"
 import SlidingMarquee from "./SlidingMarquee"
+import ThemeToggle from "./ThemeToggle"
 
 const Navbar = () => {
     return (
@@ -16,6 +17,8 @@ const Navbar = () => {
                     </span>
                 </Link>
             </div>
+
+            <ThemeToggle />
 
             {/* Navigation List Section */}
             <div className="h-2/5 w-2/5 hidden text-contrast md:flex items-center justify-center rounded-lg">
