@@ -1,6 +1,7 @@
 import { NewMovie } from "@/resources/definitions";
 import Link from "next/link";
 import Image from "next/image";
+import FavButton from "../movies/favorites/FavButton";
 
 const ThreeDCard = ({ movies }: { movies: NewMovie[] }) => {
     return (
@@ -34,6 +35,8 @@ const ThreeDCard = ({ movies }: { movies: NewMovie[] }) => {
                                     <p>{x.title}</p>
                                     <p>{x.rated + " " + x.year}</p>
                                     <p>{x.genre}</p>
+
+                                    <FavButton movie={x} />
 
                                     {/* <p>{x.plot.split(" ").filter((_, idx) => idx < 15).join(" ")}</p> */}
                                 </div>

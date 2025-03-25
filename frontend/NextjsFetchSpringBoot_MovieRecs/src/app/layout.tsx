@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./../components/navbar/Navbar";
 import { hind } from "../resources/fonts";
 import Footer from "./../components/footer/Footer";
+import { FavoritesProvider } from "@/context/FavoritesContext";
 // import HomeCursor from "./components/cursors/HomeCursor";
 // import RisingBlocks from "./components/RisingBlocks";
 
@@ -22,21 +23,23 @@ export default function RootLayout({
       <body
         className={`${hind.className} relative antialiased max-w-screen min-h-screen tracking-wide selection:bg-fuchsia-300 scroll-smooth `}
       >
-        {/* cursor */}
-        {/* <HomeCursor /> */}
+        <FavoritesProvider>
+          {/* cursor */}
+          {/* <HomeCursor /> */}
 
-        <header className="sticky top-0 z-20">
-          <Navbar />
-        </header>
+          <header className="sticky top-0 z-20">
+            <Navbar />
+          </header>
 
-        {children}
+          {children}
 
-        <footer className="flex items-center">
-          <Footer />
-        </footer>
+          <footer className="flex items-center">
+            <Footer />
+          </footer>
 
-        {/*RisingBlocksAnimation  */}
-        {/* <RisingBlocks /> */}
+          {/*RisingBlocksAnimation  */}
+          {/* <RisingBlocks /> */}
+        </FavoritesProvider>
       </body>
     </html>
   );
