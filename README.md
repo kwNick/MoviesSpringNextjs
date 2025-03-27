@@ -47,6 +47,13 @@ Open a terminal run the following commands from the root directory:
 ```bash
 cd backend
 cd SpringbootAccessMongo
+
+#if you are the owner of the file
+sudo chmod u+x ./gradlew 
+#else
+sudo chmod o+x ./gradlew
+
+#run the springboot app
 ./gradlew bootRun
 ```
 
