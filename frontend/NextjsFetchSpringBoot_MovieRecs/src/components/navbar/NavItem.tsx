@@ -67,7 +67,7 @@ const NavItem = ({ x }: { x: { value: string, href: string } }) => {
                 )
             }
             {
-                x.value == "GSAP" && (
+                x.value == "Link" && (
                     <div className="relative w-full h-full flex items-center justify-center">
                         <div className={clsx("before:absolute before:inset-0 before:rounded-full before:left-[calc(50%-20px)] before:bg-colour before:w-[40px] before:h-[40px] before:opacity-0 before:duration-500  ",
                             {

@@ -12,7 +12,7 @@ export const navItems = [
         href: "/movies/favorites"
     },
     {
-        value: "GSAP",
+        value: "Link",
         href: ""
     },
     // {
