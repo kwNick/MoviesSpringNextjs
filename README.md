@@ -22,7 +22,7 @@ This project is a Nextjs front end with a Spring Boot back end using MongoDB for
 
 #### Configurations
 
-The backend springboot application is hosted on my home server running on a subdomain. If your just looking to run the front end you can skip this step and move on to the front-end or only download the frontend directory.
+The backend springboot application is hosted on my home server running on a subdomain, along with the mongo database. If your just looking to run the front end you can skip this step and move on to the front-end or only download the frontend directory.
 
 But if you wish to run the springboot backend on your own follow from here:
 
