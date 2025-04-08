@@ -68,6 +68,7 @@ Add the **env.local** file in the **frontend/NextjsFetchSpringBoot_MovieRecs/** 
 ```bash
 #if your running it localy use these variables
 SPRING_API_DOMAIN=localhost:8081
+
 #if your only using the frontend and want to access my public api of it
 SPRING_API_DOMAIN=spring-movie.duckdns.org
 ```
