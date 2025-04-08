@@ -22,7 +22,7 @@ This project is a Nextjs front end with a Spring Boot back end using MongoDB for
 
 #### Configurations
 
-**Configurations** needed to run springboot applications
+The backend springboot application is hosted on my home server running on a subdomain. If your just looking to run the front end you can skip this step and move on to the front-end or only download the frontend directory.
 
 Springboot Specs:
 \- Java (version 21.0.4) - SpringBoot (version 3.3.4) - Gradle (version 8.10.1)
