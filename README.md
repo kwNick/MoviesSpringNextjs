@@ -22,6 +22,44 @@ This project is a Nextjs front end with a Spring Boot back end using MongoDB for
 
 #### Configurations
 
+#### Database
+
+Install Mongodb or use mongodb atlas cluster free tier.
+
+MovieData accessible through...
+
+The movie data for this project is retrieved from the OMDb API. You can fetch your own data by signing up for a free API key on their website.
+
+Below is a small sample of movie data for demonstration purposes:
+
+```bash
+[
+  {
+    "Title": "The Matrix",
+    "Year": "1999",
+    "imdbID": "tt0133093",
+    "Type": "movie",
+    "Poster": "https://someurl.com"
+  },
+  {
+    "Title": "Inception",
+    "Year": "2010",
+    "imdbID": "tt1375666",
+    "Type": "movie",
+    "Poster": "https://someurl.com"
+  },
+  {
+    "Title": "Interstellar",
+    "Year": "2014",
+    "imdbID": "tt0816692",
+    "Type": "movie",
+    "Poster": "https://someurl.com"
+  }
+]
+```
+
+#### Spring Boot App
+
 The backend springboot application is hosted on my home server running on a subdomain, along with the mongo database. If your just looking to run the front end you can skip this step and move on to the front-end or only download the frontend directory.
 
 But if you wish to run the springboot backend on your own follow from here:
