@@ -15,12 +15,18 @@ This project is a Nextjs front end with a Spring Boot back end using MongoDB for
 - TailwindCSS
 - Spring Boot
 - MongoDB
+- Nginx
+- Vercel
 
 ## Installation
 
 ### Backend
 
 #### Configurations
+
+The backend springboot application is hosted on my home server running on a subdomain, along with the mongo database. If your just looking to run the front end you can skip this step and move on to the front-end and only download the frontend directory.
+
+But if you wish to run the springboot backend on your own, clone both everything and follow from here:
 
 #### Database
 
@@ -59,10 +65,6 @@ Below is a small sample of movie data for demonstration purposes:
 ```
 
 #### Spring Boot App
-
-The backend springboot application is hosted on my home server running on a subdomain, along with the mongo database. If your just looking to run the front end you can skip this step and move on to the front-end or only download the frontend directory.
-
-But if you wish to run the springboot backend on your own follow from here:
 
 Springboot Specs:
 \- Java (version 21.0.4) - SpringBoot (version 3.3.4) - Gradle (version 8.10.1)
