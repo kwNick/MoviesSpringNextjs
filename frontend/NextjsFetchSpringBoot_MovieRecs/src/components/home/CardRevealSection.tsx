@@ -1,6 +1,7 @@
 import { NewMovie } from "@/resources/definitions";
 import Link from "next/link";
 import Image from "next/image";
+
 const CardRevealSection = ({ movies }: { movies: NewMovie[] }) => {
     return (
         <>
