@@ -10,7 +10,7 @@ const ShowFavorites = () => {
     }
 
     return (
-        <div className="text-colour p-3 w-full h-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 rounded-lg">
+        <div className="text-colour p-3 w-full h-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 rounded-lg">
             {favorites.map((fav: NewMovie, idx: number) => {
                 return (
                     <div key={idx} className="max-h-fit flex flex-col items-center justify-center p-4 m-2 bg-gray-800 rounded-lg shadow-lg">

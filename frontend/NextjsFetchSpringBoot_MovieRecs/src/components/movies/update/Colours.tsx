@@ -9,12 +9,18 @@ const Colours = () => {
     };
 
     useEffect(() => {
+        console.log(window.screen.width, window.screen.height);
+        console.log(window.innerWidth, window.innerHeight);
         if (colour.current) {
             colour.current.forEach((colour, idx) => {
                 const top = Math.abs(Math.floor(Math.random() * 100) - 50);
                 const height = Math.abs(Math.floor(Math.random() * 100) - 50 - top);
                 const left = Math.abs(Math.floor(Math.random() * 100) - 50);
                 const width = Math.abs(Math.floor(Math.random() * 100) - 50 - left);
+                // const top = Math.abs(Math.floor(Math.random() * window.innerHeight) - 50);
+                // const height = Math.abs(Math.floor(Math.random() * window.innerHeight) - 50 - top);
+                // const left = Math.abs(Math.floor(Math.random() * window.innerWidth) - 50);
+                // const width = Math.abs(Math.floor(Math.random() * window.innerWidth) - 50 - left);
                 colour.style.top = `${top}%`;
                 colour.style.left = `${left}%`;
                 colour.style.width = `${width}%`;
