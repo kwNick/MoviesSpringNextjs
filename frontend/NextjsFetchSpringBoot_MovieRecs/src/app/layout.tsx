@@ -30,10 +30,18 @@ export default function RootLayout({
             <Navbar />
           </header>
 
-          {children}
+          <div className="relative w-full h-full bg-contrast z-10">
+            {children}
+          </div>
 
-          <footer className="flex items-center">
+          <footer className="footBlur w-full min-h-[40vh] border-t-2 border-accent flex flex-col justify-center bg-colour text-contrast md:sticky md:bottom-0 md:z-0">
             <Footer />
+
+            <div className="m-auto w-3/5 flex items-center justify-center text-center">
+              <h1 className="text-3xl w-full h-full">
+                Sticky Footer!
+              </h1>
+            </div>
           </footer>
 
           {/*RisingBlocksAnimation  */}

@@ -5,7 +5,7 @@ export async function CountMoviesByTitle(col: string, query?: string, page?: num
         query = query ?? "";
         page = page ?? 0;
         size = size ?? 5;
-        const data = await fetch(`https://${process.env.SPRING_API_DOMAIN}/${col}/search/countByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}`);
+        const data = await fetch(`http://${process.env.SPRING_API_DOMAIN}/${col}/search/countByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}`);
         return data.json();
     } catch (error) {
         throw new Error("Failed to Fetch Movies: " + error);
@@ -14,7 +14,7 @@ export async function CountMoviesByTitle(col: string, query?: string, page?: num
 
 export async function FindMovieById(id: string, col: string) {
     try {
-        const data = await fetch(`https://${process.env.SPRING_API_DOMAIN}/${col}/${id}`);
+        const data = await fetch(`http://${process.env.SPRING_API_DOMAIN}/${col}/${id}`);
         return data.json();
     } catch (error) {
         throw new Error("Could not Fetch Movie with userId from Database: " + error);
@@ -35,7 +35,7 @@ export async function FindByTitleLike(col: string, query?: string, page?: number
         query = query ?? "";
         page = page ?? 0;
         size = size ?? 5;
-        const data = await fetch(`https://${process.env.SPRING_API_DOMAIN}/${col}/search/findByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}`);
+        const data = await fetch(`http://${process.env.SPRING_API_DOMAIN}/${col}/search/findByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}`);
         return data.json();
     } catch (error) {
         throw new Error("Failed to Fetch Movies Like Title from Database: " + error);
