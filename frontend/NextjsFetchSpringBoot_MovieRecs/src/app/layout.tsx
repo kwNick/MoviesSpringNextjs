@@ -30,7 +30,7 @@ export default function RootLayout({
             <Navbar />
           </header>
 
-          <div className="footBlur relative w-full h-full bg-contrast z-10">
+          <div className="footBlur relative w-full min-h-[150vh] bg-contrast z-10">
             {children}
           </div>
 

@@ -9,10 +9,10 @@ import ThemeToggle from "./ThemeToggle"
 
 const Navbar = () => {
     return (
-        <nav className="relative h-[12vh] w-full flex items-center justify-evenly capitalize text-sm md:text-lg lg:text-xl tracking-wide">
+        <nav className="relative min-h-[100px] h-[12vh] w-full flex items-center bg-contrast justify-evenly capitalize text-sm md:text-lg lg:text-xl tracking-wide">
             <div className=" w-1/10 ">
                 <Link href={"/"} className="group block w-content h-full bg-contrast text-contrast border rounded-lg border-colour ">
-                    <span className="block bg-colour p-2 translate-y-[-2px] rounded-lg shadow-sm duration-300 hover:translate-y-[-10%] group-active:translate-y-0 hover:shadow-colour border-[1px] border-contrast">
+                    <span className="block bg-colour p-1 px-2 translate-y-[-2px] rounded-lg shadow-sm duration-300 hover:translate-y-[-10%] group-active:translate-y-0 hover:shadow-colour border-[1px] border-contrast">
                         Movies
                     </span>
                 </Link>
