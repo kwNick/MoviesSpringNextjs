@@ -19,11 +19,11 @@ const page = async (
     const page = Number(searchParams?.page) || 1;
 
     return (
-        <div className="relative w-full min-h-[150vh] flex flex-col items-center gap-y-2">
-            <div className="relative w-[80%] flex items-center justify-center p-2">
+        <div className="relative p-5 w-full h-[5000px] flex flex-col items-center gap-y-2">
+            <div className="relative w-[80%] flex items-center justify-center p-5">
                 <div className="grow flex items-center justify-center capitalize text-6xl text-accent">
-                    <p>
-                        All Movie Data
+                    <p className="">
+                        Movies
                     </p>
                 </div>
                 <div className="flex-none absolute right-0">
@@ -32,7 +32,7 @@ const page = async (
                     </Link>
                 </div>
             </div>
-            <div className="w-full p-2 flex flex-col items-center pb-10">
+            <div className="w-full p-5 flex flex-col items-center pb-10">
                 <div className="w-full flex flex-col items-center gap-y-12 pb-6">
                     <div className=" w-full flex items-center justify-center ">
                         <SearchMovies />

@@ -40,9 +40,9 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
     }, [movie, year, rated, plot, genre, title, poster]);
     return (
 
-        <div className="w-3/4 h-full flex flex-col items-center justify-center gap-y-3">
+        <div className="p-5 w-3/4 h-full flex flex-col items-center justify-center gap-y-3">
             <div className="text-3xl lg:text-4xl xl:text-6xl font-bold tracking-widest">
-                <p>Edit Movie page!</p>
+                <p className="underline">Edit Movie page!</p>
             </div>
             <div className="w-full h-full p-4 flex flex-col gap-y-3">
                 <Colours />

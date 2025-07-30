@@ -26,15 +26,16 @@ const CreateForm = () => {
         }
     }, [state])
     return (
-        <div className="w-[50%] h-full flex flex-col items-center justify-center gap-y-3">
+        <div className="w-3/5 h-full flex flex-col items-center justify-center gap-y-5">
             <div className="text-3xl lg:text-4xl xl:text-6xl font-bold text-colour">
-                <p>CreateForm</p>
+                <p className="underline">CreateForm</p>
             </div>
-            <div className="w-full h-full flex flex-col gap-y-3">
 
-                <form className="py-2 w-full h-full border-2 border-colour rounded-lg flex flex-col items-center justify-center gap-y-3 text-lg lg:text-xl xl:text-2xl" action={formAction}>
+            <div className="w-full h-full flex flex-col">
+
+                <form className="py-7 w-full h-full border-2 border-colour rounded-lg flex flex-col items-center justify-center gap-y-7 text-lg lg:text-xl xl:text-2xl" action={formAction}>
                     <div className="flex flex-col items-center justify-center">
-                        <label htmlFor="year">Year</label>
+                        <label htmlFor="year" className="underline">Year</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
                             id="year"
                             name="year"
@@ -48,7 +49,7 @@ const CreateForm = () => {
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <label htmlFor="genre">Genre</label>
+                        <label htmlFor="genre" className="underline">Genre</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
                             id="genre"
                             name="genre"
@@ -62,7 +63,7 @@ const CreateForm = () => {
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <label htmlFor="rated">Rated</label>
+                        <label htmlFor="rated" className="underline">Rated</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
                             id="rated"
                             name="rated"
@@ -85,7 +86,7 @@ const CreateForm = () => {
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <label htmlFor="poster">Poster</label>
+                        <label htmlFor="poster" className="underline">Poster</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
                             id="poster"
                             name="poster"
@@ -100,7 +101,7 @@ const CreateForm = () => {
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <label htmlFor="title">Title</label>
+                        <label htmlFor="title" className="underline">Title</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
                             id="title"
                             name="title"
@@ -113,7 +114,7 @@ const CreateForm = () => {
                         />
                     </div>
                     <div className="flex flex-col items-center">
-                        <label htmlFor="plot">Plot</label>
+                        <label htmlFor="plot" className="underline">Plot</label>
                         <input className="border-2 border-colour rounded-lg text-contrast"
                             id="plot"
                             name="plot"
@@ -127,7 +128,7 @@ const CreateForm = () => {
                     </div>
 
                     <div>
-                        <button type="submit" className="border-2 border-colour rounded-lg p-2" disabled={isPending}>Add Movie</button>
+                        <button type="submit" className="border-2 border-colour rounded-lg p-3" disabled={isPending}>Add Movie</button>
                     </div>
                 </form>
             </div>
