@@ -11,7 +11,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-x-4">
                 <Link href={"/"} className="group block w-content h-full bg-contrast text-contrast border rounded-lg border-colour ">
-                    <span className="block bg-colour p-1 translate-y-[-2px] rounded-lg shadow-sm duration-300 hover:translate-y-[-10%] group-active:translate-y-0 hover:shadow-colour">
+                    <span className="block bg-colour p-2 translate-y-[-2px] rounded-lg shadow-sm duration-300 hover:translate-y-[-10%] group-active:translate-y-0 hover:shadow-colour border-[1px] border-contrast">
                         Movies
                     </span>
                 </Link>
