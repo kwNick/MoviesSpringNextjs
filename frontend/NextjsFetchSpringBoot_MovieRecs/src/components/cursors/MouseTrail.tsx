@@ -15,7 +15,7 @@ export default function MouseTrail() {
             setTimeout(() => {
                 trail.style.opacity = "0";
                 trail.style.backgroundColor = "var(--colour)";
-                setTimeout(() => document.body.removeChild(trail), 400);
+                setTimeout(() => document.body.removeChild(trail), 300);
             }, 100);
         };
 
@@ -37,6 +37,7 @@ export default function MouseTrail() {
           border-radius: 50%;
           pointer-events: none;
           transition: all 0.4s ease-out;
+          z-index: 30;
         }
       `}</style>
         </>

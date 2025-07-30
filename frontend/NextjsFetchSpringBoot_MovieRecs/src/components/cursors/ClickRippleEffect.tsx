@@ -21,7 +21,9 @@ export default function ClickRippleEffect() {
         };
 
         window.addEventListener("click", handleClick);
-        return () => window.removeEventListener("click", handleClick);
+        return () => {
+            window.removeEventListener("click", handleClick);
+        }
     }, []);
 
     return (
@@ -36,6 +38,7 @@ export default function ClickRippleEffect() {
           pointer-events: none;
           transform: scale(0);
           transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+          z-index: 30;
         }
       `}</style>
         </>

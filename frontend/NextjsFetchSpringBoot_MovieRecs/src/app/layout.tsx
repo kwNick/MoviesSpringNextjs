@@ -34,7 +34,7 @@ export default function RootLayout({
             {children}
           </div>
 
-          <footer className="footBlur w-full min-h-[40vh] border-t-2 border-accent flex flex-col justify-center bg-colour text-contrast md:sticky md:bottom-0 md:z-0">
+          <footer className="footBlur w-full min-h-[48vh] flex flex-col justify-center bg-colour text-contrast border-t-2 border-accent md:sticky md:bottom-0 md:z-0">
             <Footer />
 
             <div className="m-auto w-3/5 flex items-center justify-center text-center">
