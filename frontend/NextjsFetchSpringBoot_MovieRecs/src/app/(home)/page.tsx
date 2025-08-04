@@ -19,7 +19,7 @@ export default async function Home() {
         <LandingSection />
       </div>
 
-      {/* Top rated movies section */}
+      {/* Top rated movies section - Hover Reveal*/}
       <div className="py-10 px-5 hidden relative w-full h-[85vh] sm:flex items-center justify-center">
         <ThreeDCard movies={newMovies._embedded.newmovie} />
       </div>
@@ -29,7 +29,7 @@ export default async function Home() {
         <TextFadeIn />
       </div>
 
-      {/* Top rated movies section */}
+      {/*Top rated movies section - Hover Enlarge Animation*/}
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
         <CardRevealSection movies={newMovies._embedded.newmovie} />
       </div>
@@ -42,7 +42,7 @@ export default async function Home() {
 
       </div>
 
-      {/* Radio Card Animation */}
+      {/* Top Rated Movies Section - Radio Card Animation */}
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
         <RadioCardSection movies={newMovies._embedded.newmovie} />
       </div>
