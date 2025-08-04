@@ -3,7 +3,7 @@ import "../login/LoginFormAnimations.css"
 
 const page = () => {
     return (
-        <div className=" w-full h-[80vh] flex flex-col items-center justify-center gap-y-3">
+        <div className=" w-full min-h-[120vh] flex flex-col items-center justify-center gap-y-3">
             <div className="group relative w-1/2 h-full flex flex-col items-center justify-center gap-y-3 ">
                 <span className="absolute inset-0 border rounded-[38%_62%_63%_37%_/_41%_44%_56%_59%] animate-rotateClockWise [animation-duration:_10s] group-hover:border-snow group-hover:border-[4px] group-hover:[filter:_drop-shadow(0_0_5px_var(--snow))] duration-300" />
                 {/* <span className="absolute inset-0 border rounded-[41%_44%_56%_59%_/_38%_62%_63%_37%] animate-rotateClockWise [animation-duration:_4s]" /> */}

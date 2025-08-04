@@ -3,7 +3,7 @@ import "./LoginFormAnimations.css"
 
 const page = () => {
     return (
-        <div className="w-full h-[80vh] flex items-center justify-center gap-y-3 ">
+        <div className="w-full min-h-[120vh] flex items-center justify-center gap-y-3 ">
             <div className="group relative overflow-hidden w-full h-[80%] flex flex-col items-center justify-center gap-y-3 lg:gap-y-5 xl:gap-y-7 p-5 lg:p-7 xl:p-9 rounded-lg transition-all duration-300">
                 <div>
                     <p className="w-0 underline text-2xl lg:text-3xl xl:text-4xl overflow-hidden animate-typewriter group-has-[.peer:checked]:text-accent group-has-[.peer:checked]:border-r-accent group-has-[.peer:checked]:[text-shadow:_0_0_10px_var(--accent)] transition-all duration-300">Login</p>

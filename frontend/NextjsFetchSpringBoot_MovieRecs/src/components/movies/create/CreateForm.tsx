@@ -128,7 +128,7 @@ const CreateForm = () => {
                     </div>
 
                     <div>
-                        <button type="submit" className="border-2 border-colour rounded-lg p-3" disabled={isPending}>Add Movie</button>
+                        <button type="submit" className="border-2 border-colour rounded-lg p-3" disabled={true || isPending}>Add Movie</button>
                     </div>
                 </form>
             </div>

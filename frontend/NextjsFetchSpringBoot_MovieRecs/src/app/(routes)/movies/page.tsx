@@ -19,7 +19,7 @@ const page = async (
     const page = Number(searchParams?.page) || 1;
 
     return (
-        <div className="relative p-5 w-full h-[5000px] flex flex-col items-center gap-y-2">
+        <div className="relative p-5 w-full h-full flex flex-col items-center gap-y-2">
             <div className="relative w-[80%] flex items-center justify-center p-5">
                 <div className="grow flex items-center justify-center capitalize text-6xl text-accent">
                     <p className="">

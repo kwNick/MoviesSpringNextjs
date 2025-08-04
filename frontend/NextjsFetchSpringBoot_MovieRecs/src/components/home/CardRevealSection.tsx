@@ -1,4 +1,5 @@
 import { NewMovie } from "@/resources/definitions";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -16,6 +17,7 @@ const CardRevealSection = ({ movies }: { movies: NewMovie[] }) => {
                         Top Rated Movies
                     </h2>
                 </div>
+
                 {/* <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent text-center">Top Rated Movies</h2> */}
                 <div className="w-full h-full flex items-center gap-x-4">
                     {movies.map((x: NewMovie, idx: number) => {
@@ -33,6 +35,7 @@ const CardRevealSection = ({ movies }: { movies: NewMovie[] }) => {
                                     <div className="w-full h-fit text-wrap ">
                                         <p>{x.title}</p>
                                     </div>
+
                                     <div className="opacity-0 group-hover:opacity-100 duration-500 text-wrap">
                                         <p>{x.rated + " " + x.year}</p>
                                         <p>{x.genre}</p>

@@ -6,7 +6,7 @@ import FavButton from "../movies/favorites/FavButton";
 const ThreeDCard = ({ movies }: { movies: NewMovie[] }) => {
     return (
         <>
-            <div className="absolute inset-0 bg-black z-[-10] opacity-0 animate-bgFadeOut animTextScroll " />
+            <div className="absolute inset-0 bg-black z-[10] opacity-0 animate-bgFadeOut animTextScroll pointer-events-none" />
 
             <div className=" w-full h-[90%] flex items-center justify-center gap-x-8 ">
 
