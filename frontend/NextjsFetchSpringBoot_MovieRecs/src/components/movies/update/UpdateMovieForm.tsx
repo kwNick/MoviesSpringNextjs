@@ -84,7 +84,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
                             value={rated}
                             // defaultValue={movie.rated}
                             onChange={(e) => setRated(e.target.value)}
-                            placeholder={"95%"}
+                            placeholder={"(R, PG, etc.)"}
                             required
                             aria-describedby="rated-error"
                         />

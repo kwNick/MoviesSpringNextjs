@@ -3,7 +3,7 @@ const shimmer =
 
 const UpdateMovieFormSkeleton = () => {
     return (
-        <form className={`${shimmer} py-2 w-full h-full flex flex-col gap-y-3 items-center `} >
+        <form className={`${shimmer} py-2 w-full min-h-full flex flex-col gap-y-3 items-center `} >
             <div className={`${shimmer} flex flex-col items-center`}>
                 <label htmlFor="movieId" className={`${shimmer} border rounded-md`}></label>
                 <input className={`${shimmer} border border-colour rounded-lg text-colour`}

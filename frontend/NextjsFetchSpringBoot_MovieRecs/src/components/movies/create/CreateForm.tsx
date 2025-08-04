@@ -39,7 +39,7 @@ const CreateForm = () => {
                         <input className="border-2 border-colour rounded-lg text-contrast"
                             id="year"
                             name="year"
-                            type="text"
+                            type="number"
                             value={year}
                             // defaultValue={""}
                             placeholder={"1998"}
@@ -55,7 +55,6 @@ const CreateForm = () => {
                             name="genre"
                             type="text"
                             value={genre}
-                            // defaultValue={""}
                             placeholder={"Action Comedy"}
                             onChange={(e) => setGenre(e.target.value)}
                             required
@@ -69,8 +68,7 @@ const CreateForm = () => {
                             name="rated"
                             type="text"
                             value={rated}
-                            // defaultValue={""}
-                            placeholder={"95%"}
+                            placeholder={"(R, PG, etc.)"}
                             onChange={(e) => setRated(e.target.value)}
                             required
                             aria-describedby="rated-error"
@@ -92,11 +90,9 @@ const CreateForm = () => {
                             name="poster"
                             type="text"
                             value={poster}
-                            // defaultValue={""}
                             placeholder={"url"}
                             onChange={(e) => setPoster(e.target.value)}
                             required
-
                         />
                     </div>
 
@@ -107,7 +103,6 @@ const CreateForm = () => {
                             name="title"
                             type="text"
                             value={title}
-                            // defaultValue={""}
                             placeholder={"Toy Story..."}
                             onChange={(e) => setTitle(e.target.value)}
                             required
@@ -120,7 +115,6 @@ const CreateForm = () => {
                             name="plot"
                             type="text"
                             value={plot}
-                            // defaultValue={""}
                             placeholder={"This story is about..."}
                             onChange={(e) => setPlot(e.target.value)}
                             required
@@ -128,7 +122,7 @@ const CreateForm = () => {
                     </div>
 
                     <div>
-                        <button type="submit" className="border-2 border-colour rounded-lg p-3" disabled={true || isPending}>Add Movie</button>
+                        <button type="submit" className="border-2 border-colour rounded-lg p-3" disabled={isPending}>Add Movie</button>
                     </div>
                 </form>
             </div>
