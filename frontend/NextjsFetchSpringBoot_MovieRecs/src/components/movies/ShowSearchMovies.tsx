@@ -9,7 +9,16 @@ import Image from "next/image";
 const sizes = [[200, 100], [100, 200], [100, 200], [100, 100], [200, 100]];
 
 const ShowSearchMovies = async ({ query, page }: { query: string, page: number }) => {
-
+    function isValidURL(src: string): boolean {
+        try {
+            new URL(src);
+            return true;
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (e) {
+            // console.error("Invalid URL:", e);
+            return false;
+        }
+    }
     const col = "newmovie";
     const size = 5; //re-initialized every function call
     const SearchData = await FindByTitleLike(col, query, page, size);
@@ -21,16 +30,7 @@ const ShowSearchMovies = async ({ query, page }: { query: string, page: number }
             <div className={`grid grid-cols-3 grid-rows-3 [grid-template-areas:_'box-1_box-1_box-2'_'box-3_box-4_box-2'_'box-3_box-5_box-5'] gap-4`}>
                 {SearchData._embedded.newmovie.map((m: NewMovie, idx: number) => {
                     const href = m._links.self.href;
-                    function isValidURL(src: string): boolean {
-                        try {
-                            new URL(src);
-                            return true;
-                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                        } catch (e) {
-                            // console.error("Invalid URL:", e);
-                            return false;
-                        }
-                    }
+
                     // console.log("href: " + href)
                     // const userId = href.match(/\/([^\/]+)$/)[1];
                     // console.log(m.title + " " + idx)
