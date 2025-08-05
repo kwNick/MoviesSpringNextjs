@@ -1,4 +1,4 @@
-import { FindByTitleLike } from "../../resources/data";
+import { FindAllByYearDesc, FindByGenre, FindByTitleLike } from "../../resources/data";
 import TextFadeIn from "../../components/home/TextFadeIn";
 import DevIntro from "../../components/home/DevIntro";
 import RadioCardSection from "@/components/home/RadioCardSection";
@@ -8,8 +8,11 @@ import ThreeDCard from "@/components/home/ThreeDCard";
 
 export default async function Home() {
   const col = "newmovie";
-  const newMovies = await FindByTitleLike(col);
-  // console.log(newMovies);
+  const topRatedMovies = await FindByTitleLike(col);
+  // console.log(topRatedMovies);
+  const comedyMovies = await FindByGenre(col, "comedy", 1, 5);
+
+  const mostRecentMovies = await FindAllByYearDesc(col, 1, 5);
 
   return (
     <main className="w-full h-full flex flex-col items-center justify-center">
@@ -21,7 +24,7 @@ export default async function Home() {
 
       {/* Top rated movies section - Hover Reveal*/}
       <div className="py-10 px-5 hidden relative w-full h-[85vh] sm:flex items-center justify-center">
-        <ThreeDCard movies={newMovies._embedded.newmovie} />
+        <ThreeDCard movies={topRatedMovies._embedded.newmovie} />
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
@@ -31,7 +34,7 @@ export default async function Home() {
 
       {/*Top rated movies section - Hover Enlarge Animation*/}
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
-        <CardRevealSection movies={newMovies._embedded.newmovie} />
+        <CardRevealSection movies={comedyMovies._embedded.newmovie} />
       </div>
 
       <div className="w-full h-[50vh] flex items-center justify-center">
@@ -44,7 +47,7 @@ export default async function Home() {
 
       {/* Top Rated Movies Section - Radio Card Animation */}
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
-        <RadioCardSection movies={newMovies._embedded.newmovie} />
+        <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
       </div>
       {/* 
       <div className="w-full h-[50vh] flex items-center justify-evenly">

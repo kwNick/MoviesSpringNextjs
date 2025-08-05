@@ -25,7 +25,7 @@ const TextFadeIn = () => {
     // animate-textFadeIn animTextScroll
     return (
         <div className={`scroll-anim snowShadow relative w-3/4 h-3/4 flex flex-col items-center justify-center text-center gap-y-4 before:absolute before:bottom-[-3%] before:left-50% before:w-[50%] before:h-[50%] before:bg-accent before:rounded-full ${visible ? "opacity-100 scale-[100%] translate-y-[0]" : "opacity-0 translate-y-[50%] scale-[50%]"} duration-700`}>
-            <p className="text-xl xl:text-3xl">Movies for Everyone!</p>
+            <p className="text-4xl xl:text-6xl">Movies for Everyone!</p>
             <p className={`text-lg lg:text-xl xl:text-2xl `}>
                 Finding a Movie has never been easier. Whether you&apos;re in the mood for a late-night thriller, a feel-good comedy, or a hidden indie gem — we&apos;ve got something for every taste.
                 Explore personalized recommendations, trending titles, and curated lists that make picking your next movie effortless and fun.

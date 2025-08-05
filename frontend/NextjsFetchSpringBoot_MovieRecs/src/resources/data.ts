@@ -53,3 +53,26 @@ export async function FindByTitleLike(col: string, query?: string, page?: number
 //         throw new Error("Failed to Fetch New Movies Like Title from Database: " + error);
 //     }
 // }
+
+export async function FindByGenre(col: string, query?: string, page?: number, size?: number) {
+    try {
+        query = query ?? "";
+        page = page ?? 0;
+        size = size ?? 5;
+        const data = await fetch(`http://${process.env.SPRING_API_DOMAIN}/${col}/search/findByGenreIgnoreCaseLike?genre=${query}&page=${page - 1}&size=${size}`);
+        return data.json();
+    } catch (error) {
+        throw new Error("Failed to Fetch Movies By Genre from Database: " + error);
+    }
+}
+
+export async function FindAllByYearDesc(col: string, page?: number, size?: number) {
+    try {
+        page = page ?? 0;
+        size = size ?? 5;
+        const data = await fetch(`http://${process.env.SPRING_API_DOMAIN}/${col}/search/findAllByOrderByYearDesc?page=${page - 1}&size=${size}`);
+        return data.json();
+    } catch (error) {
+        throw new Error("Failed to Fetch Movies Descending By Year from Database: " + error);
+    }
+}

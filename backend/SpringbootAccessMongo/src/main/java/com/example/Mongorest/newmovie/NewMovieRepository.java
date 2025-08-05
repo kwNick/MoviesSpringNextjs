@@ -21,6 +21,12 @@ public interface NewMovieRepository extends MongoRepository<NewMovie, String> {
 
     int countByTitleIgnoreCaseLike(String title);
 
+    List<NewMovie> findByGenreIgnoreCaseLike(String genre, Pageable pageable);
+
+    // List<NewMovie> findByYearDescending(String year, Pageable pageable);
+    // List<NewMovie> findByYearOrderByDescending(String year, Pageable pageable);
+    List<NewMovie> findAllByOrderByYearDesc(Pageable pageable);
+
     //What about Optional type? Doesn't seem to work gets type Errors 
     // Optional<Movie> findByTitleLike(String title);
     // @DeleteQuery("{'userId': ?0}")
