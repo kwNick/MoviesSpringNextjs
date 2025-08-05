@@ -18,10 +18,11 @@ const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
                 <Image src={poster} width={200} height={500} alt={title} className="absolute inset-0 h-full w-full object-cover " priority />
 
                 <div className="relative h-full w-full flex flex-nowrap">
-                    <Link href={`/movies/${id}`} className="absolute bottom-[2%] [margin:_15px] h-[40px] w-[40px] bg-accent rounded-full flex items-center justify-center text-colour cursor-pointer hover:bg-colour hover:text-accent duration-300 opacity-50 pointer-events-none group-has-[.peer:checked]:opacity-100  group-has-[.peer:checked]:pointer-events-auto">
-                        {idx}
+                    <Link href={`/movies/${id}`} className="absolute bottom-[2%] [margin:_15px] h-[40px] w-[40px] bg-accent rounded-full flex items-center justify-center text-sm text-colour cursor-none hover:bg-colour hover:text-accent hover:scale-110 duration-300 opacity-50 pointer-events-none group-has-[.peer:checked]:opacity-100 group-has-[.peer:checked]:pointer-events-auto group-has-[.peer:checked]:cursor-pointer transition-all">
+                        <span className="group-has-[a:hover]:hidden transition-all duration-300">{idx}</span>
+                        <span className="hidden group-has-[a:hover]:inline transition-all duration-300">view</span>
                     </Link>
-                    <div className="w-[90%] absolute bottom-[10%] left-[5%] overflow-hidden opacity-0 group-has-[.peer:checked]:opacity-100 group-has-[.peer:checked]:translate-y-[-35%] transition-all duration-200 text-colour font-bold mix-blend-overlay">
+                    <div className="w-[90%] absolute bottom-[10%] left-[5%] overflow-hidden opacity-0 group-has-[.peer:checked]:opacity-100 group-has-[.peer:checked]:translate-y-[-35%] transition-all duration-200 text-colour font-bold">
                         <h4 className="text-2xl lg:text-4xl xl:text-5xl font-bold lg:leading-10 mb-2">
                             {title}
                         </h4>
@@ -32,7 +33,7 @@ const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
                             {plot.slice(0, 40)}{plot.length > 40 ? "..." : ""}
                         </p>
                     </div>
-                    <div className="absolute bottom-[5%] right-[25%]  flex items-center justify-center opacity-0 group-has-[.peer:checked]:opacity-100 hover:hover:scale-110 transition-all duration-300">
+                    <div className="absolute bottom-[5%] right-[25%] cursor-none pointer-events-none flex items-center justify-center opacity-0 group-has-[.peer:checked]:pointer-events-auto group-has-[.peer:checked]:cursor-poiner group-has-[.peer:checked]:opacity-100 hover:hover:scale-110 transition-all duration-300">
                         <FavButton movie={card} />
                     </div>
                 </div>
