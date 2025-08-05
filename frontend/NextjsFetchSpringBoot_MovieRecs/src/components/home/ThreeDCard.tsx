@@ -21,7 +21,7 @@ const ThreeDCard = ({ movies }: { movies: NewMovie[] }) => {
 
                 </div>
 
-                <div className="grow-[4_1_auto] hidden list px-6 h-[90%] w-full sm:flex items-center justify-center gap-x-4 ">
+                <div className="grow-[4_1_auto] hidden list px-6 h-[90%] w-full sm:flex items-end justify-center gap-x-4 lg:gap-x-8 xl:gap-x-10 ">
                     {movies.map((x: NewMovie, idx: number) => {
                         const href = x._links.self.href;
                         // console.log(href);
@@ -30,16 +30,23 @@ const ThreeDCard = ({ movies }: { movies: NewMovie[] }) => {
                         // console.log(id);
                         return (
                             <Link href={`/movies/${id}`} key={idx} className=" item w-full h-4/5 px-2 py-1 border rounded-lg border-contrast bg-colour text-colour transition-all ease-in duration-300 brightness-0 text-xs md:text-sm lg:text-base flex items-center justify-center animate-moviesFadeIn">
-                                <div className="p-1 w-full h-full flex flex-col items-start justify-center text-start text-wrap rounded-lg [text-shadow:_0px_5px_10px_var(--contrast)] before:absolute before:inset-0 before:bg-[rgba(0,0,0,0.3)] before:z-[-10] before:rounded-lg">
+                                <div className="p-1 w-full h-full flex flex-col items-start justify-center gap-y-4 lg:gap-y-5 text-start text-wrap rounded-lg [text-shadow:_0px_5px_10px_var(--contrast)] before:absolute before:inset-0 before:bg-[rgba(0,0,0,0.3)] before:z-[-10] before:rounded-lg">
                                     <Image src={x.poster} width={200} height={500} alt={x.title} className="absolute inset-0 h-full w-full object-cover bg-cover bg-[50%_50%] z-[-20] rounded-lg " priority />
-                                    <p>{x.title}</p>
-                                    <p>{x.rated + " " + x.year}</p>
-                                    <p>{x.genre}</p>
+                                    <div className="flex flex-col gap-y-2">
+                                        <h1 className="text-lg lg:text-2xl xl:text-4xl">{x.title}</h1>
+                                        <div>
+                                            <p>{x.rated + " " + x.year}</p>
+                                            <p>{x.genre}</p>
+                                        </div>
+                                    </div>
 
-                                    <FavButton movie={x} />
+                                    <div>
+                                        <FavButton movie={x} />
+                                    </div>
 
                                     {/* <p>{x.plot.split(" ").filter((_, idx) => idx < 15).join(" ")}</p> */}
                                 </div>
+
                             </Link>
                         );
                     })}
