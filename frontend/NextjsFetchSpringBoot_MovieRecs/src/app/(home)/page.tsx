@@ -10,7 +10,9 @@ export default async function Home() {
   const col = "newmovie";
   const topRatedMovies = await FindByTitleLike(col);
   // console.log(topRatedMovies);
-  const comedyMovies = await FindByGenre(col, "comedy", 1, 5);
+  const genre = "Comedy";
+  // console.log(genre);
+  const comedyMovies = await FindByGenre(col, genre, 1, 5);
 
   const mostRecentMovies = await FindAllByYearDesc(col, 1, 5);
 
@@ -32,9 +34,9 @@ export default async function Home() {
         <TextFadeIn />
       </div>
 
-      {/*Top rated movies section - Hover Enlarge Animation*/}
+      {/*Genre movies section - Hover Enlarge Animation*/}
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
-        <CardRevealSection movies={comedyMovies._embedded.newmovie} />
+        <CardRevealSection movies={comedyMovies._embedded.newmovie} genre={genre} />
       </div>
 
       <div className="w-full h-[50vh] flex items-center justify-center">
@@ -46,7 +48,7 @@ export default async function Home() {
       </div>
 
       {/* Top Rated Movies Section - Radio Card Animation */}
-      <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
+      <div className="hidden relative w-full h-[85vh] pl-12 p-8 sm:flex items-center justify-center">
         <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
       </div>
       {/* 

@@ -2,8 +2,9 @@ import { NewMovie } from "@/resources/definitions";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import FavButton from "../movies/favorites/FavButton";
 
-const CardRevealSection = ({ movies }: { movies: NewMovie[] }) => {
+const CardRevealSection = ({ movies, genre }: { movies: NewMovie[], genre: string }) => {
     return (
         <>
             <div className="absolute inset-0 bg-black z-[10] opacity-0 animate-bgFadeOut animTextScroll pointer-events-none" />
@@ -14,7 +15,7 @@ const CardRevealSection = ({ movies }: { movies: NewMovie[] }) => {
                     <div className={`absolute inset-0 rounded-lg [background-image:_url('/pictures/camera.jpg')] bg-cover object-contain bg-[50%] z-[-10] before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.5)] before:z-[-10]`} />
 
                     <h2 className="text-3xl lg:text-4xl xl:text-5xl text-accent [text-shadow:0_0_5px_var(--accent),_0_0_1px_var(--colour)]">
-                        Top Rated Movies
+                        {genre} Movies
                     </h2>
                 </div>
 
@@ -41,6 +42,9 @@ const CardRevealSection = ({ movies }: { movies: NewMovie[] }) => {
                                         <p>{x.genre}</p>
                                         {/* <p>{x.plot.split(" ").filter((x, idx) => idx < 15).join(" ") + "..."}</p> */}
                                     </div>
+                                </div>
+                                <div className="absolute bottom-[5%] right-[5%] flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:translate-y-[-35%] group-hover:scale-110 transition-all duration-300 z-10">
+                                    <FavButton movie={x} />
                                 </div>
                             </Link>
                         );

@@ -1,7 +1,13 @@
 import { NewMovie } from "@/resources/definitions";
 import Image from "next/image";
+import Link from "next/link";
+import FavButton from "../movies/favorites/FavButton";
 
 const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
+    const href = card._links.self.href;
+    const idMatch = href.match(/\/([^\/]+)$/);
+    const id = idMatch ? idMatch[1] : "";
+    // console.log(id);
     const { title, rated, year, genre, plot, poster } = card;
     return (
         <div className=" group h-full flex flex-nowrap items-center justify-center overflow-hidden">
@@ -12,19 +18,22 @@ const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
                 <Image src={poster} width={200} height={500} alt={title} className="absolute inset-0 h-full w-full object-cover " priority />
 
                 <div className="relative h-full w-full flex flex-nowrap">
-                    <div className="absolute bottom-0 [margin:_15px] h-[40px] w-[40px] bg-snow rounded-full flex items-center justify-center text-colour">
+                    <Link href={`/movies/${id}`} className="absolute bottom-[2%] [margin:_15px] h-[40px] w-[40px] bg-accent rounded-full flex items-center justify-center text-colour cursor-pointer hover:bg-colour hover:text-accent duration-300 opacity-50 pointer-events-none group-has-[.peer:checked]:opacity-100  group-has-[.peer:checked]:pointer-events-auto">
                         {idx}
-                    </div>
-                    <div className="w-[90%] absolute bottom-[10%] left-[5%] overflow-hidden opacity-0 group-has-[.peer:checked]:opacity-100 group-has-[.peer:checked]:translate-y-[-35%] transition-all duration-200 text-colour text-lg lg:text-2xl xl:text-3xl lg:leading-10 font-bold">
-                        <h4>
+                    </Link>
+                    <div className="w-[90%] absolute bottom-[10%] left-[5%] overflow-hidden opacity-0 group-has-[.peer:checked]:opacity-100 group-has-[.peer:checked]:translate-y-[-35%] transition-all duration-200 text-colour font-bold mix-blend-overlay">
+                        <h4 className="text-2xl lg:text-4xl xl:text-5xl font-bold lg:leading-10 mb-2">
                             {title}
                         </h4>
-                        <p className="text-base lg:text-lg">
+                        <p className="text-base lg:text-lg lg:leading-10">
                             {rated} {year.replace("?", "-")} {genre}<br />
                         </p>
-                        <p>
+                        <p className="text-lg lg:text-2xl xl:text-3xl lg:leading-10">
                             {plot.slice(0, 40)}{plot.length > 40 ? "..." : ""}
                         </p>
+                    </div>
+                    <div className="absolute bottom-[5%] left-[5%]  flex items-center justify-center opacity-0 group-has-[.peer:checked]:opacity-100 hover:hover:scale-110 transition-all duration-300">
+                        <FavButton movie={card} />
                     </div>
                 </div>
             </label>

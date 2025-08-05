@@ -16,7 +16,7 @@ const FavButton = ({ movie }: { movie: NewMovie }) => {
 
 
     return (
-        <button onClick={(e) => toggleFav(e)} className="border border-colour p-1">
+        <button onClick={(e) => toggleFav(e)} className="border border-contrast text-contrast p-2">
             {favorites.find((m) => m.title === movie.title) ? "Remove Fav" : "Add Fav"}
         </button>
     )
