@@ -4,12 +4,12 @@ import "./LoginFormAnimations.css"
 const page = () => {
     return (
         <div className="w-full min-h-[120vh] flex items-center justify-center gap-y-3 ">
-            <div className="group relative overflow-hidden w-full h-[80%] flex flex-col items-center justify-center gap-y-3 lg:gap-y-5 xl:gap-y-7 p-5 lg:p-7 xl:p-9 rounded-lg transition-all duration-300">
-                <div>
-                    <p className="w-0 underline text-2xl lg:text-3xl xl:text-4xl overflow-hidden animate-typewriter group-has-[.peer:checked]:text-accent group-has-[.peer:checked]:border-r-accent group-has-[.peer:checked]:[text-shadow:_0_0_10px_var(--accent)] transition-all duration-300">Login</p>
+            <div className="group relative overflow-hidden w-full min-h-[85vh] flex flex-col items-center justify-center gap-y-8 lg:gap-y-10 xl:gap-y-12 p-5 lg:p-7 xl:p-9 rounded-lg transition-all duration-300">
+                <div className="">
+                    <p className="w-0 underline text-4xl lg:text-6xl xl:text-8xl overflow-hidden animate-typewriter group-has-[.peer:checked]:text-accent group-has-[.peer:checked]:border-r-accent group-has-[.peer:checked]:[text-shadow:_0_0_10px_var(--accent)] transition-all duration-300">Login</p>
                 </div>
 
-                <form className="p-2 flex flex-col items-center justify-center text-center gap-y-3 lg:gap-y-5 xl:gap-y-7 transition-all duration-300">
+                <form className="p-2 flex flex-col items-center justify-center text-center gap-y-10 lg:gap-y-12 xl:gap-y-14 transition-all duration-300">
 
                     {/* Light Post */}
                     <span className="absolute w-[50%] h-2 top-[0%] left-[25%] rounded-lg bg-colour group-has-[.peer:checked]:bg-accent group-has-[.peer:checked]:[box-shadow:0_0_10px_5px_rgba(239,68,68,.5)] transition-all duration-300" />
@@ -18,10 +18,11 @@ const page = () => {
                     <span className="absolute w-[77%] h-[100%] top-[8px] opacity-0 [background:_linear-gradient(to_bottom,_rgba(239,_68,_68,_.4)_-50%,_rgba(239,_68,_68,_0)_90%)] [clip-path:_polygon(20%_0,_80%_0,_100%_100%,_0_100%)] group-has-[.peer:checked]:opacity-100 transition-all duration-300" />
 
                     {/* Toggle Button */}
-                    <input type="checkbox" className="peer hidden  " id="input-check" />
-                    <label htmlFor="input-check" className="absolute top-[20%] right-[20%] w-[5%] h-[5%] lg:h-[7%] rounded-full bg-colour flex items-center justify-center peer-checked:[text-shadow:_0_0_10px_var(--colour)] peer-checked:translate-y-[75%] peer-checked:bg-accent duration-300 text-lg lg:text-2xl xl:text-3xl">
+                    <input type="checkbox" className="peer hidden " id="input-check" />
+                    <label htmlFor="input-check" className="absolute top-[20%] right-[20%] w-[5%] h-[5vw] lg:h-[7%] rounded-full bg-colour flex items-center justify-center peer-checked:[text-shadow:_0_0_10px_var(--colour)] peer-checked:translate-y-[75%] peer-checked:bg-accent duration-300 text-lg lg:text-2xl xl:text-3xl">
                         <span className="group-has-[.peer:checked]:hidden text-contrast">off</span>
                         <span className=" hidden group-has-[.peer:checked]:block">on</span>
+
                     </label>
 
                     {/* Username input field */}

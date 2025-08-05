@@ -22,7 +22,7 @@ const Footer = () => {
             </div>
 
             <div className="hidden w-1/4 md:block">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ratione iste adipisci quae repudiandae illo ullam, recusandae nihil necessitatibus harum reprehenderit reiciendis dolores dolorem optio dolore aliquam voluptatibus sequi eos libero consequatur quisquam vero totam.</p>
+                <p>Finding a Movie has never been easier. Whether you&apos;re in the mood for a late-night thriller, a feel-good comedy, or a hidden indie gem — we&apos;ve got something for every taste. Explore personalized recommendations, trending titles, and curated lists that make picking your next movie effortless and fun.</p>
             </div>
             <div className="">
                 <ul className="underline flex gap-x-2">
