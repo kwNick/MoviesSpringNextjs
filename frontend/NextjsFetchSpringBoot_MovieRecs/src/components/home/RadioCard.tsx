@@ -32,7 +32,7 @@ const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
                             {plot.slice(0, 40)}{plot.length > 40 ? "..." : ""}
                         </p>
                     </div>
-                    <div className="absolute bottom-[5%] left-[5%]  flex items-center justify-center opacity-0 group-has-[.peer:checked]:opacity-100 hover:hover:scale-110 transition-all duration-300">
+                    <div className="absolute bottom-[5%] right-[25%]  flex items-center justify-center opacity-0 group-has-[.peer:checked]:opacity-100 hover:hover:scale-110 transition-all duration-300">
                         <FavButton movie={card} />
                     </div>
                 </div>
