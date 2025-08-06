@@ -11,12 +11,20 @@ const page = async (
         searchParams: Promise<{
             query?: string;
             page?: string;
+            sort?: string;
         }>;
     }
 ) => {
     const searchParams = await props.searchParams;
     const query = searchParams?.query || '';
     const page = Number(searchParams?.page) || 1;
+    let sort = searchParams?.sort || 'title,asc';
+    if (Array.isArray(sort)) {
+        sort = sort.join('&sort=');
+    }
+    // console.log("query: ", query);
+    // console.log("page: ", page);
+    // console.log("sort: ", sort);
 
     return (
         <div className="relative p-5 w-full h-full flex flex-col items-center gap-y-14 lg:gap-y-16">
@@ -38,7 +46,7 @@ const page = async (
                         <SearchMovies />
                     </div>
                     <Suspense key={query + page} fallback={<SearchMoviesSkeleton />}>
-                        <ShowSearchMovies query={query} page={page} />
+                        <ShowSearchMovies query={query} page={page} sort={sort} />
                     </Suspense>
                     <Pagination query={query} />
                 </div>

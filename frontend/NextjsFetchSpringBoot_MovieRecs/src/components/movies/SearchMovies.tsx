@@ -12,6 +12,7 @@ const SearchMovies = () => {
         // console.log(term);
         const params = new URLSearchParams(searchParams);
         params.set("page", "1");
+        params.set("sort", "title,asc");
         if (term) {
             params.set('query', term);
         } else {

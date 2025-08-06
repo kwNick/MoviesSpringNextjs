@@ -30,12 +30,13 @@ export async function FindMovieById(id: string, col: string) {
 //     }
 // }
 
-export async function FindByTitleLike(col: string, query?: string, page?: number, size?: number) {
+export async function FindByTitleLike(col: string, query?: string, page?: number, size?: number, sort?: string) {
     try {
         query = query ?? "";
         page = page ?? 0;
         size = size ?? 5;
-        const data = await fetch(`http://${process.env.SPRING_API_DOMAIN}/${col}/search/findByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}`);
+        sort = sort ?? "title,asc"; //default sort
+        const data = await fetch(`http://${process.env.SPRING_API_DOMAIN}/${col}/search/findByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}&sort=${sort}`);
         return data.json();
     } catch (error) {
         throw new Error("Failed to Fetch Movies Like Title from Database: " + error);

@@ -11,7 +11,7 @@ const ThreeDCard = ({ movies }: { movies: NewMovie[] }) => {
             <div className=" w-full h-[90%] flex items-center justify-center gap-x-8 ">
 
                 <div className="mr-[calc(-50vw-50%)] grow-[1_0_auto] text-center relative w-full h-full flex items-center justify-center rounded-full [box-shadow:0_0_5px_1px_rgba(239,68,68,.3)] overflow-hidden">
-                    <div className={` absolute inset-0 w-full h-full rounded-lg [background-image:_url('/pictures/retroTv.jpg')] bg-cover object-contain bg-[50%] z-[-10] before:absolute before:inset-0 before:bg-[rgba(0,0,0,0.4)] before:z-[-10]`} />
+                    <div className={` absolute inset-0 w-full h-full rounded-lg [background-image:_url('/pictures/retroTv.jpg')] bg-cover object-contain bg-[50%] `} />
 
                     {/* <Image src={"/pictures/retroTv.jpg"} width={100} height={300} alt={"retroTV background"} className={`absolute w-full h-full rounded-lg object-cover bg-cover z-[-10] before:absolute before:inset-0 before:bg-[rgb(0,0,0,0.5)] before:z-[-10]`} /> */}
 

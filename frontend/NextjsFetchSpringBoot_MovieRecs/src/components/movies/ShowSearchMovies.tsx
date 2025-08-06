@@ -6,7 +6,7 @@ import Image from "next/image";
 //only initilaized once when the file is loaded
 const sizes = [[200, 100], [100, 200], [100, 200], [100, 100], [200, 100]];
 
-const ShowSearchMovies = async ({ query, page }: { query: string, page: number }) => {
+const ShowSearchMovies = async ({ query, page, sort }: { query: string, page: number, sort: string }) => {
     function isValidURL(src: string): boolean {
         try {
             new URL(src);
@@ -19,7 +19,7 @@ const ShowSearchMovies = async ({ query, page }: { query: string, page: number }
     }
     const col = "newmovie";
     const size = 5; //re-initialized every function call
-    const SearchData = await FindByTitleLike(col, query, page, size);
+    const SearchData = await FindByTitleLike(col, query, page, size, sort);
     // console.log(SearchData);
     // console.log(page + " " + query);
     // console.log(SearchData._embedded.movie._links.self.href);

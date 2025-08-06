@@ -1,4 +1,5 @@
 'use client';
+import Link from "next/link";
 import { useEffect, useRef } from "react"
 
 const DevIntro = () => {
@@ -31,7 +32,7 @@ const DevIntro = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="m16.49 12 3.75 3.75m0 0-3.75 3.75m3.75-3.75H3.74V4.499" />
             </svg>
 
-            <div className="relative text-contrast bg-transparent border border-colour rounded-lg flex flex-col items-center gap-y-3 p-5 lg:p-7 xl:p-9 overflow-hidden">
+            <div className="relative text-contrast bg-transparent border border-colour rounded-lg flex flex-col items-center gap-y-7 lg:gap-y-9 xl:gap-y-12 p-5 lg:p-7 xl:p-9 overflow-hidden">
 
                 <span ref={hoverRef} className="absolute w-0 h-0 rounded-full bg-colour [transition-timing-function:_linear] group-hover:w-[200px] group-hover:h-[200px] [transform:_translate(-50%,_-50%)] -z-10 " />
                 <section>
@@ -47,6 +48,13 @@ const DevIntro = () => {
                         This project is mainly used to practice and showcase my software development skills using nextjs front-end framework, springboot back-end framework as an api layer to connect the movie data stored in a mongo database to the front-end user client. Most animations are created using css or tailwind css.
                     </p>
                 </section>
+
+                <div className=" z-10">
+                    <Link href="#" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-contrast rounded-md hover:[text-shadow:0px_0px_5px_var(--accent)] hover transition-all duration-300 ">
+                        Learn More
+                    </Link>
+                </div>
+
             </div>
         </div>
     )

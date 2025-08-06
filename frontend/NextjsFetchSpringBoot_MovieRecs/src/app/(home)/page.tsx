@@ -39,7 +39,7 @@ export default async function Home() {
         <CardRevealSection movies={comedyMovies._embedded.newmovie} genre={genre} />
       </div>
 
-      <div className="w-full h-[50vh] flex items-center justify-center">
+      <div className=" mb-4 py-3 px-2 w-full h-[85vh] flex items-center justify-center">
         {/* intro to dev section */}
         <div className=" mb-4 py-3 px-2 w-fit min-h-fit flex justify-center">
           <DevIntro />
