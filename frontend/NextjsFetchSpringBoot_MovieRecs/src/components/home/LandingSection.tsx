@@ -6,7 +6,7 @@ const LandingSection = () => {
             </video>
 
             <div className="w-full h-full flex items-center justify-center animate-headerFadeIn">
-                <h1 className="relative landingHeader text-7xl lg:text-8xl xl:text-9xl border-accent after:h-[2%] after:absolute after:bg-accent after:bottom-[-8%] after:left-0 after:animate-lineLandingHeaderAnim">
+                <h1 className="relative landingHeader text-7xl lg:text-8xl xl:text-9xl lg:leading-10 tracking-wide border-accent after:h-[2%] after:absolute after:bg-accent after:bottom-[-8%] after:left-0 after:animate-lineLandingHeaderAnim">
                     MovieRecs
                 </h1>
             </div>

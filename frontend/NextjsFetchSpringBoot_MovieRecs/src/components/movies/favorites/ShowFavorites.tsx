@@ -6,7 +6,11 @@ const ShowFavorites = () => {
     const { favorites, removeFavorite } = useFavorites();
 
     if (favorites.length === 0) {
-        return <p className="p-4 text-contrast">No favorite movies yet.</p>;
+        return (
+            <div className="w-full h-full flex items-center justify-center">
+                <p className="p-4 text-colour">No favorite movies.</p>
+            </div>
+        );
     }
 
     return (
