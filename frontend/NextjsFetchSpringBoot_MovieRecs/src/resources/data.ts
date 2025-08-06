@@ -35,7 +35,7 @@ export async function FindByTitleLike(col: string, query?: string, page?: number
         query = query ?? "";
         page = page ?? 0;
         size = size ?? 5;
-        sort = sort ?? "title,asc"; //default sort
+        sort = sort ?? "imdbrating,desc&sort=title,asc"; //"imdbrating,desc&sort=title,asc" - default sort
         const data = await fetch(`http://${process.env.SPRING_API_DOMAIN}/${col}/search/findByTitleIgnoreCaseLike?title=${query}&page=${page - 1}&size=${size}&sort=${sort}`);
         return data.json();
     } catch (error) {

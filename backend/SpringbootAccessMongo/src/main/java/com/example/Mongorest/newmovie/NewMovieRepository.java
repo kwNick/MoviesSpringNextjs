@@ -19,6 +19,8 @@ public interface NewMovieRepository extends MongoRepository<NewMovie, String> {
     // List<Movie> findByTitleIgnoreCase(String title);
     List<NewMovie> findByTitleIgnoreCaseLike(String title, Pageable pageable);    //* */
 
+    List<NewMovie> findByTitleIgnoreCaseContainingOrGenreIgnoreCaseContaining(String title, String genre, Pageable pageable);
+
     int countByTitleIgnoreCaseLike(String title);
 
     List<NewMovie> findByGenreIgnoreCaseLike(String genre, Pageable pageable);

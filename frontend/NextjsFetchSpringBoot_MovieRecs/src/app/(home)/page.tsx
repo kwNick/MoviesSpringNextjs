@@ -8,11 +8,12 @@ import ThreeDCard from "@/components/home/ThreeDCard";
 
 export default async function Home() {
   const col = "newmovie";
-  const topRatedMovies = await FindByTitleLike(col);
+  // const topRatedSort = 'imdbrating,desc';
+  const topRatedMovies = await FindByTitleLike(col, "", 1, 5, 'imdbrating,desc');
   // console.log(topRatedMovies);
-  const genre = "Comedy";
+  // const genre = "Comedy";
   // console.log(genre);
-  const comedyMovies = await FindByGenre(col, genre, 1, 5);
+  const comedyMovies = await FindByGenre(col, "Comedy", 1, 5);
 
   const mostRecentMovies = await FindAllByYearDesc(col, 1, 5);
 
@@ -36,7 +37,7 @@ export default async function Home() {
 
       {/*Genre movies section - Hover Enlarge Animation*/}
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
-        <CardRevealSection movies={comedyMovies._embedded.newmovie} genre={genre} />
+        <CardRevealSection movies={comedyMovies._embedded.newmovie} genre={"Comedy"} />
       </div>
 
       <div className=" mb-4 py-3 px-2 w-full h-[85vh] flex items-center justify-center">
