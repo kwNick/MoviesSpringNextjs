@@ -21,13 +21,13 @@ const SearchMovies = () => {
     }, 300);
 
     return (
-        <div className="w-2/5">
+        <div className="w-2/5 flex items-center justify-center">
             <label htmlFor="search" className="sr-only">Search</label>
             <input
                 id="search"
                 name="search"
                 placeholder="Search..."
-                className=" w-full rounded-lg p-1 text-contrast outline-none"
+                className=" w-4/5 rounded-lg p-1 text-accent outline-none border-[1px] border-colour focus:border-accent"
                 onChange={(e) => { handleSearch(e.target.value) }}
                 defaultValue={searchParams.get('query')?.toString()}
             />

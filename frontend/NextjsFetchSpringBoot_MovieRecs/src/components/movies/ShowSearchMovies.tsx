@@ -25,9 +25,17 @@ const ShowSearchMovies = async ({ query, page }: { query: string, page: number }
     // console.log(SearchData);
     // console.log(page + " " + query);
     // console.log(SearchData._embedded.movie._links.self.href);
+
+    // const genre = "Comedy";
+    // // console.log(genre);
+    // const comedyMovies = await FindByGenre(col, genre, 1, 5);
+
+    // const mostRecentMovies = await FindAllByYearDesc(col, 1, 5);
+
+
     return (
         <div className="w-4/5">
-            <div className={`grid grid-cols-3 grid-rows-3 [grid-template-areas:_'box-1_box-1_box-2'_'box-3_box-4_box-2'_'box-3_box-5_box-5'] gap-4`}>
+            <div className={`grid grid-cols-3 grid-rows-3 [grid-template-areas:_'box-1_box-1_box-2'_'box-3_box-4_box-2'_'box-3_box-5_box-5'] gap-6 lg:gap-8`}>
                 {SearchData._embedded.newmovie.map((m: NewMovie, idx: number) => {
                     const href = m._links.self.href;
 

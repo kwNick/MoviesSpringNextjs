@@ -22,7 +22,7 @@ const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
                         <span className="group-has-[a:hover]:hidden transition-all duration-300">{idx}</span>
                         <span className="hidden group-has-[a:hover]:inline transition-all duration-300">view</span>
                     </Link>
-                    <div className="w-[90%] absolute bottom-[10%] left-[5%] overflow-hidden opacity-0 group-has-[.peer:checked]:opacity-100 group-has-[.peer:checked]:translate-y-[-35%] transition-all duration-200 text-colour font-bold">
+                    <div className="w-[90%] absolute bottom-[10%] left-[5%] opacity-0 group-has-[.peer:checked]:opacity-100 group-has-[.peer:checked]:translate-y-[-35%] transition-all duration-200 text-colour font-bold">
                         <h4 className="text-2xl lg:text-4xl xl:text-5xl font-bold lg:leading-10 mb-2">
                             {title}
                         </h4>

@@ -33,7 +33,7 @@ const ThreeDCard = ({ movies }: { movies: NewMovie[] }) => {
                                 <div className="p-1 w-full h-full flex flex-col items-start justify-center gap-y-4 lg:gap-y-5 text-start text-wrap rounded-lg [text-shadow:_0px_5px_10px_var(--contrast)] before:absolute before:inset-0 before:bg-[rgba(0,0,0,0.3)] before:z-[-10] before:rounded-lg">
                                     <Image src={x.poster} width={200} height={500} alt={x.title} className="absolute inset-0 h-full w-full object-cover bg-cover bg-[50%_50%] z-[-20] rounded-lg " priority />
                                     <div className="flex flex-col gap-y-2">
-                                        <h1 className="text-lg lg:text-2xl xl:text-4xl">{x.title}</h1>
+                                        <h1 className="text-xl lg:text-3xl xl:text-5xl">{x.title}</h1>
                                         <div>
                                             <p>{x.rated + " " + x.year}</p>
                                             <p>{x.genre}</p>
