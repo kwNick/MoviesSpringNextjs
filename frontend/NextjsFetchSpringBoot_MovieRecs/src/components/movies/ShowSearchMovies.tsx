@@ -1,7 +1,5 @@
 import { FindByTitleLike } from "../../resources/data";
 import { NewMovie } from "../../resources/definitions";
-import { DeleteMovieButton } from "./DeleteMovieButton";
-import UpdateMovieButton from "./update/UpdateMovieButton";
 import Image from "next/image";
 
 //module level or file level, accessible anywhere within this file
@@ -37,7 +35,7 @@ const ShowSearchMovies = async ({ query, page }: { query: string, page: number }
         <div className="w-4/5">
             <div className={`grid grid-cols-3 grid-rows-3 [grid-template-areas:_'box-1_box-1_box-2'_'box-3_box-4_box-2'_'box-3_box-5_box-5'] gap-6 lg:gap-8`}>
                 {SearchData._embedded.newmovie.map((m: NewMovie, idx: number) => {
-                    const href = m._links.self.href;
+                    // const href = m._links.self.href;
 
                     // console.log("href: " + href)
                     // const userId = href.match(/\/([^\/]+)$/)[1];
@@ -55,10 +53,10 @@ const ShowSearchMovies = async ({ query, page }: { query: string, page: number }
                                     <p className="text-sm lg:text-base">{m.genre}</p>
                                     <p className="lg:text-lg xl:text-xl">{m.plot.split(" ").filter((_, idx) => idx < 10).join(" ") + (m.plot.split(" ").length > 9 ? "..." : "")}</p>
                                 </div>
-                                <div className="container flex gap-3 justify-around">
+                                {/* <div className="container flex gap-3 justify-around">
                                     <UpdateMovieButton href={href} />
                                     <DeleteMovieButton href={href} />
-                                </div>
+                                </div> */}
                             </div>
                             {/* <hr className="w-full border-colour" /> */}
                         </div>

@@ -13,6 +13,8 @@ export type Movie = {
     _links: Link;
 }
 
+// NewMovie type definition
+//No caps, no camelcase, nodashes, just all lowercase
 export type NewMovie = {
     id: string;
     title: string;
