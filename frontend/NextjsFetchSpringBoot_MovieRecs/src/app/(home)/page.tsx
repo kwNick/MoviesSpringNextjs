@@ -1,4 +1,4 @@
-import { FindAllByYearDesc, FindByGenre, FindByTitleLike } from "../../resources/data";
+import { FindByGenre, FindByTitleLike } from "../../resources/data";
 import TextFadeIn from "../../components/home/TextFadeIn";
 import DevIntro from "../../components/home/DevIntro";
 import RadioCardSection from "@/components/home/RadioCardSection";
@@ -8,14 +8,14 @@ import ThreeDCard from "@/components/home/ThreeDCard";
 
 export default async function Home() {
   const col = "newmovie";
-  // const topRatedSort = 'imdbrating,desc';
   const topRatedMovies = await FindByTitleLike(col, "", 1, 5, 'imdbrating,desc');
   // console.log(topRatedMovies);
-  // const genre = "Comedy";
-  // console.log(genre);
-  const comedyMovies = await FindByGenre(col, "Comedy", 1, 5);
 
-  const mostRecentMovies = await FindAllByYearDesc(col, 1, 5);
+  // const genre = "Comedy";
+  const comedyMovies = await FindByGenre(col, "Comedy", 1, 5, 'imdbrating,desc&sort=title,asc');
+
+  // const mostRecentMovies = await FindAllByYearDesc(col, 1, 5);
+  const mostRecentMovies = await FindByTitleLike(col, "", 1, 5, 'year,desc&sort=title,asc');
 
   return (
     <main className="w-full h-full flex flex-col items-center justify-center">
