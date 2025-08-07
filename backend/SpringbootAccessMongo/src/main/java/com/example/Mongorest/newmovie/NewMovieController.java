@@ -27,7 +27,7 @@ public class NewMovieController {
 
     @GetMapping("/search")
     public ResponseEntity<List<NewMovie>> getSearchMovies(@RequestParam(required=false) String query, @RequestParam(required=false) String genre, Pageable pageable) {
-        // System.out.println("Param: " + param);
+
         if(query != null){
             System.out.println("title: " + query);
             return ResponseEntity.ok(newMovieRepo.findByTitleIgnoreCaseContaining(query, pageable));
@@ -35,6 +35,7 @@ public class NewMovieController {
             System.out.println("genre: " + genre);
             return ResponseEntity.ok(newMovieRepo.findByGenreIgnoreCaseContaining(genre, pageable));
         }
+
         // If no query or genre is provided, return an empty list or handle as needed
         return ResponseEntity.ok(List.of());  // Return an empty list if no query is provided
         
@@ -44,41 +45,5 @@ public class NewMovieController {
     // public List<NewMovie> getMethodNameRe(@RequestParam String query, Pageable pageable) {
     //     return newMovieRepo.findByTitleIgnoreCaseContaining(query, pageable);
     // }
-
-
-// HAL (Hypertext Application Language) format
-// @RestController
-// @RequestMapping("/api/movies")
-// public class NewMovieController {
-
-//     private final NewMovieRepository newMovieRepository;
-//     private final PagedResourcesAssembler<NewMovie> pagedResourcesAssembler;
-
-//     public NewMovieController(NewMovieRepository newMovieRepository,
-//                               PagedResourcesAssembler<NewMovie> pagedResourcesAssembler) {
-//         this.newMovieRepository = newMovieRepository;
-//         this.pagedResourcesAssembler = pagedResourcesAssembler;
-//     }
-
-//     @GetMapping
-//     public ResponseEntity<PagedModel<EntityModel<NewMovie>>> getAllMovies(
-//             @RequestParam(defaultValue = "0") int page,
-//             @RequestParam(defaultValue = "10") int size,
-//             @RequestParam(defaultValue = "") String title,
-//             Pageable pageable
-//     ) {
-//         Page<NewMovie> moviePage;
-
-//         if (title != null && !title.isBlank()) {
-//             moviePage = newMovieRepository.findByTitleIgnoreCaseContaining(title, pageable);
-//         } else {
-//             moviePage = newMovieRepository.findAll(pageable);
-//         }
-
-//         PagedModel<EntityModel<NewMovie>> pagedModel = pagedResourcesAssembler.toModel(moviePage);
-
-//         return ResponseEntity.ok(pagedModel);
-//     }
-// }
 
 }
