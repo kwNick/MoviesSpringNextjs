@@ -18,7 +18,7 @@ const page = async (
     const searchParams = await props.searchParams;
     const query = searchParams?.query || '';
     const page = Number(searchParams?.page) || 1;
-    let sort = searchParams?.sort || 'title,asc';
+    let sort = searchParams?.sort || 'imdbrating,desc&sort=title,asc';
     if (Array.isArray(sort)) {
         sort = sort.join('&sort=');
     }
