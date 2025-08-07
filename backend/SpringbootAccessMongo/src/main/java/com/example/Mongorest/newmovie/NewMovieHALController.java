@@ -7,6 +7,7 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,10 +19,12 @@ public class NewMovieHALController {
 
     private final NewMovieRepository newMovieRepo;
     private final PagedResourcesAssembler<NewMovie> pagedResourcesAssembler;
+    private final NewMovieModelAssembler movieModelAssembler;   //inject the assembler
 
-    public NewMovieHALController(NewMovieRepository newMovieRepo, PagedResourcesAssembler<NewMovie> pagedResourcesAssembler) {
+    public NewMovieHALController(NewMovieRepository newMovieRepo, PagedResourcesAssembler<NewMovie> pagedResourcesAssembler, NewMovieModelAssembler movieModelAssembler) { //inject the assembler
         this.newMovieRepo = newMovieRepo;
         this.pagedResourcesAssembler = pagedResourcesAssembler;
+        this.movieModelAssembler = movieModelAssembler;     //inject the assembler
     }
 
     @GetMapping
@@ -40,16 +43,16 @@ public class NewMovieHALController {
             searchRes = newMovieRepo.findByGenreIgnoreCaseLike(genre, pageable);
         }
 
-        PagedModel<EntityModel<NewMovie>> pagedModel = pagedResourcesAssembler.toModel(searchRes);
+        PagedModel<EntityModel<NewMovie>> pagedModel = pagedResourcesAssembler.toModel(searchRes, movieModelAssembler);     //use the assembler here
 
         return ResponseEntity.ok(pagedModel);
     }
 
-    // @GetMapping("/{id}")
-    // public ResponseEntity<EntityModel<NewMovie>> getMovieById(@PathVariable String id) {
-    //     return newMovieRepository.findById(id)
-    //             .map(movieModelAssembler::toModel)
-    //             .map(ResponseEntity::ok)
-    //             .orElse(ResponseEntity.notFound().build());
-    // }
+    @GetMapping("/{id}")
+    public ResponseEntity<EntityModel<NewMovie>> getMovieById(@PathVariable String id) {
+        return newMovieRepo.findById(id)
+                .map(movieModelAssembler::toModel)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
