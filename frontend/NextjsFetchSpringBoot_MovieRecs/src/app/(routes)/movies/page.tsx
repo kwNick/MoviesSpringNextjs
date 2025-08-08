@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import SearchMovies from "../../../components/movies/SearchMovies";
 import ShowSearchMovies from "../../../components/movies/ShowSearchMovies";
-import Pagination from "../../../components/movies/Pagination";
+// import Pagination from "../../../components/movies/Pagination";
 import Link from "next/link";
 import SearchMoviesSkeleton from "../../../components/skeletons/SearchMoviesSkeleton";
 import "./LinkAnimation.css"
@@ -10,21 +10,20 @@ const page = async (
     props: {
         searchParams: Promise<{
             query?: string;
+            genre?: string; //
             page?: string;
             size?: string;
             sort?: string;
-            //genre?: string;
         }>;
     }
 ) => {
     const searchParams = await props.searchParams;
 
     const query = searchParams?.query || '';
-
-    // const genre = searchParams?.genre || '';
-
+    const genre = searchParams?.genre || ''; //
     const page = Number(searchParams?.page) || 1;
     const size = Number(searchParams?.size) || 5;
+
     let sort = searchParams?.sort || 'imdbrating,desc&sort=title,asc';
     if (Array.isArray(sort)) {
         sort = sort.join('&sort=');
@@ -32,6 +31,7 @@ const page = async (
     // console.log("query: ", query);
     // console.log("page: ", page);
     // console.log("sort: ", sort);
+    // console.log("genre: ", genre);
 
     return (
         <div className="relative p-5 w-full h-full flex flex-col items-center gap-y-14 lg:gap-y-16">
@@ -53,9 +53,9 @@ const page = async (
                         <SearchMovies />
                     </div>
                     <Suspense key={query + page} fallback={<SearchMoviesSkeleton />}>
-                        <ShowSearchMovies query={query} page={page} size={size} sort={sort} />
+                        <ShowSearchMovies query={query} genre={genre} page={page} size={size} sort={sort} />
                     </Suspense>
-                    <Pagination query={query} />
+                    {/* <Pagination query={query} /> */}
                 </div>
             </div>
 

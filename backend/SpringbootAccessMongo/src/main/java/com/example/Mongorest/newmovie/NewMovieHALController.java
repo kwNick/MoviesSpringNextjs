@@ -36,10 +36,10 @@ public class NewMovieHALController {
         Page<NewMovie> searchRes = Page.empty(pageable);
 
         if (query != null) {
-            System.out.println("HAL title: " + query);
+            System.out.println("HAL title: --> query: " + query + " genre: " + genre + " pageable: " + pageable);
             searchRes = newMovieRepo.findByTitleIgnoreCaseLike(query, pageable);
         } else if (genre != null) {
-            System.out.println("HAL genre: " + genre);
+            System.out.println("HAL genre: --> query: " + query + " genre: " + genre + " pageable: " + pageable);
             searchRes = newMovieRepo.findByGenreIgnoreCaseLike(genre, pageable);
         }
 

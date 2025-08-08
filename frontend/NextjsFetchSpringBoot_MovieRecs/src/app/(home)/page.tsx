@@ -1,4 +1,4 @@
-import { FindByGenre, FindByTitleLike } from "../../resources/data";
+import { FindBySearch } from "../../resources/data";
 import TextFadeIn from "../../components/home/TextFadeIn";
 import DevIntro from "../../components/home/DevIntro";
 import RadioCardSection from "@/components/home/RadioCardSection";
@@ -8,11 +8,14 @@ import ThreeDCard from "@/components/home/ThreeDCard";
 
 export default async function Home() {
 
-  const topRatedMovies = await FindByTitleLike("newmovie", "", 1, 5, 'imdbrating,desc&sort=title,asc'); //change
+  // const topRatedMovies = await FindByTitleLike("newmovie", "", 1, 5, 'imdbrating,desc&sort=title,asc'); //change
+  const topRatedMovies = await FindBySearch("", undefined, 1, 5, 'imdbrating,desc&sort=title,asc');
 
-  const comedyMovies = await FindByGenre("newmovie", "Comedy", 1, 5, 'imdbrating,desc&sort=title,asc'); //change
+  // const comedyMovies = await FindByGenre("newmovie", "Comedy", 1, 5, 'imdbrating,desc&sort=title,asc'); //change
+  const comedyMovies = await FindBySearch(undefined, "Comedy", 1, 5, 'imdbrating,desc&sort=title,asc');
 
-  const mostRecentMovies = await FindByTitleLike("newmovie", "", 1, 5, 'year,desc&sort=imdbrating,desc'); //change
+  // const mostRecentMovies = await FindByTitleLike("newmovie", "", 1, 5, 'year,desc&sort=imdbrating,desc'); //change
+  const mostRecentMovies = await FindBySearch("", undefined, 1, 5, 'year,desc&sort=imdbrating,desc');
 
   return (
     <main className="w-full h-full flex flex-col items-center justify-center">

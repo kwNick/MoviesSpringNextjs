@@ -1,10 +1,10 @@
-import { FindByTitleLike } from "../../resources/data"
+import { FindBySearch } from "@/resources/data";
 import { NewMovie } from "../../resources/definitions";
 
 const SlidingMarquee = async () => {
-    const size = 10
-    const col = "newmovie";
-    const movies = await FindByTitleLike(col, undefined, undefined, size);
+    // const movies = await FindByTitleLike("newmovie", undefined, undefined, 10); //change
+    const movies = await FindBySearch("", undefined, undefined, 10, undefined); //defaults to top rated movies
+
     return (
         <>
             <div className="group absolute bottom-0 left-0 w-full h-[20] flex items-center text-xs tracking-widest text-nowrap opacity-40 overflow-hidden hover:opacity-100  duration-300 before:absolute before:bg-accent before:opacity-40 before:bottom-0 before:left-0 before:w-full before:h-full ">

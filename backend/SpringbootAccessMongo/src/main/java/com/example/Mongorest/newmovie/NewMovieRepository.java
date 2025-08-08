@@ -26,11 +26,12 @@ public interface NewMovieRepository extends MongoRepository<NewMovie, String> {
     // | `T`             | One result, but throws if ambiguous       |
     // | `Stream<T>`     | Lazy processing of large results          |
     // | `GeoResults<T>` | Geospatial results with distance metadata |
+    
+    
+    // int countByTitleIgnoreCaseContaining(String title);
 
+    /* NewMovieController ResponseEntity<List<NewMovie>> /api/newmovie/**  GET-/search */
     List<NewMovie> findByTitleIgnoreCaseContaining(String title, Pageable pageable);    //* */
-    
-    int countByTitleIgnoreCaseContaining(String title);
-    
     List<NewMovie> findByGenreIgnoreCaseContaining(String genre, Pageable pageable);
 
     // for HAL (Hypertext Application Language) format

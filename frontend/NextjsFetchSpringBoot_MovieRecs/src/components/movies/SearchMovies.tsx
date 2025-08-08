@@ -12,6 +12,7 @@ const SearchMovies = () => {
         // console.log(term);
         const params = new URLSearchParams(searchParams);
         params.set("page", "1");
+        params.delete("genre");
         params.set("sort", "imdbrating,desc&sort=title,asc");
         if (term) {
             params.set('query', term);

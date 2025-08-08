@@ -40,10 +40,10 @@ public class NewMovieController {
     public ResponseEntity<List<NewMovie>> getSearchMovies(@RequestParam(required=false) String query, @RequestParam(required=false) String genre, Pageable pageable) {
 
         if(query != null){
-            System.out.println("title: " + query);
+            // System.out.println("title: " + query);
             return ResponseEntity.ok(newMovieRepo.findByTitleIgnoreCaseContaining(query, pageable));
         }else if (genre != null) {
-            System.out.println("genre: " + genre);
+            // System.out.println("genre: " + genre);
             return ResponseEntity.ok(newMovieRepo.findByGenreIgnoreCaseContaining(genre, pageable));
         }
 
