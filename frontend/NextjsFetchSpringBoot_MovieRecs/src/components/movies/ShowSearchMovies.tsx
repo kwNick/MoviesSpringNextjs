@@ -6,7 +6,7 @@ import Image from "next/image";
 //only initilaized once when the file is loaded
 const sizes = [[200, 100], [100, 200], [100, 200], [100, 100], [200, 100]];
 
-const ShowSearchMovies = async ({ query, page, sort }: { query: string, page: number, sort: string }) => {
+const ShowSearchMovies = async ({ query, page, size, sort }: { query: string, page: number, size: number, sort: string }) => {
     function isValidURL(src: string): boolean {
         try {
             new URL(src);
@@ -17,26 +17,14 @@ const ShowSearchMovies = async ({ query, page, sort }: { query: string, page: nu
             return false;
         }
     }
-    const col = "newmovie";
-    const size = 5; //re-initialized every function call
-    const SearchData = await FindByTitleLike(col, query, page, size, sort);
-    // console.log(SearchData);
-    // console.log(page + " " + query);
-    // console.log(SearchData._embedded.movie._links.self.href);
 
-    // const genre = "Comedy";
-    // // console.log(genre);
-    // const comedyMovies = await FindByGenre(col, genre, 1, 5);
-
-    // const mostRecentMovies = await FindAllByYearDesc(col, 1, 5);
-
+    const SearchData = await FindByTitleLike("newmovie", query, page, size, sort); //change
 
     return (
         <div className="w-4/5">
             <div className={`grid grid-cols-3 grid-rows-3 [grid-template-areas:_'box-1_box-1_box-2'_'box-3_box-4_box-2'_'box-3_box-5_box-5'] gap-6 lg:gap-8`}>
                 {SearchData._embedded.newmovie.map((m: NewMovie, idx: number) => {
                     // const href = m._links.self.href;
-
                     // console.log("href: " + href)
                     // const userId = href.match(/\/([^\/]+)$/)[1];
                     // console.log(m.title + " " + idx)

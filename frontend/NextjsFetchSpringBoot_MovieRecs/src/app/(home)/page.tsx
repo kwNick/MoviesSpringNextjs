@@ -7,15 +7,12 @@ import LandingSection from "@/components/home/LandingSection";
 import ThreeDCard from "@/components/home/ThreeDCard";
 
 export default async function Home() {
-  const col = "newmovie";
-  const topRatedMovies = await FindByTitleLike(col, "", 1, 5, 'imdbrating,desc');
-  // console.log(topRatedMovies);
 
-  // const genre = "Comedy";
-  const comedyMovies = await FindByGenre(col, "Comedy", 1, 5, 'imdbrating,desc&sort=title,asc');
+  const topRatedMovies = await FindByTitleLike("newmovie", "", 1, 5, 'imdbrating,desc&sort=title,asc'); //change
 
-  // const mostRecentMovies = await FindAllByYearDesc(col, 1, 5);
-  const mostRecentMovies = await FindByTitleLike(col, "", 1, 5, 'year,desc&sort=title,asc');
+  const comedyMovies = await FindByGenre("newmovie", "Comedy", 1, 5, 'imdbrating,desc&sort=title,asc'); //change
+
+  const mostRecentMovies = await FindByTitleLike("newmovie", "", 1, 5, 'year,desc&sort=imdbrating,desc'); //change
 
   return (
     <main className="w-full h-full flex flex-col items-center justify-center">

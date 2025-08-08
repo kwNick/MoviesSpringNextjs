@@ -37,10 +37,4 @@ public interface NewMovieRepository extends MongoRepository<NewMovie, String> {
     Page<NewMovie> findByTitleIgnoreCaseLike(String title, Pageable pageable);    //* */
     Page<NewMovie> findByGenreIgnoreCaseLike(String genre, Pageable pageable);
 
-    // @DeleteQuery("{'userId': ?0}")
-    // public void deleteMovieByUserId(int userId);
-
-    // Optional<Movie> deleteMovieByUserId(int userId);
-
-    // List<NewMovie> findByTitleIgnoreCaseContainingOrGenreIgnoreCaseContaining(String query, String query2, Pageable pageable);
 }

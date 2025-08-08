@@ -18,8 +18,8 @@ public class NewMovieModelAssembler implements RepresentationModelAssembler<NewM
         return EntityModel.of(
                 movie,
                 linkTo(methodOn(NewMovieHALController.class).getMovieById(movie.getId())).withSelfRel(),
-                linkTo(methodOn(NewMovieController.class).getSearchMovies("","", Pageable.unpaged()))
-                        .withRel("newmovie")
+                linkTo(methodOn(NewMovieHALController.class).getSearchMovies("","", Pageable.unpaged()))
+                        .withRel("newmovies")
             );
     }
 }

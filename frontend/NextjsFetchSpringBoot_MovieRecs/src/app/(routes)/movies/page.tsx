@@ -11,13 +11,20 @@ const page = async (
         searchParams: Promise<{
             query?: string;
             page?: string;
+            size?: string;
             sort?: string;
+            //genre?: string;
         }>;
     }
 ) => {
     const searchParams = await props.searchParams;
+
     const query = searchParams?.query || '';
+
+    // const genre = searchParams?.genre || '';
+
     const page = Number(searchParams?.page) || 1;
+    const size = Number(searchParams?.size) || 5;
     let sort = searchParams?.sort || 'imdbrating,desc&sort=title,asc';
     if (Array.isArray(sort)) {
         sort = sort.join('&sort=');
@@ -46,7 +53,7 @@ const page = async (
                         <SearchMovies />
                     </div>
                     <Suspense key={query + page} fallback={<SearchMoviesSkeleton />}>
-                        <ShowSearchMovies query={query} page={page} sort={sort} />
+                        <ShowSearchMovies query={query} page={page} size={size} sort={sort} />
                     </Suspense>
                     <Pagination query={query} />
                 </div>

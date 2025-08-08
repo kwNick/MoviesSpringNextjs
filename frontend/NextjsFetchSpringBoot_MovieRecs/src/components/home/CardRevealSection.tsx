@@ -18,7 +18,7 @@ const CardRevealSection = ({ movies, genre }: { movies: NewMovie[], genre: strin
                         <h2 className="text-5xl lg:text-6xl xl:text-7xl text-accent [text-shadow:0_0_5px_var(--accent),_0_0_1px_var(--colour)]">
                             {genre} Movies
                         </h2>
-                        <Link href="/movies?page=1&" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-colour rounded-md hover:bg-accent transition-colors duration-300 ">
+                        <Link href="/movies?genre=comedy" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-colour rounded-md hover:bg-accent transition-colors duration-300 ">
                             Comedy Movies
                         </Link>
                     </div>

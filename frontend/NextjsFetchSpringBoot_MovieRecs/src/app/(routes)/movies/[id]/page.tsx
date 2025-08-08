@@ -11,8 +11,8 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     const params = await props.params;
     const id = params.id;
     // console.log(id);
-    const col = "newmovie";
-    const movie = await FindMovieById(id, col);
+
+    const movie = await FindMovieById(id, "newmovie");
     return (
         <div className="w-full min-h-[120vh] flex flex-col items-center justify-center py-6 gap-y-8 lg:gap-y-10 xl:gap-y-12 overflow-hidden">
             <div>

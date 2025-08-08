@@ -1,10 +1,8 @@
 import { DeleteMovie } from "../../resources/actions";
 
 export function DeleteMovieButton({ id }: { id: string }) {
-    // const idMatch = href.match(/\/([^\/]+)$/);
-    // const id = idMatch ? idMatch[1] : "";
+
     const DeleteMovieWithId = DeleteMovie.bind(null, id);
-    // console.log(href);
     return (
         <>
             <form
