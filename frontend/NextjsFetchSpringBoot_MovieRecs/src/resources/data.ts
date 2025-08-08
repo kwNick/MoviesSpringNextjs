@@ -14,13 +14,13 @@ export async function FindMovieById(id: string, col: string) {
 /* Custom Controller Search */
 export async function FindBySearch(query?: string, genre?: string, page?: number, size?: number, sort?: string) {
     try {
-        console.log("FindBySearch called with query:", query, "genre:", genre, "page:", page, "size:", size, "sort:", sort);
+        // console.log("FindBySearch called with query:", query, "genre:", genre, "page:", page, "size:", size, "sort:", sort);
         query = query ? "query=" + query : query == "" ? "query=" : "";
         genre = genre ?? "";
         page = page ?? 1;
         size = size ?? 5;
         sort = sort ?? "imdbrating,desc&sort=title,asc"; //"imdbrating,desc&sort=title,asc" - default sort
-        console.log(`Fetch: http://${process.env.SPRING_API_DOMAIN}/api/searchmovies?${query}${query && '&'}genre=${genre}&page=${page - 1}&size=${size}&sort=${sort}`);
+        // console.log(`Fetch: http://${process.env.SPRING_API_DOMAIN}/api/searchmovies?${query}${query && '&'}genre=${genre}&page=${page - 1}&size=${size}&sort=${sort}`);
         const data = await fetch(`http://${process.env.SPRING_API_DOMAIN}/api/searchmovies?${query}${query && '&'}genre=${genre}&page=${page - 1}&size=${size}&sort=${sort}`);
         return data.json();
     } catch (error) {
