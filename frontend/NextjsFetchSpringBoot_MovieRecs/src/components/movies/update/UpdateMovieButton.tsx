@@ -7,7 +7,7 @@ const UpdateMovieButton = ({ id }: { id: string }) => {
             href={`/movies/${id}/edit-movie`}
             className="border rounded-lg p-2 duration-500"
         >
-            Update Movie
+            Edit Movie
         </Link>
     )
 }
