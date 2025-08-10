@@ -14,7 +14,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     return (
         <div className="w-full min-h-[120vh] flex flex-col items-center justify-center py-6 gap-y-8 lg:gap-y-10 xl:gap-y-12 overflow-hidden">
             <div>
-                <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold text-center text-accent">
+                <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold text-center text-accent underline">
                     {movie.title}<span className="text-base"> ({movie.year})</span>
                 </h1>
 
