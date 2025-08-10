@@ -12,8 +12,8 @@ export const navItems = [
         href: "/movies/favorites"
     },
     {
-        value: "Link",
-        href: ""
+        value: "About",
+        href: "/about"
     },
     // {
     //     value: "NavItem",

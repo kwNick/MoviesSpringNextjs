@@ -50,7 +50,7 @@ const DevIntro = () => {
                 </section>
 
                 <div className=" z-10">
-                    <Link href="#" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-contrast rounded-md hover:[text-shadow:0px_0px_5px_var(--accent)] hover transition-all duration-300 ">
+                    <Link href="/about" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-contrast rounded-md hover:[text-shadow:0px_0px_5px_var(--accent)] hover transition-all duration-300 ">
                         Learn More
                     </Link>
                 </div>
