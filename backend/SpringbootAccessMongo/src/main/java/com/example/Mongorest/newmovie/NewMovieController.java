@@ -52,9 +52,4 @@ public class NewMovieController {
         
     }
 
-    // @GetMapping("/search")
-    // public List<NewMovie> getMethodNameRe(@RequestParam String query, Pageable pageable) {
-    //     return newMovieRepo.findByTitleIgnoreCaseContaining(query, pageable);
-    // }
-
 }

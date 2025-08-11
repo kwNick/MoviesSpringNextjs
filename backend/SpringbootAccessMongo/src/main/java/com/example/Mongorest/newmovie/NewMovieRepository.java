@@ -34,7 +34,7 @@ public interface NewMovieRepository extends MongoRepository<NewMovie, String> {
     List<NewMovie> findByTitleIgnoreCaseContaining(String title, Pageable pageable);    //* */
     List<NewMovie> findByGenreIgnoreCaseContaining(String genre, Pageable pageable);
 
-    // for HAL (Hypertext Application Language) format
+    // for HAL (Hypertext Application Language) format  /api/searchmovies/** GET 
     Page<NewMovie> findByTitleIgnoreCaseLike(String title, Pageable pageable);    //* */
     Page<NewMovie> findByGenreIgnoreCaseLike(String genre, Pageable pageable);
 
