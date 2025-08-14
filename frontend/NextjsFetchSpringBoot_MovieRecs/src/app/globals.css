@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Default (light mode) */
 :root {
   color-scheme: dark light;
   --colour: #f5debf;
@@ -11,15 +12,34 @@
   --pinky: #FDB7EA;
 }
 
+/* System preference — used only if no manual override */
 @media (prefers-color-scheme: dark) {
   :root {
-    --contrast: #f5debf;
     --colour: #222222;
+    --contrast: #f5debf;
     --accent: #ef4444;
     --snow: #2793e9;
     --pinky: #FDB7EA;
   }
 }
+
+/* Manual override — always wins visually */
+:root.dark{
+  --colour: #222222;
+  --contrast: #f5debf;
+  --accent: #ef4444;
+  --snow: #2793e9;
+  --pinky: #FDB7EA;
+}
+
+/* document.body.classList.toggle("dark", theme); */
+/* body.dark {       
+  --contrast: #f5debf;
+  --colour: #222222;
+  --accent: #ef4444;
+  --snow: #2793e9;
+  --pinky: #FDB7EA;
+} */
 
 * {
   padding: 0;
@@ -28,21 +48,12 @@
   cursor: none;
 }
 
-body.dark {
-  --contrast: #f5debf;
-  --colour: #222222;
-  --accent: #ef4444;
-  --snow: #2793e9;
-  --pinky: #FDB7EA;
-}
-
 body {
   color: var(--colour);
   background: var(--contrast);
   font-family: Arial, Helvetica, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
-
 
 /* Cursor Animations */
 @keyframes cursorAnim {
