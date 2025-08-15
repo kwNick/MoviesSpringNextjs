@@ -28,13 +28,13 @@ const DevIntro = () => {
             <span className="absolute top-[-15%] left-[-10%] [text-shadow:0_0_10px_var(--colour)]">
                 Hover to Reveal
             </span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 absolute left-[-5%] [filter:_drop-shadow(0_0_5px_var(--colour))]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 absolute left-[-5%] filter-[drop-shadow(0_0_5px_var(--colour))]">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m16.49 12 3.75 3.75m0 0-3.75 3.75m3.75-3.75H3.74V4.499" />
             </svg>
 
             <div className="relative text-contrast bg-transparent border border-colour rounded-lg flex flex-col items-center gap-y-7 lg:gap-y-9 xl:gap-y-12 p-5 lg:p-7 xl:p-9 overflow-hidden">
 
-                <span ref={hoverRef} className="absolute w-0 h-0 rounded-full bg-colour [transition-timing-function:_linear] group-hover:w-[200px] group-hover:h-[200px] [transform:_translate(-50%,_-50%)] -z-10 " />
+                <span ref={hoverRef} className="absolute w-0 h-0 rounded-full bg-colour [transition-timing-function:linear] group-hover:w-[200px] group-hover:h-[200px] [transform:translate(-50%,-50%)] -z-10 " />
                 <section>
                     <p className="text-lg lg:text-xl">
                         Dev:

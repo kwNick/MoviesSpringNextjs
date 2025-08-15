@@ -1,6 +1,6 @@
 import Link from "next/link"
 const shimmer =
-    'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
+    'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-linear-to-r before:from-transparent before:via-white/60 before:to-transparent';
 const SearchMoviesSkeleton = () => {
     return (
         <div className={`${shimmer} w-4/5 min-h-24 `}>

@@ -26,7 +26,7 @@ export default function MagneticImage() {
             onMouseLeave={handleMouseLeave}
             className="w-1/2 h-full flex items-center justify-center">
             <div
-                className="w-4/5 h-4/5 bg-cover bg-center rounded-lg transition-transform duration-300 [background-image:_url('/pictures/camera.jpg')]"
+                className="w-4/5 h-4/5 bg-cover bg-center rounded-lg transition-transform duration-300 bg-[url('/pictures/camera.jpg')]"
             />
         </div>
 

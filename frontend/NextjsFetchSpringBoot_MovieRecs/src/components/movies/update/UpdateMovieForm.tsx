@@ -46,7 +46,7 @@ const UpdateMovieForm = ({ movie, id }: { movie: NewMovie, id: string }) => {
             </div>
             <div className="w-full h-full p-4 flex flex-col gap-y-3">
                 <Colours />
-                <form className="p-4 w-full h-full border border-[#ffffff80] rounded-lg flex flex-col items-center justify-center lg:grid lg:grid-cols-2 gap-y-3 backdrop-blur-md bg-[#ffffff1a] text-lg lg:text-xl xl:text-2xl font-semibold tracking-wider [box-shadow:_0_25px_45px_var(--colour)]" action={formAction}>
+                <form className="p-4 w-full h-full border border-[#ffffff80] rounded-lg flex flex-col items-center justify-center lg:grid lg:grid-cols-2 gap-y-3 backdrop-blur-md bg-[#ffffff1a] text-lg lg:text-xl xl:text-2xl font-semibold tracking-wider [box-shadow:0_25px_45px_var(--colour)]" action={formAction}>
                     <div className="flex flex-col items-center justify-center">
                         <label htmlFor="title">Title</label>
                         <input className="p-1 border border-accent rounded-lg text-accent bg-[#ffffff33]"

@@ -23,7 +23,7 @@ const TextFadeIn = () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-    // animate-textFadeIn animTextScroll
+    // animate-text-fade-in animTextScroll
     return (
         <div className={`scroll-anim snowShadow relative w-3/4 h-3/4 flex flex-col items-center justify-center text-center gap-y-6 lg:gap-y-8 xl:gap-y-10 before:absolute before:bottom-[-15%] before:left-50% before:w-[65%] before:h-[60%] before:bg-accent before:rounded-full ${visible ? "opacity-100 scale-[100%] translate-y-[0]" : "opacity-0 translate-y-[50%] scale-[25%]"} duration-700`}>
             <p className="mb-5 text-4xl xl:text-6xl underline">

@@ -2,7 +2,7 @@ import { NewMovie } from "@/resources/definitions"
 
 const ShowMovie = ({ movie }: { movie: NewMovie }) => {
     return (
-        <div className="w-4/5 flex flex-col gap-y-6 lg:gap-y-8 xl:gap-y-10 text-lg lg:text-xl xl:text-2xl text- border border-colour rounded-2xl p-6 lg:p-8 xl:p-10 bg-black/30 [text-shadow:_0px_3px_3px_var(--contrast)]">
+        <div className="w-4/5 flex flex-col gap-y-6 lg:gap-y-8 xl:gap-y-10 text-lg lg:text-xl xl:text-2xl text- border border-colour rounded-2xl p-6 lg:p-8 xl:p-10 bg-black/30 [text-shadow:0px_3px_3px_var(--contrast)]">
 
 
             <div>

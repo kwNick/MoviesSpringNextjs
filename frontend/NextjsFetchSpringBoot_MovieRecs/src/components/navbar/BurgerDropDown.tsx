@@ -15,7 +15,7 @@ const BurgerDropDown = () => {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`size-8 hover:text-accent active:duration-0 active:text-contrast  ${open && "text-accent"} duration-300`} onClick={burgerClick} >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
-            {open && <div className="fixed inset-0 w-[100vw] h-screen bg-colour opacity-50 z-10 duration-300 " onClick={burgerClick} />}
+            {open && <div className="fixed inset-0 w-screen h-screen bg-colour opacity-50 z-10 duration-300 " onClick={burgerClick} />}
             {/*NEED TO FIX; anytime you click away from the drop down menu it will collapse */}
             <div className={`absolute w-[60vw] h-fit p-2 gap-y-2 border border-contrast rounded-lg uppercase bg-colour top-[50%] left-[calc(50%-30vw)] flex items-center justify-center duration-300  ${open ? "opacity-1 translate-y-[30%] z-20" : "opacity-0 pointer-events-none"}`} >
 

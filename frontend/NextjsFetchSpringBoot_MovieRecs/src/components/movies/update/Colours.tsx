@@ -34,7 +34,7 @@ const Colours = () => {
         <>
             {Array.from({ length: 4 }).map((_, idx) => {
                 return (
-                    <span key={idx} ref={(el) => setRef(el, idx)} className="absolute rounded-full duration-300 [filter:_blur(100px)] -z-10" />
+                    <span key={idx} ref={(el) => setRef(el, idx)} className="absolute rounded-full duration-300 filter-[blur(100px)] -z-10" />
                 );
             })}
 

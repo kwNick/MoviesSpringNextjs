@@ -29,7 +29,7 @@ const SearchMovies = () => {
                 id="search"
                 name="search"
                 placeholder="Search..."
-                className=" w-4/5 rounded-lg p-1 text-accent outline-none border-[1px] border-colour focus:border-accent"
+                className=" w-4/5 rounded-lg p-1 text-accent outline-hidden border border-colour focus:border-accent"
                 onChange={(e) => { handleSearch(e.target.value) }}
                 defaultValue={searchParams.get('query')?.toString()}
             />

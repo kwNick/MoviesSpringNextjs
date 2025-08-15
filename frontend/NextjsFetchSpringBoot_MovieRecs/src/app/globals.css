@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 /* Default (light mode) */
 :root {
@@ -41,12 +39,174 @@
   --pinky: #FDB7EA;
 } */
 
-* {
+@theme {
+  --background-image-home-radial: radial-gradient(#b91c1c, transparent, transparent);
+  --background-image-btn-radial: radial-gradient(#f5deb3, transparent);
+
+  --color-contrast: var(--contrast);
+  --color-colour: var(--colour);
+  --color-accent: var(--accent);
+  --color-snow: var(--snow);
+
+  --animate-typewriter: typewriter 5s steps(5) 1s forwards, blink 0.9s step-end infinite;
+  --animate-text-fade-in: textFadeIn;
+  --animate-movies-fade-in: moviesFadeIn 3.5s ease-in;
+  --animate-header-fade-in: headerFadeIn 2s linear;
+  --animate-line-landing-header-anim: lineLandingHeaderAnim 6s linear 3s infinite;
+  --animate-snow-fall: snowFall 10s ease-out infinite;
+  --animate-sliding-marquee: slidingMarquee 40s linear infinite;
+  --animate-bg-fade-out: bgFadeOut;
+  --animate-bg-fade-in: bgFadeIn 1s ease-in-out;
+  --animate-rotate-clock-wise: rotateClockWise 5s linear infinite;
+  --animate-rotate-counter-clock: rotateCounterClock 5s linear infinite;
+
+  @keyframes typewriter {
+    0% {
+      width: 0;
+      border-right: 2px solid;
+    }
+    100% {
+      width: 100%;
+      border-right: 2px solid;
+    }
+  }
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  @keyframes textFadeIn {
+    0% {
+      opacity: 0;
+      scale: 0;
+      transform: translateY(-20%);
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  @keyframes headerFadeIn {
+    0% {
+      opacity: 0;
+      scale: 0;
+    }
+    90% {
+      scale: 1.1;
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  @keyframes moviesFadeIn {
+    0%,
+    40% {
+      opacity: 0;
+      scale: 0;
+    }
+    90% {
+      scale: 1.1;
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  @keyframes lineLandingHeaderAnim {
+    0%,
+    10%,
+    100% {
+      width: 0%;
+    }
+    80%,
+    90% {
+      width: 100%;
+    }
+  }
+  @keyframes snowFall {
+    0% {
+      top: -5%;
+      opacity: 1;
+    }
+    70% {
+      top: 80%;
+      opacity: 0.5;
+    }
+    70%,
+    100% {
+      top: 85%;
+      opacity: 3;
+    }
+  }
+  @keyframes slidingMarquee {
+    0%,
+    15% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes bgFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes bgFadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes rotateClockWise {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotateCounterClock {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+/* @layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+} */
+
+/* ----------------------------- */
+/* * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   cursor: none;
-}
+} */
 
 body {
   color: var(--colour);

@@ -29,13 +29,13 @@ const ShowSearchMovies = async ({ query, genre, page, size, sort }: { query: str
     return (
         <>
             <div className="w-4/5">
-                <div className={`grid grid-cols-3 grid-rows-3 [grid-template-areas:_'box-1_box-1_box-2'_'box-3_box-4_box-2'_'box-3_box-5_box-5'] gap-6 lg:gap-8`}>
+                <div className={`grid grid-cols-3 grid-rows-3 [grid-template-areas:'box-1_box-1_box-2'_'box-3_box-4_box-2'_'box-3_box-5_box-5'] gap-6 lg:gap-8`}>
                     {SearchData?._embedded?.newmovie?.map((m: NewMovie, idx: number) => {
 
                         const imgPoster = isValidURL(m.poster) ? m.poster : "/pictures/default-cassette.jpg";
                         return (
-                            <div key={idx} className={`relative flex items-center justify-center rounded-2xl border-colour text-center [text-shadow:_0px_3px_3px_var(--contrast)] `} style={{ gridArea: `box-${idx + 1}` }}>
-                                <Image src={imgPoster} alt={m.title} width={sizes[idx][0]} height={sizes[idx][1]} className="absolute rounded-2xl inset-0 w-full h-full object-center object-cover -z-10 [clip-path:_circle(50%)] " />
+                            <div key={idx} className={`relative flex items-center justify-center rounded-2xl border-colour text-center [text-shadow:0px_3px_3px_var(--contrast)] `} style={{ gridArea: `box-${idx + 1}` }}>
+                                <Image src={imgPoster} alt={m.title} width={sizes[idx][0]} height={sizes[idx][1]} className="absolute rounded-2xl inset-0 w-full h-full object-center object-cover -z-10 [clip-path:circle(50%)] " />
                                 <div className="absolute rounded-2xl inset-0 w-full h-full bg-black/40 duration-300 -z-10 " />
                                 <div className="flex flex-col p-3 m-3 items-center justify-center gap-y-4">
                                     <div>

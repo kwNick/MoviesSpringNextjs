@@ -22,7 +22,7 @@ const ShowFavorites = () => {
                 const idMatch = href.match(/\/([^\/]+)$/);
                 const id = idMatch ? idMatch[1] : "";
                 return (
-                    <Link href={`/movies/${id}`} key={idx} className="h-full flex flex-col items-center justify-center p-8 gap-y-6 lg:gap-y-8 bg-colour rounded-lg shadow-lg border-[4px] border-accent [box_shadow:0_0_20px_rgba(255,255,255,1)] hover:scale-105 transition-transform duration-300">
+                    <Link href={`/movies/${id}`} key={idx} className="h-full flex flex-col items-center justify-center p-8 gap-y-6 lg:gap-y-8 bg-colour rounded-lg shadow-lg border-4 border-accent [box_shadow:0_0_20px_rgba(255,255,255,1)] hover:scale-105 transition-transform duration-300">
                         <p className="text-center text-xl md:text-2xl lg:text-3xl font-semibold text-contrast">
                             {fav.title}
                         </p>

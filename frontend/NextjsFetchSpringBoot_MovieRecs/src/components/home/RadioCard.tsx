@@ -13,12 +13,12 @@ const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
         <div className=" group h-full flex flex-nowrap items-center justify-center overflow-hidden">
 
             <input type="radio" name="card" id={`c${idx}`} className="hidden peer" />
-            <label htmlFor={`c${idx}`} className={`relative mx-[10px] w-[12vw] h-4/5 overflow-hidden flex items-end rounded-3xl peer-checked:w-[45vw] duration-500 text-start [text-shadow:_0px_5px_10px_var(--contrast)] `}  >
+            <label htmlFor={`c${idx}`} className={`relative mx-[10px] w-[12vw] h-4/5 overflow-hidden flex items-end rounded-3xl peer-checked:w-[45vw] duration-500 text-start [text-shadow:0px_5px_10px_var(--contrast)] `}  >
 
                 <Image src={poster} width={200} height={500} alt={title} className="absolute inset-0 h-full w-full object-cover " priority />
 
                 <div className="relative h-full w-full flex flex-nowrap">
-                    <Link href={`/movies/${id}`} className="absolute bottom-[2%] [margin:_15px] h-[40px] w-[40px] bg-accent rounded-full flex items-center justify-center text-sm text-colour cursor-none hover:bg-colour hover:text-accent hover:scale-110 duration-300 opacity-50 pointer-events-none group-has-[.peer:checked]:opacity-100 group-has-[.peer:checked]:pointer-events-auto group-has-[.peer:checked]:cursor-pointer transition-all">
+                    <Link href={`/movies/${id}`} className="absolute bottom-[2%] m-[15px] h-[40px] w-[40px] bg-accent rounded-full flex items-center justify-center text-sm text-colour cursor-none hover:bg-colour hover:text-accent hover:scale-110 duration-300 opacity-50 pointer-events-none group-has-[.peer:checked]:opacity-100 group-has-[.peer:checked]:pointer-events-auto group-has-[.peer:checked]:cursor-pointer transition-all">
                         <span className="group-has-[a:hover]:hidden transition-all duration-300">{idx}</span>
                         <span className="hidden group-has-[a:hover]:inline transition-all duration-300">view</span>
                     </Link>

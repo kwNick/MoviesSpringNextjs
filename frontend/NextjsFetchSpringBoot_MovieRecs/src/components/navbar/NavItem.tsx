@@ -7,7 +7,7 @@ const NavItem = ({ x }: { x: { value: string, href: string } }) => {
 
     return (
         <>
-            {/* <span className="w-full h-[2%] lg:h-[3%] xl:h-[4%] bg-accent absolute bottom-1 left-[100%]  group-hover:translate-x-[-100%] duration-500" /> */}
+            {/* <span className="w-full h-[2%] lg:h-[3%] xl:h-[4%] bg-accent absolute bottom-1 left-full  group-hover:-translate-x-full duration-500" /> */}
             {x.value == "Home" && (
                 <div className="relative w-full h-full flex items-center justify-center">
                     <div className={clsx(`before:absolute before:inset-0 before:rounded-full before:left-[calc(50%-20px)] before:bg-colour before:w-[40px] before:h-[40px] before:opacity-0 before:duration-500`,

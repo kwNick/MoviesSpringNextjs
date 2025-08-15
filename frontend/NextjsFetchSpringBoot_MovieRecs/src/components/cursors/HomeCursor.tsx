@@ -60,7 +60,7 @@ const HomeCursor = () => {
     }, []);
 
     return (
-        // <span ref={cursorRef} className={`pointer-events-none absolute rounded-full w-[30px] h-[30px] border-[2.5px] border-accent z-30 mix-blend-difference transition-transform [transition-timing-function:_ease-out] before:absolute before:border before:rounded-full before:border-colour before:w-[10px] before:h-[10px] before:top-[calc(50%-5px)] before:left-[calc(50%-5px)] before:[box-shadow:_0px_0px_5px_var(--colour)]`} />
+        // <span ref={cursorRef} className={`pointer-events-none absolute rounded-full w-[30px] h-[30px] border-[2.5px] border-accent z-30 mix-blend-difference transition-transform [transition-timing-function:ease-out] before:absolute before:border before:rounded-full before:border-colour before:w-[10px] before:h-[10px] before:top-[calc(50%-5px)] before:left-[calc(50%-5px)] before:[box-shadow:0px_0px_5px_var(--colour)]`} />
         <>
             <style>{`
             .home-cursor {

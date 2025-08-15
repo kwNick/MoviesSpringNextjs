@@ -41,14 +41,14 @@ const Bubble = ({ t, l, w, h }: { t: number, l: number, w: number, h: number }) 
         return () => clearInterval(interval); // Cleanup on unmount
     },);
     return (
-        <div ref={bub} className={`absolute rounded-full pointer-events-none -z-10 [zoom:_0.35] [box-shadow:_inset_0_0_25px_rgba(255,255,255,0.25),_0_0_25px_rgba(255,255,255,0.25)] before:absolute before:top-[12%] before:left-[26%] before:w-[17%] before:h-[17%] before:rounded-full before:bg-white before:[filter:_blur(2px)] before:z-10 after:absolute after:top-[30.5%] after:left-[41.5%] after:w-[10%] after:h-[10%] after:rounded-full after:bg-white after:[filter:_blur(2px)] after:z-10 transition-transform ease-in-out duration-[2.5s]`} style={{ top: `${t}%`, left: `${l}%`, width: `${w}vw`, height: `${h}vw` }}>
+        <div ref={bub} className={`absolute rounded-full pointer-events-none -z-10 [zoom:0.35] [box-shadow:inset_0_0_25px_rgba(255,255,255,0.25),0_0_25px_rgba(255,255,255,0.25)] before:absolute before:top-[12%] before:left-[26%] before:w-[17%] before:h-[17%] before:rounded-full before:bg-white before:filter-[blur(2px)] before:z-10 after:absolute after:top-[30.5%] after:left-[41.5%] after:w-[10%] after:h-[10%] after:rounded-full after:bg-white after:filter-[blur(2px)] after:z-10 transition-transform ease-in-out duration-[2.5s]`} style={{ top: `${t}%`, left: `${l}%`, width: `${w}vw`, height: `${h}vw` }}>
 
-            <span className="absolute inset-0 rounded-full border-l-2 border-l-snow [filter:_blur(3px)]" />
-            <span className="absolute inset-0 rounded-full border-r-4 border-r-accent [filter:_blur(3px)]" />
-            <span className="absolute inset-0 rounded-full border-t-[3px] border-t-[#ffeb3b] [filter:_blur(3px)] rotate-12" />
-            <span className="absolute inset-[2%] rounded-full border-t-[1px] border-t-white border-b-[3px] border-b-white [filter:_blur(3px)] -rotate-45" />
-            <span className="absolute inset-[2.5%] rounded-full border-l-[3px] border-l-accent border-b-[1px] border-b-[#ffeb3b]/20 [filter:_blur(3px)]" />
-            <span className="absolute inset-[3%] rounded-full bg-gradient-to-br from-white/10 to-transparent" />
+            <span className="absolute inset-0 rounded-full border-l-2 border-l-snow filter-[blur(3px)]" />
+            <span className="absolute inset-0 rounded-full border-r-4 border-r-accent filter-[blur(3px)]" />
+            <span className="absolute inset-0 rounded-full border-t-[3px] border-t-[#ffeb3b] filter-[blur(3px)] rotate-12" />
+            <span className="absolute inset-[2%] rounded-full border-t border-t-white border-b-[3px] border-b-white filter-[blur(3px)] -rotate-45" />
+            <span className="absolute inset-[2.5%] rounded-full border-l-[3px] border-l-accent border-b border-b-[#ffeb3b]/20 filter-[blur(3px)]" />
+            <span className="absolute inset-[3%] rounded-full bg-linear-to-br from-white/10 to-transparent" />
 
         </div>
     )

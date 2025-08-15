@@ -7,15 +7,15 @@ import FavButton from "../movies/favorites/FavButton";
 const CardRevealSection = ({ movies, genre }: { movies: NewMovie[], genre: string }) => {
     return (
         <>
-            <div className="absolute inset-0 bg-black z-[10] opacity-0 animate-bgFadeOut animTextScroll pointer-events-none" />
+            <div className="absolute inset-0 bg-black z-10 opacity-0 animate-bg-fade-out animTextScroll pointer-events-none" />
 
             <div className=" h-3/4 w-[90%] flex items-center justify-center gap-x-8">
 
                 <div className="hidden text-center relative w-2/5 h-3/4 lg:flex items-center justify-center rounded-lg shadow-accent [box-shadow:0_0_5px_1px_rgba(239,68,68,.3)] overflow-hidden">
-                    <div className={`absolute inset-0 rounded-lg [background-image:_url('/pictures/camera.jpg')] bg-cover object-contain bg-[50%] `} />
+                    <div className={`absolute inset-0 rounded-lg bg-[url('/pictures/camera.jpg')] bg-cover object-contain bg-position-[50%] `} />
 
                     <div className="flex flex-col items-center justify-center gap-y-5 lg:gap-y-6 z-10">
-                        <h2 className="text-5xl lg:text-6xl xl:text-7xl text-accent [text-shadow:0_0_5px_var(--accent),_0_0_1px_var(--colour)]">
+                        <h2 className="text-5xl lg:text-6xl xl:text-7xl text-accent [text-shadow:0_0_5px_var(--accent),0_0_1px_var(--colour)]">
                             {genre} Movies
                         </h2>
                         <Link href="/movies?genre=comedy" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-colour rounded-md hover:bg-accent transition-colors duration-300 ">
@@ -32,12 +32,12 @@ const CardRevealSection = ({ movies, genre }: { movies: NewMovie[], genre: strin
                         const id = idMatch ? idMatch[1] : "";
                         // console.log(id);
                         return (
-                            <Link href={`/movies/${id}`} key={idx} className="group relative w-full h-3/4 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden text-xs md:text-sm lg:text-base duration-500 hover:h-full animate-moviesFadeIn">
+                            <Link href={`/movies/${id}`} key={idx} className="group relative w-full h-3/4 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden text-xs md:text-sm lg:text-base duration-500 hover:h-full animate-movies-fade-in">
 
-                                <Image src={x.poster} width={200} height={500} alt={x.title} className=" absolute inset-0 h-full w-full object-cover bg-cover bg-[50%_50%] rounded-lg duration-300" priority />
+                                <Image src={x.poster} width={200} height={500} alt={x.title} className=" absolute inset-0 h-full w-full object-cover bg-cover bg-position-[50%_50%] rounded-lg duration-300" priority />
 
 
-                                <div className="absolute pointer-events-none top-[75%] w-full min-h-fit h-3/4 rounded-lg flex flex-col items-center justify-start gap-y-5 bg-colour text-center group-hover:-translate-y-[40%] group-hover:rounded-lg duration-500 [text-shadow:_0px_5px_10px_var(--contrast)] z-10">
+                                <div className="absolute pointer-events-none top-[75%] w-full min-h-fit h-3/4 rounded-lg flex flex-col items-center justify-start gap-y-5 bg-colour text-center group-hover:-translate-y-[40%] group-hover:rounded-lg duration-500 [text-shadow:0px_5px_10px_var(--contrast)] z-10">
                                     <div className="w-full h-fit text-wrap text-lg lg:text-2xl 2xl:text-3xl">
                                         <p>{x.title}</p>
                                     </div>
