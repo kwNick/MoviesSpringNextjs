@@ -17,12 +17,12 @@ const RadioCardSection = ({ movies }: { movies: NewMovie[] }) => {
                 }
             </div>
 
-            <div className="w-fit h-full flex flex-col items-center justify-center gap-y-5 lg:gap-y-6 text-contrast z-20">
-                <h1 className="text-3xl xl:text-5xl 2xl:text-7xl text-center text-colour font-bold mb-4">
+            <div className="w-fit h-full flex flex-col items-center justify-center gap-y-5 lg:gap-y-6 z-20">
+                <h1 className="text-3xl xl:text-5xl 2xl:text-7xl text-center text-contrast font-bold mb-4">
                     Most Recent Movies
                 </h1>
                 <div className=" z-10">
-                    <Link href="/movies?query=&sort=year,desc&sort=title,asc" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-colour rounded-md hover:bg-accent transition-colors duration-300 ">
+                    <Link href="/movies?query=&sort=year,desc&sort=title,asc" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-colour bg-contrast rounded-md hover:bg-accent hover:text-contrast transition-colors duration-300 ">
                         Recent Movies
                     </Link>
                 </div>

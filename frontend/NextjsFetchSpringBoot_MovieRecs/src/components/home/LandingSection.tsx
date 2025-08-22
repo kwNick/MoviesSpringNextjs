@@ -5,10 +5,13 @@ const LandingSection = () => {
                 <source src={"/videos/theaterPan.mp4"} type="video/mp4" />
             </video>
 
-            <div className="w-full h-full flex items-center justify-center animate-header-fade-in">
-                <h1 className="relative landingHeader text-7xl lg:text-8xl xl:text-9xl tracking-wide border-accent after:h-[2%] after:absolute after:bg-accent after:bottom-[-8%] after:left-0 after:animate-line-landing-header-anim">
+            <div className="w-full h-full flex flex-col gap-y-5 lg:gap-y-8 items-center justify-center animate-header-fade-in ">
+                <h1 className="relative landingHeader text-7xl lg:text-8xl xl:text-9xl tracking-wide border-accent after:h-[2%] after:absolute after:bg-accent after:bottom-[-8%] after:left-0 after:animate-line-landing-header-anim ">
                     MovieRecs
                 </h1>
+                <p className="uppercase text-black lg:text-lg">
+                    Captivate Imagination
+                </p>
             </div>
         </>
     )

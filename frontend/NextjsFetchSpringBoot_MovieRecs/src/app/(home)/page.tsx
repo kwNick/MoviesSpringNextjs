@@ -21,7 +21,7 @@ export default async function Home() {
     <main className="w-full h-full flex flex-col items-center justify-center">
 
       {/* Landing Header section */}
-      <div className="relative p-2 w-full h-[85vh] flex flex-col items-center justify-around ">
+      <div className="relative p-2 w-full h-[85vh] flex flex-col items-center ">
         <LandingSection />
       </div>
 
@@ -31,7 +31,7 @@ export default async function Home() {
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
-      <div className="w-full h-[85vh] flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
+      <div className="bg-colour w-full h-[85vh] flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
         <TextFadeIn />
       </div>
 
@@ -40,7 +40,7 @@ export default async function Home() {
         <CardRevealSection movies={comedyMovies._embedded.newmovie} genre={"Comedy"} />
       </div>
 
-      <div className=" mb-4 py-3 px-2 w-full h-[85vh] flex items-center justify-center">
+      <div className=" mb-4 py-3 px-2 w-full h-[75vh] flex items-center justify-center">
         {/* intro to dev section */}
         <div className=" mb-4 py-3 px-2 w-fit min-h-fit flex justify-center">
           <DevIntro />
@@ -49,9 +49,14 @@ export default async function Home() {
       </div>
 
       {/* Top Rated Movies Section - Radio Card Animation */}
-      <div className="hidden relative w-full h-[85vh] pl-12 p-8 sm:flex items-center justify-center">
+      <div className="hidden relative bg-colour w-full h-[85vh] pl-12 p-8 sm:flex items-center justify-center">
         <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
       </div>
+
+      <div className="w-full min-h-[70vh]">
+        
+      </div>
+      
       {/* 
       <div className="w-full h-[50vh] flex items-center justify-evenly">
         <TiltMouseCard />
