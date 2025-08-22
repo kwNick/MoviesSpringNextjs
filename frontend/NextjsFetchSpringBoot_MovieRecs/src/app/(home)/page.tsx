@@ -5,6 +5,7 @@ import RadioCardSection from "@/components/home/RadioCardSection";
 import CardRevealSection from "@/components/home/CardRevealSection";
 import LandingSection from "@/components/home/LandingSection";
 import ThreeDCard from "@/components/home/ThreeDCard";
+import CallToAction from "@/components/home/CallToAction";
 
 export default async function Home() {
 
@@ -53,10 +54,9 @@ export default async function Home() {
         <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
       </div>
 
-      <div className="w-full min-h-[70vh]">
-        
+      <div className="w-full  flex items-center justify-center">
+        <CallToAction />
       </div>
-      
       {/* 
       <div className="w-full h-[50vh] flex items-center justify-evenly">
         <TiltMouseCard />
