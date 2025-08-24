@@ -58,7 +58,7 @@ const NavItem = ({ x }: { x: { value: string, href: string } }) => {
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={clsx("size-7 absolute left-[calc(50%-14px)] top-[0%] duration-500",
                             {
                                 "group-hover:translate-y-[-60%]": pathname != x.href,
-                                "translate-y-[-60%]": pathname == x.href
+                                "translate-y-[-60%] text-accent": pathname == x.href
                             }
                         )}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />

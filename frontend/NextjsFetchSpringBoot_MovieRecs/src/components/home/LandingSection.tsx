@@ -9,9 +9,14 @@ const LandingSection = () => {
                 <h1 className="relative landingHeader text-7xl lg:text-8xl xl:text-9xl tracking-wide border-accent after:h-[2%] after:absolute after:bg-accent after:bottom-[-8%] after:left-0 after:animate-line-landing-header-anim ">
                     MovieRecs
                 </h1>
-                <p className="uppercase text-black lg:text-lg">
-                    Captivate Imagination
-                </p>
+                <div className="absolute bottom-5 right-5 text-white text-center">
+                    <p className="uppercase lg:text-lg">
+                        More Than A Movie
+                    </p>
+                    <p className="uppercase lg:text-lg">
+                        Captivate Imagination
+                    </p>
+                </div>
             </div>
         </>
     )

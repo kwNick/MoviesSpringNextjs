@@ -1,10 +1,10 @@
 export default function CallToAction() {
   return (
-    <section className="relative w-full min-h-[70vh] text-contrast py-16 px-6 text-center shadow-xl flex flex-col items-center justify-center">
+    <section className="relative w-full min-h-[70vh] text-contrast text-center shadow-xl flex flex-col items-center justify-center ">
 
       <div className="absolute inset-0 bg-colour -z-10 pointer-events-none" />
       
-      <h2 className="underline text-3xl md:text-4xl font-bold mb-4">
+      <h2 className="text-accent underline text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
         Get Started!
       </h2>
       <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
