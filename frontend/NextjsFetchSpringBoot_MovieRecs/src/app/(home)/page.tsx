@@ -32,13 +32,20 @@ export default async function Home() {
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
-      <div className="bg-colour w-full h-[85vh] flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
+      <div className="relative w-full h-[85vh] flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
+        <div className="absolute inset-0 bg-colour -z-10 pointer-events-none" />
         <TextFadeIn />
       </div>
 
       {/*Genre movies section - Hover Enlarge Animation*/}
       <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
+        
         <CardRevealSection movies={comedyMovies._embedded.newmovie} genre={"Comedy"} />
+      </div>
+      
+      {/* Top Rated Movies Section - Radio Card Animation */}
+      <div className="hidden relative w-full h-[85vh] pl-12 p-8 sm:flex items-center justify-center">
+        <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
       </div>
 
       <div className=" mb-4 py-3 px-2 w-full h-[75vh] flex items-center justify-center">
@@ -49,12 +56,8 @@ export default async function Home() {
 
       </div>
 
-      {/* Top Rated Movies Section - Radio Card Animation */}
-      <div className="hidden relative bg-colour w-full h-[85vh] pl-12 p-8 sm:flex items-center justify-center">
-        <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
-      </div>
 
-      <div className="w-full  flex items-center justify-center">
+      <div className="w-full flex items-center justify-center">
         <CallToAction />
       </div>
       {/* 

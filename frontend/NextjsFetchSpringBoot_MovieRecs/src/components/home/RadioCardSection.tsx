@@ -6,6 +6,8 @@ const RadioCardSection = ({ movies }: { movies: NewMovie[] }) => {
     return (
         <>
             <div className="absolute inset-0 bg-black z-10 opacity-0 animate-bg-fade-out animTextScroll pointer-events-none" />
+            
+            <div className="absolute inset-0 bg-colour -z-10 pointer-events-none" />
 
             <div className="w-4/5 h-full flex flex-nowrap items-center justify-center gap-x-2 overflow-hidden text-center">
                 {
