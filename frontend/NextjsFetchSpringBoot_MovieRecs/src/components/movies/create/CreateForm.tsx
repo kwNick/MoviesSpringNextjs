@@ -26,17 +26,17 @@ const CreateForm = () => {
         }
     }, [state])
     return (
-        <div className="w-3/5 h-full flex flex-col items-center justify-center gap-y-5">
+        <div className="pb-6 w-3/5 h-full flex flex-col items-center justify-center gap-y-5">
             <div className="text-3xl lg:text-4xl xl:text-6xl font-bold text-colour">
                 <p className="underline">CreateForm</p>
             </div>
 
-            <div className="w-full h-full flex flex-col">
+            <div className="pb-6 w-full h-full flex flex-col ">
 
-                <form className="py-7 w-full h-full border-2 border-colour rounded-lg flex flex-col items-center justify-center gap-y-7 text-lg lg:text-xl xl:text-2xl" action={formAction}>
+                <form className="py-7 w-full h-full flex flex-col items-center justify-center gap-y-6 lg:gap-y-8 xl:gap-y-10 text-lg lg:text-xl xl:text-2xl" action={formAction}>
                     <div className="flex flex-col items-center justify-center">
                         <label htmlFor="year" className="underline">Year</label>
-                        <input className="border-2 border-colour rounded-lg text-contrast"
+                        <input className="border-2 border-colour rounded-lg text-colour"
                             id="year"
                             name="year"
                             type="number"
@@ -50,7 +50,7 @@ const CreateForm = () => {
 
                     <div className="flex flex-col items-center">
                         <label htmlFor="genre" className="underline">Genre</label>
-                        <input className="border-2 border-colour rounded-lg text-contrast"
+                        <input className="border-2 border-colour rounded-lg text-colour"
                             id="genre"
                             name="genre"
                             type="text"
@@ -63,7 +63,7 @@ const CreateForm = () => {
 
                     <div className="flex flex-col items-center">
                         <label htmlFor="rated" className="underline">Rated</label>
-                        <input className="border-2 border-colour rounded-lg text-contrast"
+                        <input className="border-2 border-colour rounded-lg text-colour"
                             id="rated"
                             name="rated"
                             type="text"
@@ -85,7 +85,7 @@ const CreateForm = () => {
 
                     <div className="flex flex-col items-center">
                         <label htmlFor="poster" className="underline">Poster</label>
-                        <input className="border-2 border-colour rounded-lg text-contrast"
+                        <input className="border-2 border-colour rounded-lg text-colour"
                             id="poster"
                             name="poster"
                             type="text"
@@ -98,7 +98,7 @@ const CreateForm = () => {
 
                     <div className="flex flex-col items-center">
                         <label htmlFor="title" className="underline">Title</label>
-                        <input className="border-2 border-colour rounded-lg text-contrast"
+                        <input className="border-2 border-colour rounded-lg text-colour"
                             id="title"
                             name="title"
                             type="text"
@@ -110,7 +110,7 @@ const CreateForm = () => {
                     </div>
                     <div className="flex flex-col items-center">
                         <label htmlFor="plot" className="underline">Plot</label>
-                        <input className="border-2 border-colour rounded-lg text-contrast"
+                        <input className="border-2 border-colour rounded-lg text-colour"
                             id="plot"
                             name="plot"
                             type="text"

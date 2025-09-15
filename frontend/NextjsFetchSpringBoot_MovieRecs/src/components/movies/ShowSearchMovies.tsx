@@ -28,7 +28,7 @@ const ShowSearchMovies = async ({ query, genre, page, size, sort }: { query: str
 
     return (
         <>
-            <div className="w-4/5">
+            <div className="w-full">
                 <div className={`grid grid-cols-3 grid-rows-3 [grid-template-areas:'box-1_box-1_box-2'_'box-3_box-4_box-2'_'box-3_box-5_box-5'] gap-6 lg:gap-8`}>
                     {SearchData?._embedded?.newmovie?.map((m: NewMovie, idx: number) => {
 
