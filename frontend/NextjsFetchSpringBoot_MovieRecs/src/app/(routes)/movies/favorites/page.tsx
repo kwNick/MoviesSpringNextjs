@@ -7,7 +7,7 @@ const page = () => {
                 <h1 className="underline text-6xl lg:text-8xl text-accent">Favorite Movies</h1>
             </div>
 
-            <div className="w-4/5 h-full flex items-center justify-center">
+            <div className="w-full h-full flex items-center justify-center">
                 <ShowFavorites />
             </div>
 

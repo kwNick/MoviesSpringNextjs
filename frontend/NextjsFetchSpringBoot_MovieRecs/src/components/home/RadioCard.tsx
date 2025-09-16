@@ -16,6 +16,7 @@ const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
             <label htmlFor={`c${idx}`} className={`relative mx-[10px] w-[12vw] h-4/5 overflow-hidden flex items-end rounded-3xl peer-checked:w-[45vw] duration-500 text-start [text-shadow:0px_5px_10px_var(--contrast)] `}  >
 
                 <Image src={poster} width={200} height={500} alt={title} className="absolute inset-0 h-full w-full object-cover " priority />
+                <div className="absolute inset-0 bg-linear-to-b from-transparent to-contrast opacity-0 group-has-[.peer:checked]:opacity-100 duration-300"/>
 
                 <div className="relative h-full w-full flex flex-nowrap">
                     <Link href={`/movies/${id}`} className="absolute bottom-[2%] m-[15px] h-[40px] w-[40px] bg-accent rounded-full flex items-center justify-center text-sm text-colour cursor-none hover:bg-colour hover:text-accent hover:scale-110 duration-300 opacity-50 pointer-events-none group-has-[.peer:checked]:opacity-100 group-has-[.peer:checked]:pointer-events-auto group-has-[.peer:checked]:cursor-pointer transition-all">
@@ -27,7 +28,7 @@ const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
                             {title}
                         </h4>
                         <p className="text-base lg:text-lg lg:leading-10">
-                            {rated} {year.replace("?", "-")} {genre}<br />
+                            {rated} {year.replace("?", "-")}<br />{genre}
                         </p>
                         <p className="text-lg lg:text-2xl xl:text-3xl lg:leading-10">
                             {plot.slice(0, 40)}{plot.length > 40 ? "..." : ""}

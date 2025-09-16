@@ -45,10 +45,10 @@ const CardRevealSection = ({ movies, genre }: { movies: NewMovie[], genre: strin
                                     <div className="opacity-0 group-hover:opacity-100 duration-500 text-wrap text-sm lg:text-base">
                                         <p>{x.rated + " " + x.year}</p>
                                         <p>{x.genre}</p>
-                                        {/* <p>{x.plot.split(" ").filter((x, idx) => idx < 15).join(" ") + "..."}</p> */}
+                                        <p>{x.plot.split(" ").filter((x, idx) => idx < 12).join(" ") + "..."}</p>
                                     </div>
                                 </div>
-                                <div className="absolute bottom-[2%] left-[8%] flex items-center justify-center  opacity-0 group-hover:opacity-100 group-hover:translate-y-[-35%] group-hover:scale-110 transition-all duration-300 z-10">
+                                <div className="absolute bottom-[0%] left-[7%] w-full flex items-center justify-start opacity-0 group-hover:opacity-100 group-hover:translate-y-[-35%] group-hover:scale-110 transition-all duration-300 z-10">
                                     <FavButton movie={x} />
                                 </div>
                             </Link>
