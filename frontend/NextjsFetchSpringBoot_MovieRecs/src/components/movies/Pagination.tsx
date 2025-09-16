@@ -7,7 +7,7 @@ const Pagination = async ({ size }: { size: number }) => {
     // const size = await CountMoviesByTitle("newmovie", query);
     return (
         <div className="w-3/5 text-center">
-            <PageButtons totalPages={Math.ceil(size / 5)} />
+            <PageButtons totalPages={Math.ceil(size / 10)} />
         </div>
     )
 }

@@ -37,7 +37,7 @@ const DevIntro = () => {
                 <span ref={hoverRef} className="absolute w-0 h-0 rounded-full bg-colour [transition-timing-function:linear] group-hover:w-[200px] group-hover:h-[200px] [transform:translate(-50%,-50%)] -z-10 " />
                 <section>
                     <p className="text-lg lg:text-xl">
-                        Dev:
+                        Dev:&#x2800;
                         <span className="[text-shadow:0_0_10px_var(--accent)]">
                             Nickolas Piraino
                         </span>
