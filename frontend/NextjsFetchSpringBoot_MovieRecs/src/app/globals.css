@@ -59,6 +59,7 @@
   --animate-bg-fade-in: bgFadeIn 1s ease-in-out;
   --animate-rotate-clock-wise: rotateClockWise 5s linear infinite;
   --animate-rotate-counter-clock: rotateCounterClock 5s linear infinite;
+  --animate-shimmer: shimmer 2s ease-out infinite;
 
   @keyframes typewriter {
     0% {
@@ -178,6 +179,14 @@
     }
     100% {
       transform: rotate(-360deg);
+    }
+  }
+  @keyframes shimmer {
+    0% { 
+      transform: translateX(-100%); 
+    }
+    100% { 
+      transform: translateX(100%);
     }
   }
 }

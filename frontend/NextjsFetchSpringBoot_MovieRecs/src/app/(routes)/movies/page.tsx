@@ -35,7 +35,7 @@ const page = async (
 
     return (
         <div className="relative p-5 w-full h-full flex flex-col items-center gap-y-14 lg:gap-y-16">
-            <div className="relative w-[80%] flex items-center justify-center p-5">
+            <div className="relative w-[80%] min-h-[50%] flex items-center justify-center p-5">
                 <div className="grow flex items-center justify-center capitalize text-6xl lg:text-8xl text-accent">
                     <p className="underline">
                         Movies
@@ -47,8 +47,8 @@ const page = async (
                     </Link>
                 </div>
             </div>
-            <div className="w-full p-5 flex flex-col items-center pb-10">
-                <div className="w-full flex flex-col items-center gap-y-12 lg:gap-y-14 pb-6">
+            <div className="w-full min-h-full p-5 flex flex-col items-center pb-10">
+                <div className="w-full min-h-full flex flex-col items-center gap-y-12 lg:gap-y-14 pb-6">
                     <div className=" w-full flex items-center justify-center ">
                         <SearchMovies />
                     </div>
