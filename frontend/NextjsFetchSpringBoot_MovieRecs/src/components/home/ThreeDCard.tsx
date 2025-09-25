@@ -29,7 +29,7 @@ const ThreeDCard = ({ movies }: { movies: NewMovie[] }) => {
 
                 </div>
 
-                <div className="grow-[4_1_auto] hidden list px-6 h-[90%] w-full sm:flex items-end justify-center gap-x-4 lg:gap-x-8 xl:gap-x-10 ">
+                <div className="grow-[4_1_auto] hidden list px-6 h-[90%] w-full md:flex items-end justify-center gap-x-4 lg:gap-x-8 xl:gap-x-10 ">
                     {movies.map((x: NewMovie, idx: number) => {
                         const href = x._links.self.href;
                         // console.log(href);

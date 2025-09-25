@@ -16,7 +16,8 @@ export async function FindBySearch(query?: string, genre?: string, page?: number
     try {
         // const timer = setTimeout(() => { }, 5000); //this will delay the fetch by 5 second to simulate loading
         // clearTimeout(timer);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        // await new Promise(resolve => setTimeout(resolve, 5000));
+        
         // console.log("FindBySearch called with query:", query, "genre:", genre, "page:", page, "size:", size, "sort:", sort);
         query = query ? "query=" + query : query == "" ? "query=" : "";
         genre = genre ?? "";

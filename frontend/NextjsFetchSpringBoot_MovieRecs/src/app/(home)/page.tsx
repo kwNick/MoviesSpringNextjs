@@ -27,30 +27,30 @@ export default async function Home() {
       </div>
 
       {/* Top rated movies section - Hover Reveal*/}
-      <div className="py-10 px-5 hidden relative w-full h-[85vh] sm:flex items-center justify-center">
+      <div className="py-10 px-5 hidden relative w-full h-[85vh] md:flex items-center justify-center">
         <ThreeDCard movies={topRatedMovies._embedded.newmovie} />
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
-      <div className="relative w-full h-[85vh] flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
+      <div className="relative w-full min-h-[85vh] flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
         <div className="absolute inset-0 bg-colour -z-10 pointer-events-none" />
         <TextFadeIn />
       </div>
 
       {/*Genre movies section - Hover Enlarge Animation*/}
-      <div className="hidden relative w-full h-[85vh] sm:flex items-center justify-center">
+      <div className="hidden relative w-full h-[85vh] md:flex items-center justify-center">
         
         <CardRevealSection movies={comedyMovies._embedded.newmovie} genre={"Comedy"} />
       </div>
       
       {/* Top Rated Movies Section - Radio Card Animation */}
-      <div className="hidden relative w-full h-[85vh] pl-12 p-8 sm:flex items-center justify-center">
+      <div className="hidden relative w-full h-[85vh] pl-12 p-8 md:flex items-center justify-center">
         <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
       </div>
 
-      <div className=" mb-4 py-3 px-2 w-full h-[75vh] flex items-center justify-center">
+      <div className="mb-4 pt-5 px-4 w-full min-h-[75vh] flex items-center justify-center">
         {/* intro to dev section */}
-        <div className=" mb-4 py-3 px-2 w-fit min-h-fit flex justify-center">
+        <div className="py-10 px-6 lg:py-12 lg:px-8 w-fit min-h-fit flex justify-center">
           <DevIntro />
         </div>
 

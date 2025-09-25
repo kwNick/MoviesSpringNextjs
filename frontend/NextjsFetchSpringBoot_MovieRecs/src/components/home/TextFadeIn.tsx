@@ -10,7 +10,7 @@ const TextFadeIn = () => {
             const element = document.querySelector(".scroll-anim");
             if (element) {
                 const rect = element.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.75) {
+                if (rect.top < window.innerHeight) {
                     setVisible(true);
                 }
             }

@@ -23,12 +23,12 @@ const DevIntro = () => {
         };
     }, []);
     return (
-        <div ref={boxRef} className="group relative w-[50vw] min-h-fit text-center">
+        <div ref={boxRef} className="group relative min-w-[50vw] max-w-[70vw] min-h-fit text-center">
 
-            <span className="absolute top-[-15%] left-[-10%] [text-shadow:0_0_10px_var(--colour)]">
-                Hover to Reveal
+            <span className="absolute top-[-45px] left-[-50px] [text-shadow:0_0_10px_var(--colour)]">
+                Hover to <br/>Reveal
             </span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 absolute left-[-5%] filter-[drop-shadow(0_0_5px_var(--colour))]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 absolute left-[-25px] filter-[drop-shadow(0_0_5px_var(--colour))]">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m16.49 12 3.75 3.75m0 0-3.75 3.75m3.75-3.75H3.74V4.499" />
             </svg>
 
@@ -43,7 +43,7 @@ const DevIntro = () => {
                         </span>
                     </p>
                 </section>
-                <section className="text-center ">
+                <section className="text-center w-[75%]">
                     <p className="lg:text-lg">
                         This project is mainly used to practice and showcase my software development skills using nextjs front-end framework, springboot back-end framework as an api layer to connect the movie data stored in a mongo database to the front-end user client. Most animations are created using css or tailwind css.
                     </p>

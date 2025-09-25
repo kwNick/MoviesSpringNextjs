@@ -10,7 +10,7 @@ import ThemeToggle from "./ThemeToggle"
 const Navbar = () => {
     return (
         <nav className="relative min-h-[100px] h-[12vh] w-full flex items-center bg-contrast justify-evenly capitalize text-sm md:text-lg lg:text-xl tracking-wide">
-            <div className=" w-1/10 ">
+            <div className="translate-y-[4px] translate-x-[-4px]">
                 <Link href={"/"} className="group block w-fit h-full bg-contrast text-contrast border rounded-lg border-colour ">
                     <span className="block bg-colour p-1 px-2 translate-y-[-2px] rounded-lg shadow-xs duration-300 hover:translate-y-[-10%] group-active:translate-y-0 hover:shadow-colour border border-contrast">
                         Movies
