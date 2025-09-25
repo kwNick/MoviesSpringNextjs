@@ -32,7 +32,7 @@ export default async function Home() {
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
-      <div className="relative w-full min-h-[85vh] flex flex-col items-center justify-center p-4 lg:px-5 xl:px-6">
+      <div className="relative w-full min-h-[85vh] flex flex-col items-center justify-center pb-12 p-6 lg:px-8 lg:py-8 xl:px-10 xl:py-10 ">
         <div className="absolute inset-0 bg-colour -z-10 pointer-events-none" />
         <TextFadeIn />
       </div>
@@ -48,7 +48,7 @@ export default async function Home() {
         <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
       </div>
 
-      <div className="mb-4 pt-5 px-4 w-full min-h-[75vh] flex items-center justify-center">
+      <div className="pb-4 pt-5 px-4 w-full min-h-[75vh] flex items-center justify-center">
         {/* intro to dev section */}
         <div className="py-10 px-6 lg:py-12 lg:px-8 w-fit min-h-fit flex justify-center">
           <DevIntro />
