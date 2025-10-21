@@ -76,7 +76,7 @@ export async function AddMovie(prevState: State | undefined, formData: FormData)
 
     const { year, title, genre, rated, plot, poster } = validatedFields.data;
     try {
-        await fetch(`http://${process.env.SPRING_API_DOMAIN}/newmovie`, {
+        await fetch(`https://${process.env.SPRING_API_DOMAIN}/newmovie`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -142,7 +142,7 @@ export async function UpdateMovie(id: string, prevState: PatchState | undefined,
     const { year, title, genre, rated, plot, poster } = validatedFields.data;
 
     try {
-        await fetch(`http://${process.env.SPRING_API_DOMAIN}/newmovie/${id}`, {
+        await fetch(`https://${process.env.SPRING_API_DOMAIN}/newmovie/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -165,7 +165,7 @@ export async function UpdateMovie(id: string, prevState: PatchState | undefined,
 export async function DeleteMovie(id: string) {
     // console.log("userId: " + userId);
     try {
-        await fetch(`http://${process.env.SPRING_API_DOMAIN}/newmovie/${id}`,
+        await fetch(`https://${process.env.SPRING_API_DOMAIN}/newmovie/${id}`,
             { method: 'DELETE', }
         );
         //console.log(data);
