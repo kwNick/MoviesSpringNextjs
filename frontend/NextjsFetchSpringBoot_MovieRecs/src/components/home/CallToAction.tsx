@@ -1,13 +1,13 @@
 export default function CallToAction() {
   return (
-    <section className="relative w-full min-h-[70vh] text-contrast text-center shadow-xl flex flex-col items-center justify-center ">
+    <section className="relative w-full min-h-[70vh] text-contrast text-center shadow-xl flex flex-col items-center justify-center gap-y-7 lg:gap-y-8 2xl:gap-y-9">
 
       <div className="absolute inset-0 bg-colour -z-10 pointer-events-none" />
       
-      <h2 className="text-accent underline text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+      <h2 className="text-accent underline text-3xl md:text-4xl lg:text-5xl font-bold mb-4 [text-shadow:_0px_3px_3px_var(--contrast)]">
         Get Started!
       </h2>
-      <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+      <p className="text-xl lg:text-2xl mb-8 max-w-2xl mx-auto">
         Join the community of movie lovers using our platform to watch movies the right way.
       </p>
       <div className="flex justify-center gap-4">
