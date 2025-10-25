@@ -1,4 +1,5 @@
 'use client';
+import { Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef } from "react"
 
@@ -48,6 +49,24 @@ const DevIntro = () => {
                         This project is mainly used to practice and showcase my software development skills using nextjs front-end framework, springboot back-end framework as an api layer to connect the movie data stored in a mongo database to the front-end user client. Most animations are created using css or tailwind css.
                     </p>
                 </section>
+
+                <Link href={"https://github.com/KwNick"} target={"_blank"} rel="noopener noreferrer" className="absolute left-[10%] top-1/2">
+                    <Github className="scale-200 hover:filter-[drop-shadow(_0_0_4px_var(--accent))]" />
+                </Link>
+                <Link href={"https://www.linkedin.com/in/nick-piraino"} target={"_blank"} rel="noopener noreferrer" className="absolute right-[10%] top-1/2">
+                    <Linkedin  className="scale-200 hover:filter-[drop-shadow(_0_0_4px_var(--accent))]" />
+                </Link>
+                <Link href={"mailto:kwnp17c@gmail.com?subject=MovieRecsContact%20Inquiry&body=Hi%20Nick,"} target={"_blank"} rel="noopener noreferrer" className="absolute right-[20%] top-3/4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="scale-200 hover:filter-[drop-shadow(_0_0_4px_var(--accent))] lucide lucide-mail-icon lucide-mail">
+                        <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/>
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    </svg>
+                </Link>
+                <Link href={"tel:+1234567890"} target={"_blank"} rel="noopener noreferrer" className="absolute left-[20%] top-3/4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="scale-200 hover:filter-[drop-shadow(_0_0_4px_var(--accent))] lucide lucide-phone-icon lucide-phone">
+                        <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/>
+                    </svg>
+                </Link>
 
                 <div className=" z-10">
                     <Link href="/about" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-contrast rounded-md [box-shadow:_0px_5px_10px_var(--contrast),_0px_-5px_10px_var(--contrast)] hover:text-colour hover:[text-shadow:0px_0px_5px_var(--accent)] hover transition-all duration-300 ">
