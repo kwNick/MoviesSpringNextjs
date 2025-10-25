@@ -281,8 +281,7 @@ body {
 .list .item:hover {
   transform: translateZ(30px);
   filter: brightness(1);
-  box-shadow: 10px 10px 20px white, -10px -10px 20px white;
-  /* box-shadow: -10px -10px 20px white; */
+  box-shadow: 10px 10px 20px var(--colour), -10px -10px 20px var(--colour);
 }
 
 /* items in front of hovered element */

@@ -38,9 +38,9 @@ const ThreeDCard = ({ movies }: { movies: NewMovie[] }) => {
                         // console.log(id);
                         return (
                             <Link href={`/movies/${id}`} key={idx} className=" item w-full h-4/5 px-2 py-1 border rounded-lg border-contrast bg-colour text-colour transition-all ease-in duration-300 brightness-0 text-xs md:text-sm lg:text-base flex items-center justify-center animate-movies-fade-in">
-                                <div className="p-1 w-full h-full flex flex-col items-start justify-center gap-y-4 lg:gap-y-5 text-start text-wrap rounded-lg [text-shadow:0px_5px_10px_var(--contrast)] before:absolute before:inset-0 before:bg-[rgba(0,0,0,0.3)] before:z-[-10] before:rounded-lg">
+                                <div className="p-1 w-full h-full flex flex-col items-center justify-center gap-y-4 lg:gap-y-5 text-center text-wrap rounded-lg [text-shadow:3px_3px_3px_var(--contrast)] before:absolute before:inset-0 before:bg-[rgba(0,0,0,0.3)] before:z-[-10] before:rounded-lg">
                                     <Image src={x.poster} width={200} height={500} alt={x.title} className="absolute inset-0 h-full w-full object-cover bg-cover bg-position-[50%_50%] z-[-20] rounded-lg " priority />
-                                    <div className="flex flex-col gap-y-2">
+                                    <div className="flex flex-col gap-y-2 items-center justify-center">
                                         <h1 className="text-xl lg:text-3xl xl:text-5xl">{x.title}</h1>
                                         <div>
                                             <p>{x.rated + " " + x.year}</p>
