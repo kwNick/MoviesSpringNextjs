@@ -37,7 +37,7 @@ const ShowFavorites = () => {
                 const id = idMatch ? idMatch[1] : "";
 
                 return (
-                    <Link href={`/movies/${id}`} key={idx} className="group relative h-full flex flex-col items-center justify-center p-8 gap-y-6 lg:gap-y-8 bg-colour shadow-lg  [box_shadow:0_0_20px_rgba(255,255,255,1)] hover:scale-105 transition-transform duration-300 z-10">
+                    <Link href={`/movies/${id}`} key={idx} className="group relative h-full flex flex-col items-center justify-center font-bold p-8 gap-y-6 lg:gap-y-8 bg-colour hover:[box-shadow:_0px_3px_8px_var(--colour),_0px_-3px_8px_var(--colour),_0px_3px_8px_var(--contrast),_0px_-3px_8px_var(--contrast)] hover:scale-105 transition-transform duration-300 z-10">
 
                         <Image src={imgPoster} alt={fav.title} width={200} height={200} className="absolute inset-0 w-full h-full object-center object-cover -z-10 " />
                         <div className="absolute inset-0 w-full h-full bg-black/40 duration-300 -z-10 " />

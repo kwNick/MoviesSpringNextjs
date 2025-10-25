@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function CallToAction() {
   return (
     <section className="relative w-full min-h-[70vh] text-contrast text-center shadow-xl flex flex-col items-center justify-center gap-y-7 lg:gap-y-8 2xl:gap-y-9">
@@ -11,18 +13,18 @@ export default function CallToAction() {
         Join the community of movie lovers using our platform to watch movies the right way.
       </p>
       <div className="flex justify-center gap-4">
-        <a
+        <Link
           href="/signup"
-          className="bg-contrast text-colour font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-gray-500 transition"
+          className="bg-contrast text-colour font-semibold px-6 py-3 rounded-xl [box-shadow:_0px_4px_4px_var(--contrast),_0px_-4px_4px_var(--contrast)] hover:bg-gray-500 hover:[box-shadow:_0px_4px_4px_gray,_0px_-4px_4px_gray] transition"
         >
           Get Started
-        </a>
-        <a
+        </Link>
+        <Link
           href="#"
           className="border border-contrast px-6 py-3 rounded-xl font-semibold hover:bg-white/20 transition"
         >
           Book a Demo
-        </a>
+        </Link>
       </div>
     </section>
   );

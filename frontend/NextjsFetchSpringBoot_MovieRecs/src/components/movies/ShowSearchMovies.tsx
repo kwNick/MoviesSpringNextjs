@@ -30,6 +30,7 @@ const ShowSearchMovies = async ({ query, genre, page, size, sort }: { query: str
 
     return (
         <>
+            <Pagination size={totalElements} />
             <div className="w-full">
                 <div className={`grid grid-cols-3 [grid-template-areas:'box-1_box-1_box-2'_'box-3_box-4_box-2'_'box-3_box-5_box-5'_'box-6_box-6_box-7'_'box-8_box-9_box-7'_'box-8_box-10_box-10'] gap-8 lg:gap-10 xl:gap-12`}>
                     {SearchData?._embedded?.newmovie?.map((m: NewMovie, idx: number) => {
@@ -46,8 +47,8 @@ const ShowSearchMovies = async ({ query, genre, page, size, sort }: { query: str
                                 <div className="flex flex-col items-center justify-center gap-y-4">
                                     <div className="absolute inset-0 bg-linear-to-b from-transparent to-contrast -z-10 opacity-0 group-hover:opacity-100 duration-300"/>
 
-                                    <div className="flex flex-col items-start justify-center gap-y-2 lg:gap-y-4 p-2">
-                                        <p className="text-2xl lg:text-3xl xl:text-4xl font-semibold tracking-widest">{m.title}</p>
+                                    <div className="font-bold flex flex-col items-start justify-center gap-y-2 lg:gap-y-4 p-2">
+                                        <p className="text-2xl lg:text-3xl xl:text-4xl tracking-widest">{m.title}</p>
                                         <p className="opacity-0 text-sm lg:text-base group-hover:opacity-100 duration-300">
                                             {m.year.replace("?", "-") + " - " + m.rated} - {m.imdbrating}<br/>{m.genre}
                                         </p>
