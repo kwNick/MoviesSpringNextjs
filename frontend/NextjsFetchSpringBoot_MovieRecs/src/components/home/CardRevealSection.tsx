@@ -32,25 +32,28 @@ const CardRevealSection = ({ movies, genre }: { movies: NewMovie[], genre: strin
                         const id = idMatch ? idMatch[1] : "";
                         // console.log(id);
                         return (
-                            <Link href={`/movies/${id}`} key={idx} className="group relative w-full h-3/4 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden text-xs md:text-sm lg:text-base duration-500 hover:h-full animate-movies-fade-in">
+                            <Link href={`/movies/${id}`} key={idx} className="group relative w-full h-3/4 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden text-xs md:text-sm lg:text-base duration-500 hover:h-[90%] hover:[box-shadow:_0px_5px_10px_var(--colour),_0px_-5px_10px_var(--colour)] animate-movies-fade-in">
 
                                 <Image src={x.poster} width={200} height={500} alt={x.title} className=" absolute inset-0 h-full w-full object-cover bg-cover bg-position-[50%_50%] rounded-lg duration-300" priority />
 
 
-                                <div className="absolute pointer-events-none top-[75%] w-full min-h-fit h-full rounded-lg flex flex-col items-center justify-start gap-y-5 bg-colour text-center group-hover:-translate-y-[40%] group-hover:rounded-lg duration-500 [text-shadow:0px_5px_10px_var(--contrast)] z-10">
+                                <div className="p-3 absolute pointer-events-none top-[75%] w-full min-h-fit h-3/4 rounded-lg flex flex-col items-center justify-start gap-y-5 xl:gap-y-7 bg-colour text-center group-hover:-translate-y-[66%] group-hover:rounded-lg duration-500 [text-shadow:0px_5px_10px_var(--contrast)] z-10">
                                     <div className="w-full h-fit text-wrap text-lg lg:text-2xl 2xl:text-3xl">
                                         <p>{x.title}</p>
                                     </div>
 
-                                    <div className="opacity-0 group-hover:opacity-100 duration-500 text-wrap text-sm lg:text-base">
+                                    <div className="opacity-0 flex flex-col gap-y-4 group-hover:opacity-100 duration-500 text-wrap text-sm lg:text-base">
                                         <p>{x.rated + " " + x.year}</p>
                                         <p>{x.genre}</p>
                                         <p>{x.plot.split(" ").filter((x, idx) => idx < 12).join(" ") + "..."}</p>
                                     </div>
+                                    <div className="opacity-0 group-hover:opacity-100 duration-500 text-wrap text-sm lg:text-base z-10 pointer-events-auto">
+                                        <FavButton movie={x} />
+                                    </div>
                                 </div>
-                                <div className="absolute bottom-[0%] left-[7%] w-full flex items-center justify-start opacity-0 group-hover:opacity-100 group-hover:translate-y-[-35%] group-hover:scale-110 transition-all duration-300 z-10">
+                                {/* <div className="absolute bottom-[0%] left-[7%] w-full flex items-center justify-start opacity-0 group-hover:opacity-100 group-hover:translate-y-[-35%] group-hover:scale-110 transition-all duration-300 z-10">
                                     <FavButton movie={x} />
-                                </div>
+                                </div> */}
                             </Link>
                         );
                     })}

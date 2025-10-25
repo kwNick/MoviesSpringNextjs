@@ -24,7 +24,7 @@ const RadioCardSection = ({ movies }: { movies: NewMovie[] }) => {
                     Most Recent Movies
                 </h1>
                 <div className=" z-10">
-                    <Link href="/movies?query=&sort=year,desc&sort=title,asc" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-colour bg-contrast rounded-md hover:bg-accent hover:text-contrast transition-colors duration-300 ">
+                    <Link href="/movies?query=&sort=year,desc&sort=title,asc" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-colour bg-contrast rounded-md hover:bg-accent hover:text-contrast hover:[box-shadow:_0px_5px_10px_var(--contrast),_0px_-5px_10px_var(--contrast)] transition-colors duration-300 ">
                         Recent Movies
                     </Link>
                 </div>

@@ -13,7 +13,7 @@ const RadioCard = ({ idx, card }: { idx: number, card: NewMovie }) => {
         <div className=" group h-full flex flex-nowrap items-center justify-center overflow-hidden">
 
             <input type="radio" name="card" id={`c${idx}`} className="hidden peer" />
-            <label htmlFor={`c${idx}`} className={`relative mx-[10px] w-[12vw] h-4/5 overflow-hidden flex items-end rounded-3xl peer-checked:w-[45vw] duration-500 text-start [text-shadow:0px_5px_10px_var(--contrast)] `}  >
+            <label htmlFor={`c${idx}`} className={`relative mx-[10px] w-[12vw] h-4/5 overflow-hidden flex items-end rounded-3xl peer-checked:w-[45vw] peer-checked:[box-shadow:_0px_5px_10px_var(--contrast),_0px_-5px_10px_var(--contrast)] duration-500 text-start [text-shadow:0px_5px_10px_var(--contrast)] `}  >
 
                 <Image src={poster} width={200} height={500} alt={title} className="absolute inset-0 h-full w-full object-cover " priority />
                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-contrast opacity-0 group-has-[.peer:checked]:opacity-100 duration-300"/>
