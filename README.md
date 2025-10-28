@@ -187,6 +187,10 @@ npm run dev
 In the web browser go to **<http://localhost:3000>** to view the front end website.
 In the web browser go to **<http://localhost:8081>**/**http:spring-movie.duckdns.org** to view the back end REST api.
 
+WireFrames
+
+![MovieRecsWireFrame](assets/MovieRecs-WireFrame.png)
+
 ## Contributing
 
 Guidelines for people who want to contribute
