@@ -134,6 +134,7 @@ public class NewMovie {
   }
 ```
 
+```
   +----------------------+
   |      Movies          |
   +----------------------+
@@ -158,6 +159,7 @@ public class NewMovie {
   | type : string        |
   | boxoffice : string   |
   +----------------------+
+```
 
 ### Frontend
 
