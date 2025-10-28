@@ -134,30 +134,30 @@ public class NewMovie {
   }
 ```
 
-+----------------------+
-|      Movies          |
-+----------------------+
-| _id : ObjectId       |
-| title : string       |
-| year : string        |
-| rated : string       |
-| released : string    |
-| runtime : string     |
-| genre : string       |
-| director : string    |
-| writer : string      |
-| actors : string      |
-| plot : string        |
-| language : string    |
-| country : string     |
-| awards : string      |
-| poster : string      |
-| metascore : string   |
-| imdbrating : string  |
-| imdbvotes : string   |
-| type : string        |
-| boxoffice : string   |
-+----------------------+
+  +----------------------+
+  |      Movies          |
+  +----------------------+
+  | _id : ObjectId       |
+  | title : string       |
+  | year : string        |
+  | rated : string       |
+  | released : string    |
+  | runtime : string     |
+  | genre : string       |
+  | director : string    |
+  | writer : string      |
+  | actors : string      |
+  | plot : string        |
+  | language : string    |
+  | country : string     |
+  | awards : string      |
+  | poster : string      |
+  | metascore : string   |
+  | imdbrating : string  |
+  | imdbvotes : string   |
+  | type : string        |
+  | boxoffice : string   |
+  +----------------------+
 
 ### Frontend
 
