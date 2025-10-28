@@ -38,28 +38,31 @@ The movie data for this project is retrieved from the [OMDb API](https://www.omd
 
 Below is a small sample of movie data for demonstration purposes:
 
-```bash
+```json
 [
   {
-    "Title": "The Matrix",
-    "Year": "1999",
-    "imdbID": "tt0-----",
-    "Type": "movie",
-    "Poster": "https://someurl.com"
+    "title": "The Matrix",
+    "year": "1999",
+    "rated": "tt0-----",
+    "genre": "movie",
+    "poster": "https://someurl.com",
+    "plot": "A description of a movie plot..."
   },
   {
-    "Title": "Inception",
-    "Year": "2010",
-    "imdbID": "tt1-----",
-    "Type": "movie",
-    "Poster": "https://someurl.com"
+    "title": "Inception",
+    "year": "2010",
+    "rated": "tt1-----",
+    "genre": "movie",
+    "poster": "https://someurl.com",
+    "plot": "A description of a movie plot..."
   },
   {
-    "Title": "Interstellar",
-    "Year": "2014",
-    "imdbID": "tt0-----",
-    "Type": "movie",
-    "Poster": "https://someurl.com"
+    "title": "Interstellar",
+    "year": "2014",
+    "rated": "tt0-----",
+    "genre": "movie",
+    "poster": "https://someurl.com",
+    "plot": "A description of a movie plot..."
   }
 ]
 ```
@@ -97,6 +100,38 @@ sudo chmod o+x ./gradlew
 
 #run the springboot app
 ./gradlew bootRun
+```
+
+SpringBoot Entities
+
+```java
+@Document("Movies")
+public class NewMovie {
+
+    @Id
+    private String id;
+    private String title;
+    private String year;
+    private String rated;
+    private String released;
+    private String runtime;
+    private String genre;
+    private String director;
+    private String writer;
+    private String actors;
+    private String plot;
+    private String language;
+    private String country;
+    private String awards;
+    private String poster;
+    // private String Ratings;
+    private String metascore;
+    private String imdbrating;
+    private String imdbvotes;
+    private String type;
+    private String boxoffice;
+    //...
+  }
 ```
 
 ### Frontend
