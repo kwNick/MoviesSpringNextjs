@@ -1,4 +1,5 @@
 'use client';
+
 import { useFavorites } from "@/context/FavoritesContext"
 import { NewMovie } from "@/resources/definitions";
 import Link from "next/link";

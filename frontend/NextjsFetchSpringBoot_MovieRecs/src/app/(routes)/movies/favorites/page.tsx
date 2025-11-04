@@ -1,4 +1,5 @@
 import ShowFavorites from "@/components/movies/favorites/ShowFavorites"
+// import { Activity } from "react";
 
 const page = () => {
     return (
@@ -8,7 +9,10 @@ const page = () => {
             </div>
 
             <div className="w-full h-full flex items-center justify-center">
-                <ShowFavorites />
+                {/* Maybe wrap ShowFavorites with Activity */}
+                {/* <Activity > */}
+                    <ShowFavorites />
+                {/* </Activity> */}
             </div>
 
         </div>

@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import SearchMovies from "../../../components/movies/SearchMovies";
 import ShowSearchMovies from "../../../components/movies/ShowSearchMovies";
-// import Pagination from "../../../components/movies/Pagination";
 import Link from "next/link";
 import SearchMoviesSkeleton from "../../../components/skeletons/SearchMoviesSkeleton";
-import "./LinkAnimation.css"
+import "./LinkAnimation.css";
+// import {Activity} from 'react';
 
 const page = async (
     props: {
@@ -53,7 +53,10 @@ const page = async (
                         <SearchMovies />
                     </div>
                     <Suspense key={query + page} fallback={<SearchMoviesSkeleton />}>
-                        <ShowSearchMovies query={query} genre={genre} page={page} size={size} sort={sort} />
+                    {/* Maybe wrap ShowSearchMovies in Activity */}
+                        {/* <Activity mode={"visible"}> */}
+                            <ShowSearchMovies query={query} genre={genre} page={page} size={size} sort={sort} />
+                        {/* </Activity > */}
                     </Suspense>
                     {/* <Pagination query={query} /> */}
                 </div>
