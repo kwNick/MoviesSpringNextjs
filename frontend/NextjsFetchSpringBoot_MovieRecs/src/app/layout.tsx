@@ -4,6 +4,7 @@ import Navbar from "./../components/navbar/Navbar";
 import { hind } from "../resources/fonts";
 import Footer from "./../components/footer/Footer";
 import { FavoritesProvider } from "@/context/FavoritesContext";
+import LenisWrapper from "@/context/LenisWrapper";
 // import HomeCursor from "./components/cursors/HomeCursor";
 // import RisingBlocks from "./components/RisingBlocks";
 
@@ -22,7 +23,9 @@ export default function RootLayout({
       <body
         className={`${hind.className} relative antialiased max-w-screen min-h-screen tracking-wide selection:bg-fuchsia-300 scroll-smooth cursor-none`}
       >
+
         <FavoritesProvider>
+        <LenisWrapper>
           {/* cursor */}
           {/* <HomeCursor /> */}
 
@@ -46,6 +49,7 @@ export default function RootLayout({
 
           {/*RisingBlocksAnimation  */}
           {/* <RisingBlocks /> */}
+          </LenisWrapper>
         </FavoritesProvider>
       </body>
     </html>
