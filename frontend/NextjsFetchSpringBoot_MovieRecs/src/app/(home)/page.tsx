@@ -27,24 +27,24 @@ export default async function Home() {
       </div>
 
       {/* Top rated movies section - Hover Reveal*/}
-      <div className="py-10 px-5 hidden relative w-full h-[85vh] md:flex items-center justify-center">
+      <div className="py-10 px-5 hidden relative w-full h-[120vh] md:flex items-center justify-center">
         <ThreeDCard movies={topRatedMovies._embedded.newmovie} />
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
-      <div className="relative w-full min-h-[85vh] flex flex-col items-center justify-center pb-12 p-6 lg:px-8 lg:py-8 xl:px-10 xl:py-10 ">
+      <div className="relative w-full min-h-[120vh] flex flex-col items-center justify-center pb-12 p-6 lg:px-8 lg:py-8 xl:px-10 xl:py-10 ">
         <div className="absolute inset-0 bg-colour -z-10 pointer-events-none" />
         <TextFadeIn />
       </div>
 
       {/*Genre movies section - Hover Enlarge Animation*/}
-      <div className="hidden relative w-full h-[85vh] md:flex items-center justify-center">
+      <div className="hidden relative w-full h-[120vh] md:flex items-center justify-center">
         
         <CardRevealSection movies={comedyMovies._embedded.newmovie} genre={"Comedy"} />
       </div>
       
       {/* Top Rated Movies Section - Radio Card Animation */}
-      <div className="hidden relative w-full h-[85vh] pl-12 p-8 md:flex items-center justify-center">
+      <div className="hidden relative w-full h-[120vh] pl-12 p-8 md:flex items-center justify-center">
         <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
       </div>
 
