@@ -2,7 +2,7 @@
 
 ## Description
 
-Projects have self-hosted SpringBoot API on a Rocky Linux PC, reverse-proxied through Nginx with SSL termination using Let’s Encrypt, and assigned a public-facing subdomain: spring-movie.duckdns.org. These APIs are connected to locally-hosted Mongodb database on the same machine. Vercel hosts the Nextjs frontends: movies-spring-nextjs.vercel.app, which communicates securely with the database via the RESTful API.
+Self-hosted SpringBoot API on a Rocky Linux PC, reverse-proxied through Nginx with SSL termination using Let’s Encrypt, and assigned a public-facing subdomain: spring-movie.duckdns.org. The API is connected to locally-hosted Mongodb database on the same machine. Vercel hosts the Nextjs frontend: movies-spring-nextjs.vercel.app, which communicates securely with the database via the RESTful API.
 ## Features
 
 - Responsive UI with Tailwind CSS
