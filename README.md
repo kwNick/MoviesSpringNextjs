@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a Nextjs front end with a Spring Boot back end using MongoDB for data storage.
+Self-hosted SpringBoot API on a Rocky Linux PC, reverse-proxied through Nginx with SSL termination using Let’s Encrypt, and assigned a public-facing subdomain: spring-movie.duckdns.org. These APIs are connected to a locally-hosted Mongodb database on the same machine. Vercel hosts the Nextjs frontend: movies-spring-nextjs.vercel.app, which communicates securely with the database via the RESTful APIs. 
 
 ## Features
 
