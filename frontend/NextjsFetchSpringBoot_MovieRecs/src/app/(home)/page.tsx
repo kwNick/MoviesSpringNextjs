@@ -24,7 +24,7 @@ export default async function Home() {
       {/* Landing Header section */}
       <div className="relative p-2 w-full h-[85vh] flex flex-col items-center ">
         <LandingSection />
-      </div>
+      </div> 
 
       {/* Top rated movies section - Hover Reveal*/}
       <div className="py-10 px-5 hidden relative w-full h-[120vh] md:flex items-center justify-center">
