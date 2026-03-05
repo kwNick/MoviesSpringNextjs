@@ -21,5 +21,5 @@ services:
       # SPRING_DATASOURCE_PASSWORD: <password>
 
       # If using MongoDB instead:
-      SPRING_DATA_MONGODB_URI: mongodb+srv://404hero:mongo12345@helloworld.wtjmfwx.mongodb.net/Testing
+      SPRING_DATA_MONGODB_URI: mongodb+srv://<username>:<pass>@helloworld.wtjmfwx.mongodb.net/Testing
       
