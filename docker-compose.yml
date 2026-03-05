@@ -16,9 +16,10 @@ services:
       - "8080:8080"
     environment:
       # For NEON Postgres:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://<neon-host>/<db>
-      SPRING_DATASOURCE_USERNAME: <user>
-      SPRING_DATASOURCE_PASSWORD: <password>
+      # SPRING_DATASOURCE_URL: jdbc:postgresql://<neon-host>/<db>
+      # SPRING_DATASOURCE_USERNAME: <user>
+      # SPRING_DATASOURCE_PASSWORD: <password>
 
       # If using MongoDB instead:
-      # SPRING_DATA_MONGODB_URI: mongodb+srv://<user>:<password>@cluster.mongodb.net/<db>
+      SPRING_DATA_MONGODB_URI: mongodb+srv://404hero:mongo12345@helloworld.wtjmfwx.mongodb.net/Testing
+      
