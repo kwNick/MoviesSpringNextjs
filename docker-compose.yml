@@ -1,6 +1,6 @@
 services:
   frontend:
-    build: ./frontend/NextjsFetchSpringBoot_MoviesRecs
+    build: ./frontend/NextjsFetchSpringBoot_MovieRecs
     container_name: nextjs-app
     ports:
       - "3000:3000"

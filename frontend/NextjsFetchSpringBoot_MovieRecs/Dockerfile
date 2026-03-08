@@ -1,15 +1,16 @@
-FROM node:20-alpine AS deps
+#bullseye instead of alpine because alpine uses musl instead of glibc, which can cause compatibility issues with some npm packages. Using bullseye ensures better compatibility while still providing a lightweight image.
+FROM node:20-bullseye AS deps
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps
 
-FROM node:20-alpine AS builder
+FROM node:20-bullseye AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN npm run build
 
-FROM node:20-alpine AS runner
+FROM node:20-bullseye AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
