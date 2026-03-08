@@ -3,7 +3,7 @@
 import { useActionState, useEffect, useState } from "react";
 import { AddMovie, State } from "@/resources/actions";
 
-
+// export const dynamic = 'force-dynamic';
 const CreateForm = () => {
     const initialState: State = { message: undefined, errors: {} };
     const [state, formAction, isPending] = useActionState(AddMovie, initialState);

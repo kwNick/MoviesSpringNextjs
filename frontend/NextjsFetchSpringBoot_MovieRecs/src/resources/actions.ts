@@ -75,6 +75,7 @@ export async function AddMovie(prevState: State | undefined, formData: FormData)
     }
 
     const { year, title, genre, rated, plot, poster } = validatedFields.data;
+
     try {
         await fetch(`http://${process.env.SPRING_API_DOMAIN}/newmovie`, {
             method: 'POST',
@@ -140,7 +141,7 @@ export async function UpdateMovie(id: string, prevState: PatchState | undefined,
     }
 
     const { year, title, genre, rated, plot, poster } = validatedFields.data;
-
+    
     try {
         await fetch(`http://${process.env.SPRING_API_DOMAIN}/newmovie/${id}`, {
             method: 'PUT',
