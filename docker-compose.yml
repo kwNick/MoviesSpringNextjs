@@ -1,6 +1,6 @@
 services:
   frontend:
-    build: ./frontend
+    build: ./frontend/NextjsFetchSpringBoot_MoviesRecs
     container_name: nextjs-app
     ports:
       - "3000:3000"
@@ -10,7 +10,7 @@ services:
       - backend
 
   backend:
-    build: ./backend
+    build: ./backend/SpringbootAccessMongo
     container_name: springboot-api
     ports:
       - "8080:8080"
