@@ -1,6 +1,7 @@
 import CreateForm from "@/components/movies/create/CreateForm"
 // import {Activity } from 'react';
 
+// export const dynamic = 'force-dynamic';
 const page = () => {
     return (
         <div className="w-full min-h-screen flex  justify-center pt-14 ">

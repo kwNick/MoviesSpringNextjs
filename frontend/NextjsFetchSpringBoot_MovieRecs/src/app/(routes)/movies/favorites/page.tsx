@@ -1,6 +1,7 @@
 import ShowFavorites from "@/components/movies/favorites/ShowFavorites"
 // import { Activity } from "react";
 
+// export const dynamic = 'force-dynamic';
 const page = () => {
     return (
         <div className="w-full min-h-[120vh] p-4 flex flex-col items-center gap-y-8">

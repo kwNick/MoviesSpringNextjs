@@ -7,6 +7,7 @@ import LandingSection from "@/components/home/LandingSection";
 import ThreeDCard from "@/components/home/ThreeDCard";
 import CallToAction from "@/components/home/CallToAction";
 
+// export const dynamic = 'force-dynamic';
 export default async function Home() {
 
   // const topRatedMovies = await FindByTitleLike("newmovie", "", 1, 5, 'imdbrating,desc&sort=title,asc'); //change

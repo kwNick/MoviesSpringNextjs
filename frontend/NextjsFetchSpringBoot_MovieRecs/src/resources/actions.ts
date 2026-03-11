@@ -5,7 +5,6 @@ import { z } from 'zod';
 
 //Mutating Data w/ React Server Actions
 //NewMovie Schema
-
 const FormSchema = z.object({
     id: z.string(),
     title: z.string(),
@@ -78,6 +77,7 @@ export async function AddMovie(prevState: State | undefined, formData: FormData)
 
     try {
         await fetch(`http://${process.env.SPRING_API_DOMAIN}/newmovie`, {
+            
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -144,6 +144,7 @@ export async function UpdateMovie(id: string, prevState: PatchState | undefined,
     
     try {
         await fetch(`http://${process.env.SPRING_API_DOMAIN}/newmovie/${id}`, {
+            
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

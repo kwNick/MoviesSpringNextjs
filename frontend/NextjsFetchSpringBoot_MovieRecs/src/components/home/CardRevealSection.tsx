@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import FavButton from "../movies/favorites/FavButton";
 
+// export const dynamic = 'force-dynamic';
+
 const CardRevealSection = ({ movies, genre }: { movies: NewMovie[], genre: string }) => {
     return (
         <>

@@ -22,4 +22,5 @@ services:
 
       # If using MongoDB instead:
       SPRING_DATA_MONGODB_URI: mongodb+srv://<username>:<pass>@helloworld.wtjmfwx.mongodb.net/Testing
+      # SPRING_DATA_MONGODB_URI: mongodb+srv://@helloworld.wtjmfwx.mongodb.net/Testing
       
