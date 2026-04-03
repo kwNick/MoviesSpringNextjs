@@ -8,7 +8,7 @@ import LenisWrapper from "@/context/LenisWrapper";
 // import HomeCursor from "./components/cursors/HomeCursor";
 // import RisingBlocks from "./components/RisingBlocks";
 
-export const dynamic = 'force-dynamic'; // Opt into dynamic rendering for the entire app (default is static for new Next.js apps)
+// export const dynamic = 'force-dynamic'; // Opt into dynamic rendering for the entire app (default is static for new Next.js apps)
 
 export const metadata: Metadata = {
   title: "MovieRecs - Movie Recommendations App",

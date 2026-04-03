@@ -1,5 +1,10 @@
 # MoviesSpringNextjs - Full Stack Project
 
+## Live Demos
+<video src="https://www.youtube.com/watch?v=kSUgnwpPvqM" controls width="600"></video>
+
+[![See the Demo](image.png)](https://www.youtube.com/watch?v=kSUgnwpPvqM)
+
 ## Description
 
 Self-hosted SpringBoot API on a Rocky Linux PC, reverse-proxied through Nginx with SSL termination using Let’s Encrypt, and assigned a public-facing subdomain: spring-movie.duckdns.org. The API is connected to locally-hosted Mongodb database on the same machine. Vercel hosts the Nextjs frontend: movies-spring-nextjs.vercel.app, which communicates securely with the database via the RESTful API.
