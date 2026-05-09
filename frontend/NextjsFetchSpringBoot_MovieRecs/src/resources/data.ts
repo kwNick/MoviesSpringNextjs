@@ -27,6 +27,7 @@ export async function FindBySearch(query?: string, genre?: string, page?: number
         // console.log(`Fetch: http://${process.env.SPRING_API_DOMAIN}/api/searchmovies?${query}${query && '&'}genre=${genre}&page=${page - 1}&size=${size}&sort=${sort}`);
         const data = await fetch(`http://${process.env.SPRING_API_DOMAIN}/api/searchmovies?${query}${query && '&'}genre=${genre}&page=${page - 1}&size=${size}&sort=${sort}`);
         return data.json();
+
     } catch (error) {
         throw new Error("Failed to Fetch Movies Like Title from Database: " + error);
     }
