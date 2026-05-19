@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class NewMovieController {
     
     NewMovieRepository newMovieRepo;
-
+    
     public NewMovieController(NewMovieRepository newMovieRepo) {
         this.newMovieRepo = newMovieRepo;
     }

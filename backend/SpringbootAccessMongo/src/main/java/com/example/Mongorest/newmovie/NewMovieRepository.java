@@ -27,7 +27,6 @@ public interface NewMovieRepository extends MongoRepository<NewMovie, String> {
     // | `Stream<T>`     | Lazy processing of large results          |
     // | `GeoResults<T>` | Geospatial results with distance metadata |
     
-    
     // int countByTitleIgnoreCaseContaining(String title);
 
     /* NewMovieController ResponseEntity<List<NewMovie>> /api/newmovie/**  GET-/search */
