@@ -50,7 +50,7 @@ public class NewMovieHALController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EntityModel<NewMovie>> getMovieById(@PathVariable String id) {
+    public ResponseEntity<EntityModel<NewMovie>> getMovieById(@PathVariable @NonNull String id) {
         return newMovieRepo.findById(id)
                 .map(movieModelAssembler::toModel)
                 .map(ResponseEntity::ok)
