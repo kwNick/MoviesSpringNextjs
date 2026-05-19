@@ -6,6 +6,7 @@ import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class NewMovieHALController {
     public ResponseEntity<PagedModel<EntityModel<NewMovie>>> getSearchMovies(
         @RequestParam(required=false) String query,
         @RequestParam(required=false) String genre,
-        Pageable pageable
+        @NonNull Pageable pageable
     ) {
         Page<NewMovie> searchRes = Page.empty(pageable);
 
