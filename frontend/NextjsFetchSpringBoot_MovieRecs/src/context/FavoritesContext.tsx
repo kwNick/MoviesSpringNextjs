@@ -1,6 +1,8 @@
 'use client';
+
 import { NewMovie } from "@/resources/definitions";
 import { createContext, useContext, useEffect, useState } from "react";
+
 // Define the shape of the context
 interface FavoritesContextType {
     favorites: NewMovie[];

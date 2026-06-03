@@ -29,7 +29,7 @@ const ShowFavorites = () => {
     }
 
     return (
-        <div className="text-colour p-3 w-full h-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 rounded-lg">
+        <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-10 rounded-lg">
             {favorites.map((fav: NewMovie, idx: number) => {
                 const imgPoster = isValidURL(fav.poster) ? fav.poster : "/pictures/default-cassette.jpg";
                 const href = fav._links.self.href;
@@ -38,7 +38,7 @@ const ShowFavorites = () => {
                 const id = idMatch ? idMatch[1] : "";
 
                 return (
-                    <Link href={`/movies/${id}`} key={idx} className="group relative h-full flex flex-col items-center justify-center font-bold p-8 gap-y-6 lg:gap-y-8 bg-colour hover:[box-shadow:_0px_3px_8px_var(--colour),_0px_-3px_8px_var(--colour),_0px_3px_8px_var(--contrast),_0px_-3px_8px_var(--contrast)] hover:scale-105 transition-transform duration-300 z-10">
+                    <Link href={`/movies/${id}`} key={idx} className="group relative h-full flex flex-col items-center justify-center font-bold p-8 gap-y-6 lg:gap-y-8 bg-colour hover:[box-shadow:0px_3px_8px_var(--colour),0px_-3px_8px_var(--colour),0px_3px_8px_var(--contrast),0px_-3px_8px_var(--contrast)] hover:scale-105 transition-transform duration-300 z-10">
 
                         <Image src={imgPoster} alt={fav.title} width={200} height={200} className="absolute inset-0 w-full h-full object-center object-cover -z-10 " />
                         <div className="absolute inset-0 w-full h-full bg-black/40 duration-300 -z-10 " />
