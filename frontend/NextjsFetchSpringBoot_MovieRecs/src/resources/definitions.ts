@@ -2,6 +2,7 @@ type Link = {
     self: { href: string };
     movie: { href: string };
 }
+
 export type Movie = {
     id: string;
     movieId: number;
@@ -37,4 +38,9 @@ export type NewMovie = {
     type: string;
     boxoffice: string;
     _links: Link;
+}
+
+export type ExtraMoviesList = {
+    title: string;
+    year: string;
 }

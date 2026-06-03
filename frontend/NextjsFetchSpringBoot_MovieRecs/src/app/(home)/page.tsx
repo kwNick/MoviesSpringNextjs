@@ -6,6 +6,7 @@ import CardRevealSection from "@/components/home/CardRevealSection";
 import LandingSection from "@/components/home/LandingSection";
 import ThreeDCard from "@/components/home/ThreeDCard";
 import CallToAction from "@/components/home/CallToAction";
+import MovieList from "@/components/home/MovieList";
 
 // export const dynamic = 'force-dynamic';
 export default async function Home() {
@@ -47,6 +48,11 @@ export default async function Home() {
       {/* Top Rated Movies Section - Radio Card Animation */}
       <div className="hidden relative w-full h-[120vh] pl-12 p-8 md:flex items-center justify-center">
         <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
+      </div>
+
+      <div className="hidden w-full h-[120vh] md:flex items-center justify-center ">
+          {/* {Total Movies List Section } */}
+          <MovieList />
       </div>
 
       <div className="pb-4 pt-5 px-4 w-full min-h-[75vh] flex items-center justify-center">
