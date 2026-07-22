@@ -14,9 +14,10 @@ const Clock = () => {
         const s = now.getSeconds();
 
         //calculate angles
-        const sDeg = (s / 60) * 360
+        const sDeg = (s / 60) * 360;
         const mDeg = ((m + (s / 60)) / 60) * 360;
-        const hDeg = ((h + (m + (s / 60)) / 60) / 60) * 360;
+        // const hDeg = ((h + (m + (s / 60)) / 60) / 60) * 360;
+        const hDeg = ((h / 12) * 360 ) + ((m / 60) * 30) + ((s / 3600) * 30); 
         if (second.current) {
             second.current.style.transform = `rotate(${sDeg}deg)`;
         }
@@ -37,14 +38,14 @@ const Clock = () => {
         //use the min value of 20vh or 20vw to the clock more responsive
         <div className=" w-[15vh] h-[15vh] rounded-full border-colour shadow-inner shadow-colour fixed left-[5%] top-[13%] z-10 backdrop-blur-xs">
             <div className="relative w-full h-full ">
-
+                {/* <div>{h} : {m} : {s}</div> */}
                 <div className=" absolute rounded-full bg-[#ef4444]/70 transparent w-[5%] h-[5%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] -z-10" />
 
-                <div ref={hour} className=" absolute w-[2%] h-[20%] bottom-[50%] left-[50%] bg-accent shadow-accent shadow-xl rounded-lg origin-bottom translate-x-[-50%] translate-y-[-50%]" />
+                <div ref={hour} className=" absolute w-[2%] h-[20%] bottom-[50%] left-[50%] bg-accent shadow-accent shadow-xl rounded-lg origin-bottom " />
 
-                <div ref={minute} className=" absolute w-[1.5%] h-[30%] bottom-[50%] left-[50%] bg-snow shadow-snow shadow-xl rounded-lg origin-bottom translate-x-[-50%] translate-y-[-50%]" />
+                <div ref={minute} className=" absolute w-[1.5%] h-[30%] bottom-[50%] left-[50%] bg-snow shadow-snow shadow-xl rounded-lg origin-bottom " />
 
-                <div ref={second} className=" absolute w-[1.2%] h-[35%] bottom-[50%] left-[50%] bg-colour shadow-2xl shadow-colour rounded-lg origin-bottom translate-x-[-50%] translate-y-[-50%]" />
+                <div ref={second} className=" absolute w-[1.2%] h-[35%] bottom-[50%] left-[50%] bg-colour shadow-2xl shadow-colour rounded-lg origin-bottom " />
 
                 {
                     Array.from({ length: 12 }).map((_, i) => {
