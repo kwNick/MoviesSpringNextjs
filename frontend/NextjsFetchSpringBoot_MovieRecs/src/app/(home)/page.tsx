@@ -33,6 +33,11 @@ export default async function Home() {
         <ThreeDCard movies={topRatedMovies._embedded.newmovie} />
       </div>
 
+      {/* Recommended movies section -*/}
+      <div className="py-10 px-5 hidden relative w-full h-[120vh] md:flex items-center justify-center">
+        {/* <ThreeDCard movies={topRatedMovies._embedded.newmovie} /> */}
+      </div>
+
       {/* Intro to our movie collection and who we are section*/}
       <div className="relative w-full min-h-[120vh] flex flex-col items-center justify-center pb-12 p-6 lg:px-8 lg:py-8 xl:px-10 xl:py-10 ">
         <div className="absolute inset-0 bg-colour -z-10 pointer-events-none" />
