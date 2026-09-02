@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FavButton from "./FavButton";
 import RechartBar from "./charts/RechartBar";
+import D3BarChart from "./charts/D3BarChart";
 
 const ShowFavorites = () => {
     const { favorites} = useFavorites();
@@ -68,7 +69,7 @@ const ShowFavorites = () => {
                     <RechartBar favorites={favorites} />
                 </div>
                 <div className="h-full ">
-                    {/* <RechartBar favorites={favorites} /> */}
+                    <D3BarChart favorites={favorites} />
                 </div>
             </div>
         </div>
