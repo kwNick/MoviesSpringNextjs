@@ -3,8 +3,9 @@ import { generateMockData, RechartsDevtools } from '@recharts/devtools';
 import { NewMovie } from '@/resources/definitions';
 
 const data = generateMockData(6, 823);
-console.log(data);
+// console.log(data);
 const SimpleBarChart = ({favorites}:{favorites: NewMovie[]}) => {
+  
   return (
     <>
         {/* <BarChart
@@ -29,7 +30,7 @@ const SimpleBarChart = ({favorites}:{favorites: NewMovie[]}) => {
         </BarChart> */}
         
         <BarChart
-        title="Favorite Movies IMDB Ratings"
+        title="Favorite Movies IMDb Ratings"
         style={{ width: '100%', maxWidth: '1500px', maxHeight: '70vh', aspectRatio: 1, color: '#ef4444' }}
         responsive
         data={favorites}
@@ -44,7 +45,7 @@ const SimpleBarChart = ({favorites}:{favorites: NewMovie[]}) => {
         // barCategoryGap={5}
         >
 
-        <Label position="top" offset={25} fill="#ef4444">Favorite Movies IMDB Ratings</Label>
+        <Label position="top" offset={25} fill="#ef4444">Favorite Movies IMDb Ratings</Label>
 
         <CartesianGrid />
 

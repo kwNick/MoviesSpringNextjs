@@ -7,10 +7,12 @@ import Image from "next/image";
 import FavButton from "./FavButton";
 import RechartBar from "./charts/RechartBar";
 import D3BarChart from "./charts/D3BarChart";
+import D3Charts from "./charts/D3Charts";
+import D3GenreAnalysis from "./charts/D3GenreAnalysis";
 
 const ShowFavorites = () => {
     const { favorites} = useFavorites();
-    console.log(favorites);
+    // console.log(favorites);
 
     function isValidURL(src: string): boolean {
         try {
@@ -64,13 +66,19 @@ const ShowFavorites = () => {
 
 
             </div>
-            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-[80vh] grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-10 rounded-lg">
+            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
                 <div className="h-full w-full">
                     <RechartBar favorites={favorites} />
                 </div>
                 <div className="h-full ">
                     <D3BarChart favorites={favorites} />
                 </div>
+            </div>
+            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
+                <D3Charts favorites={favorites} />
+            </div>
+            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
+                <D3GenreAnalysis favorites={favorites} />
             </div>
         </div>
     )
