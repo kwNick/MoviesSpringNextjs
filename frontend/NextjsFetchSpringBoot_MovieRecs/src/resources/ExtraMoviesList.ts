@@ -5,6 +5,16 @@ export const extraMoviesList = [
         // rated: "R",
     },
     {
+        title: "Obsession",
+        year: "2026",
+        // rated: "R",
+    },
+    {
+        title: "The Odyssey",
+        year: "2026",
+        // rated: "R",
+    },
+    {
         title: "One Hour Photo",
         year: "2002",
     },

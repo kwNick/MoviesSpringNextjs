@@ -7,6 +7,7 @@ import LandingSection from "@/components/home/LandingSection";
 import ThreeDCard from "@/components/home/ThreeDCard";
 import CallToAction from "@/components/home/CallToAction";
 import MovieList from "@/components/home/MovieList";
+import FavoritesModal from "@/components/movies/favorites/FavoritesModal";
 
 // export const dynamic = 'force-dynamic';
 export default async function Home() {
@@ -33,9 +34,30 @@ export default async function Home() {
         <ThreeDCard movies={topRatedMovies._embedded.newmovie} />
       </div>
 
+      {/* Favorites movies section -*/}
+      <div className="py-10 px-5 relative w-full h-[110vh] flex flex-col items-center justify-center gap-y-5 lg:gap-y-8 xl:gap-y-10">
+        <div className="absolute inset-0 bg-colour -z-10 pointer-events-none" />
+
+        <div className="self-start font-semibold tracking-widest text-4xl lg:text-5xl xl:text-6xl text-accent [text-shadow:0_0_5px_var(--accent),0_0_1px_var(--colour),0px_5px_10px_var(--contrast)]">
+          <h1>
+            Your Favorites
+          </h1>
+        </div>
+
+        <FavoritesModal />
+      </div>
+
       {/* Recommended movies section -*/}
-      <div className="py-10 px-5 hidden relative w-full h-[120vh] md:flex items-center justify-center">
-        {/* <ThreeDCard movies={topRatedMovies._embedded.newmovie} /> */}
+      <div className="py-10 px-5 relative w-full h-[110vh] flex flex-col items-center justify-center gap-y-5 lg:gap-y-8 xl:gap-y-10">
+        <div className="absolute inset-0 bg-accent -z-10 pointer-events-none" />
+
+        <div className="self-start font-semibold tracking-widest text-4xl lg:text-5xl xl:text-6xl text-contrast [text-shadow:0_0_5px_var(--contrast),0_0_1px_var(--colour),0px_5px_10px_var(--colour)]">
+          <h1>
+            Your Recommendations
+          </h1>
+        </div>
+
+        <FavoritesModal />
       </div>
 
       {/* Intro to our movie collection and who we are section*/}
@@ -67,7 +89,6 @@ export default async function Home() {
         </div>
 
       </div>
-
 
       <div className="w-full flex items-center justify-center">
         <CallToAction />

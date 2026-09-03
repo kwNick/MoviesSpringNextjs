@@ -36,7 +36,7 @@ const TextFadeIn = () => {
             </p>
 
             <div className=" z-10">
-                <Link href="/movies" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-colour border border-contrast rounded-md hover:bg-accent hover:text-colour transition-colors duration-300 ">
+                <Link href="/movies" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-colour border border-contrast rounded-md [box-shadow:0px_5px_10px_var(--contrast),0px_-5px_10px_var(--contrast)] hover:bg-accent hover:text-colour transition-colors duration-300 ">
                     Explore Movies
                 </Link>
             </div>

@@ -1,5 +1,4 @@
-import { ExtraMoviesList } from "@/resources/definitions";
-import { extraMoviesList } from "@/resources/ExtraMoviesList";
+import MovieListContainer from "./MovieListContainer"
 
 const MovieList = () => {
   return (
@@ -11,7 +10,7 @@ const MovieList = () => {
         <div className="w-full h-[clamp(75vh,75%,90vh)] flex items-center justify-center">
             <div className="bg-colour text-contrast w-1/2 h-full  rounded-lg py-6 lg:py-10">
                 {/* {Total Movies List Section } */}
-                <div className="py-6 lg:py-10 px-6 lg:px-12 w-full h-full max-h-[90vh] rounded-lg overflow-y-auto scrollbar-thumb-accent">
+                {/* <div ref={containerRef} className="py-6 lg:py-10 px-6 lg:px-12 w-full h-full max-h-[90vh] rounded-lg overflow-y-auto scrollbar-thumb-accent">
                     <ul className="w-full h-full flex flex-col items-start justify-start text-lg lg:text-xl 2xl:text-2xl rounded-lg">
                         {extraMoviesList.map((x: ExtraMoviesList, idx: number) => {
                             return (
@@ -21,7 +20,8 @@ const MovieList = () => {
                             )
                         })}
                     </ul>
-                </div>
+                </div> */}
+                <MovieListContainer />
             </div>
         </div>
     </div>

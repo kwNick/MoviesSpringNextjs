@@ -20,7 +20,7 @@ const CardRevealSection = ({ movies, genre }: { movies: NewMovie[], genre: strin
                         <h2 className="text-5xl lg:text-6xl xl:text-7xl text-accent [text-shadow:0_0_5px_var(--accent),0_0_1px_var(--colour)]">
                             {genre} Movies
                         </h2>
-                        <Link href="/movies?genre=comedy" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-colour border border-contrast rounded-md hover:bg-accent hover:text-colour transition-colors duration-300 ">
+                        <Link href="/movies?genre=comedy" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-colour border border-contrast rounded-md [box-shadow:0px_5px_10px_var(--contrast),0px_-5px_10px_var(--contrast)] hover:bg-accent hover:text-colour transition-colors duration-300 ">
                             Comedy Movies
                         </Link>
                     </div>
@@ -34,12 +34,12 @@ const CardRevealSection = ({ movies, genre }: { movies: NewMovie[], genre: strin
                         const id = idMatch ? idMatch[1] : "";
                         // console.log(id);
                         return (
-                            <Link href={`/movies/${id}`} key={idx} className="group relative w-full h-3/4 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden text-xs md:text-sm lg:text-base duration-500 hover:h-[90%] hover:[box-shadow:_0px_5px_10px_var(--colour),_0px_-5px_10px_var(--colour)] animate-movies-fade-in">
+                            <Link href={`/movies/${id}`} key={idx} className="group relative w-full h-3/4 border rounded-lg border-contrast bg-colour text-contrast overflow-hidden text-xs md:text-sm lg:text-base duration-500 hover:h-[90%] hover:[box-shadow:0px_5px_10px_var(--colour),0px_-5px_10px_var(--colour)] animate-movies-fade-in">
 
                                 <Image src={x.poster} width={200} height={500} alt={x.title} className=" absolute inset-0 h-full w-full object-cover bg-cover bg-position-[50%_50%] rounded-lg duration-300" priority />
 
 
-                                <div className="p-3 absolute pointer-events-none top-[75%] w-full min-h-fit h-3/4 rounded-lg flex flex-col items-center justify-start gap-y-5 xl:gap-y-7 bg-colour text-center group-hover:-translate-y-[66%] group-hover:rounded-lg duration-500 [text-shadow:0px_5px_10px_var(--contrast)] z-10">
+                                <div className="p-3 absolute pointer-events-none top-[75%] w-full min-h-fit h-3/4 rounded-lg flex flex-col items-center justify-start gap-y-5 xl:gap-y-7 bg-colour text-center group-hover:translate-y-[-66%] group-hover:rounded-lg duration-500 [text-shadow:0px_5px_10px_var(--contrast)] z-10">
                                     <div className="w-full h-fit text-wrap text-lg lg:text-2xl 2xl:text-3xl">
                                         <p>{x.title}</p>
                                     </div>

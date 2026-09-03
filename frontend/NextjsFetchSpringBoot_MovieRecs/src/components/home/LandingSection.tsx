@@ -2,7 +2,7 @@ const LandingSection = () => {
     return (
         <>
             {/* Maybe add Activity here */}
-            <video className="absolute inset-0 z-[-10] w-full h-full object-cover animate-bg-fade-in" autoPlay loop muted>
+            <video className="absolute inset-0 -z-10 w-full h-full object-cover animate-bg-fade-in" autoPlay loop muted>
                 <source src={"/videos/theaterPan.mp4"} type="video/mp4" />
             </video>
 

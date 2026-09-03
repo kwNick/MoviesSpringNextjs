@@ -10,13 +10,11 @@ const ThreeDCard = ({ movies }: { movies: NewMovie[] }) => {
 
             <div className=" w-full h-[90%] flex items-center justify-center gap-x-8 ">
 
-
-
                 <div className="mr-[calc(-50vw-50%)] grow-[1_0_auto] text-center relative w-full h-full flex items-center justify-center rounded-full [box-shadow:0_0_5px_1px_rgba(239,68,68,.3)] overflow-hidden">
                     <div className={` absolute inset-0 w-full h-full rounded-lg bg-[url('/pictures/retroTv.jpg')] bg-cover object-contain bg-position-[50%] `} />
 
-                    <div className="absolute top-[9%] left-[20%] z-10">
-                        <Link href="/movies?" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-colour rounded-md hover:bg-accent transition-colors duration-300 ">
+                    <div className="absolute top-[15%] 2xl:top-[7.5%] 2xl:left-[15%] z-10">
+                        <Link href="/movies?" className="text-lg lg:text-xl xl:text-2xl py-2 px-3 text-contrast bg-colour rounded-md [box-shadow:0px_5px_10px_var(--contrast),0px_-5px_10px_var(--contrast)] hover:bg-accent transition-colors duration-300 ">
                             Top Rated Movies
                         </Link>
                     </div>
