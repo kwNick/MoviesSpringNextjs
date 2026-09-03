@@ -18,7 +18,7 @@ const D3RatingByDecade = ({favorites}:{favorites: NewMovie[]}) => {
 
             const data = favorites
                 .map((movie) => {
-                const year = Number(movie.year);
+                const year = Number(movie.year.includes("?") ? movie.year.split("?")[0] : movie.year);
                 const rating = Number(movie.imdbrating);
 
                 return {
@@ -200,6 +200,7 @@ const D3RatingByDecade = ({favorites}:{favorites: NewMovie[]}) => {
         return () => {
         resizeObserver.disconnect();
         };
+        
 }, [favorites]);
 
   return (

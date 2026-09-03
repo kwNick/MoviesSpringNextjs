@@ -8,11 +8,15 @@ import ThreeDCard from "@/components/home/ThreeDCard";
 import CallToAction from "@/components/home/CallToAction";
 import MovieList from "@/components/home/MovieList";
 import FavoritesModal from "@/components/movies/favorites/FavoritesModal";
+import MovieChartsAnalysis from "@/components/home/MovieChartsAnalysis";
 
 // export const dynamic = 'force-dynamic';
 export default async function Home() {
 
   // const topRatedMovies = await FindByTitleLike("newmovie", "", 1, 5, 'imdbrating,desc&sort=title,asc'); //change
+  const allMovies = await FindBySearch("", undefined, 1, 50, 'imdbrating,desc&sort=title,asc');
+  // console.log("AllMovies: ", allMovies._embedded.newmovie);
+
   const topRatedMovies = await FindBySearch("", undefined, 1, 5, 'imdbrating,desc&sort=title,asc');
 
   // const comedyMovies = await FindByGenre("newmovie", "Comedy", 1, 5, 'imdbrating,desc&sort=title,asc'); //change
@@ -70,6 +74,10 @@ export default async function Home() {
       <div className="hidden relative w-full h-[120vh] md:flex items-center justify-center">
         
         <CardRevealSection movies={comedyMovies._embedded.newmovie} genre={"Comedy"} />
+      </div>
+
+      <div className="relative w-full h-full flex items-center justify-center">
+        <MovieChartsAnalysis MovieData={allMovies._embedded.newmovie} />
       </div>
       
       {/* Top Rated Movies Section - Radio Card Animation */}

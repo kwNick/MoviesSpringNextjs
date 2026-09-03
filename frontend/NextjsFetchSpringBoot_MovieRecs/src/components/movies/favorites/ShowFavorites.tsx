@@ -6,12 +6,15 @@ import Link from "next/link";
 import Image from "next/image";
 import FavButton from "./FavButton";
 import RechartBar from "./charts/RechartBar";
-import D3BarChart from "./charts/D3BarChart";
-import D3Charts from "./charts/D3Charts";
+// import D3BarChart from "./charts/D3BarChart";
+// import D3Charts from "./charts/D3Charts";
 import D3GenreAnalysis from "./charts/D3GenreAnalysis";
 import { isValidURL } from "@/resources/utils";
 import D3DirectorsAvgRating from "./charts/D3DirectorsAvgRating";
 import D3RatingByDecade from "./charts/D3RatingByDecade";
+import D3ByYear from "./charts/D3ByYear";
+import D3ByRating from "./charts/D3ByRating";
+import D3RatingDistribution from "./charts/D3RatingDistribution";
 
 const ShowFavorites = () => {
     const { favorites} = useFavorites();
@@ -63,11 +66,14 @@ const ShowFavorites = () => {
                     <RechartBar favorites={favorites} />
                 </div>
                 <div className="h-full w-full">
-                    <D3BarChart favorites={favorites} />
+                    <D3ByYear favorites={favorites} />
                 </div>
             
-                <D3Charts favorites={favorites} />
-            
+                <D3ByRating favorites={favorites} />
+
+                <D3RatingDistribution favorites={favorites} />
+                
+                {/* has three charts */}
                 <D3GenreAnalysis favorites={favorites} />
             
                 <D3DirectorsAvgRating favorites={favorites} />

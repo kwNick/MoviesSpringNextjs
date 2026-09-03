@@ -1,20 +1,19 @@
 'use client';
 
 import { NewMovie } from "@/resources/definitions";
-import * as Plot from "@observablehq/plot";
 import * as d3 from "d3";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 
-export default function D3BarChart({ favorites }: { favorites: NewMovie[] }) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+export default function D3ByRating({ favorites }: { favorites: NewMovie[] }) {
+  const ratingChartRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!containerRef.current || favorites.length === 0) return;
+    if (!ratingChartRef.current || favorites.length === 0) return;
 
     const drawChart = () => {
 
       // Clear previous chart
-      d3.select(containerRef.current).selectAll("*").remove();
+      d3.select(ratingChartRef.current).selectAll("*").remove();
 
       const data = favorites
         .map((movie) => ({
@@ -36,7 +35,7 @@ export default function D3BarChart({ favorites }: { favorites: NewMovie[] }) {
 
       // Create SVG
       const svg = d3
-        .select(containerRef.current)
+        .select(ratingChartRef.current)
         .append("svg")
         .attr("width", "100%")
         .attr("height", "100%");
@@ -45,7 +44,7 @@ export default function D3BarChart({ favorites }: { favorites: NewMovie[] }) {
       const x = d3
         .scaleBand()
         .domain(data.map((movie) => movie.title))
-        .range([margin.left, containerRef.current?.clientWidth! - margin.right])
+        .range([margin.left, ratingChartRef.current?.clientWidth! - margin.right])
         .padding(0.2);
 
       // Y scale
@@ -53,14 +52,14 @@ export default function D3BarChart({ favorites }: { favorites: NewMovie[] }) {
         .scaleLinear()
         .domain([0, 10])
         .nice()
-        .range([containerRef.current?.clientHeight! - margin.bottom, margin.top]);
+        .range([ratingChartRef.current?.clientHeight! - margin.bottom, margin.top]);
 
       // X axis
       svg
         .append("g")
         .attr(
           "transform",
-          `translate(0,${containerRef.current?.clientHeight! - margin.bottom})`
+          `translate(0,${ratingChartRef.current?.clientHeight! - margin.bottom})`
         )
         .call(d3.axisBottom(x))
         .selectAll("text")
@@ -85,7 +84,7 @@ export default function D3BarChart({ favorites }: { favorites: NewMovie[] }) {
         .attr(
           "height",
           (movie) =>
-            containerRef.current?.clientHeight! - margin.bottom - y(movie.rating)
+            ratingChartRef.current?.clientHeight! - margin.bottom - y(movie.rating)
         );
 
     };
@@ -98,7 +97,7 @@ export default function D3BarChart({ favorites }: { favorites: NewMovie[] }) {
       drawChart();
     });
 
-    resizeObserver.observe(containerRef.current);
+    resizeObserver.observe(ratingChartRef.current);
 
     // Cleanup
     return () => {
@@ -114,7 +113,7 @@ export default function D3BarChart({ favorites }: { favorites: NewMovie[] }) {
       </h2>
 
       <div
-        ref={containerRef}
+        ref={ratingChartRef}
         className="w-full h-[50vh] "
       />
     </div>

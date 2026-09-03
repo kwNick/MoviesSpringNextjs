@@ -1,8 +1,10 @@
+'use client';
+
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
-import { generateMockData, RechartsDevtools } from '@recharts/devtools';
+import {  RechartsDevtools } from '@recharts/devtools';
 import { NewMovie } from '@/resources/definitions';
 
-const data = generateMockData(6, 823);
+// const data = generateMockData(6, 823);
 // console.log(data);
 const SimpleBarChart = ({favorites}:{favorites: NewMovie[]}) => {
   
