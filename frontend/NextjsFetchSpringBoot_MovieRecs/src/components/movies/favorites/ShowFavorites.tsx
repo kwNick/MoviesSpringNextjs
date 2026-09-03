@@ -66,20 +66,21 @@ const ShowFavorites = () => {
 
 
             </div>
-            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
-                <div className="h-full w-full">
+            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
+                <div className="h-full w-full border border-colour rounded-lg p-4">
                     <RechartBar favorites={favorites} />
                 </div>
-                <div className="h-full ">
+                <div className="h-full w-full">
                     <D3BarChart favorites={favorites} />
                 </div>
             </div>
-            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
+            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
                 <D3Charts favorites={favorites} />
             </div>
-            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
+            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
                 <D3GenreAnalysis favorites={favorites} />
             </div>
+            
         </div>
     )
 }

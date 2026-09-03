@@ -80,7 +80,7 @@ const SimpleBarChart = ({favorites}:{favorites: NewMovie[]}) => {
         radius={[10, 10, 0, 0]} 
         animationEasing="ease-in-out" 
         activeBar={{ fill: '#f5debf' }}
-        style={{ fill: '#f5debf', stroke: '#f5debf', strokeWidth: 2 }}
+        style={{ fill: '#ef4444', stroke: '#f5debf', strokeWidth: 2 }}
         label 
         />
 
