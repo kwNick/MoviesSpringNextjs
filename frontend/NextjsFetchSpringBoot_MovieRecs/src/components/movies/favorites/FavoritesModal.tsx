@@ -7,8 +7,10 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { isValidURL } from "@/resources/utils";
 
-// Fix scroll behavior is kind of weird when scrolling it like slows down 
+// Fix scroll behavior is kind of weird when scrolling it like slows down - -> Fixed with container.scrollBy({behavior: "smooth"}) instead of container.scrollLeft += e.deltaY
+
 // Custom scroll bar
+
 // Only scroll horizontally when the container is at least half way through the screen
 
 const FavoritesModal = () => {
@@ -27,7 +29,7 @@ const FavoritesModal = () => {
             container.scrollWidth - container.clientWidth;
 
             const atStart = container.scrollLeft <= 0;
-            const atEnd = container.scrollLeft >= maxScrollLeft;
+            const atEnd = container.scrollLeft >= maxScrollLeft-1;
 
             // Scrolling up while already at the far left
             const tryingToScrollLeft = e.deltaY < 0;
@@ -45,7 +47,11 @@ const FavoritesModal = () => {
             e.preventDefault();
             e.stopPropagation();
 
-            container.scrollLeft += e.deltaY;
+            // container.scrollLeft += e.deltaY;
+            container.scrollBy({
+                left: e.deltaY*3,
+                behavior: "smooth",
+            });
         };
 
         container.addEventListener("wheel", handleWheel, {

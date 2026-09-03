@@ -10,6 +10,8 @@ import D3BarChart from "./charts/D3BarChart";
 import D3Charts from "./charts/D3Charts";
 import D3GenreAnalysis from "./charts/D3GenreAnalysis";
 import { isValidURL } from "@/resources/utils";
+import D3DirectorsAvgRating from "./charts/D3DirectorsAvgRating";
+import D3RatingByDecade from "./charts/D3RatingByDecade";
 
 const ShowFavorites = () => {
     const { favorites} = useFavorites();
@@ -63,12 +65,14 @@ const ShowFavorites = () => {
                 <div className="h-full w-full">
                     <D3BarChart favorites={favorites} />
                 </div>
-            </div>
-            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
+            
                 <D3Charts favorites={favorites} />
-            </div>
-            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
+            
                 <D3GenreAnalysis favorites={favorites} />
+            
+                <D3DirectorsAvgRating favorites={favorites} />
+
+                <D3RatingByDecade favorites={favorites} />
             </div>
             
         </div>
