@@ -110,7 +110,7 @@ export default function D3BarChart({ favorites }: { favorites: NewMovie[] }) {
   return (
     <div className="w-full h-full border border-colour rounded-lg p-4">
       <h2 className="mb-4 text-2xl font-bold">
-        Movies by Rating
+        Favorite Movies by Rating
       </h2>
 
       <div

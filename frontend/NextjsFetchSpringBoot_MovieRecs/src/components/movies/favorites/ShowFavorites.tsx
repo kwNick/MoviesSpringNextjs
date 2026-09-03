@@ -9,21 +9,11 @@ import RechartBar from "./charts/RechartBar";
 import D3BarChart from "./charts/D3BarChart";
 import D3Charts from "./charts/D3Charts";
 import D3GenreAnalysis from "./charts/D3GenreAnalysis";
+import { isValidURL } from "@/resources/utils";
 
 const ShowFavorites = () => {
     const { favorites} = useFavorites();
     // console.log(favorites);
-
-    function isValidURL(src: string): boolean {
-        try {
-            new URL(src);
-            return true;
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (e) {
-            // console.error("Invalid URL:", e);
-            return false;
-        }
-    }
 
     if (favorites.length === 0) {
         return (

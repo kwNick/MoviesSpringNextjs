@@ -252,7 +252,7 @@ export default function D3BarChart({
     <>
       <div className="w-full h-full border border-colour rounded-lg p-4 ">
         <h2 className="mb-4 text-2xl font-bold">
-          Movies by Year
+          Favorite Movies by Year
         </h2>
 
         <div
@@ -263,7 +263,7 @@ export default function D3BarChart({
 
       <div className="w-full h-full border border-colour rounded-lg p-4">
         <h2 className="mb-4 text-2xl font-bold">
-          IMDb Rating Distribution
+          Favorite Movies by IMDb Rating Distribution
         </h2>
 
         <div

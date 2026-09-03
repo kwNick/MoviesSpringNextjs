@@ -30,3 +30,14 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
         totalPages,
     ];
 };
+
+export function isValidURL(src: string): boolean {
+        try {
+            new URL(src);
+            return true;
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (e) {
+            // console.error("Invalid URL:", e);
+            return false;
+        }
+    }

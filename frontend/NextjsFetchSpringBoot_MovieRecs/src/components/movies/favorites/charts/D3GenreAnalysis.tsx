@@ -458,19 +458,19 @@ useEffect(() => {
     <>
       <div className="w-full h-full border border-colour rounded-lg p-4">
           <h2 className="mb-4 text-2xl font-bold">
-              Movies by genre
+              Favorite Movies by genre
           </h2>
           <div ref={genreChartRef} className="w-full h-[50vh] overflow-x-auto" />
       </div>
       <div className="w-full h-full border border-colour rounded-lg p-4">
           <h2 className="mb-4 text-2xl font-bold">
-              Average IMDb rating by genre
+              Favorite Movies by Average IMDb rating by genre
           </h2>
           <div ref={genreRatingChartRef} className="w-full h-[50vh] overflow-x-auto" />
       </div>
       <div className="w-full h-full border border-colour rounded-lg p-4">
           <h2 className="mb-4 text-2xl font-bold">
-              Average IMDb Rating by Genre (Minimum of 5 Movies per Genre)
+              Favorite Movies by Average IMDb Rating by Genre (Minimum of 5 Movies per Genre)
           </h2>
           <div ref={genreRatingMinimumChartRef} className="w-full h-[50vh] overflow-x-auto" />
       </div>
