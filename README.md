@@ -3,7 +3,7 @@
 ## Architecture
 
 ```text
-                          MOVIE DATA
+                         MOVIE DATA
                              │
                              ▼
                          MongoDB
