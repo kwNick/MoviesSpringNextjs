@@ -24,3 +24,12 @@ services:
       # SPRING_DATA_MONGODB_URI: mongodb+srv://<username>:<pass>@helloworld.wtjmfwx.mongodb.net/Testing
       SPRING_DATA_MONGODB_URI: ${MONGODB_URI}
       
+  analytics:
+    build: ./analytics
+    container_name: python-analytics
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_URI: ${MONGO_URI}
+      MONGO_DATABASE: movies
+      MONGO_COLLECTION: movies

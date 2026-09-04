@@ -6,6 +6,8 @@ import D3GenreAnalysis from "@/components/movies/favorites/charts/D3GenreAnalysi
 import D3DirectorsAvgRating from "@/components/movies/favorites/charts/D3DirectorsAvgRating";
 import { NewMovie } from "@/resources/definitions";
 import RechartBar from "../movies/favorites/charts/RechartBar";
+import RatingStats from "./RatingStats";
+import RatingChart from "./RatingChart";
 
 const MovieChartsAnalysis = ({MovieData}:{MovieData: NewMovie[]}) => {
   return (
@@ -17,6 +19,21 @@ const MovieChartsAnalysis = ({MovieData}:{MovieData: NewMovie[]}) => {
         <D3RatingDistribution favorites={MovieData} />
         <D3GenreAnalysis favorites={MovieData} />
         <D3DirectorsAvgRating favorites={MovieData} />
+
+        <div>
+          <div>
+              <h1>
+              Movie Analytics and Insights
+            </h1>
+            <p>
+              Explore the world of cinema through our comprehensive movie analytics. From ratings and genres to directors' average scores, our visualizations provide a deep dive into your favorite films. Discover trends, patterns, and insights that enhance your movie-watching experience.
+            </p>
+          </div>
+          <div>
+            <RatingStats />
+            <RatingChart />
+          </div>
+        </div>
     </div>
   )
 }

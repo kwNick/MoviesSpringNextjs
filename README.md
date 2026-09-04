@@ -1,5 +1,36 @@
 # MoviesSpringNextjs - Full Stack Project
 
+
+## Architecture
+
+                 MOVIE DATA
+                     │
+                     ▼
+                 MongoDB
+                     │
+          ┌──────────┴───────────┐
+          │                      │
+          ▼                      ▼
+   DATA ANALYSIS             MACHINE LEARNING
+          │                      │
+          ▼                      ▼
+       pandas               scikit-learn
+       NumPy                Random Forest
+       SciPy                     │
+          │                      │
+          ▼                      ▼
+     Statistics              Predictions
+          │                      │
+          └──────────┬───────────┘
+                     ▼
+                  FastAPI
+                     │
+                     ▼
+                  Next.js
+                     │
+                     ▼
+               D3.js charts
+
 ## Live Demos
 <video src="https://www.youtube.com/watch?v=kSUgnwpPvqM" controls width="600"></video>
 
