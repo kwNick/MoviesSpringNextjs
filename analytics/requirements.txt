@@ -4,3 +4,6 @@ pandas
 numpy
 scipy
 pymongo
+scipy
+scikit-learn
+matplotlib
