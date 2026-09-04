@@ -3,27 +3,34 @@
 ## Architecture
 
 ```text
-                         MOVIE DATA
+                          MOVIE DATA
                              │
                              ▼
                          MongoDB
                              │
-                 ┌───────────┴───────────┐
-                 │                       │
-                 ▼                       ▼
-          DATA ANALYSIS          MACHINE LEARNING
-                 │                       │
-                 ▼                       ▼
-              pandas               scikit-learn
-              NumPy                Random Forest
-              SciPy                     │
-                 │                       │
-                 ▼                       ▼
-             Statistics             Predictions
-                 │                       │
-                 └───────────┬───────────┘
                              ▼
-                          FastAPI
+                       Spring Boot
+                         REST API
+                             │
+                             ▼
+                          Next.js
+                             │
+              ┌──────────────┴──────────────┐
+              │                             │
+              ▼                             ▼
+        DATA ANALYSIS                MACHINE LEARNING
+              │                             │
+              ▼                             ▼
+           pandas                    scikit-learn
+           NumPy                     Random Forest
+           SciPy                          │
+              │                             │
+              ▼                             ▼
+         Statistics                  Predictions
+              │                             │
+              └──────────────┬──────────────┘
+                             ▼
+                           FastAPI
                              │
                              ▼
                           Next.js
