@@ -31,7 +31,7 @@
                D3.js charts
 
 ```text
-                          MOVIE DATA
+                         MOVIE DATA
                              │
                              ▼
                          MongoDB
