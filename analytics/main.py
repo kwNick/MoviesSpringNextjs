@@ -5,6 +5,10 @@ from analysis.ratings import get_rating_statistics
 from analysis.genres import get_genre_statistics
 from analysis.trends import get_rating_trends
 
+from analysis.years import get_year_statistics
+from analysis.directors import get_director_statistics
+from analysis.actors import get_actor_statistics
+
 from machine_learning.train import train_rating_model
 from machine_learning.predict import predict_rating
 
@@ -49,6 +53,23 @@ def rating_trends():
 
     return get_rating_trends()
 
+
+@app.get("/analysis/years")
+def year_analysis():
+
+    return get_year_statistics()
+
+
+@app.get("/analysis/directors")
+def director_analysis():
+
+    return get_director_statistics()
+
+
+@app.get("/analysis/actors")
+def actor_analysis():
+
+    return get_actor_statistics()
 
 # --------------------------------
 # Machine Learning

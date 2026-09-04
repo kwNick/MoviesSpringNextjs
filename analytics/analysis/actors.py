@@ -3,14 +3,14 @@ import pandas as pd
 from database.mongodb import movies_collection
 
 
-def get_genre_statistics():
+def get_actor_statistics():
 
     movies = list(
         movies_collection.find(
             {},
             {
                 "_id": 0,
-                "genre": 1,
+                "actors": 1,
                 "imdbrating": 1
             }
         )
@@ -23,41 +23,41 @@ def get_genre_statistics():
             "message": "No movie data available"
         }
 
-    # Convert IMDb ratings to numbers
+    # Convert ratings to numbers
     df["imdbrating"] = pd.to_numeric(
         df["imdbrating"],
         errors="coerce"
     )
 
     # Remove movies without valid ratings
-    df = df.dropna(subset=["imdbrating"])
+    df = df.dropna(
+        subset=["imdbrating"]
+    )
 
-    # Convert genre string into a list
-    #
-    # "Drama, Fantasy, Romance"
-    #
-    # becomes:
-    #
-    # ["Drama", "Fantasy", "Romance"]
-    df["genre"] = df["genre"].fillna("").astype(str)
+    # Make sure actors is a string
+    df["actors"] = (
+        df["actors"]
+        .fillna("")
+        .astype(str)
+    )
 
-    df["genre"] = df["genre"].apply(
+    # Convert comma-separated actors into a list
+    df["actors"] = df["actors"].apply(
         lambda x: [
-            genre.strip()
-            for genre in x.split(",")
-            if genre.strip()
+            actor.strip()
+            for actor in x.split(",")
+            if actor.strip()
         ]
     )
 
-    # Give each genre its own row
-    df = df.explode("genre")
+    # Give each actor their own row
+    df = df.explode("actors")
 
-    # Remove empty genres
-    df = df[df["genre"] != ""]
+    # Remove empty actors
+    df = df[df["actors"] != ""]
 
-    # Calculate statistics
-    genre_stats = (
-        df.groupby("genre")["imdbrating"]
+    actor_stats = (
+        df.groupby("actors")["imdbrating"]
         .agg(
             count="count",
             average="mean",
@@ -67,11 +67,9 @@ def get_genre_statistics():
         .reset_index()
     )
 
-    # Convert statistics to regular Python values
-    # and explicitly handle NaN.
     results = []
 
-    for _, row in genre_stats.iterrows():
+    for _, row in actor_stats.iterrows():
 
         standard_deviation = row["standardDeviation"]
 
@@ -79,7 +77,7 @@ def get_genre_statistics():
             standard_deviation = None
 
         results.append({
-            "genre": row["genre"],
+            "actor": row["actors"],
             "count": int(row["count"]),
             "average": round(float(row["average"]), 2),
             "median": round(float(row["median"]), 2),

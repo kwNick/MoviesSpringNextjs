@@ -12,7 +12,7 @@ def get_rating_statistics():
             {
                 "_id": 0,
                 "title": 1,
-                "imdbRating": 1
+                "imdbrating": 1
             }
         )
     )
@@ -24,14 +24,14 @@ def get_rating_statistics():
             "message": "No movie data available"
         }
 
-    df["imdbRating"] = pd.to_numeric(
-        df["imdbRating"],
+    df["imdbrating"] = pd.to_numeric(
+        df["imdbrating"],
         errors="coerce"
     )
 
-    df = df.dropna(subset=["imdbRating"])
+    df = df.dropna(subset=["imdbrating"])
 
-    ratings = df["imdbRating"]
+    ratings = df["imdbrating"]
 
     return {
         "count": int(len(ratings)),

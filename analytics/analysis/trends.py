@@ -11,7 +11,7 @@ def get_rating_trends():
             {
                 "_id": 0,
                 "year": 1,
-                "imdbRating": 1
+                "imdbrating": 1
             }
         )
     )
@@ -28,13 +28,13 @@ def get_rating_trends():
         errors="coerce"
     )
 
-    df["imdbRating"] = pd.to_numeric(
-        df["imdbRating"],
+    df["imdbrating"] = pd.to_numeric(
+        df["imdbrating"],
         errors="coerce"
     )
 
     df = df.dropna(
-        subset=["year", "imdbRating"]
+        subset=["year", "imdbrating"]
     )
 
     # Create decade
@@ -43,7 +43,7 @@ def get_rating_trends():
     ).astype(int)
 
     trends = (
-        df.groupby("decade")["imdbRating"]
+        df.groupby("decade")["imdbrating"]
         .agg(
             count="count",
             averageRating="mean",
