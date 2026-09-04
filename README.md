@@ -8,35 +8,32 @@
                              ▼
                          MongoDB
                              │
-                             ▼
-                       Spring Boot
-                         REST API
-                             │
-                             ▼
-                          Next.js
-                             │
-              ┌──────────────┴──────────────┐
-              │                             │
-              ▼                             ▼
-        DATA ANALYSIS                MACHINE LEARNING
-              │                             │
-              ▼                             ▼
-           pandas                    scikit-learn
-           NumPy                     Random Forest
-           SciPy                          │
-              │                             │
-              ▼                             ▼
-         Statistics                  Predictions
-              │                             │
-              └──────────────┬──────────────┘
-                             ▼
-                           FastAPI
-                             │
-                             ▼
-                          Next.js
-                             │
-                             ▼
-                         D3.js Charts
+                 ┌───────────┴───────────┐
+                 │                       │
+                 ▼                       ▼
+            Spring Boot              FastAPI
+             REST API            Python Services
+                 │                       │
+                 │              ┌────────┴────────┐
+                 │              │                 │
+                 │              ▼                 ▼
+                 │        DATA ANALYSIS     MACHINE LEARNING
+                 │              │                 │
+                 │              ▼                 ▼
+                 │           pandas         scikit-learn
+                 │           NumPy          Random Forest
+                 │           SciPy                │
+                 │              │                 │
+                 │              ▼                 ▼
+                 │         Statistics        Predictions
+                 │                                │
+                 └───────────────┬────────────────┘
+                                 ▼
+                              Next.js
+                                 │
+                                 ▼
+                              D3.js
+                               Charts
 ```
 
 ## Live Demos
