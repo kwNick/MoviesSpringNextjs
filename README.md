@@ -2,34 +2,6 @@
 
 ## Architecture
 
-                 MOVIE DATA
-                     │
-                     ▼
-                 MongoDB
-                     │
-          ┌──────────┴───────────┐
-          │                      │
-          ▼                      ▼
-   DATA ANALYSIS             MACHINE LEARNING
-          │                      │
-          ▼                      ▼
-       pandas               scikit-learn
-       NumPy                Random Forest
-       SciPy                     │
-          │                      │
-          ▼                      ▼
-     Statistics              Predictions
-          │                      │
-          └──────────┬───────────┘
-                     ▼
-                  FastAPI
-                     │
-                     ▼
-                  Next.js
-                     │
-                     ▼
-               D3.js charts
-
 ```text
                          MOVIE DATA
                              │
