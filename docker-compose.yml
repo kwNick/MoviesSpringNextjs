@@ -30,6 +30,6 @@ services:
     ports:
       - "8000:8000"
     environment:
-      MONGO_URI: ${MONGO_URI}
-      MONGO_DATABASE: movies
+      MONGO_URI: ${MONGODB_URI}
+      MONGO_DATABASE: Testing
       MONGO_COLLECTION: movies

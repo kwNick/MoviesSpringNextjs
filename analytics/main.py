@@ -1,17 +1,17 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from analysis.ratings import get_rating_statistics
-from analysis.genres import get_genre_statistics
-from analysis.trends import get_rating_trends
+from analytics.analysis.individual.ratings import get_rating_statistics
+from analytics.analysis.individual.genres import get_genre_statistics
+from analytics.analysis.individual.trends import get_rating_trends
 
-from analysis.years import get_year_statistics
-from analysis.directors import get_director_statistics
-from analysis.actors import get_actor_statistics
+from analytics.analysis.individual.years import get_year_statistics
+from analytics.analysis.individual.directors import get_director_statistics
+from analytics.analysis.individual.actors import get_actor_statistics
 
-from analysis.correlation import calculate_correlation
-from analysis.descriptive_stat import get_movie_statistics
-from analysis.distributions import rating_distribution, runtime_distribution
+from analytics.analysis.category.correlation import calculate_correlation
+from analytics.analysis.category.descriptive_stat import get_movie_statistics
+from analytics.analysis.category.distributions import rating_distribution, runtime_distribution
 from data.movie_data import get_movies
 
 from machine_learning.train import train_rating_model

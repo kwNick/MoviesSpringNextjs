@@ -25,7 +25,7 @@ def train_rating_model():
                 "year": 1,
                 "runtime": 1,
                 "metascore": 1,
-                "imdbRating": 1
+                "imdbrating": 1
             }
         )
     )
@@ -60,8 +60,8 @@ def train_rating_model():
         errors="coerce"
     )
 
-    df["imdbRating"] = pd.to_numeric(
-        df["imdbRating"],
+    df["imdbrating"] = pd.to_numeric(
+        df["imdbrating"],
         errors="coerce"
     )
 
@@ -74,7 +74,7 @@ def train_rating_model():
             "year",
             "runtime",
             "metascore",
-            "imdbRating"
+            "imdbrating"
         ]
     )
 
@@ -99,7 +99,7 @@ def train_rating_model():
     # 6. Define target
     # --------------------------------
 
-    y = df["imdbRating"]
+    y = df["imdbrating"]
 
     # --------------------------------
     # 7. Split training/testing data

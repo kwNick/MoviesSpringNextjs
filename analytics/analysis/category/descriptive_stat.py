@@ -1,8 +1,5 @@
 # analytics/app/analysis/descriptive_stats.py
 
-import pandas as pd
-
-
 def get_movie_statistics(df):
 
     return {
