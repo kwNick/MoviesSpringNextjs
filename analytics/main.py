@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 import pandas as pd
 from pydantic import BaseModel
+from sklearn.preprocessing import MultiLabelBinarizer
 
 from analysis.individual.ratings import get_rating_statistics
 from analysis.individual.genres import get_genre_statistics
@@ -27,13 +28,13 @@ app = FastAPI(
 )
 
 # Adding CORS configuration
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["http://localhost:3000"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 # --------------------------------
 # Basic endpoint
@@ -181,16 +182,39 @@ class MovieInput(BaseModel):
     runtime: int
     metascore: float
 
+# {"Title":"Obsession","Year":"2026","Rated":"R","Released":"15 May 2026","Runtime":"109 min","Genre":"Horror, Romance, Thriller","Director":"Curry Barker","Writer":"Curry Barker","Actors":"Michael Johnston, Inde Navarrette, Cooper Tomlinson","Plot":"Baron \"Bear\" Bailey breaks a novelty charm to force his co-worker Nikki Freeman to love him, but the supernatural compulsion warps her mind into violent obsession, trapping him in a nightmare he cannot wish away.","Language":"English","Country":"United States","Awards":"7 wins & 15 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BYzc1NWUwMDgtNGZlMS00ZmYzLWIzMzktNmMxMmY1MTUzNWExXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.9/10"},{"Source":"Rotten Tomatoes","Value":"93%"},{"Source":"Metacritic","Value":"77/100"}],"Metascore":"77","imdbRating":"7.9","imdbVotes":"291,494","imdbID":"tt37287335","Type":"movie","DVD":"N/A","BoxOffice":"$262,774,890","Production":"N/A","Website":"N/A","Response":"True"}
 
 @app.post("/ml/predict-rating")
-def predict_movie_rating(movie: MovieInput):
+def predict_movie_rating():
 
-    prediction = predict_rating(
-        year=movie.year,
-        runtime=movie.runtime,
-        metascore=movie.metascore
+    mlb = MultiLabelBinarizer()
+
+    obsession = {"title":"Obsession","year":"2026","rated":"R","released":"15 May 2026","runtime":"109 min","genre":"Horror, Romance, Thriller","directors":"Curry Barker","Writer":"Curry Barker","actors":"Michael Johnston, Inde Navarrette, Cooper Tomlinson","plot":"Baron \"Bear\" Bailey breaks a novelty charm to force his co-worker Nikki Freeman to love him, but the supernatural compulsion warps her mind into violent obsession, trapping him in a nightmare he cannot wish away.","Language":"English","country":"United States","awards":"7 wins & 15 nominations total","poster":"https://m.media-amazon.com/images/M/MV5BYzc1NWUwMDgtNGZlMS00ZmYzLWIzMzktNmMxMmY1MTUzNWExXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg","metascore":"77","imdbrating":"7.9","imdbvotes":"291,494","Type":"movie","boxoffice":"$262,774,890"}
+
+    backrooms = {"title":"Backrooms","year":"2026","rated":"R","released":"29 May 2026","runtime":"110 min","genre":"Horror, Sci-Fi, Thriller","directors":"Kane Parsons","writers":"Will Soodik, Kane Parsons","actors":"Chiwetel Ejiofor, Renate Reinsve, Mark Duplass","plot":"After a therapist's patient disappears into a dimension beyond reality, she must venture into the unknown to save him.","language":"English, Portuguese, Turkish, Arabic, Japanese","country":"United States, Canada","awards":"14 nominations total","poster":"https://m.media-amazon.com/images/M/MV5BYzQyYjZmMjctMzIyZi00MDI0LWJhNGQtMzQ3MTFlNDgwNGM5XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg","metascore":"76","imdbrating":"6.8","imdbvotes":"179,011","Type":"movie","boxoffice":"$197,516,045"}
+
+    # print(obsession)
+
+    predictionObsession = predict_rating(
+        year = pd.to_numeric(obsession['year'], errors="coerce"),
+        runtime = pd.to_numeric(obsession['runtime'].replace(" min", ""), errors="coerce"),
+        metascore = pd.to_numeric(obsession['metascore'], errors="coerce"),
+        boxoffice = pd.to_numeric(obsession["boxoffice"].replace("$", "").replace(",", ""), errors="coerce"),
+        # genre = pd.DataFrame(mlb.fit_transform(obsession["genre"].split(", ")),columns=mlb.classes_)
+        genre = obsession['genre']
     )
 
+    # print('obsession to backrooms')
+
+    predictionBackrooms = predict_rating(
+        year = pd.to_numeric(backrooms['year'], errors="coerce"),
+        runtime = pd.to_numeric(backrooms['runtime'].replace(" min", ""), errors="coerce"),
+        metascore = pd.to_numeric(backrooms['metascore'], errors="coerce"),
+        boxoffice = pd.to_numeric(backrooms["boxoffice"].replace("$", "").replace(",", ""), errors="coerce"),
+        genre = backrooms['genre']
+    )    
+
     return {
-        "predictedRating": prediction
+        "predictedObsessionRating": predictionObsession,
+        "predictedBackroomsRating": predictionBackrooms
     }

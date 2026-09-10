@@ -1,15 +1,23 @@
+from pathlib import Path
+
+import numpy as np
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 import joblib
+from sklearn.preprocessing import MultiLabelBinarizer
 
 from database.mongodb import movies_collection
 from machine_learning.model import create_model
 
 
-MODEL_PATH = "machine_learning/movie_rating_model.pkl"
+MODEL_PATH = Path("machine_learning/models/movie_rating_model.pkl")
+MLB_PATH = Path("machine_learning/models/genre_mlb.pkl")
 
+
+# Random Forest Regression Model
+# Predicting continuous numerical value
 
 def train_rating_model():
 
@@ -25,6 +33,8 @@ def train_rating_model():
                 "year": 1,
                 "runtime": 1,
                 "metascore": 1,
+                "boxoffice": 1,
+                "genre": 1,
                 "imdbrating": 1
             }
         )
@@ -45,24 +55,57 @@ def train_rating_model():
     # 3. Convert values to numbers
     # --------------------------------
 
+    # Convert year from "1999?" or "1999?-2005" → 1999
+    df["year"] = (df["year"].str.extract(r"(\d{4})")[0])
     df["year"] = pd.to_numeric(
         df["year"],
         errors="coerce"
     )
 
+    # Convert runtime from "148 min" → 148 
+    df["runtime"] = (df["runtime"].str.replace(" min", "", regex=False))
     df["runtime"] = pd.to_numeric(
         df["runtime"],
         errors="coerce"
     )
 
-    df["metascore"] = pd.to_numeric(
-        df["metascore"],
-        errors="coerce"
+    df["metascore"] = pd.to_numeric(df["metascore"], errors="coerce")
+
+    # Convert box office
+    # "$534,987,076" → "534987076" → 534987076
+    df["boxoffice"] = (df["boxoffice"].str.replace("$", "", regex=False).str.replace(",", "", regex=False))
+    df["boxoffice"] = pd.to_numeric(df["boxoffice"],errors="coerce")
+
+    df["imdbrating"] = pd.to_numeric(df["imdbrating"], errors="coerce")
+
+    # -------------------------
+    # Genre encoding
+    # -------------------------
+
+    # 1. Make sure genre exists
+    df = df.dropna(subset=["genre"])
+
+    # 2. Split genres
+    genre_lists = df["genre"].str.split(", ")
+
+    # 3. Encode genres
+    mlb = MultiLabelBinarizer()
+    genre_encoded = mlb.fit_transform(genre_lists)
+
+    # print(genre_encoded)
+
+    # 4. Store the entire encoded array in ONE "genre" column
+    df["genre"] = genre_encoded.tolist()
+
+    # Save the fitted encoder
+    MODEL_PATH.parent.mkdir(
+        parents=True,
+        exist_ok=True
     )
 
-    df["imdbrating"] = pd.to_numeric(
-        df["imdbrating"],
-        errors="coerce"
+    joblib.dump(
+        mlb,
+        MLB_PATH
     )
 
     # --------------------------------
@@ -74,6 +117,8 @@ def train_rating_model():
             "year",
             "runtime",
             "metascore",
+            "boxoffice",
+            # "genre",
             "imdbrating"
         ]
     )
@@ -87,13 +132,40 @@ def train_rating_model():
     # 5. Define features
     # --------------------------------
 
-    X = df[
+    # X = df[
+    #     [
+    #         "year",
+    #         "runtime",
+    #         "metascore",
+    #         "boxoffice",
+    #         "genre"
+    #     ]
+    # ]
+
+    genre_features = np.array(df["genre"].tolist())
+
+    # print(df)
+    # print(genre_features)
+    # print("Genres:", mlb.classes_)
+    # print("Genre matrix shape:", genre_features.shape)
+
+    numeric_features = df[
         [
             "year",
             "runtime",
-            "metascore"
+            "metascore",
+            "boxoffice"
         ]
-    ]
+    ].to_numpy()
+
+    X = np.hstack([
+        numeric_features,
+        genre_features
+    ])
+
+    # print(X)
+
+    y = df["imdbrating"]
 
     # --------------------------------
     # 6. Define target

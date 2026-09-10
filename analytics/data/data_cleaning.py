@@ -8,7 +8,7 @@ def clean_movie_data(df):
         df[column] = pd.to_numeric( df[column], errors="coerce" )
 
     # Convert IMDb votes # "2,395,647" -> "2395647" -> 2395647
-    df["imdbvotes"] = (df["imdbvotes"] .str.replace(",", "", regex=False))
+    df["imdbvotes"] = (df["imdbvotes"].str.replace(",", "", regex=False))
     df["imdbvotes"] = pd.to_numeric(df["imdbvotes"], errors="coerce")
 
     # Convert runtime from "148 min" → 148 
