@@ -9,11 +9,11 @@ import joblib
 from sklearn.preprocessing import MultiLabelBinarizer
 
 from database.mongodb import movies_collection
-from machine_learning.model import create_model
+from machine_learning.supervised.regression.model import create_model
 
 
-MODEL_PATH = Path("machine_learning/models/movie_rating_model.pkl")
-MLB_PATH = Path("machine_learning/models/genre_mlb.pkl")
+MODEL_PATH = Path("machine_learning/supervised/regression/models/movie_rating_model.pkl")
+MLB_PATH = Path("machine_learning/supervised/regression/models/genre_mlb.pkl")
 
 
 # Random Forest Regression Model

@@ -5,8 +5,8 @@ import numpy as np
 import pandas as pd
 
 
-MODEL_PATH = Path("machine_learning/models/movie_rating_model.pkl")
-MLB_PATH = Path("machine_learning/models/genre_mlb.pkl")
+MODEL_PATH = Path("machine_learning/supervised/regression/models/movie_rating_model.pkl")
+MLB_PATH = Path("machine_learning/supervised/regression/models/genre_mlb.pkl")
 
 
 def load_model():

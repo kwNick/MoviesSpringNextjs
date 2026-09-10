@@ -10,4 +10,4 @@ __pycache__/
 # Environment Variables
 .env*
 
-machine_learning/models/*.pkl
+*.pkl

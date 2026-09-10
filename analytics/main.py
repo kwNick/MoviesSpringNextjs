@@ -16,8 +16,8 @@ from analysis.category.descriptive_stat import get_movie_statistics
 from analysis.category.distributions import rating_distribution, runtime_distribution
 from data.movie_data import get_movies
 
-from machine_learning.train import train_rating_model
-from machine_learning.predict import predict_rating
+from machine_learning.supervised.regression.train import train_rating_model
+from machine_learning.supervised.regression.predict import predict_rating
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -175,14 +175,6 @@ def train_model():
 # --------------------------------
 # Prediction input
 # --------------------------------
-
-class MovieInput(BaseModel):
-
-    year: int
-    runtime: int
-    metascore: float
-
-# {"Title":"Obsession","Year":"2026","Rated":"R","Released":"15 May 2026","Runtime":"109 min","Genre":"Horror, Romance, Thriller","Director":"Curry Barker","Writer":"Curry Barker","Actors":"Michael Johnston, Inde Navarrette, Cooper Tomlinson","Plot":"Baron \"Bear\" Bailey breaks a novelty charm to force his co-worker Nikki Freeman to love him, but the supernatural compulsion warps her mind into violent obsession, trapping him in a nightmare he cannot wish away.","Language":"English","Country":"United States","Awards":"7 wins & 15 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BYzc1NWUwMDgtNGZlMS00ZmYzLWIzMzktNmMxMmY1MTUzNWExXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.9/10"},{"Source":"Rotten Tomatoes","Value":"93%"},{"Source":"Metacritic","Value":"77/100"}],"Metascore":"77","imdbRating":"7.9","imdbVotes":"291,494","imdbID":"tt37287335","Type":"movie","DVD":"N/A","BoxOffice":"$262,774,890","Production":"N/A","Website":"N/A","Response":"True"}
 
 @app.post("/ml/predict-rating")
 def predict_movie_rating():
