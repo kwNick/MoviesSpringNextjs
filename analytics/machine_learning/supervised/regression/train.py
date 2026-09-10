@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import (mean_absolute_error, mean_squared_error, r2_score)
 import joblib
 from sklearn.preprocessing import MultiLabelBinarizer
 
@@ -208,13 +208,33 @@ def train_rating_model():
     )
 
     # --------------------------------
-    # 11. Measure accuracy
+    # 11. Measure model performance
     # --------------------------------
 
+    # Mean Absolute Error
+    # Average prediction error
     mae = mean_absolute_error(
         y_test,
         predictions
     )
+
+    # Mean Squared Error
+    # Average squared prediction error; heavily punishes large errors
+    mse = mean_squared_error(
+        y_test,
+        predictions
+    )
+
+    # Root Mean Squared Error
+    # Prediction error in the original IMDb-rating units
+    rmse = np.sqrt(mse)
+
+    # R² Score -> Coefficient of Determination
+    # How much of the variation in IMDb ratings the model explains
+    r2 = r2_score(
+        y_test,
+        predictions
+)
 
     # --------------------------------
     # 12. Save trained model
@@ -228,5 +248,8 @@ def train_rating_model():
     return {
         "message": "Model trained successfully",
         "moviesUsed": len(df),
-        "meanAbsoluteError": float(mae)
+        "meanAbsoluteError": float(mae),
+        "meanSquaredError": float(mse),
+        "rootMeanSquaredError": float(rmse),
+        "r2Score": float(r2)
     }
