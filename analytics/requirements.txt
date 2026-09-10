@@ -7,3 +7,4 @@ pymongo
 scipy
 scikit-learn
 matplotlib
+seaborn

@@ -19,7 +19,7 @@ from data.movie_data import get_movies
 from machine_learning.supervised.regression.train import train_rating_model
 from machine_learning.supervised.regression.predict import predict_rating
 
-from fastapi.middleware.cors import CORSMiddleware
+# from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Movie Analytics API",
