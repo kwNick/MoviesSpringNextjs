@@ -4,18 +4,18 @@ import { NewMovie } from "@/resources/definitions";
 import * as d3 from "d3";
 import {useEffect, useRef} from "react";
 
-export default function D3ByRating({ favorites }: { favorites: NewMovie[] }) {
+export default function D3ByRating({ movieList }: { movieList: NewMovie[] }) {
   const ratingChartRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!ratingChartRef.current || favorites.length === 0) return;
+    if (!ratingChartRef.current || movieList.length === 0) return;
 
     const drawChart = () => {
 
       // Clear previous chart
       d3.select(ratingChartRef.current).selectAll("*").remove();
 
-      const data = favorites
+      const data = movieList
         .map((movie) => ({
           title: movie.title,
           rating: Number(movie.imdbrating),
@@ -104,7 +104,7 @@ export default function D3ByRating({ favorites }: { favorites: NewMovie[] }) {
       resizeObserver.disconnect();
     };
 
-  }, [favorites]);
+  }, [movieList]);
 
   return (
     <div className="w-full h-full border border-colour rounded-lg p-4">

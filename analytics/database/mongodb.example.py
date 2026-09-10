@@ -2,6 +2,7 @@ import os
 
 from pymongo import MongoClient
 
+# Connects directly to mongodatabase and doesnt need backend API running
 
 MONGO_URI = os.getenv(
     "MONGO_URI",

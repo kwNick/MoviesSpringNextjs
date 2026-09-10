@@ -4,11 +4,11 @@ import { NewMovie } from "@/resources/definitions";
 import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 
-const D3RatingByDecade = ({favorites}:{favorites: NewMovie[]}) => {
+const D3RatingByDecade = ({movieList}:{movieList: NewMovie[]}) => {
     const decadeChartRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (!decadeChartRef.current || favorites.length === 0) {
+        if (!decadeChartRef.current || movieList.length === 0) {
             return;
         }
         const drawChart = () => {
@@ -16,7 +16,7 @@ const D3RatingByDecade = ({favorites}:{favorites: NewMovie[]}) => {
                 .selectAll("*")
                 .remove();
 
-            const data = favorites
+            const data = movieList
                 .map((movie) => {
                 const year = Number(movie.year.includes("?") ? movie.year.split("?")[0] : movie.year);
                 const rating = Number(movie.imdbrating);
@@ -201,7 +201,7 @@ const D3RatingByDecade = ({favorites}:{favorites: NewMovie[]}) => {
         resizeObserver.disconnect();
         };
         
-}, [favorites]);
+}, [movieList]);
 
   return (
     <>

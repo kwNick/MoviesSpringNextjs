@@ -5,9 +5,9 @@ import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 
 export default function D3ByYear({
-  favorites,
+  movieList,
 }: {
-  favorites: NewMovie[];
+  movieList: NewMovie[];
 }) {
   const yearChartRef = useRef<HTMLDivElement>(null);
 
@@ -15,13 +15,13 @@ export default function D3ByYear({
    * MOVIES BY YEAR
    */
   useEffect(() => {
-    if (!yearChartRef.current || favorites.length === 0) return;
+    if (!yearChartRef.current || movieList.length === 0) return;
 
     const drawChart = () => {
 
       d3.select(yearChartRef.current).selectAll("*").remove();
 
-      const data = favorites
+      const data = movieList
         .map((movie) => ({
           year: Number(movie.year.includes("?") ? movie.year.split("?")[0] : movie.year),
         }))
@@ -123,7 +123,7 @@ export default function D3ByYear({
       resizeObserver.disconnect();
     };
     
-  }, [favorites]);
+  }, [movieList]);
 
   return (
     <>

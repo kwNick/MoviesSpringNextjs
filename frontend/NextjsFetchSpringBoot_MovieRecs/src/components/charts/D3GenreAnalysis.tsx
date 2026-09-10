@@ -4,13 +4,13 @@ import { NewMovie } from "@/resources/definitions";
 import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 
-const D3GenreAnalysis = ({favorites}:{favorites: NewMovie[]}) => {
+const D3GenreAnalysis = ({movieList}:{movieList: NewMovie[]}) => {
     const genreChartRef = useRef<HTMLDivElement>(null);
     const genreRatingChartRef = useRef<HTMLDivElement>(null);
     const genreRatingMinimumChartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!genreChartRef.current || favorites.length === 0) return;
+    if (!genreChartRef.current || movieList.length === 0) return;
 
 
     const drawChart = () => {
@@ -19,7 +19,7 @@ const D3GenreAnalysis = ({favorites}:{favorites: NewMovie[]}) => {
       // Turn:
       // "Action, Adventure, Sci-Fi"
       // into individual genres
-      const genres = favorites
+      const genres = movieList
         .flatMap((movie) =>
           movie.genre
             ?.split(",")
@@ -117,10 +117,10 @@ const D3GenreAnalysis = ({favorites}:{favorites: NewMovie[]}) => {
       resizeObserver.disconnect();
     };
 
-}, [favorites]);
+}, [movieList]);
 
 useEffect(() => {
-    if (!genreRatingChartRef.current || favorites.length === 0) return;
+    if (!genreRatingChartRef.current || movieList.length === 0) return;
 
     const drawChart = () => {
 
@@ -137,7 +137,7 @@ useEffect(() => {
     * Adventure  8.8
     * Sci-Fi     8.8
     */
-    const genreRatings = favorites.flatMap((movie) => {
+    const genreRatings = movieList.flatMap((movie) => {
       const rating = Number(movie.imdbrating);
 
       if (isNaN(rating) || !movie.genre) {
@@ -267,10 +267,10 @@ useEffect(() => {
       resizeObserver.disconnect();
     };
 
-  }, [favorites]);
+  }, [movieList]);
 
   useEffect(() => {
-    if (!genreRatingMinimumChartRef.current || favorites.length === 0) return;
+    if (!genreRatingMinimumChartRef.current || movieList.length === 0) return;
 
     const drawChart = () => {
 
@@ -292,7 +292,7 @@ useEffect(() => {
     * Adventure   8.8
     * Sci-Fi      8.8
     */
-    const genreRatings = favorites.flatMap((movie) => {
+    const genreRatings = movieList.flatMap((movie) => {
       const rating = Number(movie.imdbrating);
 
       if (isNaN(rating) || !movie.genre) {
@@ -452,7 +452,7 @@ useEffect(() => {
       resizeObserver.disconnect();
     };
 
-}, [favorites]);
+}, [movieList]);
 
   return (
     <>

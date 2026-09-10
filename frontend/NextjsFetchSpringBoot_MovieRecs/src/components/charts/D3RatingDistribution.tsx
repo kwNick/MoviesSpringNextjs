@@ -4,20 +4,20 @@ import { NewMovie } from "@/resources/definitions";
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
-const D3RatingDistribution = ({favorites}:{favorites: NewMovie[]}) => {
+const D3RatingDistribution = ({movieList}:{movieList: NewMovie[]}) => {
       const ratingChartRef = useRef<HTMLDivElement>(null);
     
       /*
        * IMDb RATING DISTRIBUTION
        */
       useEffect(() => {
-        if (!ratingChartRef.current || favorites.length === 0) return;
+        if (!ratingChartRef.current || movieList.length === 0) return;
     
         const drawChart = () => {
     
           d3.select(ratingChartRef.current).selectAll("*").remove();
     
-          const data = favorites
+          const data = movieList
             .map((movie) => Number(movie.imdbrating))
             .filter((rating) => !isNaN(rating));
     
@@ -127,7 +127,7 @@ const D3RatingDistribution = ({favorites}:{favorites: NewMovie[]}) => {
           resizeObserver.disconnect();
         };
     
-      }, [favorites]);
+      }, [movieList]);
 
   return (
     <div className="w-full h-full border border-colour rounded-lg p-4">

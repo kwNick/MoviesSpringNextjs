@@ -3,6 +3,7 @@ import pandas as pd
 
 from data.data_cleaning import clean_movie_data
 
+# This needs the backend to be running, connecting to the backend and querying through springboot API to fetch mongo database
 
 def get_movies():
 

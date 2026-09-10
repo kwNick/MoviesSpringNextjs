@@ -6,7 +6,7 @@ import { NewMovie } from '@/resources/definitions';
 
 // const data = generateMockData(6, 823);
 // console.log(data);
-const SimpleBarChart = ({favorites}:{favorites: NewMovie[]}) => {
+const SimpleBarChart = ({movieList}:{movieList: NewMovie[]}) => {
   
   return (
     <>
@@ -35,7 +35,7 @@ const SimpleBarChart = ({favorites}:{favorites: NewMovie[]}) => {
         title="Favorite Movies IMDb Ratings"
         style={{ width: '100%', maxWidth: '1500px', maxHeight: '70vh', aspectRatio: 1, color: '#ef4444' }}
         responsive
-        data={favorites}
+        data={movieList}
         margin={{
             top: 50,
             right: 15,

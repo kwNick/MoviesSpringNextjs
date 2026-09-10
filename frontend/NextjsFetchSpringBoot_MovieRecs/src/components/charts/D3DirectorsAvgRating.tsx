@@ -6,17 +6,17 @@ import { useEffect, useRef } from "react";
 
 const MIN_MOVIES_FOR_DIRECTOR_ANALYSIS = 1; // Minimum number of movies for a director to be included in the analysis
 
-const D3DirectorsAvgRating = ({favorites}:{favorites: NewMovie[]}) => {
+const D3DirectorsAvgRating = ({movieList}:{movieList: NewMovie[]}) => {
     const directorChartRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        if (!directorChartRef.current || favorites.length === 0) return;
+        if (!directorChartRef.current || movieList.length === 0) return;
 
         const drawChart = () => {
             d3.select(directorChartRef.current).selectAll("*").remove();
 
             // Overall average rating
-            const validMovies = favorites
+            const validMovies = movieList
                 .map((movie) => ({
                 director: (movie.director !== "N/A" ? movie.director : movie.writer),
                 // director: movie.director,
@@ -209,7 +209,7 @@ const D3DirectorsAvgRating = ({favorites}:{favorites: NewMovie[]}) => {
         return () => {
         resizeObserver.disconnect();
         };
-}, [favorites]);
+}, [movieList]);
 
   return (
     <>

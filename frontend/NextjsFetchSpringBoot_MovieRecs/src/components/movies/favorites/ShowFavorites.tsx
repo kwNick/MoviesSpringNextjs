@@ -5,16 +5,16 @@ import { NewMovie } from "@/resources/definitions";
 import Link from "next/link";
 import Image from "next/image";
 import FavButton from "./FavButton";
-import RechartBar from "./charts/RechartBar";
+import RechartBar from "../../charts/RechartBar";
 // import D3BarChart from "./charts/D3BarChart";
 // import D3Charts from "./charts/D3Charts";
-import D3GenreAnalysis from "./charts/D3GenreAnalysis";
+import D3GenreAnalysis from "../../charts/D3GenreAnalysis";
 import { isValidURL } from "@/resources/utils";
-import D3DirectorsAvgRating from "./charts/D3DirectorsAvgRating";
-import D3RatingByDecade from "./charts/D3RatingByDecade";
-import D3ByYear from "./charts/D3ByYear";
-import D3ByRating from "./charts/D3ByRating";
-import D3RatingDistribution from "./charts/D3RatingDistribution";
+import D3DirectorsAvgRating from "../../charts/D3DirectorsAvgRating";
+import D3RatingByDecade from "../../charts/D3RatingByDecade";
+import D3ByYear from "../../charts/D3ByYear";
+import D3ByRating from "../../charts/D3ByRating";
+import D3RatingDistribution from "../../charts/D3RatingDistribution";
 
 const ShowFavorites = () => {
     const { favorites} = useFavorites();
@@ -63,22 +63,22 @@ const ShowFavorites = () => {
             </div>
             <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
                 <div className="h-full w-full border border-colour rounded-lg p-4">
-                    <RechartBar favorites={favorites} />
+                    <RechartBar movieList={favorites} />
                 </div>
                 <div className="h-full w-full">
-                    <D3ByYear favorites={favorites} />
+                    <D3ByYear movieList={favorites} />
                 </div>
             
-                <D3ByRating favorites={favorites} />
+                <D3ByRating movieList={favorites} />
 
-                <D3RatingDistribution favorites={favorites} />
+                <D3RatingDistribution movieList={favorites} />
                 
                 {/* has three charts */}
-                <D3GenreAnalysis favorites={favorites} />
+                <D3GenreAnalysis movieList={favorites} />
             
-                <D3DirectorsAvgRating favorites={favorites} />
+                <D3DirectorsAvgRating movieList={favorites} />
 
-                <D3RatingByDecade favorites={favorites} />
+                <D3RatingByDecade movieList={favorites} />
             </div>
             
         </div>

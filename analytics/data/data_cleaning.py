@@ -29,8 +29,8 @@ def clean_movie_data(df):
 
     # print("DataFrame columns:")
     # print(df.columns.tolist())
-    print("DataFrame:")
-    print(df)
+    # print("DataFrame:")
+    # print(df)
 
     # print("Missing IMDb ratings:", df["imdbrating"].isna().sum())
     # print("Missing IMDb votes:", df["imdbvotes"].isna().sum())
