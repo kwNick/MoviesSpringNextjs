@@ -47,7 +47,7 @@ const ShowFavorites = () => {
                             
                             <p className="text-center text-2xl lg:text-3xl xl:text-4xl font-semibold">{fav.title}</p>
                             <p className="opacity-0 text-center text-sm lg:text-base group-hover:opacity-100 duration-300">
-                                {fav.year.replace("?", "-") + " - " + fav.rated} - {fav.imdbrating}<br/>{fav.genre}
+                                {fav.year.toString().replace("?", "-") + " - " + fav.rated} - {fav.imdbrating}<br/>{fav.genre}
                             </p>
                             <p className="opacity-0 text-center lg:text-xl xl:text-2xl group-hover:opacity-100 duration-300">
                                 {fav.plot.split(" ").filter((_, idx) => idx < 10).join(" ") + (fav.plot.split(" ").length > 9 ? "..." : "")}
@@ -61,6 +61,7 @@ const ShowFavorites = () => {
 
 
             </div>
+            
             <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
                 <div className="h-full w-full border border-colour rounded-lg p-4">
                     <RechartBar movieList={favorites} />

@@ -56,10 +56,7 @@ class MovieRecommender:   # Building the recommendation model
 
         self.movies = df.reset_index(drop=True)
 
-        numerical_data = (
-            df[NUMERICAL_FEATURES]
-            .fillna(0)
-        )
+        numerical_data = (df[NUMERICAL_FEATURES].fillna(0))
 
         # Apply Numerical Weight
         scaled_numeric = (self.scaler.fit_transform(numerical_data))
@@ -89,12 +86,7 @@ class MovieRecommender:   # Building the recommendation model
 
 
     # Finding Recommendations
-    def recommend(
-        self,
-        # favorite_titles,
-        favorite_movies,
-        number_of_recommendations=10
-    ):
+    def recommend(self, favorite_movies, number_of_recommendations=10):
 
         if not favorite_movies:
             return []
@@ -162,6 +154,8 @@ class MovieRecommender:   # Building the recommendation model
 
             recommendations.append(recommendation)
 
+        # print(recommendation)
+
         return recommendations
 
     # Create Recommendation
@@ -205,8 +199,14 @@ class MovieRecommender:   # Building the recommendation model
         description = ("Recommended because it " + ", ".join(reasons) + ".")
 
          # Start with the COMPLETE ORIGINAL movie
-        recommendation = (original_movie.to_dict())
+        # recommendation = (original_movie.to_dict())
 
+        # Start with the COMPLETE ORIGINAL movie
+        recommendation = {
+            key: self.clean_value(value)
+            for key, value in original_movie.to_dict().items()
+        }
+        
         # Add recommendation-specific information
         recommendation.update({
             "similarity": float(round(similarity, 4)),

@@ -1,4 +1,4 @@
-import FavoritesModal from "@/components/movies/favorites/FavoritesModal";
+import FavoritesCarousel from "@/components/movies/favorites/FavoritesCarousel";
 import ShowFavorites from "@/components/movies/favorites/ShowFavorites"
 
 // export const dynamic = 'force-dynamic';
@@ -11,7 +11,7 @@ const page = () => {
                 <h1 className="underline text-6xl lg:text-8xl text-accent">Favorite Movies</h1>
             </div>
 
-            <FavoritesModal />
+            <FavoritesCarousel />
 
             <div className="w-full h-full flex items-center justify-center">
                 {/* Maybe wrap ShowFavorites with Activity */}

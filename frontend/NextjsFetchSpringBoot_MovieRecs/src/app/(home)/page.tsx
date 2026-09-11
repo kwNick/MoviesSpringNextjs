@@ -7,9 +7,9 @@ import LandingSection from "@/components/home/LandingSection";
 import ThreeDCard from "@/components/home/ThreeDCard";
 import CallToAction from "@/components/home/CallToAction";
 import MovieList from "@/components/home/MovieList";
-import FavoritesModal from "@/components/movies/favorites/FavoritesModal";
 import MovieChartsAnalysis from "@/components/home/MovieChartsAnalysis";
-import RecommendedMovies from "@/components/movies/RecommendedMovies";
+import RecommendedCarousel from "@/components/movies/RecommendedCarousel";
+import FavoritesCarousel from "@/components/movies/favorites/FavoritesCarousel";
 
 // export const dynamic = 'force-dynamic';
 export default async function Home() {
@@ -38,7 +38,7 @@ export default async function Home() {
       <div className="py-10 px-5 hidden relative w-full h-[120vh] md:flex items-center justify-center">
         <ThreeDCard movies={topRatedMovies._embedded.newmovie} />
       </div>
-
+      
       {/* Favorites movies section -*/}
       <div className="py-10 px-5 relative w-full h-[110vh] flex flex-col items-center justify-center gap-y-5 lg:gap-y-8 xl:gap-y-10">
         <div className="absolute inset-0 bg-colour -z-10 pointer-events-none" />
@@ -49,7 +49,7 @@ export default async function Home() {
           </h1>
         </div>
 
-        <FavoritesModal />
+        <FavoritesCarousel />
       </div>
 
       {/* Recommended movies section -*/}
@@ -62,7 +62,7 @@ export default async function Home() {
           </h1>
         </div>
 
-        <RecommendedMovies />
+        <RecommendedCarousel />
       </div>
 
       {/* Intro to our movie collection and who we are section*/}

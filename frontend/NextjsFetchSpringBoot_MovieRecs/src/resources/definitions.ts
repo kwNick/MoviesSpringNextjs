@@ -40,6 +40,13 @@ export type NewMovie = {
     _links: Link;
 }
 
+
+export interface Recommendation extends NewMovie {
+    similarity: number;
+    match_percentage: number;
+    description: string;
+}
+
 export type ExtraMoviesList = {
     title: string;
     year: string;

@@ -1,25 +1,22 @@
 'use client';
 
-import FavButton from "@/components/movies/favorites/FavButton";
-import { useFavorites } from "@/context/FavoritesContext"
 import Link from "next/link";
-import Image from "next/image";
+import FavButton from "./favorites/FavButton";
+import { NewMovie, Recommendation } from "@/resources/definitions";
 import { useEffect, useRef } from "react";
 import { isValidURL } from "@/resources/utils";
+import Image from "next/image";
 
-// Fix scroll behavior is kind of weird when scrolling it like slows down - -> Fixed with container.scrollBy({behavior: "smooth"}) instead of container.scrollLeft += e.deltaY
+const MovieCarousel = ({movies}:{movies: NewMovie[]}) => {
+    const moviesRef = useRef<HTMLDivElement | null>(null)
 
-// Custom scroll bar
-
-// Only scroll horizontally when the container is at least half way through the screen
-
-const FavoritesModal = () => {
-    const { favorites } = useFavorites();
-    const favoritesRef = useRef<HTMLDivElement | null>(null);
+    function isRecommendation(movie: NewMovie): movie is Recommendation {
+        return Object.hasOwn(movie, "similarity");
+    }
 
     // console.log(favorites);
     useEffect(() => {
-        const container = favoritesRef.current;
+        const container = moviesRef.current;
 
         if (!container) return;
 
@@ -58,21 +55,13 @@ const FavoritesModal = () => {
         return () => {
             container.removeEventListener("wheel", handleWheel);
         };
-    }, [favorites]);
-    
+    }, [movies]);
+
   return (
     <>
-        {favorites.length > 0 && (
+        {movies.length > 0 && (
             <div
-                ref={favoritesRef}
-                // onWheel={(e) => {
-                //     const container = favoritesRef.current;
-                    
-                //     if (!container) return;
-                    
-                //     e.preventDefault();
-                //     container.scrollLeft += e.deltaY;
-                // }}
+                ref={moviesRef}
                 className="
                     w-full
                     h-[65vh] lg:h-[70vh]
@@ -87,10 +76,10 @@ const FavoritesModal = () => {
                     border-t border-b border-contrast
                 "
             >
-                {favorites.map((fav, idx) => {
-                    const imgPoster = isValidURL(fav.poster) ? fav.poster : "/pictures/default-cassette.jpg";
+                {movies.map((movie, idx) => {
+                    const imgPoster = isValidURL(movie.poster) ? movie.poster : "/pictures/default-cassette.jpg";
 
-                    const href = fav._links.self.href;
+                    const href = movie._links.self.href;
                     const idMatch = href.match(/\/([^\/]+)$/);
                     const id = idMatch ? idMatch[1] : "";
 
@@ -118,7 +107,7 @@ const FavoritesModal = () => {
                         >
                             <Image
                                 src={imgPoster}
-                                alt={fav.title}
+                                alt={movie.title}
                                 width={200}
                                 height={200}
                                 loading="eager"
@@ -152,7 +141,7 @@ const FavoritesModal = () => {
                                 text-2xl lg:text-3xl xl:text-4xl
                                 font-semibold
                             ">
-                                {fav.title}
+                                {movie.title}
                             </p>
 
                             <p className="
@@ -162,9 +151,9 @@ const FavoritesModal = () => {
                                 group-hover:opacity-100
                                 duration-300
                             ">
-                                {fav.year.replace("?", "-") + " - " + fav.rated} - {fav.imdbrating}
+                                {movie.year.toString().replace("?", "-") + " - " + movie.rated} - {movie.imdbrating}
                                 <br />
-                                {fav.genre}
+                                {movie.genre}
                             </p>
 
                             <p className="
@@ -174,8 +163,8 @@ const FavoritesModal = () => {
                                 group-hover:opacity-100
                                 duration-300
                             ">
-                                {fav.plot.split(" ").slice(0, 10).join(" ")}
-                                {fav.plot.split(" ").length > 9 ? "..." : ""}
+                                {movie.plot.split(" ").slice(0, 10).join(" ")}
+                                {movie.plot.split(" ").length > 9 ? "..." : ""}
                             </p>
 
                             <div className="
@@ -183,8 +172,41 @@ const FavoritesModal = () => {
                                 group-hover:opacity-100
                                 duration-300
                             ">
-                                <FavButton movie={fav} />
+                                <FavButton movie={movie} />
                             </div>
+                            {isRecommendation(movie) && (
+                                <>
+                                    <div>
+                                        <p className="
+                                            opacity-0
+                                            text-center
+                                            lg:text-xl xl:text-2xl
+                                            group-hover:opacity-100
+                                            duration-300
+                                        ">
+                                            Similarity: {movie.similarity}
+                                        </p>
+                                        <p className="
+                                            opacity-0
+                                            text-center
+                                            lg:text-xl xl:text-2xl
+                                            group-hover:opacity-100
+                                            duration-300
+                                        ">
+                                            Match %: {movie.match_percentage}
+                                        </p>
+                                    </div>
+                                    <p className="
+                                        opacity-0
+                                        text-center
+                                        lg:text-lg xl:text-xl
+                                        group-hover:opacity-100
+                                        duration-300
+                                    ">
+                                        {movie.description}
+                                    </p>
+                                </>
+                            )}
                         </Link>
                     );
                 })}
@@ -193,4 +215,4 @@ const FavoritesModal = () => {
     </>
   )
 }
-export default FavoritesModal
+export default MovieCarousel
