@@ -37,6 +37,19 @@
           Dashboard       Predictions/Visualizations(D3)
 ```
 
+```text
+      Browser
+        │
+        ▼
+      Next.js
+        │
+        ├─────────────────────► FastAPI
+        │                        │   │
+        │                        │   └── ML / Analytics
+        │                        ▼
+        └────────────────► Spring Boot ─────► MongoDB
+```
+
 ## Live Demos
 
 <video src="https://www.youtube.com/watch?v=kSUgnwpPvqM" controls width="600"></video>
