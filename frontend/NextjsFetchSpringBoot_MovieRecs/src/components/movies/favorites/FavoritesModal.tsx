@@ -26,8 +26,7 @@ const FavoritesModal = () => {
         const handleWheel = (e: WheelEvent) => {
             // Only hijack the wheel if there is horizontal
             // content that can actually be scrolled
-            const maxScrollLeft =
-            container.scrollWidth - container.clientWidth;
+            const maxScrollLeft = container.scrollWidth - container.clientWidth;
 
             const atStart = container.scrollLeft <= 0;
             const atEnd = container.scrollLeft >= maxScrollLeft-1;
@@ -39,10 +38,7 @@ const FavoritesModal = () => {
             const tryingToScrollRight = e.deltaY > 0;
 
             // Allow normal page scrolling at the boundaries
-            if (
-                (atStart && tryingToScrollLeft) ||
-                (atEnd && tryingToScrollRight)
-            ) {
+            if ((atStart && tryingToScrollLeft) || (atEnd && tryingToScrollRight)) {
                 return;
             }
             e.preventDefault();
@@ -92,9 +88,7 @@ const FavoritesModal = () => {
                 "
             >
                 {favorites.map((fav, idx) => {
-                    const imgPoster = isValidURL(fav.poster)
-                        ? fav.poster
-                        : "/pictures/default-cassette.jpg";
+                    const imgPoster = isValidURL(fav.poster) ? fav.poster : "/pictures/default-cassette.jpg";
 
                     const href = fav._links.self.href;
                     const idMatch = href.match(/\/([^\/]+)$/);

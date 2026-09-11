@@ -6,35 +6,9 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import FavButton from "./favorites/FavButton";
 import { isValidURL } from "@/resources/utils";
+import { NewMovie } from "@/resources/definitions";
 
-interface Movie {
-    id: string;
-    title: string;
-    year?: number;
-    rated?: string;
-    released?: string;
-    genre?: string;
-    director?: string;
-    writer?: string;
-    actors?: string;
-    plot?: string;
-    language?: string;
-    country?: string;
-    awards?: string;
-    poster: string;
-    imdbvotes?: string;
-    type?: string;
-    imdbrating?: number;
-    metascore?: number;
-    runtime?: number;
-    boxoffice?: number | string;
-    _links: {
-        self: { href: string };
-        movie: { href: string };
-    }
-}
-
-interface Recommendation extends Movie {
+interface Recommendation extends NewMovie {
     similarity: number;
     match_percentage: number;
     description: string;
@@ -50,15 +24,10 @@ export default function RecommendedMovies() {
     useEffect(() => {
         async function getRecommendations() {
             try {
-                // const storedFavorites =
-                //     localStorage.getItem("favorites");
-
                 if (!favorites) {
                     setLoading(false);
                     return;
                 }
-
-                // favorites = JSON.parse(favorites);
 
                 if (!favorites || favorites.length === 0) {
                     setLoading(false);
@@ -99,8 +68,7 @@ export default function RecommendedMovies() {
         const handleWheel = (e: WheelEvent) => {
             // Only hijack the wheel if there is horizontal
             // content that can actually be scrolled
-            const maxScrollLeft =
-            container.scrollWidth - container.clientWidth;
+            const maxScrollLeft = container.scrollWidth - container.clientWidth;
 
             const atStart = container.scrollLeft <= 0;
             const atEnd = container.scrollLeft >= maxScrollLeft-1;
@@ -112,10 +80,7 @@ export default function RecommendedMovies() {
             const tryingToScrollRight = e.deltaY > 0;
 
             // Allow normal page scrolling at the boundaries
-            if (
-                (atStart && tryingToScrollLeft) ||
-                (atEnd && tryingToScrollRight)
-            ) {
+            if ((atStart && tryingToScrollLeft) || (atEnd && tryingToScrollRight)) {
                 return;
             }
             e.preventDefault();
@@ -135,7 +100,7 @@ export default function RecommendedMovies() {
         return () => {
             container.removeEventListener("wheel", handleWheel);
         };
-    }, [favorites]);
+    }, [movies]);
 
     if (loading) {
         return (
@@ -161,26 +126,34 @@ export default function RecommendedMovies() {
     }
 
     return (
-        <section 
-            ref={recommendedRef}
-            className="
-                w-full
-                h-[65vh] lg:h-[70vh]
-                p-6 lg:p-10
-                flex
-                items-center
-                justify-start
-                gap-6
-                overflow-x-auto
-                overflow-y-hidden
-                scroll-smooth
-                border-t border-b border-contrast
-            "
-        >
-            {movies.map((movie, idx) => {
-                    const imgPoster = isValidURL(movie.poster)
-                        ? movie.poster
-                        : "/pictures/default-cassette.jpg";
+        <>
+        {movies.length > 0 && (
+            <div 
+                ref={recommendedRef}
+                // onWheel={(e) => {
+                //     const container = recommendedRef.current;
+                    
+                //     if (!container) return;
+                    
+                //     e.preventDefault();
+                //     container.scrollLeft += e.deltaY;
+                // }}
+                className="
+                    w-full
+                    h-[70vh] lg:h-[80vh]
+                    p-6 lg:p-10
+                    flex
+                    items-center
+                    justify-start
+                    gap-6
+                    overflow-x-auto
+                    overflow-y-hidden
+                    scroll-smooth
+                    border-t border-b border-contrast
+                "
+            >
+                {movies.map((movie, idx) => {
+                    const imgPoster = isValidURL(movie.poster) ? movie.poster : "/pictures/default-cassette.jpg";
 
                     const href = movie._links.self.href;
                     const idMatch = href.match(/\/([^\/]+)$/);
@@ -275,37 +248,42 @@ export default function RecommendedMovies() {
                                 group-hover:opacity-100
                                 duration-300
                             ">
-                                {/* <FavButton movie={movie} /> */}
+                                <FavButton movie={movie} />
                             </div>
+                            <div>
+                                <p className="
+                                    opacity-0
+                                    text-center
+                                    lg:text-xl xl:text-2xl
+                                    group-hover:opacity-100
+                                    duration-300
+                                ">
+                                    Similarity: {movie.similarity}
+                                </p>
+                                <p className="
+                                    opacity-0
+                                    text-center
+                                    lg:text-xl xl:text-2xl
+                                    group-hover:opacity-100
+                                    duration-300
+                                ">
+                                    Match %: {movie.match_percentage}
+                                </p>
+                            </div>
+                            <p className="
+                                opacity-0
+                                text-center
+                                lg:text-lg xl:text-xl
+                                group-hover:opacity-100
+                                duration-300
+                            ">
+                                {movie.description}
+                            </p>
                         </Link>
                     );
                 })}
-            {/* {movies.map((movie) => (
-                <article
-                    key={movie.id ?? movie.title}
-                >
-                    <h3>
-                        {movie.title}
-                    </h3>
-
-                    <p>
-                        {movie.year}
-                    </p>
-                    <p>
-                        {movie.genre}
-                    </p>
-                    <p>
-                        {movie.director}
-                    </p>
-                    <p>
-                        {movie.description}
-                    </p>
-                    <strong>
-                        {movie.match_percentage}%
-                        match
-                    </strong>
-                </article>
-            ))} */}
-        </section>
+            </div>
+        )}
+        </>
     );
 }

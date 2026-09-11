@@ -62,18 +62,6 @@ export default async function Home() {
           </h1>
         </div>
 
-        <FavoritesModal />
-      </div>
-
-      <div className="py-10 px-5 relative w-full h-[110vh] flex flex-col items-center justify-center gap-y-5 lg:gap-y-8 xl:gap-y-10">
-        <div className="absolute inset-0 bg-accent -z-10 pointer-events-none" />
-
-        <div className="self-start font-semibold tracking-widest text-4xl lg:text-5xl xl:text-6xl text-contrast [text-shadow:0_0_5px_var(--contrast),0_0_1px_var(--colour),0px_5px_10px_var(--colour)]">
-          <h1>
-            Your Recommendations
-          </h1>
-        </div>
-
         <RecommendedMovies />
       </div>
 
@@ -89,6 +77,7 @@ export default async function Home() {
         <CardRevealSection movies={comedyMovies._embedded.newmovie} genre={"Comedy"} />
       </div>
 
+      {/* Movie Charts and analysis */}
       <div className="relative w-full h-full flex items-center justify-center">
         <MovieChartsAnalysis MovieData={allMovies._embedded.newmovie} />
       </div>
@@ -98,19 +87,20 @@ export default async function Home() {
         <RadioCardSection movies={mostRecentMovies._embedded.newmovie} />
       </div>
 
+      {/* {Total Movies List Section } */}
       <div className="hidden w-full h-[120vh] md:flex items-center justify-center ">
-          {/* {Total Movies List Section } */}
           <MovieList />
       </div>
 
+      {/* intro to dev section */}
       <div className="pb-4 pt-5 px-4 w-full min-h-[75vh] flex items-center justify-center">
-        {/* intro to dev section */}
         <div className="py-10 px-6 lg:py-12 lg:px-8 w-fit min-h-fit flex justify-center">
           <DevIntro />
         </div>
 
       </div>
 
+      {/* Call-To-Action Section */}
       <div className="w-full flex items-center justify-center">
         <CallToAction />
       </div>

@@ -33,11 +33,19 @@ class MovieRecommender:   # Building the recommendation model
         self.actor_encoder = MultiLabelBinarizer()
 
         # Stored Data
+        self.original_movies = None
         self.movie_features = None
         self.movies = None
 
     # Create the Feature Matrix
-    def fit(self, movies):    
+    def fit(self, movies):
+
+        # Keep the original movie data
+        self.original_movies = (
+            movies
+            .copy()
+            .reset_index(drop=True)
+        )
 
         df = movies.copy()
 
@@ -54,33 +62,19 @@ class MovieRecommender:   # Building the recommendation model
         )
 
         # Apply Numerical Weight
-        scaled_numeric = (
-            self.scaler
-            .fit_transform(numerical_data)
-        )
+        scaled_numeric = (self.scaler.fit_transform(numerical_data))
+        scaled_numeric = (scaled_numeric * self.NUMERICAL_WEIGHT)
 
         # Genre Features
-        genre_features = (
-            self.genre_encoder
-            .fit_transform(df["genre_list"])
-        )
-
+        genre_features = (self.genre_encoder.fit_transform(df["genre_list"]))
         genre_features = (genre_features * self.GENRE_WEIGHT)
 
         # Director Features
-        director_features = (
-            self.director_encoder
-            .fit_transform(df["director_list"])
-        )
-
+        director_features = (self.director_encoder.fit_transform(df["director_list"]))
         director_features = (director_features * self.DIRECTOR_WEIGHT)
 
         # Actor Features
-        actor_features = (
-            self.actor_encoder
-            .fit_transform(df["actors_list"])
-        )
-
+        actor_features = (self.actor_encoder.fit_transform(df["actors_list"]))
         actor_features = (actor_features * self.ACTOR_WEIGHT)
 
         # Combine everything
@@ -114,52 +108,33 @@ class MovieRecommender:   # Building the recommendation model
         favorite_indices = []
 
         favorite_ids = set()
-
         favorite_titles = set()
 
         for movie in favorite_movies:
             if movie.get("id") is not None:
-                favorite_ids.add(
-                    str(movie["id"])
-                )
+                favorite_ids.add(str(movie["id"]))
 
             if movie.get("title"):
-                favorite_titles.add(
-                    movie["title"].lower()
-                )
+                favorite_titles.add(movie["title"].lower())
 
         for index, movie in self.movies.iterrows():
-            movie_id = str(
-                movie.get("id", "")
-            )
+            movie_id = str(movie.get("id", ""))
 
-            movie_title = str(
-                movie.get("title", "")
-            ).lower()
+            movie_title = str(movie.get("title", "")).lower()
 
-            if (
-                movie_id in favorite_ids
-                or movie_title in favorite_titles
-            ):
+            if (movie_id in favorite_ids or movie_title in favorite_titles):
                 favorite_indices.append(index)
 
         # Build users favorite profile
         if not favorite_indices:
             return []
 
-        favorite_vectors = (
-            self.movie_features[favorite_indices]
-        )
+        favorite_vectors = (self.movie_features[favorite_indices])
 
-        user_profile = favorite_vectors.mean(
-            axis=0
-        )
+        user_profile = favorite_vectors.mean(axis=0)
 
         # Calculate Similarity
-        similarities = cosine_similarity(
-            user_profile.reshape(1, -1),
-            self.movie_features
-        )[0]
+        similarities = cosine_similarity(user_profile.reshape(1, -1),self.movie_features)[0]
 
         # Remove favorites
         for index in favorite_indices:
@@ -175,28 +150,22 @@ class MovieRecommender:   # Building the recommendation model
             if len(recommendations) >= number_of_recommendations:
                 break
 
+            # Clean/preprocessed movie
             movie = self.movies.iloc[index]
 
-            similarity = float(
-                similarities[index]
-            )
+            # Original movie
+            original_movie = self.original_movies.iloc[index]
 
-            recommendation = (
-                self.create_recommendation(
-                    movie,
-                    similarity,
-                    favorite_movies
-                )
-            )
+            similarity = float(similarities[index])
 
-            recommendations.append(
-                recommendation
-            )
+            recommendation = (self.create_recommendation(movie, original_movie, similarity, favorite_movies))
+
+            recommendations.append(recommendation)
 
         return recommendations
 
     # Create Recommendation
-    def create_recommendation(self, movie, similarity, favorite_movies):
+    def create_recommendation(self, movie, original_movie, similarity, favorite_movies):
         
         reasons = []
 
@@ -214,6 +183,7 @@ class MovieRecommender:   # Building the recommendation model
             favorite_genres = self.split_value(favorite.get("genre"))
             favorite_directors = self.split_value(favorite.get("director"))
             favorite_actors = self.split_value(favorite.get("actors"))
+
             best_genre_matches.update(set(movie_genres) & set(favorite_genres))
             best_director_matches.update(set(movie_directors) & set(favorite_directors))
             best_actor_matches.update(set(movie_actors) & set(favorite_actors))
@@ -234,22 +204,34 @@ class MovieRecommender:   # Building the recommendation model
 
         description = ("Recommended because it " + ", ".join(reasons) + ".")
 
-        # Return recommendation
-        return {
-            "id": self.clean_value(movie.get("id")),
-            "title": self.clean_value(movie.get("title")),
-            "year": self.clean_value(movie.get("year")),
-            "genre": self.clean_value(movie.get("genre")),
-            "director": self.clean_value(movie.get("director")),
-            "actors": self.clean_value(movie.get("actors")),
-            "imdbrating": self.clean_value(movie.get("imdbrating")),
-            "metascore": self.clean_value(movie.get("metascore")),
-            "runtime": self.clean_value(movie.get("runtime")),
-            "boxoffice": self.clean_value(movie.get("boxoffice")),
-            "similarity": float(round(similarity,4)),
-            "match_percentage": float(round(similarity * 100,1)),
+         # Start with the COMPLETE ORIGINAL movie
+        recommendation = (original_movie.to_dict())
+
+        # Add recommendation-specific information
+        recommendation.update({
+            "similarity": float(round(similarity, 4)),
+            "match_percentage": float(round(similarity * 100, 1)),
             "description": description
-        }
+        })
+
+        return recommendation
+
+        # Return recommendation
+        # return {
+        #     "id": self.clean_value(movie.get("id")),
+        #     "title": self.clean_value(movie.get("title")),
+        #     "year": self.clean_value(movie.get("year")),
+        #     "genre": self.clean_value(movie.get("genre")),
+        #     "director": self.clean_value(movie.get("director")),
+        #     "actors": self.clean_value(movie.get("actors")),
+        #     "imdbrating": self.clean_value(movie.get("imdbrating")),
+        #     "metascore": self.clean_value(movie.get("metascore")),
+        #     "runtime": self.clean_value(movie.get("runtime")),
+        #     "boxoffice": self.clean_value(movie.get("boxoffice")),
+        #     "similarity": float(round(similarity,4)),
+        #     "match_percentage": float(round(similarity * 100,1)),
+        #     "description": description
+        # }
 
     # Split Value
     @staticmethod

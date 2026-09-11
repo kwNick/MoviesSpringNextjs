@@ -52,6 +52,33 @@
                             15%        15%
 ```
 
+```text
+                    ORIGINAL MOVIE
+                        │
+                        │
+            ┌────────────┴────────────┐
+            │                         │
+            ▼                         ▼
+    ML preprocessing           Original data
+            │                         │
+            ▼                         │
+    Feature vectors                  │
+            │                         │
+            ▼                         │
+    Cosine similarity                  │
+            │                         │
+            └────────────┬────────────┘
+                        ▼
+                Recommendation
+                        │
+                ┌─────────┴─────────┐
+                │                   │
+        Movie fields       Recommendation data
+        (unchanged)        similarity
+                            match_percentage
+                            description
+```
+
 ## Pipeline
 
 ```text
