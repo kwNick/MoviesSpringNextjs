@@ -6,6 +6,7 @@ services:
       - "3000:3000"
     environment:
       SPRING_API_DOMAIN: "backend:8080"
+      NEXT_PUBLIC_FAST_API_DOMAIN: "localhost:8000"
     depends_on:
       - backend
 
@@ -30,6 +31,7 @@ services:
     ports:
       - "8000:8000"
     environment:
+      SPRING_API_DOMAIN: "backend:8080"
       MONGO_URI: ${MONGODB_URI}
       MONGO_DATABASE: Testing
       MONGO_COLLECTION: movies

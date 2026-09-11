@@ -1,14 +1,17 @@
+import os
+
 import requests
 import pandas as pd
 
 from data.data_cleaning import clean_movie_data
 
 # This needs the backend to be running, connecting to the backend and querying through springboot API to fetch mongo database
+SPRING_API_DOMAIN = os.getenv("SPRING_API_DOMAIN")
 
 def get_movies():
 
     response = requests.get(
-        "http://localhost:8080/api/searchmovies?query=&genre=&page=0&size=50&sort=imdbrating,desc&sort=title,asc"
+        f"http://{SPRING_API_DOMAIN}/api/searchmovies?query=&genre=&page=0&size=50&sort=imdbrating,desc&sort=title,asc"
     )
 
     response.raise_for_status()

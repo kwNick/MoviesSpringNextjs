@@ -23,7 +23,7 @@ export default function D3ByYear({
 
       const data = movieList
         .map((movie) => ({
-          year: Number(movie.year.includes("?") ? movie.year.split("?")[0] : movie.year),
+          year: Number(movie.year.toString().includes("?") ? movie.year.split("?")[0] : movie.year),
         }))
         .filter((movie) => !isNaN(movie.year));
 

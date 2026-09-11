@@ -1,3 +1,10 @@
+
+from dotenv import load_dotenv
+
+load_dotenv(verbose=True)
+
+import os
+
 from fastapi import FastAPI, HTTPException
 import pandas as pd
 from pydantic import BaseModel
@@ -22,6 +29,13 @@ from machine_learning.supervised.regression.train import train_rating_model
 from machine_learning.supervised.regression.predict import predict_rating
 
 from fastapi.middleware.cors import CORSMiddleware
+
+
+# print("MONGO_URI:", os.getenv("MONGO_URI"))
+# print("MONGO_DATABASE:", os.getenv("MONGO_DATABASE"))
+# print("MONGO_COLLECTION:", os.getenv("MONGO_COLLECTION"))
+# print("SPRING_API_DOMAIN:", os.getenv("SPRING_API_DOMAIN"))
+
 
 app = FastAPI(
     title="Movie Analytics API",

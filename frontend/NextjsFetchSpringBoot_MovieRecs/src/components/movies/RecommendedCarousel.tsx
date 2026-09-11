@@ -25,7 +25,7 @@ const RecommendedCarousel = () => {
                     return;
                 }
 
-                const response = await fetch("http://localhost:8000/recommendations?limit=10", {
+                const response = await fetch(`http://${process.env.NEXT_PUBLIC_FAST_API_DOMAIN}/recommendations?limit=10`, {
                             method: "POST",
                             headers: {"Content-Type": "application/json"},
                             body: JSON.stringify(favorites)

@@ -18,7 +18,7 @@ const D3RatingByDecade = ({movieList}:{movieList: NewMovie[]}) => {
 
             const data = movieList
                 .map((movie) => {
-                const year = Number(movie.year.includes("?") ? movie.year.split("?")[0] : movie.year);
+                const year = Number(movie.year.toString().includes("?") ? movie.year.split("?")[0] : movie.year);
                 const rating = Number(movie.imdbrating);
 
                 return {
