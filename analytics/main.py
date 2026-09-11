@@ -16,10 +16,12 @@ from analysis.category.descriptive_stat import get_movie_statistics
 from analysis.category.distributions import rating_distribution, runtime_distribution
 from data.movie_data import get_movies
 
+from recommendation_system.content_based.recommendation_service import (recommendation_service)
+
 from machine_learning.supervised.regression.train import train_rating_model
 from machine_learning.supervised.regression.predict import predict_rating
 
-# from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Movie Analytics API",
@@ -28,13 +30,13 @@ app = FastAPI(
 )
 
 # Adding CORS configuration
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["http://localhost:3000"],
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # --------------------------------
 # Basic endpoint
@@ -161,11 +163,29 @@ def movie_runtime_distribution():
 
     return runtime_distribution(movies)
 
+# --------------------------------
+# Recommendation Service
+# --------------------------------
+@app.post("/recommendations")
+def get_recommendations(favorite_movies: list[dict], limit: int = 10):
+
+    recommendations = (
+        recommendation_service.get_recommendations(
+            favorite_movies,
+            limit
+        )
+    )
+
+    return {
+        "favorites": favorite_movies,
+        "recommendations": recommendations
+    }
 
 # --------------------------------
 # Machine Learning
 # --------------------------------
 
+# Training Model
 @app.post("/ml/train")
 def train_model():
 

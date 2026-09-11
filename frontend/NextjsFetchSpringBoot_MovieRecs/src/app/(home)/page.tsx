@@ -9,6 +9,7 @@ import CallToAction from "@/components/home/CallToAction";
 import MovieList from "@/components/home/MovieList";
 import FavoritesModal from "@/components/movies/favorites/FavoritesModal";
 import MovieChartsAnalysis from "@/components/home/MovieChartsAnalysis";
+import RecommendedMovies from "@/components/movies/RecommendedMovies";
 
 // export const dynamic = 'force-dynamic';
 export default async function Home() {
@@ -62,6 +63,18 @@ export default async function Home() {
         </div>
 
         <FavoritesModal />
+      </div>
+
+      <div className="py-10 px-5 relative w-full h-[110vh] flex flex-col items-center justify-center gap-y-5 lg:gap-y-8 xl:gap-y-10">
+        <div className="absolute inset-0 bg-accent -z-10 pointer-events-none" />
+
+        <div className="self-start font-semibold tracking-widest text-4xl lg:text-5xl xl:text-6xl text-contrast [text-shadow:0_0_5px_var(--contrast),0_0_1px_var(--colour),0px_5px_10px_var(--colour)]">
+          <h1>
+            Your Recommendations
+          </h1>
+        </div>
+
+        <RecommendedMovies />
       </div>
 
       {/* Intro to our movie collection and who we are section*/}

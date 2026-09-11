@@ -8,50 +8,67 @@
              ┌─────────────┴──────────────┐
              │                            │
              ▼                            ▼
-       Spring Boot                    PyMongo
+        Spring Boot                    PyMongo
              │                            │
              ▼                            ▼
-        REST API                    pandas
+         REST API                       pandas
              │                            │
-             │                  ┌─────────┴──────────┐
-             │                  │                    │
-             │                  ▼                    ▼
-             │             STATISTICS              ML
-             │                  │                    │
-             │                  ▼                    ▼
-             │              SciPy                scikit-learn
-             │                  │                    │
-             │                  ▼                    ▼
-             │             Analysis             Random Forest
-             │                  │                    │
-             └──────────┬───────┘                    │
-                        │                            │
-                        ▼                            ▼
-                    FastAPI Analytics API
-                        │
-                        ▼
+             │                  ┌─────────┴───────────────┬─────────────────────────────────────────┐
+             │                  │              ┌──────────┴───────────────┐                         ▼
+             │                  ▼              │                          │                   VISUALIZATIONS
+             │             STATISTICS          ▼                          ▼                         │
+             │                  │              ML                 RECOMMENDATION SYSTEM             ▼
+             │                  ▼              │                          │                  Matplotlib/Seaborn
+             │             SciPy/numpy         ▼                          ▼                         │
+             │                  │          scikit-learn              CONTENT-BASED                  ▼
+             │                  ▼              │                          │                  Charts/Histograms
+             │              Analysis           ▼                          ▼                Scatter-Plots/Heat-Maps
+             │                  │          Random Forest            Cosine Similarity
+             └──────────┬───────┘              │                          │
+                        │                      ▼                          ▼
+                        ▼                 Predicts value         Movie Recommendations
+               FastAPI Analytics API           │                          │
+                        │                      ▼                          ▼
+                        ▼                   FastAPI                    FastAPI
                      Next.js
                         │
-              ┌─────────┴──────────┐
-              ▼                    ▼
-          Dashboard            Predictions
+              ┌─────────┴──────────────┐
+              ▼                        ▼
+          Dashboard         Predictions/Visualizations
+```
+
+```text
+                 RECOMMENDATION
+                       │
+          ┌────────────┼────────────┐
+          │            │            │
+          ▼            ▼            ▼
+      Numerical      Genre       People
+        40%           30%          30%
+                                   │
+                              ┌────┴────┐
+                              ▼         ▼
+                          Director    Actors
+                            15%        15%
 ```
 
 ## Pipeline
 
 ```text
         RAW DATA
-        ↓
+            ↓
         DATA CLEANING
-        ↓
+            ↓
         DATAFRAME
-        ↓
+            ↓
         STATISTICAL ANALYSIS
-        ↓
+            ↓
         MACHINE LEARNING
-        ↓
+            ↓
+        RECOMMENDATION SYSTEM
+            ↓
         FASTAPI
-        ↓
+            ↓
         NEXT.JS VISUALIZATION/UI
 ```
 

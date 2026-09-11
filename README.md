@@ -3,37 +3,38 @@
 ## Architecture
 
 ```text
-                         MOVIE DATA
-                             │
-                             ▼
-                         MongoDB
-                             │
-                 ┌───────────┴───────────┐
-                 │                       │
-                 ▼                       ▼
-            Spring Boot              FastAPI
-             REST API            Python Services
-                 │                       │
-                 │              ┌────────┴────────┐
-                 │              │                 │
-                 │              ▼                 ▼
-                 │        DATA ANALYSIS     MACHINE LEARNING
-                 │              │                 │
-                 │              ▼                 ▼
-                 │           pandas         scikit-learn
-                 │           NumPy          Random Forest
-                 │           SciPy                │
-                 │              │                 │
-                 │              ▼                 ▼
-                 │         Statistics        Predictions
-                 │                                │
-                 └───────────────┬────────────────┘
-                                 ▼
-                              Next.js
-                                 │
-                                 ▼
-                              D3.js
-                               Charts
+                        MongoDB
+                           │
+             ┌─────────────┴──────────────┐
+             │                            │
+             ▼                            ▼
+        Spring Boot                    PyMongo
+             │                            │
+             ▼                            ▼
+         REST API                       pandas
+             │                            │
+             │                  ┌─────────┴───────────────┬─────────────────────────────────────────┐
+             │                  │              ┌──────────┴───────────────┐                         ▼
+             │                  ▼              │                          │                   VISUALIZATIONS
+             │             STATISTICS          ▼                          ▼                         │
+             │                  │              ML                 RECOMMENDATION SYSTEM             ▼
+             │                  ▼              │                          │                  Matplotlib/Seaborn
+             │             SciPy/numpy         ▼                          ▼                         │
+             │                  │          scikit-learn              CONTENT-BASED                  ▼
+             │                  ▼              │                          │                  Charts/Histograms
+             │              Analysis           ▼                          ▼                Scatter-Plots/Heat-Maps
+             │                  │          Random Forest            Cosine Similarity
+             └──────────┬───────┘              │                          │
+                        │                      ▼                          ▼
+                        ▼                 Predicts value         Movie Recommendations
+               FastAPI Analytics API           │                          │
+                        │                      ▼                          ▼
+                        ▼                   FastAPI                    FastAPI
+                     Next.js
+                        │
+              ┌─────────┴──────────────┐
+              ▼                        ▼
+          Dashboard       Predictions/Visualizations(D3)
 ```
 
 ## Live Demos

@@ -1,25 +1,98 @@
-'use client';
+"use client";
 
-import FavButton from "@/components/movies/favorites/FavButton";
-import { useFavorites } from "@/context/FavoritesContext"
+import { useFavorites } from "@/context/FavoritesContext";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import FavButton from "./favorites/FavButton";
 import { isValidURL } from "@/resources/utils";
 
-// Fix scroll behavior is kind of weird when scrolling it like slows down - -> Fixed with container.scrollBy({behavior: "smooth"}) instead of container.scrollLeft += e.deltaY
+interface Movie {
+    id: string;
+    title: string;
+    year?: number;
+    rated?: string;
+    released?: string;
+    genre?: string;
+    director?: string;
+    writer?: string;
+    actors?: string;
+    plot?: string;
+    language?: string;
+    country?: string;
+    awards?: string;
+    poster: string;
+    imdbvotes?: string;
+    type?: string;
+    imdbrating?: number;
+    metascore?: number;
+    runtime?: number;
+    boxoffice?: number | string;
+    _links: {
+        self: { href: string };
+        movie: { href: string };
+    }
+}
 
-// Custom scroll bar
+interface Recommendation extends Movie {
+    similarity: number;
+    match_percentage: number;
+    description: string;
+}
 
-// Only scroll horizontally when the container is at least half way through the screen
-
-const FavoritesModal = () => {
+export default function RecommendedMovies() {
+    const recommendedRef = useRef<HTMLDivElement | null>(null);
+    const [movies, setMovies] = useState<Recommendation[]>([]);
     const { favorites } = useFavorites();
-    const favoritesRef = useRef<HTMLDivElement | null>(null);
 
-    // console.log(favorites);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        const container = favoritesRef.current;
+        async function getRecommendations() {
+            try {
+                // const storedFavorites =
+                //     localStorage.getItem("favorites");
+
+                if (!favorites) {
+                    setLoading(false);
+                    return;
+                }
+
+                // favorites = JSON.parse(favorites);
+
+                if (!favorites || favorites.length === 0) {
+                    setLoading(false);
+                    return;
+                }
+
+                const response = await fetch("http://localhost:8000/recommendations?limit=10", {
+                            method: "POST",
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify(favorites)
+                        });
+
+                if (!response.ok) {
+                    throw new Error("Failed to get recommendations");
+                }
+
+                const data = await response.json();
+
+                setMovies(data.recommendations);
+            }
+            catch (error) {
+                console.error("Recommendation error:", error);
+            }
+            finally {
+                setLoading(false);
+            }
+        }
+
+        getRecommendations();
+
+    }, [favorites]);
+
+    useEffect(() => {
+        const container = recommendedRef.current;
 
         if (!container) return;
 
@@ -63,40 +136,53 @@ const FavoritesModal = () => {
             container.removeEventListener("wheel", handleWheel);
         };
     }, [favorites]);
-    
-  return (
-    <>
-        {favorites.length > 0 && (
-            <div
-                ref={favoritesRef}
-                // onWheel={(e) => {
-                //     const container = favoritesRef.current;
-                    
-                //     if (!container) return;
-                    
-                //     e.preventDefault();
-                //     container.scrollLeft += e.deltaY;
-                // }}
-                className="
-                    w-full
-                    h-[65vh] lg:h-[70vh]
-                    p-6 lg:p-10
-                    flex
-                    items-center
-                    justify-start
-                    gap-6
-                    overflow-x-auto
-                    overflow-y-hidden
-                    scroll-smooth
-                    border-t border-b border-contrast
-                "
-            >
-                {favorites.map((fav, idx) => {
-                    const imgPoster = isValidURL(fav.poster)
-                        ? fav.poster
+
+    if (loading) {
+        return (
+            <p>
+                Loading recommendations...
+            </p>
+        );
+    }
+
+    if (movies.length === 0) {
+        return (
+            <section>
+                <h2>
+                    Recommended For You
+                </h2>
+                <p>
+                    Add some movies to your
+                    favorites to get
+                    recommendations.
+                </p>
+            </section>
+        );
+    }
+
+    return (
+        <section 
+            ref={recommendedRef}
+            className="
+                w-full
+                h-[65vh] lg:h-[70vh]
+                p-6 lg:p-10
+                flex
+                items-center
+                justify-start
+                gap-6
+                overflow-x-auto
+                overflow-y-hidden
+                scroll-smooth
+                border-t border-b border-contrast
+            "
+        >
+            {movies.map((movie, idx) => {
+                    const imgPoster = isValidURL(movie.poster)
+                        ? movie.poster
                         : "/pictures/default-cassette.jpg";
 
-                    const href = fav._links.self.href;
+                    const href = movie._links.self.href;
                     const idMatch = href.match(/\/([^\/]+)$/);
                     const id = idMatch ? idMatch[1] : "";
 
@@ -124,7 +210,7 @@ const FavoritesModal = () => {
                         >
                             <Image
                                 src={imgPoster}
-                                alt={fav.title}
+                                alt={movie.title}
                                 width={200}
                                 height={200}
                                 loading="eager"
@@ -158,7 +244,7 @@ const FavoritesModal = () => {
                                 text-2xl lg:text-3xl xl:text-4xl
                                 font-semibold
                             ">
-                                {fav.title}
+                                {movie.title}
                             </p>
 
                             <p className="
@@ -168,9 +254,9 @@ const FavoritesModal = () => {
                                 group-hover:opacity-100
                                 duration-300
                             ">
-                                {fav.year.replace("?", "-") + " - " + fav.rated} - {fav.imdbrating}
+                                {movie.year?.toString().replace("?", "-") + " - " + movie.rated} - {movie.imdbrating}
                                 <br />
-                                {fav.genre}
+                                {movie.genre}
                             </p>
 
                             <p className="
@@ -180,8 +266,8 @@ const FavoritesModal = () => {
                                 group-hover:opacity-100
                                 duration-300
                             ">
-                                {fav.plot.split(" ").slice(0, 10).join(" ")}
-                                {fav.plot.split(" ").length > 9 ? "..." : ""}
+                                {movie.plot?.split(" ").slice(0, 10).join(" ")}
+                                {movie.plot?.split(" ").length! > 9 ? "..." : ""}
                             </p>
 
                             <div className="
@@ -189,14 +275,37 @@ const FavoritesModal = () => {
                                 group-hover:opacity-100
                                 duration-300
                             ">
-                                <FavButton movie={fav} />
+                                {/* <FavButton movie={movie} /> */}
                             </div>
                         </Link>
                     );
                 })}
-            </div>
-        )}
-    </>
-  )
+            {/* {movies.map((movie) => (
+                <article
+                    key={movie.id ?? movie.title}
+                >
+                    <h3>
+                        {movie.title}
+                    </h3>
+
+                    <p>
+                        {movie.year}
+                    </p>
+                    <p>
+                        {movie.genre}
+                    </p>
+                    <p>
+                        {movie.director}
+                    </p>
+                    <p>
+                        {movie.description}
+                    </p>
+                    <strong>
+                        {movie.match_percentage}%
+                        match
+                    </strong>
+                </article>
+            ))} */}
+        </section>
+    );
 }
-export default FavoritesModal

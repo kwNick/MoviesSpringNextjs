@@ -1,8 +1,7 @@
-
-
 from matplotlib import pyplot as plt
 
 from data.movie_data import get_movies
+
 from visualization.matplotlib.distributions import (
     plot_rating_distribution,
     plot_runtime_distribution,

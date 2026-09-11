@@ -1,5 +1,7 @@
 //Fetching data w/ Server Components
 
+import { NewMovie } from "./definitions";
+
 //----------- FastAPI REST Endpoints ----- //
 
 export async function getRatingsAnalysis() {
@@ -91,3 +93,20 @@ export async function getDistributionsRuntime() {
         throw new Error("Could not Fetch Ratings Chart Data from FastAPI individual/trends: " + error);
     }
 }
+
+// Recommendation System Endpoints
+export async function getRecommendedMovies(favorites: NewMovie[]) {  // Not sure about this because favorites is a client dependent variable in localstorage
+    try {
+        const data = await fetch(`http://${process.env.FAST_API_DOMAIN}/recommendations`,{
+            method: "POST",
+            headers: {"Content-Type": "application/json",
+            body: JSON.stringify(favorites)
+            }
+        });
+        return data.json();
+    } catch (error) {
+        throw new Error("Could not Fetch Ratings Chart Data from FastAPI individual/trends: " + error);
+    }
+}
+
+// Machine Learning Endpoints
