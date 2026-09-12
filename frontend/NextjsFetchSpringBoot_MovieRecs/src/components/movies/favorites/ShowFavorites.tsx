@@ -1,20 +1,14 @@
 'use client';
 
 import { useFavorites } from "@/context/FavoritesContext"
+
 import { NewMovie } from "@/resources/definitions";
+import { isValidURL } from "@/resources/utils";
+
 import Link from "next/link";
 import Image from "next/image";
+
 import FavButton from "./FavButton";
-import RechartBar from "../../charts/RechartBar";
-// import D3BarChart from "./charts/D3BarChart";
-// import D3Charts from "./charts/D3Charts";
-import D3GenreAnalysis from "../../charts/D3GenreAnalysis";
-import { isValidURL } from "@/resources/utils";
-import D3DirectorsAvgRating from "../../charts/D3DirectorsAvgRating";
-import D3RatingByDecade from "../../charts/D3RatingByDecade";
-import D3ByYear from "../../charts/D3ByYear";
-import D3ByRating from "../../charts/D3ByRating";
-import D3RatingDistribution from "../../charts/D3RatingDistribution";
 
 const ShowFavorites = () => {
     const { favorites} = useFavorites();
@@ -22,67 +16,52 @@ const ShowFavorites = () => {
 
     if (favorites.length === 0) {
         return (
-            <div className="w-full h-full flex items-center justify-center">
-                <p className="p-4 text-colour">No favorite movies.</p>
+            <div className="w-full h-full flex flex-col items-center justify-center">
+                <div className="w-full h-[15vh] text-center text-4xl lg:text-5xl">
+                    <h1 className="underline">List</h1>
+                    <p className="p-4 text-colour">No favorite movies.</p>
+                </div>
             </div>
         );
     }
 
     return (
-        <div className="w-full h-full flex flex-col items-center justify-center">
-            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-10 rounded-lg">
-                {favorites.map((fav: NewMovie, idx: number) => {
-                    const imgPoster = isValidURL(fav.poster) ? fav.poster : "/pictures/default-cassette.jpg";
-                    const href = fav._links.self.href;
-                    // console.log(href);
-                    const idMatch = href.match(/\/([^\/]+)$/);
-                    const id = idMatch ? idMatch[1] : "";
-
-                    return (
-                        <Link href={`/movies/${id}`} key={idx} className="group relative h-full flex flex-col items-center justify-center font-bold p-8 gap-y-6 lg:gap-y-8 bg-colour hover:[box-shadow:0px_3px_8px_var(--colour),0px_-3px_8px_var(--colour),0px_3px_8px_var(--contrast),0px_-3px_8px_var(--contrast)] hover:scale-105 transition-transform duration-300 z-10">
-
-                            <Image src={imgPoster} alt={fav.title} width={200} height={200} loading="eager" className="absolute inset-0 w-full h-full object-center object-cover -z-10 " />
-                            <div className="absolute inset-0 w-full h-full bg-black/40 duration-300 -z-10 " />
-                            <div className="absolute inset-0 bg-linear-to-b from-transparent to-contrast -z-10 opacity-0 group-hover:opacity-100 duration-300"/>
-                            
-                            <p className="text-center text-2xl lg:text-3xl xl:text-4xl font-semibold">{fav.title}</p>
-                            <p className="opacity-0 text-center text-sm lg:text-base group-hover:opacity-100 duration-300">
-                                {fav.year.toString().replace("?", "-") + " - " + fav.rated} - {fav.imdbrating}<br/>{fav.genre}
-                            </p>
-                            <p className="opacity-0 text-center lg:text-xl xl:text-2xl group-hover:opacity-100 duration-300">
-                                {fav.plot.split(" ").filter((_, idx) => idx < 10).join(" ") + (fav.plot.split(" ").length > 9 ? "..." : "")}
-                            </p>
-                            <div className="opacity-0 group-hover:opacity-100 duration-300">
-                                <FavButton movie={fav} />
-                            </div>
-                        </Link>
-                    )
-                })}
-
-
+        <>
+            <div className="w-full h-[8vh] text-center text-4xl lg:text-5xl">
+                <h1 className="underline">Grid</h1>
             </div>
-            
-            <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
-                <div className="h-full w-full border border-colour rounded-lg p-4">
-                    <RechartBar movieList={favorites} />
-                </div>
-                <div className="h-full w-full">
-                    <D3ByYear movieList={favorites} />
-                </div>
-            
-                <D3ByRating movieList={favorites} />
+            <div className="w-full h-full flex flex-col items-center justify-center">
+                <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-10 rounded-lg">
+                    {favorites.map((fav: NewMovie, idx: number) => {
+                        const imgPoster = isValidURL(fav.poster) ? fav.poster : "/pictures/default-cassette.jpg";
+                        const href = fav._links.self.href;
+                        // console.log(href);
+                        const idMatch = href.match(/\/([^\/]+)$/);
+                        const id = idMatch ? idMatch[1] : "";
 
-                <D3RatingDistribution movieList={favorites} />
-                
-                {/* has three charts */}
-                <D3GenreAnalysis movieList={favorites} />
-            
-                <D3DirectorsAvgRating movieList={favorites} />
+                        return (
+                            <Link href={`/movies/${id}`} key={idx} className="group relative h-full flex flex-col items-center justify-center font-bold p-8 gap-y-6 lg:gap-y-8 bg-colour hover:[box-shadow:0px_3px_8px_var(--colour),0px_-3px_8px_var(--colour),0px_3px_8px_var(--contrast),0px_-3px_8px_var(--contrast)] hover:scale-105 transition-transform duration-300 z-10">
 
-                <D3RatingByDecade movieList={favorites} />
+                                <Image src={imgPoster} alt={fav.title} width={200} height={200} loading="eager" className="absolute inset-0 w-full h-full object-center object-cover -z-10 " />
+                                <div className="absolute inset-0 w-full h-full bg-black/40 duration-300 -z-10 " />
+                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-contrast -z-10 opacity-0 group-hover:opacity-100 duration-300"/>
+                                
+                                <p className="text-center text-2xl lg:text-3xl xl:text-4xl font-semibold">{fav.title}</p>
+                                <p className="opacity-0 text-center text-sm lg:text-base group-hover:opacity-100 duration-300">
+                                    {fav.year.toString().replace("?", "-") + " - " + fav.rated} - {fav.imdbrating}<br/>{fav.genre}
+                                </p>
+                                <p className="opacity-0 text-center lg:text-xl xl:text-2xl group-hover:opacity-100 duration-300">
+                                    {fav.plot.split(" ").filter((_, idx) => idx < 10).join(" ") + (fav.plot.split(" ").length > 9 ? "..." : "")}
+                                </p>
+                                <div className="opacity-0 group-hover:opacity-100 duration-300">
+                                    <FavButton movie={fav} />
+                                </div>
+                            </Link>
+                        )
+                    })}
+                </div>
             </div>
-            
-        </div>
+        </>
     )
 }
 export default ShowFavorites

@@ -65,7 +65,6 @@ const ShowSearchMovies = async ({ query, genre, page, size, sort }: { query: str
                     })}
                 </div >
             </div >
-
             <Pagination size={totalElements} />
         </>
     )

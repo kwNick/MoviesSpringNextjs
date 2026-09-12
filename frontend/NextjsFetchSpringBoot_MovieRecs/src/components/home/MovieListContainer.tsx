@@ -34,24 +34,6 @@ const MovieListContainer = () => {
             ) {
                 return;
             }
-
-            // At the top → scroll the page upward
-            // if (atStart && scrollUp) {
-            //     window.scrollBy({
-            //         top: e.deltaY,
-            //         behavior: "auto",
-            //     });
-            //     return;
-            // }
-
-            // // At the bottom → scroll the page downward
-            // if (atEnd && scrollDown) {
-            //     window.scrollBy({
-            //         top: e.deltaY,
-            //         behavior: "auto",
-            //     });
-            //     return;
-            // }
             
             e.preventDefault();
             e.stopPropagation();

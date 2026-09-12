@@ -53,9 +53,6 @@ const CardRevealSection = ({ movies, genre }: { movies: NewMovie[], genre: strin
                                         <FavButton movie={x} />
                                     </div>
                                 </div>
-                                {/* <div className="absolute bottom-[0%] left-[7%] w-full flex items-center justify-start opacity-0 group-hover:opacity-100 group-hover:translate-y-[-35%] group-hover:scale-110 transition-all duration-300 z-10">
-                                    <FavButton movie={x} />
-                                </div> */}
                             </Link>
                         );
                     })}
