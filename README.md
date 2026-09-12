@@ -50,6 +50,65 @@
         └────────────────► Spring Boot ─────► MongoDB
 ```
 
+## Docker Architecture
+
+```text
+Browser
+  │
+  ├── localhost:3000 ──────────► Next.js
+  │
+  └── localhost:8000 ──────────► FastAPI
+                                    │
+                                    ├── backend:8080 ──► Spring Boot
+                                    │
+                                    └── MongoDB Atlas
+                                        
+Next.js container
+  │
+  └── backend:8080 ────────────► Spring Boot
+                                    │
+                                    └── MongoDB Atlas
+```
+
+```text
+                      Docker
+                    ┌─────────────────┐
+                    │                 │
+Browser             │   Next.js       │
+  │                 │   frontend      │
+  │                 │      │          │
+  │                 │      │          │
+  │ localhost:8000  │      │          │
+  ├─────────────────┼─────►│          │
+  │                 │      │          │
+  │                 │      ├── backend:8080 ──► Spring Boot
+  │                 │      │
+  │                 │      └── analytics:8000 ─► FastAPI
+  │                 │                           │
+  │                 │                           └──► MongoDB Atlas
+  │                 │
+  └── localhost:3000 ───────────► Next.js
+                    └─────────────────┘
+```
+
+```text
+                 Docker Compose
+                     │
+       ┌─────────────┼─────────────┐
+       ▼             ▼             ▼
+   Next.js       Spring Boot     FastAPI
+   :3000           :8080          :8000
+       │             │             │
+       │             └──────┐      │
+       │                    │      │
+       └────────────────────┘      │
+                                  │
+                         ┌────────┴────────┐
+                         ▼                 ▼
+                    Spring Boot      MongoDB Atlas
+                    backend:8080
+```
+
 ## Live Demos
 
 <video src="https://www.youtube.com/watch?v=kSUgnwpPvqM" controls width="600"></video>

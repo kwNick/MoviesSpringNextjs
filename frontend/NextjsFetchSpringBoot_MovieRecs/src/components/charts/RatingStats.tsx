@@ -16,7 +16,7 @@ export default function RatingStats({stats}:{ stats: RatingStats}) {
   if (!stats) {
     return <p>Loading statistics...</p>;
   }
-
+  // console.log(stats);
   return (
     <section className="w-full h-full border border-colour rounded-lg p-4 ">
 

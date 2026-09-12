@@ -6,9 +6,11 @@ services:
       - "3000:3000"
     environment:
       SPRING_API_DOMAIN: "backend:8080"
+      FAST_API_DOMAIN: "analytics:8000"
       NEXT_PUBLIC_FAST_API_DOMAIN: "localhost:8000"
     depends_on:
       - backend
+      - analytics
 
   backend:
     build: ./backend/SpringbootAccessMongo
@@ -32,6 +34,8 @@ services:
       - "8000:8000"
     environment:
       SPRING_API_DOMAIN: "backend:8080"
-      MONGO_URI: ${MONGODB_URI}
-      MONGO_DATABASE: Testing
-      MONGO_COLLECTION: movies
+      MONGO_URI: ${MONGODB_HOST}
+      MONGO_DATABASE: ${MONGODB_NAME}
+      MONGO_COLLECTION: ${MONGODB_COLLECTION}
+    depends_on:
+      - backend

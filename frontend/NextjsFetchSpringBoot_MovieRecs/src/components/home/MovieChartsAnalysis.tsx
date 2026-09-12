@@ -14,7 +14,8 @@ const MovieChartsAnalysis = async ({MovieData}:{MovieData: NewMovie[]}) => {
 
   const ratingData = await getRatingsAnalysis();
   const ratingChartData = await getRatingsChartData();
-  
+  // console.log(ratingData);
+  // console.log(MovieData);
   return (
     <div className="text-colour p-8 m-8 pt-10 pb-14 mb-10 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 rounded-lg">
         <RechartBar movieList={MovieData} />
