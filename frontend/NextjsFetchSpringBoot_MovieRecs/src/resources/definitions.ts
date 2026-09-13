@@ -51,3 +51,17 @@ export type ExtraMoviesList = {
     title: string;
     year: string;
 }
+
+export interface RatingChartData {
+  decade: number;
+  averageRating: number;
+}
+
+export interface RatingStatsData {
+  count: number;
+  mean: number;
+  median: number;
+  standardDeviation: number;
+  minimum: number;
+  maximum: number;
+}

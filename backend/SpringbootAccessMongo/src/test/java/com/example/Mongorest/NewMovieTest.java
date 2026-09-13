@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import com.example.Mongorest.newmovie.NewMovie;
 
-// Basic JUnit Test
+// Basic JUnit unit Test
 class NewMovieTest {
 
     // Tells JUnit this a test method

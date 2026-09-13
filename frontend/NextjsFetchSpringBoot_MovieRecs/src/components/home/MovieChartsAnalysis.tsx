@@ -44,7 +44,6 @@ const MovieChartsAnalysis = async ({MovieData}:{MovieData: NewMovie[]}) => {
         <PlotlyPieChartGenre />
         <PlotlyBoxRating movies={MovieData} />
         <PlotlyHistogramRuntime movies={MovieData} />
-
     </div>
   )
 }

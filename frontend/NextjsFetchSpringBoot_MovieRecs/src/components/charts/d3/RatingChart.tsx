@@ -2,13 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import { RatingChartData } from "@/resources/definitions";
 
-interface RatingData {
-  decade: number;
-  averageRating: number;
-}
-
-export default function RatingChart({data}:{data: RatingData[]}) {
+export default function RatingChart({data}:{data: RatingChartData[]}) {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -62,7 +58,7 @@ export default function RatingChart({data}:{data: RatingData[]}) {
         )
         .call(yAxis);
 
-        const line = d3.line<RatingData>()
+        const line = d3.line<RatingChartData>()
         .x((d) => x(d.decade))
         .y((d) => y(d.averageRating));
 

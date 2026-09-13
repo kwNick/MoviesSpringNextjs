@@ -1,17 +1,7 @@
-// "use client";
+import { RatingStatsData } from "@/resources/definitions";
 
-// import { useEffect, useState } from "react";
 
-interface RatingStats {
-  count: number;
-  mean: number;
-  median: number;
-  standardDeviation: number;
-  minimum: number;
-  maximum: number;
-}
-
-export default function RatingStats({stats}:{ stats: RatingStats}) {
+export default function RatingStats({stats}:{ stats: RatingStatsData}) {
 
   if (!stats) {
     return <p>Loading statistics...</p>;

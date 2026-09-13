@@ -15,8 +15,11 @@ import PlotlyBoxRating from "@/components/charts/plotly/PlotlyBoxRating";
 import PlotlyBarChartGenre from "@/components/charts/plotly/PlotlyBarChartGenre";
 import PlotlyHistogramRuntime from "@/components/charts/plotly/PlotlyHistogramRuntime";
 import { useFavorites } from "@/context/FavoritesContext";
+import { RatingChartData, RatingStatsData } from "@/resources/definitions";
+import RatingChart from "@/components/charts/d3/RatingChart";
+import RatingStats from "@/components/charts/stats/RatingStats";
 
-const FavoriteCharts = () => {
+const FavoriteCharts = ({ratingChartData, ratingStatsData}: {ratingChartData: RatingChartData[], ratingStatsData: RatingStatsData}) => {
     const {favorites} = useFavorites();
 
     if (favorites.length === 0) {
@@ -53,6 +56,9 @@ const FavoriteCharts = () => {
 
             <D3RatingByDecade movieList={favorites} />
 
+            <RatingChart data={ratingChartData}/>
+            <RatingStats stats={ratingStatsData} />
+            
             <PlotlyBarChartGenre />
             <PlotlyChartRatingMetascor movies={favorites} />
             <PlotlyPieChartGenre />

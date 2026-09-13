@@ -32,6 +32,10 @@ import com.example.Mongorest.newmovie.NewMovieHALController;
 import com.example.Mongorest.newmovie.NewMovieModelAssembler;
 import com.example.Mongorest.newmovie.NewMovieRepository;
 
+
+// Controller Unit Test With Mockito
+// Tests:
+// Does the controller's Java logic behave correctly?
 @ExtendWith(MockitoExtension.class)
 public class NewMovieHALControllerTest {
     
@@ -54,6 +58,7 @@ public class NewMovieHALControllerTest {
             movieModelAssembler
         );
     }
+// This is saying I don't care whether Spring works. I don't care whether MongoDB works. I want to test the logic inside NewMovieHALController.
 
     @Test
     void getMovieByIdShouldReturnMovie() {
@@ -86,8 +91,7 @@ public class NewMovieHALControllerTest {
     @Test
     void getMovieByIdShouldReturn404WhenMovieDoesNotExist() {
 
-        when(newMovieRepo.findById("999"))
-                .thenReturn(Optional.empty());
+        when(newMovieRepo.findById("999")).thenReturn(Optional.empty());
 
         ResponseEntity<EntityModel<NewMovie>> response = controller.getMovieById("999");
 
@@ -134,33 +138,15 @@ public class NewMovieHALControllerTest {
 
         PagedModel<EntityModel<NewMovie>> pagedModel = PagedModel.empty();
 
-        when(newMovieRepo.findByGenreIgnoreCaseLike(
-                "Action",
-                pageable
-        )).thenReturn(page);
+        when(newMovieRepo.findByGenreIgnoreCaseLike("Action", pageable)).thenReturn(page);
 
-        when(pagedResourcesAssembler.toModel(
-                eq(page),
-                eq(movieModelAssembler)
-        )).thenReturn(pagedModel);
+        when(pagedResourcesAssembler.toModel(eq(page), eq(movieModelAssembler))).thenReturn(pagedModel);
 
-        ResponseEntity<PagedModel<EntityModel<NewMovie>>> response =
-                controller.getSearchMovies(
-                        null,
-                        "Action",
-                        pageable
-                );
+        ResponseEntity<PagedModel<EntityModel<NewMovie>>> response = controller.getSearchMovies(null, "Action", pageable);
 
-        assertEquals(
-                HttpStatus.OK,
-                response.getStatusCode()
-        );
+        assertEquals(HttpStatus.OK, response.getStatusCode());
 
-        verify(newMovieRepo)
-                .findByGenreIgnoreCaseLike(
-                        "Action",
-                        pageable
-                );
+        verify(newMovieRepo).findByGenreIgnoreCaseLike("Action", pageable);
     }
 
     @Test
@@ -170,34 +156,15 @@ public class NewMovieHALControllerTest {
 
         PagedModel<EntityModel<NewMovie>> pagedModel = PagedModel.empty();
 
-        when(pagedResourcesAssembler.toModel(
-                any(Page.class),
-                eq(movieModelAssembler)
-        )).thenReturn(pagedModel);
+        when(pagedResourcesAssembler.toModel(any(Page.class), eq(movieModelAssembler))).thenReturn(pagedModel);
 
-        ResponseEntity<PagedModel<EntityModel<NewMovie>>> response =
-                controller.getSearchMovies(
-                        null,
-                        null,
-                        pageable
-                );
+        ResponseEntity<PagedModel<EntityModel<NewMovie>>> response =controller.getSearchMovies(null, null, pageable);
 
-        assertEquals(
-                HttpStatus.OK,
-                response.getStatusCode()
-        );
+        assertEquals(HttpStatus.OK, response.getStatusCode());
 
-        verify(newMovieRepo, never())
-                .findByTitleIgnoreCaseLike(
-                        anyString(),
-                        any(Pageable.class)
-                );
+        verify(newMovieRepo, never()).findByTitleIgnoreCaseLike(anyString(), any(Pageable.class));
 
-        verify(newMovieRepo, never())
-                .findByGenreIgnoreCaseLike(
-                        anyString(),
-                        any(Pageable.class)
-                );
+        verify(newMovieRepo, never()).findByGenreIgnoreCaseLike(anyString(), any(Pageable.class));
     }
 
 }
