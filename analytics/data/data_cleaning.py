@@ -39,3 +39,13 @@ def clean_movie_data(df):
     # print("Missing year:", df["year"].isna().sum())
 
     return df
+
+def clean_year(df):
+    # Convert year from "1999?" or "1999?-2005" → 1999
+    df["year"] = (df["year"].str.extract(r"(\d{4})")[0])
+
+    df["year"] = pd.to_numeric(df["year"],errors="coerce")
+
+def clean_rating(df):
+    # for column in df:
+    df["imdbrating"] = pd.to_numeric( df["imdbrating"], errors="coerce" )

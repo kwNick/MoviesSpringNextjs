@@ -115,3 +115,20 @@
 | **RMSE** | Prediction error in the original IMDb-rating units              | Lower  |
 | **R²**   | How much of the variation in IMDb ratings the model explains    | Higher |
 ```
+
+## Tests Architecture
+
+```text
+                    pytest
+                       │
+        ┌──────────────┼──────────────┐
+        ↓              ↓              ↓
+    test_main    unit tests       integration
+        │              │              │
+    FastAPI       your Python       MongoDB
+    endpoints     functions         / external
+        │              │
+        ├──────┐───────┼─────────┐
+        ↓      ↓       ↓         ↓
+      data   stats  recommender  ML
+```

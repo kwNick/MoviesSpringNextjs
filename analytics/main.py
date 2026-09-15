@@ -132,9 +132,11 @@ def actor_analysis():
 # Correlation Analysis W/ params
 # -------------------------------------------------- 
 @app.get("/analysis/category/correlation")
-def movie_correlation( column1: str, column2: str ):
+def movie_correlation( column1: str | None = None, column2: str | None = None ):
 
     movies = get_movies()
+    column1 = column1 or 'imdbrating'
+    column2 = column2 or 'boxoffice'
 
     try:
         return calculate_correlation( movies, column1, column2 )
