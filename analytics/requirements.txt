@@ -9,6 +9,6 @@ scikit-learn
 matplotlib
 seaborn
 requests
-dotenv
+python-dotenv
 pytest
-httpx
+httpx2

@@ -1,13 +1,12 @@
-
 from dotenv import load_dotenv
 
 load_dotenv(verbose=True)
 
-import os
+# import os
 
 from fastapi import FastAPI, HTTPException
 import pandas as pd
-from pydantic import BaseModel
+# from pydantic import BaseModel
 from sklearn.preprocessing import MultiLabelBinarizer
 
 from analysis.individual.ratings import get_rating_statistics

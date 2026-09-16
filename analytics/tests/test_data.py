@@ -1,15 +1,27 @@
+import pandas as pd
+
 from analytics.data.data_cleaning import clean_rating, clean_year
 
 
+# def test_clean_rating():
+
+#     movie = {
+#         "imdbrating": "8.7"
+#     }
+
+#     result = clean_rating(movie)
+
+#     assert result == 8.7
+
 def test_clean_rating():
 
-    movie = {
-        "imdbrating": "8.7"
-    }
+    df = pd.DataFrame({
+        "imdbrating": ["8.7"]
+    })
 
-    result = clean_rating(movie)
+    clean_rating(df)
 
-    assert result == 8.7
+    assert df["imdbrating"].iloc[0] == 8.7
 
 
 def test_clean_invalid_rating():
@@ -25,10 +37,10 @@ def test_clean_invalid_rating():
 
 def test_clean_year_range():
 
-    movie = {
-        "year": "1999?2005"
-    }
+    df = pd.DataFrame({
+        "year": ["1999?2005"]
+    })
 
-    result = clean_year(movie)
+    clean_year(df)
 
-    assert result == "1999-2005"
+    assert df["year"].iloc[0] == 1999

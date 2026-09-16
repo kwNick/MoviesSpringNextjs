@@ -142,6 +142,10 @@ class MovieRecommender:   # Building the recommendation model
             if len(recommendations) >= number_of_recommendations:
                 break
 
+            # skip the favorite when building the recommendations
+            if index in favorite_indices:
+                continue
+
             # Clean/preprocessed movie
             movie = self.movies.iloc[index]
 
